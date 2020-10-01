@@ -12,6 +12,8 @@
 \usepackage{wrapfig}
 \usepackage[stable]{footmisc}
 
+\usepackage[hidelinks]{hyperref}
+
 %\usepackage[modulo]{lineno}
 \usepackage{lineno}
 
@@ -19,18 +21,17 @@
 \usetikzlibrary{positioning}
 
 \pagestyle{fancy}
+
 \fancyhf{}
 \fancyhead[L]{}
-\fancyhead[C]{\nouppercase{\rightmark} (\nouppercase{\leftmark})}
+\fancyhead[C]{\emph{\nouppercase\rightmark}}
 \fancyhead[R]{}
 \fancyfoot[C]{\thepage}
-\renewcommand{\chaptermark}[1]
 
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
 \renewcommand{\familydefault}{\rmdefault}
-
 
 \addtokomafont{labelinglabel}{\sffamily}
 
@@ -90,11 +91,13 @@
 
 \begin{document}
 \maketitle
+\thispagestyle{empty}
 \newpage
 \tableofcontents
+\thispagestyle{empty}
 \newpage
 
-\section{Aufgabe 1 - Wörter aufräumen}
+\section{Wörter aufräumen}
 
 Im Folgenden sieht man ein Codebeispiel für Code, der beispielhaft geschrieben wurde.
 
@@ -110,13 +113,10 @@ public static void main(String[] args){
 
 Im Codebeispiel sieht man, wie der JavaScript Compiler intern arbeitet. Besondere Achtung sollte hierbei dem Math-Befehl gegeben werden, denn Math wurde nicht importiert und deshalb crasht es bereits deshalb, nicht wegen der ZeroDivision, da JavaScript hier einfach das Ergebnis würfeln wurde. \# Ehre
 
-\section{Aufgabe 2 - Dreieckspuzzle}
-\subsection{Idee}
-\subsection{Erläuterung des Codes}
-
-\section{Aufgabe 3 - Tobis Turnier}
-\section{Aufgabe 4 - Streichholzrätsel}
-\section{Aufgabe 5 - Wichteln}
+\section{Dreieckspuzzle}
+\section{Tobis Turnier}
+\section{Streichholzrätsel}
+\section{Wichteln}
 
 %\begin{linenumbers}\resetlinenumber
 %\end{linenumbers}
