@@ -5,4 +5,6 @@ public class Tile{
 	
 	boolean flipped;
 	
+	boolean placed;
+	
 }
