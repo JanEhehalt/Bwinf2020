@@ -4,6 +4,7 @@ public class Tile{
 	int right;
 	
 	boolean flipped;
+	boolean placed;
 	
 	public Tile(int left, int middle, int right) {
 		this.left = left;

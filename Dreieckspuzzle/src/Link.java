@@ -1,4 +1,4 @@
 public class Link{
-	boolean exists;
-	int value;
+	public boolean exists;
+	public int value;
 }

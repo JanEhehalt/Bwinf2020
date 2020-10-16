@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 class Main{
 	
+	
     public static void main(String[] args){
     	try {
 	    	File data = new File("src/puzzle0.txt");
@@ -29,6 +30,9 @@ class Main{
     	catch(FileNotFoundException e) {
     		e.printStackTrace();
     	}
+
+    	Graph g = new Graph();
+    	g.printMatrix();
     }
     
 }
