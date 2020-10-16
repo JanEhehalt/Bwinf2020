@@ -22,10 +22,25 @@ public class Graph{
 	}
 	
 	public Tile[] fillWithTiles() {
-		return fillBorders();
+		boolean[] visited = new boolean[9];
+		return fillBorders(0,visited);
 	}
 
-	public Tile[] fillBorders() {
+	public Tile[] fillBorders(int tile, boolean[] visited) {
+		for(int i = 0; i < tiles.length; i++) {
+			if(matrix[tile][i] != null && !visited[i]) {
+				/**
+				 * TODO: 	check direction of the link
+				 * 			find fitting part
+				 * 				do something?? if no part found
+				 * 			put it there
+				 * 			set visited
+				 * 			return fillBorders(i,visited)
+				*/
+				
+				
+			}
+		}
 		return null;
 	}
 	
