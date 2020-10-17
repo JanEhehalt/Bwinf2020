@@ -1,3 +1,6 @@
+import java.lang.Math;
+import java.util.ArrayList;
+
 public class Graph{
 	
 	Link[][] matrix;
@@ -21,14 +24,13 @@ public class Graph{
 		
 	}
 	
-	public Tile[] fillWithTiles() {
-		boolean[] visited = new boolean[9];
-		return fillBorders(0,visited);
+	public boolean fillWithTiles(ArrayList<Tile> tiles) {
+		return fillBorders(0, tiles);
 	}
 
-	public Tile[] fillBorders(int tile, boolean[] visited) {
+	public boolean fillBorders(int tile, ArrayList<Tile> tileBag) {
 		for(int i = 0; i < tiles.length; i++) {
-			if(matrix[tile][i] != null && !visited[i]) {
+			if(matrix[tile][i] != null) {
 				/**
 				 * TODO: 	check direction of the link
 				 * 			find fitting part
@@ -37,11 +39,48 @@ public class Graph{
 				 * 			set visited
 				 * 			return fillBorders(i,visited)
 				*/
-				
-				
+				if(Math.abs(tile-i) == 1) {
+					if(tile > i) {	// also z.B. tile = 2 ... i = 1
+						for(int n = 0; n < tileBag.size(); n++) {
+							if(tileBag.get(n).fits(tiles[tile].left)) {	// check if part fits
+								tileBag.get(n).rotateTillIsRight(-tiles[tile].left);
+								tiles[i] = tileBag.get(n);
+								tiles[i].placed = true;
+								tileBag.remove(n);
+								return fillBorders(i, tileBag);
+							}
+						}
+						return false;
+					}
+					else {			// also z.B. tile = 2 ... i = 3
+						for(int n = 0; n < tileBag.size(); n++) {
+							if(tileBag.get(n).fits(tiles[tile].right)) {	// check if part fits
+								tileBag.get(n).rotateTillIsLeft(-tiles[tile].right);
+								tiles[i] = tileBag.get(n);
+								tiles[i].placed = true;
+								tileBag.remove(n);
+								return fillBorders(i, tileBag);
+							}
+						}
+						return false;
+					}
+				}
+				else if(Math.abs(tile-i) > 1) {
+					for(int n = 0; n < tileBag.size(); n++) {
+						if(tileBag.get(n).fits(tiles[tile].middle)) {	// check if part fits
+							tileBag.get(n).rotateTillIsLeft(-tiles[tile].middle);
+							tiles[i] = tileBag.get(n);
+							tiles[i].placed = true;
+							tileBag.remove(n);
+							return fillBorders(i, tileBag);
+						}
+					}
+					return false;
+					
+				}
 			}
 		}
-		return null;
+		return true;
 	}
 	
 	public void addLink(int i, int n) {
