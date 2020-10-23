@@ -40,15 +40,28 @@ public class Graph{
 				 * 			return fillBorders(i,visited)
 				*/
 				if(Math.abs(tile-i) == 1) {
-					if(tile > i) {	// also z.B. tile = 2 ... i = 1
-						for(int n = 0; n < tileBag.size(); n++) {
-							if(tileBag.get(n).fits(tiles[tile].left)) {	// check if part fits
-								tileBag.get(n).rotateTillIsRight(-tiles[tile].left);
-								tiles[i] = tileBag.get(n);
-								tiles[i].placed = true;
-								tileBag.remove(n);
-								return fillBorders(i, tileBag);
-							}
+					if(tile > i) {	// also z.B. tile = 2 ... i = 1 -> checkt ob er rechte linke oder mitte vergleichen muss
+						for(int n = 0; n < tileBag.size(); n++) {	// geht durch die tileBag -> alle noch nicht gelegten Teile
+							if(tileBag.get(n).fits(tiles[tile].left)) {	// checkt ob das aktuelle Teil in irgend einer rotation passt
+								tileBag.get(n).rotateTillIsRight(-tiles[tile].left);	// wenn passt rotiert er es passend
+								tiles[i] = tileBag.get(n);	// ist richtig rotiert, kann also in den Graphen eingefügt werden
+								tiles[i].placed = true;		// setzt boolean der speichert ob es gesetzt wurde auf true
+								tileBag.remove(n);			// wird logischerweise aus der tileBag removed, da nun im Graphen
+								return fillBorders(i, tileBag); // keine Ahnung wieso, macht aber bestimmt Sinn
+							}								// gleich für alle restlichen
+											/**
+											 * TODO:
+											 * - Tile rotateTill methoden müssen beachten wie das tile geflippt sein muss
+											 * - backtracking macht iwie keinen Sinn, also funktioniert noch net lol
+											 * 	gibt halt irgendwie irgendwann true zurück
+											 * 	LOL er gibt true zurück wenn alle tiles gesetzt sind
+											 * 	hä macht ja voll sinn
+											 * 	oder
+											 * 	hmmmm
+											 * 	lol nicht mehr mein Problem HAHHAHAHA
+											 * 	ich mach jetzt komische String kacke HAHHAHAH
+											 */
+							
 						}
 						return false;
 					}
