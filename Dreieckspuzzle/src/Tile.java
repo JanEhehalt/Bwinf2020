@@ -39,7 +39,7 @@ public class Tile{
 		right = oldLeft;
 	}
 	
-	public boolean rotateTillIsLeft(int toBeLeft) {
+	public boolean rotateTillIsLeft(int toBeLeft) {	// rotates until toBeLeft is on the left side
 		if(left != toBeLeft) rotate();
 		else return true;
 		if(left != toBeLeft) rotate();
@@ -56,7 +56,7 @@ public class Tile{
 		return false;
 	}
 
-	public boolean rotateTillIsRight(int toBeRight) {
+	public boolean rotateTillIsRight(int toBeRight) {	// rotates until toBeRight is on the right side
 		if(right != toBeRight) rotate();
 		else return true;
 		if(right != toBeRight) rotate();
@@ -73,7 +73,7 @@ public class Tile{
 		return false;
 	}
 	
-	public boolean rotateTillIsMiddle(int toBeMiddle) {
+	public boolean rotateTillIsMiddle(int toBeMiddle) {	// rotates until toBeMiddle is in the middle
 		if(middle != toBeMiddle) rotate();
 		else return true;
 		if(middle != toBeMiddle) rotate();
