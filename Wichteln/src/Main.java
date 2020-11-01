@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-class Student{
+class StudentOld{
 	boolean gifted;
 	int metWish;
 	int presentId;
 	int[] wishes = new int[3];
-	public Student(int[] wishes){
+	public StudentOld(int[] wishes){
 		this.wishes = wishes;
 	}
 	
@@ -40,7 +40,7 @@ class Main{
             }
             sc.close();
             
-            Student[] students = new Student[ints.size() / 3];
+            StudentOld[] students = new StudentOld[ints.size() / 3];
             for(int i=0; i < ints.size(); i+=3) {
         		int[] wishes = new int[3];
         		int tempIndex = i/3;
@@ -51,9 +51,9 @@ class Main{
         		wishes[1] = ints.get(i + 1);
         		wishes[2] = ints.get(i + 2);
 
-        		students[tempIndex] = new Student(wishes);
+        		students[tempIndex] = new StudentOld(wishes);
             }
-            for(Student s : students) {
+            for(StudentOld s : students) {
             	System.out.println(s.wishes[0] + "|" + s.wishes[1] + "|" + s.wishes[2]);
             }
             boolean[] presents = new boolean[students.length];
@@ -64,7 +64,7 @@ class Main{
             nachverteilung(students, presents);
             
             int falseAmount = 0;
-            for(Student s : students) {
+            for(StudentOld s : students) {
                 System.out.println(s.gifted);
             	if(!s.gifted) falseAmount++;
             }
@@ -76,13 +76,13 @@ class Main{
             System.out.println("Unbeschenkt: "+ falseAmount + "    Beschenkt: " + trueAmount);
             
             int score = 0;
-            for(Student s : students) {
+            for(StudentOld s : students) {
             	if(s.metWish != -1)
             	score += 3-s.metWish;
             }
             System.out.println(score);
             
-            for(Student s : students) {
+            for(StudentOld s : students) {
             	//System.out.println(s.presentId);
             }
             
@@ -95,7 +95,7 @@ class Main{
         
     }
 
-    static void geschenke(int n, Student[] students, boolean[] presents){
+    static void geschenke(int n, StudentOld[] students, boolean[] presents){
     	for(int i = 0; i < students.length; i++){
     		if(students[i].gifted) continue;
     		if(presents[students[i].wishes[n]]) continue;
@@ -105,7 +105,7 @@ class Main{
 			presents[students[i].wishes[n]] = true;
     	}
     }
-    static void nachverteilung(Student[] students, boolean[] presents){
+    static void nachverteilung(StudentOld[] students, boolean[] presents){
     	for(int i = 0; i < students.length; i++){
     		if(!students[i].gifted) {
     			for(int n = 0; n < students.length; n++){
