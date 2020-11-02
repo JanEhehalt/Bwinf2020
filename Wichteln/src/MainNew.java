@@ -118,7 +118,7 @@ class MainNew{
         
     }
 
-	private void tryPresent(int presentId, int wish) {
+	private void tryPresentChange(int presentId, int wish) {
 		if(presents[presentId].changeStudent(wish, index)) {
 			hasGift = true;
 			this.presentId = presentId;
