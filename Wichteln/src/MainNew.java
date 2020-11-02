@@ -7,16 +7,25 @@ import java.util.Scanner;
 class Student{
 	boolean hasGift;
 	int metWish;
+	int index;
 	int presentId;
 	int[] wishes = new int[3];
 	boolean[] asked;
 	
-	public Student(int[] wishes, int presentAmount){
+	public Student(int[] wishes, int presentAmount, int index){
 		this.wishes = wishes;
 		this.hasGift = false;
 		this.asked = new boolean[presentAmount];
+		this.index = index;
 	}
 	
+	void requestPresent(Present[] presents, Student[] students, int presentId, int wish) {
+		if(presents[presentId].changeStudent(students, wish, index)) {
+			hasGift = true;
+			this.presentId = presentId;
+		}
+		asked[presentId] = true;
+	}
 }
 
 class Present{
@@ -27,12 +36,23 @@ class Present{
 		studentId = -1;
 		wish = 4;
 	}
+	
+	boolean changeStudent(Student[] students, int wish, int studentId) {
+		if(this.wish > wish){
+			students[this.studentId].hasGift = false;
+			this.studentId = studentId;
+			this.wish = wish;
+			students[studentId].hasGift = true;
+			
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
 
 class MainNew{
-	
-	Student[] students;
-	Present[] presents;
 	
     public static void main(String[] args){
         try{
@@ -81,7 +101,7 @@ class MainNew{
             // Start of gale-shapley algorithm
             // Initial round
             for(int i=0; i<students.length; i++) {
-            	students[i].tryPresent(presents, students[i].wishes[0], 0);
+            	students[i].requestPresent(presents, students, students[i].wishes[0], 0);
             }
             
             // Following rounds
@@ -93,15 +113,15 @@ class MainNew{
             			finished = false;
             			
             			if(!students[i].asked[students[i].wishes[0]]) {
-            				students[i].tryPresent(presents, students[i].wishes[0], 0);
+            				students[i].requestPresent(presents, students, students[i].wishes[0], 0);
             			} else if(!students[i].asked[students[i].wishes[1]]) {
-            				students[i].tryPresent(presents, students[i].wishes[2], 2);
+            				students[i].requestPresent(presents, students, students[i].wishes[2], 2);
             			} else if(!students[i].asked[students[i].wishes[2]]) {
-            				students[i].tryPresent(presents, students[i].wishes[2], 2);
+            				students[i].requestPresent(presents, students, students[i].wishes[2], 2);
             			} else {
             				for(int j = 0; j<presents.length; j++) {
             					if(!students[i].asked[j]) {
-            						students[i].tryPresent(presents, j, 3);
+            						students[i].requestPresent(presents, students, j, 3);
             					}
             				}
             			}
@@ -117,26 +137,6 @@ class MainNew{
         
         
     }
-
-	private void tryPresentChange(int presentId, int wish) {
-		if(presents[presentId].changeStudent(wish, index)) {
-			hasGift = true;
-			this.presentId = presentId;
-		}
-		asked[presentId] = true;
-	}
-
-	private boolean changeStudent(int wish, int studentId) {
-		if(this.wish > wish){
-			this.studentId = studentId;
-			this.wish = wish;
-			
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
     
 }
 
