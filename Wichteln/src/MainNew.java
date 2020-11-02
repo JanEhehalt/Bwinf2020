@@ -13,6 +13,7 @@ class Student{
 	boolean[] asked;
 	
 	public Student(int[] wishes, int presentAmount, int index){
+		this.presentId = -1;
 		this.wishes = wishes;
 		this.hasGift = false;
 		this.asked = new boolean[presentAmount];
@@ -22,6 +23,9 @@ class Student{
 	void requestPresent(Present[] presents, Student[] students, int presentId, int wish) {
 		if(presents[presentId].changeStudent(students, wish, index)) {
 			hasGift = true;
+			if(this.presentId >= 0) {
+				presents[this.presentId] = new Present();
+			}
 			this.presentId = presentId;
 		}
 		asked[presentId] = true;
@@ -39,7 +43,9 @@ class Present{
 	
 	boolean changeStudent(Student[] students, int wish, int studentId) {
 		if(this.wish > wish){
-			students[this.studentId].hasGift = false;
+			if(this.studentId >= 0) {
+				students[this.studentId].hasGift = false;
+			}
 			this.studentId = studentId;
 			this.wish = wish;
 			students[studentId].hasGift = true;
@@ -57,13 +63,13 @@ class MainNew{
     public static void main(String[] args){
         try{
         	
-        	if(args.length == 0 && false) {
-        		System.out.println("You need to give a filename as an argument");
-        		return;
+        	File data;
+        	if(args.length == 0) {
+        		data = new File("src/wichteln1.txt");
         	}
-
-            File data = new File("src/wichteln1.txt");
-            //File data = new File(args[0]);
+        	else {
+        		data = new File(args[0]);
+        	}
             Scanner sc = new  Scanner(data);
             
             ArrayList<Integer> ints = new ArrayList<Integer>();
@@ -83,19 +89,22 @@ class MainNew{
         		int[] wishes = new int[3];
         		int tempIndex = i/3;
         		
-        		System.out.println(tempIndex);
+        		//System.out.println(tempIndex);
         		
         		wishes[0] = ints.get(i);
         		wishes[1] = ints.get(i + 1);
         		wishes[2] = ints.get(i + 2);
 
-        		students[tempIndex] = new Student(wishes, ints.size() / 3, i);
+        		students[tempIndex] = new Student(wishes, ints.size() / 3, tempIndex);
             }
             for(Student s : students) {
-            	System.out.println(s.wishes[0] + "|" + s.wishes[1] + "|" + s.wishes[2]);
+            	//System.out.println(s.wishes[0] + "|" + s.wishes[1] + "|" + s.wishes[2]);
             }
             
             Present[] presents = new Present[students.length];
+            for(int i=0; i<presents.length; i++) {
+            	presents[i] = new Present();
+            }
             
             
             // Start of gale-shapley algorithm
@@ -115,7 +124,7 @@ class MainNew{
             			if(!students[i].asked[students[i].wishes[0]]) {
             				students[i].requestPresent(presents, students, students[i].wishes[0], 0);
             			} else if(!students[i].asked[students[i].wishes[1]]) {
-            				students[i].requestPresent(presents, students, students[i].wishes[2], 2);
+            				students[i].requestPresent(presents, students, students[i].wishes[1], 1);
             			} else if(!students[i].asked[students[i].wishes[2]]) {
             				students[i].requestPresent(presents, students, students[i].wishes[2], 2);
             			} else {
@@ -128,6 +137,10 @@ class MainNew{
             		}
             	}
             } while(!finished);
+            
+            for(int k=0; k<presents.length; k++) {
+            	System.out.println(presents[k].studentId);
+            }
             
         }
         catch (FileNotFoundException e){
