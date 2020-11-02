@@ -142,6 +142,19 @@ class MainNew{
             	System.out.println(presents[k].studentId);
             }
             
+            int score = 0;
+            for(Student student : students) {
+            	if(student.presentId == student.wishes[0])
+            		score += 3;
+            	else if(student.presentId == student.wishes[1])
+            		score += 2;
+            	else if(student.presentId == student.wishes[2])
+            		score += 1;
+            }
+            System.out.println("");
+            System.out.println("");
+            System.out.println(score);
+            
         }
         catch (FileNotFoundException e){
             System.out.println("The file does not exist");
