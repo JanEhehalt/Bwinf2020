@@ -1,4 +1,3 @@
-import java.awt.event.WindowStateListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -8,25 +7,16 @@ import java.util.Scanner;
 class Student{
 	boolean hasGift;
 	int metWish;
-	int index;
 	int presentId;
 	int[] wishes = new int[3];
 	boolean[] asked;
 	
-	public Student(int[] wishes, int presentAmount, int index){
+	public Student(int[] wishes, int presentAmount){
 		this.wishes = wishes;
 		this.hasGift = false;
 		this.asked = new boolean[presentAmount];
-		this.index = index;
 	}
 	
-	void tryPresent(Present[] presents, int presentId, int wish) {
-		if(presents[presentId].changeStudent(wish, index)) {
-			hasGift = true;
-			this.presentId = presentId;
-		}
-		asked[presentId] = true;
-	}
 }
 
 class Present{
@@ -37,21 +27,13 @@ class Present{
 		studentId = -1;
 		wish = 4;
 	}
-	
-	boolean changeStudent(int wish, int studentId) {
-		if(this.wish > wish){
-			this.studentId = studentId;
-			this.wish = wish;
-			
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
 }
 
 class MainNew{
+	
+	Student[] students;
+	Present[] presents;
+	
     public static void main(String[] args){
         try{
         	
@@ -135,6 +117,26 @@ class MainNew{
         
         
     }
+
+	private void tryPresent(int presentId, int wish) {
+		if(presents[presentId].changeStudent(wish, index)) {
+			hasGift = true;
+			this.presentId = presentId;
+		}
+		asked[presentId] = true;
+	}
+
+	private boolean changeStudent(int wish, int studentId) {
+		if(this.wish > wish){
+			this.studentId = studentId;
+			this.wish = wish;
+			
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
     
 }
 
