@@ -28,15 +28,16 @@ public class Main {
 		        	
 		        	String next = sc.next();
 		        	char nextLast = next.charAt(next.length()-1);
-		        	if(next.contains("_") && (nextLast != '.' || nextLast != '!' || nextLast != '?')) {
+		        	if(next.contains("_") && nextLast != '.' && nextLast != '!' && nextLast != '?') {
 		        		sentence.add(next);
 		        	}
-		        	else if(next.contains("_") && (last == '.' || last == '!' || last == '?')) {
-		        		sentence.add(cw.substring(0, cw.length() - 1));
-			        	sentence.add(new String() + last);
+		        	else if(next.contains("_") && (nextLast == '.' || nextLast == '!' || nextLast == '?')) {
+		        		sentence.add(next.substring(0, next.length() - 1));
+			        	sentence.add(new String() + nextLast);
 		        	}
-		        	else
+		        	else if(!next.contains("_"))
 	        		break;
+		        	
         		}
         		else if(last == ',') {
     				sentence.add(cw.substring(0, cw.length() - 1));	// remove ! from last Word
@@ -86,7 +87,7 @@ public class Main {
 	        }
 	        
 	        for(String string : sentence) {
-        		System.out.println(string);
+        		System.out.println("%"+string+"%");
         	}
 	        
 	        
