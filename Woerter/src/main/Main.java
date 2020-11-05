@@ -22,25 +22,9 @@ public class Main {
         		String cw = sc.next();	// cW - currentWord
         		
         		char last = cw.charAt(cw.length()-1);
-        		if(last == '.' || last == '!' || last == '?') {
+        		if(!cw.contains("_")) break;
+        		if(last == '.' || last == '!' || last == '?' || last == ',') {
         			sentence.add(cw.substring(0, cw.length() - 1));	// remove ! from last Word
-		        	sentence.add(new String() + last);	// still adding to the sentence
-		        	
-		        	String next = sc.next();
-		        	char nextLast = next.charAt(next.length()-1);
-		        	if(next.contains("_") && nextLast != '.' && nextLast != '!' && nextLast != '?') {
-		        		sentence.add(next);
-		        	}
-		        	else if(next.contains("_") && (nextLast == '.' || nextLast == '!' || nextLast == '?')) {
-		        		sentence.add(next.substring(0, next.length() - 1));
-			        	sentence.add(new String() + nextLast);
-		        	}
-		        	else if(!next.contains("_"))
-	        		break;
-		        	
-        		}
-        		else if(last == ',') {
-    				sentence.add(cw.substring(0, cw.length() - 1));	// remove ! from last Word
 		        	sentence.add(new String() + last);	// still adding to the sentence
         		}
         		else {
