@@ -10,9 +10,9 @@ public class Main {
 
     public static void main(String[] args){
 		try {
-	    	File data = new File("src/raetsel0.txt");
+	    	File data = new File("src/raetsel1.txt");
 	        //File data = new File(args[0]);
-	        Scanner sc = new  Scanner(data);
+	        Scanner sc = new Scanner(data);
 	        
 	        ArrayList<String> words = new ArrayList<>();
 	        ArrayList<String> sentence = new ArrayList<>();
@@ -38,7 +38,7 @@ public class Main {
         	}
         	
 
-	        
+        	System.out.println(sentence.size() + " " + words.size());
 	        for(String string : sentence) {
         		System.out.println(string);
         	}
@@ -46,9 +46,9 @@ public class Main {
 	        for(String string : words) {
         		System.out.println(string);
         	}
-    		System.out.println("");
-    		System.out.println("");
-    		System.out.println("");
+    		//System.out.println("");
+    		//System.out.println("");
+    		//System.out.println("");
         	
 	        sc.close();
 	        
@@ -111,13 +111,11 @@ public class Main {
 		        		finished = false;
 		        	}
 		        }
-	        	if(finished) {
-	        		double c = 1/0;
-	        	}
 	        }while(!finished);
 	        
 
     		System.out.println("!!!");
+    		System.out.println(sentence.size() + " " + words.size());
 	        
 	        for(String string : sentence) {
         		System.out.println(string);
