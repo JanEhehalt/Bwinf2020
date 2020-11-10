@@ -1,44 +1,48 @@
 public class Tile{
-	int left;
-	int middle;
-	int right;
+	
+	int[] values;
 	
 	boolean flipped;
 	boolean placed;
 	
 	public Tile(int left, int middle, int right) {
-		this.left = left;
-		this.middle = middle;
-		this.right = right;
+		this.values = new int[3];
+		values[0] = left;
+		values[1] = middle;
+		values[2] = right;
 	}
 	
+	/*
 	public boolean fits(int counterPart) {
 		if(counterPart + left == 0 || counterPart + right == 0 || counterPart + middle == 0)
 			return true;
 		else
 			return false;
 	}
+	*/
 	
-	public void rotate() {	// clockwise
-		int oldLeft = left;
-		int oldRight = right;
-		int oldMiddle = middle;
+	public void rotate() {
+		int oldLeft = values[0];
+		int oldMiddle = values[1];
+		int oldRight = values[2];
 		
-		right = oldLeft;
-		middle = oldRight;
-		left = oldMiddle;
+		if(flipped) {
+			values[2] = oldLeft;
+			values[1] = oldRight;
+			values[0] = oldMiddle;
+		}
+		else {
+			values[2] = oldMiddle;
+			values[1] = oldLeft;
+			values[0] = oldRight;
+		}
 	}
 	
-	public void flip() {	// 180°
-		if(flipped) flipped = false;
-		else flipped = true;
-		
-		int oldLeft = left;
-		
-		left = right;
-		right = oldLeft;
+	public void flip() {
+		flipped = !flipped;
 	}
 	
+	/*
 	public boolean rotateTillIsLeft(int toBeLeft) {	// rotates until toBeLeft is on the left side
 		if(left != toBeLeft) rotate();
 		else return true;
@@ -89,4 +93,5 @@ public class Tile{
 		else return true;
 		return false;
 	}
+	*/
 }

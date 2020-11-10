@@ -12,7 +12,7 @@ public class Main {
 		try {
 	    	File data = new File("src/raetsel4.txt");
 	        //File data = new File(args[0]);
-	        Scanner sc = new  Scanner(data);
+	        Scanner sc = new Scanner(data);
 	        
 	        ArrayList<String> words = new ArrayList<>();
 	        ArrayList<String> sentence = new ArrayList<>();
@@ -39,7 +39,7 @@ public class Main {
         	
         	System.out.println(fits("die", "__s"));
 
-	        
+        	System.out.println(sentence.size() + " " + words.size());
 	        for(String string : sentence) {
         		System.out.println(string);
         	}
@@ -47,6 +47,9 @@ public class Main {
 	        for(String string : words) {
         		System.out.println(string);
         	}
+    		//System.out.println("");
+    		//System.out.println("");
+    		//System.out.println("");
     		System.out.println("");
     		//System.out.println(sentence.get(3));
     		//System.out.println(words.get(5));
@@ -110,7 +113,12 @@ public class Main {
 		        	}
 		        	System.out.println(i+" "+posWords);
 		        	if(posWords >= 1) finished = false;
-		        }
+
+	        }while(!finished);
+	        
+
+    		System.out.println("!!!");
+    		System.out.println(sentence.size() + " " + words.size());
 
         		//System.out.println("running");
         		//System.out.println("%");
