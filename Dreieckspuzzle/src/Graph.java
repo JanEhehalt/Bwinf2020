@@ -27,7 +27,7 @@ public class Graph{
 			resetPuzzle();
 			puzzle[i] = 0;
 			
-			if(fillBorders(i)) {
+			if(fillBorders(0)) {
 				return true;
 			}
 		}
@@ -62,13 +62,14 @@ public class Graph{
 							puzzle[k] = j;
 							updateTrueLink(tile, j);
 							
-							if(fillBorders(k)) {
+							if(fillBorders(puzzle[k])) {
 								return true;
 							}
 							else {
 								puzzle[k] = -1;
 								matrix[tile][j].exists = false;
 								matrix[j][tile].exists = false;
+								tileFound = false;
 								continue;
 							}
 						}
@@ -85,9 +86,23 @@ public class Graph{
 	}
 	
 	public boolean fit(int indexTiles, int indexMatrix, int rotations) {
+		
 		if(rotations > 2) {
 			return false;
 		}
+		
+		if(indexMatrix == 2 || indexMatrix == 5 || indexMatrix == 7) {
+			if(!tiles[indexTiles].flipped) {
+				tiles[indexTiles].flip();
+			}
+		}
+		else {
+			if(tiles[indexTiles].flipped) {
+				tiles[indexTiles].flip();
+			}
+		}
+		
+		System.out.print("Probiere: " + indexTiles + "; " + tiles[indexTiles].values[0] + " " + tiles[indexTiles].values[1] + " " + tiles[indexTiles].values[2]);
 		
 		// 0: left, 1: middle, 2: right
 		
@@ -126,9 +141,18 @@ public class Graph{
 			}
 		}
 		if(fits) {
+			for(int i = 0; i < matrix.length; i++) {
+				if(matrix[indexMatrix][i] != null && puzzle[i] != -1) {
+					updateTrueLink(indexMatrix, i);
+				}
+			}
+			System.out.print(" true");
+			System.out.println();
 			return true;
 		}
 		else {
+			System.out.print(" false");
+			System.out.println();
 			tiles[indexTiles].rotate();
 			return fit(indexTiles, indexMatrix, rotations + 1);
 		}
