@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args){
 		try {
-	    	File data = new File("src/raetsel1.txt");
+	    	File data = new File("src/raetsel4.txt");
 	        //File data = new File(args[0]);
 	        Scanner sc = new Scanner(data);
 	        
@@ -37,6 +37,7 @@ public class Main {
         		words.add(sc.next());
         	}
         	
+        	System.out.println(fits("die", "__s"));
 
         	System.out.println(sentence.size() + " " + words.size());
 	        for(String string : sentence) {
@@ -50,9 +51,9 @@ public class Main {
     		//System.out.println("");
     		//System.out.println("");
     		System.out.println("");
-    		System.out.println(sentence.get(3));
-    		System.out.println(words.get(5));
-    		System.out.println(fits(words.get(5), sentence.get(3)));
+    		//System.out.println(sentence.get(3));
+    		//System.out.println(words.get(5));
+    		//System.out.println(fits(words.get(5), sentence.get(3)));
     		System.out.println("");
         	
 	        sc.close();
@@ -70,9 +71,20 @@ public class Main {
 		        for(int i = 0; i < sentence.size(); i++) {
 		        	if(!filled[i]) {
 			        	int posWords = 0;
+			        	ArrayList<Integer> positions = new ArrayList<>();
 			        	for(int j = 0; j < words.size(); j++) {
 			        		if(fits(words.get(j), sentence.get(i))) {
-				        		posWords++;
+			        			boolean availableTwice = false;
+			        			for(Integer o : positions) {
+			        				if(words.get(o).equals(words.get(j))) {
+			        					availableTwice = true;
+			        					break;
+			        				}
+			        			}
+			        			if(!availableTwice) {
+					        		posWords++;
+					        		positions.add(j);
+				        		}
 			        		}
 			        	}
 			        	if(posWords == 1) {
@@ -83,11 +95,13 @@ public class Main {
 				        			j--;
 				        			filled[i] = true;
 				        			posWords--;
+				        			break;
 				        		}
 				        	}
 			        	}
 		        	}
 		        }
+	        	System.out.println("___");
 		        for(int i = 0; i < sentence.size(); i++) {
 		        	int posWords = 0;
 		        	if(!filled[i]) {
@@ -97,6 +111,7 @@ public class Main {
 			        		}
 			        	}
 		        	}
+		        	System.out.println(i+" "+posWords);
 		        	if(posWords >= 1) finished = false;
 
 	        }while(!finished);
