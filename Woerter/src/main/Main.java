@@ -49,6 +49,11 @@ public class Main {
     		//System.out.println("");
     		//System.out.println("");
     		//System.out.println("");
+    		System.out.println("");
+    		System.out.println(sentence.get(3));
+    		System.out.println(words.get(5));
+    		System.out.println(fits(words.get(5), sentence.get(3)));
+    		System.out.println("");
         	
 	        sc.close();
 	        
@@ -56,66 +61,70 @@ public class Main {
 	        
 	        boolean[] filled = new boolean[sentence.size()];
 	        for(int i = 0; i < filled.length; i++){
-	        	filled[i] = false;
+	        	if(sentence.get(i).length() == 1) filled[i] = true;
+	        	else filled[i] = false;
 	        }
 	        
 	        do { 
 	        	finished = true;
-		        for(int i = 0; i < words.size(); i++) {
-		        	int posGaps = 0;
-		        	
-		        	for(int m = 0; m < sentence.size(); m++) {
-		        		if(sentence.get(m).length() == 1) {
-	        				filled[m] = true;
-			        		continue;
+		        for(int i = 0; i < sentence.size(); i++) {
+		        	if(!filled[i]) {
+			        	int posWords = 0;
+			        	for(int j = 0; j < words.size(); j++) {
+			        		if(fits(words.get(j), sentence.get(i))) {
+				        		posWords++;
+			        		}
 			        	}
-		        		else if(fits(words.get(i), sentence.get(m))) {
-		        			posGaps++;
-		        		}
-		        	}
-		        	if(posGaps == 1) {
-		        		for(int n = 0; n < sentence.size(); n++) {
-		        			if(sentence.get(n).length() == 1) {
-		        				filled[n] = true;
-				        		continue;
+			        	if(posWords == 1) {
+				        	for(int j = 0; j < words.size(); j++) {
+				        		if(fits(words.get(j), sentence.get(i))) {
+				        			sentence.set(i, words.get(j));
+				        			words.remove(j);
+				        			j--;
+				        			filled[i] = true;
+				        			posWords--;
+				        		}
 				        	}
-			        		if(fits(words.get(i), sentence.get(n))) {
-			        			sentence.set(n, words.get(i));
-			        			filled[n] = true;
-			        			words.remove(i);
-			        			i--;
-			        			break;
+			        	}
+		        	}
+		        }
+		        for(int i = 0; i < sentence.size(); i++) {
+		        	int posWords = 0;
+		        	if(!filled[i]) {
+			        	for(int j = 0; j < words.size(); j++) {
+			        		if(fits(words.get(j), sentence.get(i))) {
+				        		posWords++;
 			        		}
 			        	}
 		        	}
-		        	else if(posGaps == 0) {
-		        		for(int b = 0; b < sentence.size(); b++) {
-		        			if(sentence.get(b).length() == 1) {
-		        				filled[b] = true;
-				        		continue;
-				        	}
-		        			else if(sentence.get(b).length() == words.get(i).length()) {
-		        				filled[b] = true;
-		        				sentence.set(b, words.get(i));
-		        				words.remove(i);
-		        				i--;
-		        				break;
-		        			}
-			        	}
-		        	}
-		        	else if(posGaps > 1) {
-	        		}
-		        }
-		        for(int i = 0; i < filled.length; i++) {
-		        	if(!filled[i]) {
-		        		finished = false;
-		        	}
-		        }
+		        	if(posWords >= 1) finished = false;
+
 	        }while(!finished);
 	        
 
     		System.out.println("!!!");
     		System.out.println(sentence.size() + " " + words.size());
+
+        		//System.out.println("running");
+        		//System.out.println("%");
+        		//	for(String string : sentence) {
+            	//	System.out.println(string);}
+        		//System.out.println("%");
+            	
+	        }while(!finished);
+	        
+	        for(int i = 0; i < sentence.size(); i++) {
+	        	if(!filled[i]) {
+	        		for(int j = 0; j < words.size(); j++) {
+	        			if(sentence.get(i).length() == words.get(j).length()) {
+	        				sentence.set(i, words.get(j));
+		        			words.remove(j);
+		        			j--;
+		        			filled[i] = true;
+	        			}
+	        		}
+	        	}
+	        }
 	        
 	        for(String string : sentence) {
         		System.out.println(string);
@@ -124,12 +133,13 @@ public class Main {
 	        for(String string : words) {
         		System.out.println(string);
         	}
+	        }
 	        
 	        
 	        
 	        
 	        
-		}
+		
 		catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -144,13 +154,14 @@ public class Main {
 	    		if(gap.charAt(i) != '_') {
 	    			given = gap.charAt(i);
 	    			givenPos = i;
-	    			if(givenPos == -1) return false;
-	    	    	if( gap.length() == word.length() && given == word.charAt(givenPos) ) {
-	    	    		return true;
-	    	    	}
+	    			break;
 	    		}
 	    	}
-	    	return false;
+	    	if(givenPos == -1) return false;
+	    	if( gap.length() == word.length() && gap.charAt(givenPos) == word.charAt(givenPos) ) {
+	    		return true;
+	    	}
+	    	else return false;
 	    	
     	}
     	System.out.println("comma");
