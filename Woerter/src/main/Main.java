@@ -10,10 +10,14 @@ public class Main {
 
     public static void main(String[] args){
 		try {
-	    	File data = new File("src/raetsel2.txt");
+	    	File data = new File("src/raetsel0.txt");
 	        //File data = new File(args[0]);
 	        Scanner sc = new Scanner(data);
 	        
+	        /**
+	         * The array words is storing the words which aren't added to the sentence yet
+	         * The array sentence is storing all the gaps and the syntax of the sentence in the right order
+	         */
 	        ArrayList<String> words = new ArrayList<>();
 	        ArrayList<String> sentence = new ArrayList<>();
 	
