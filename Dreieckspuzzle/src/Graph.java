@@ -108,7 +108,9 @@ public class Graph{
 		
 		boolean fits = true;
 		for(int i = 0; i < matrix.length; i++) {
-			if(matrix[indexMatrix][i] != null && matrix[indexMatrix][i].exists) {
+			// TODO: des Ungleich -1 is neu, davor war da if des und des .exists halt, keine Ahnung es is halt sowas von zu spät für die
+			// scheiße. Ich setz gleich Kaffee auf
+			if(matrix[indexMatrix][i] != null && puzzle[i] != -1) {
 				int side = indexMatrix - i;
 				
 				int side1 = 0;
@@ -154,6 +156,7 @@ public class Graph{
 			System.out.print(" false");
 			System.out.println();
 			tiles[indexTiles].rotate();
+			System.out.println("Rotation");
 			return fit(indexTiles, indexMatrix, rotations + 1);
 		}
 	}
