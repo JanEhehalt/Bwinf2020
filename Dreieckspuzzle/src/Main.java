@@ -62,14 +62,6 @@ class Main{
     			System.out.println("Nichts zugeteilt");
     		}
     	}
-    	for(int i=0; i< g.matrix.length; i++) {
-    		for(int j=0; j<g.matrix[0].length; j++) {
-    			if(g.matrix[i][j] != null && g.matrix[i][j].exists) {
-    				System.out.print(g.matrix[i][j].getValue() + " ");
-    			}
-    		}
-    		System.out.println();
-    	}
     }
     
 }

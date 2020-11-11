@@ -80,7 +80,7 @@ public class Graph{
 							resetTile(j);
 							puzzle[k] = j;
 							updateTrueLink(tile, j);
-							placedTiles.add(k);
+							placedTiles.add(j);
 							
 							if(fillBorders(puzzle[k])) {
 								break;
@@ -98,9 +98,13 @@ public class Graph{
 				}
 				if(!tileFound) {
 					for(int x = placedTiles.size() - 1; x >= 0; x--) {
-						//matrix[tile][puzzle[placedTiles.get(x)]].exists = false;
-						//matrix[puzzle[placedTiles.get(x)]][tile].exists = false;
-						puzzle[placedTiles.get(x)] = -1;
+						
+						int temp = getIndexTiles(placedTiles.get(x));
+						if(temp != -1) {
+							matrix[tile][placedTiles.get(x)].exists = false;
+							matrix[placedTiles.get(x)][tile].exists = false;
+							puzzle[temp] = -1;
+						}
 						placedTiles.remove(x);
 					}
 					return false;
@@ -257,6 +261,12 @@ public class Graph{
 		addLink(5,6);
 		addLink(6,7);
 		addLink(7,8);
+		
+		for(Tile tile : tiles) {
+			if(tile.flipped) {
+				tile.flip();
+			}
+		}
 	}
 	
 	public void printMatrix() {
