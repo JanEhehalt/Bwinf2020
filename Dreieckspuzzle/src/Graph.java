@@ -30,6 +30,24 @@ public class Graph{
 			if(fillBorders(0)) {
 				return true;
 			}
+			
+			resetPuzzle();
+			puzzle[i] = 0;
+			System.out.println("					Starttile wird gedreht");
+			tiles[i].rotate();
+			
+			if(fillBorders(0)) {
+				return true;
+			}
+			
+			resetPuzzle();
+			puzzle[i] = 0;
+			System.out.println("					Starttile wird gedreht");
+			tiles[i].rotate();
+			
+			if(fillBorders(0)) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -46,6 +64,7 @@ public class Graph{
 		}
 		
 		// Für jede anliegende Kante des Tiles wird versucht einen Partner zu finden
+		ArrayList<Integer> placedTiles = new ArrayList<>();
 		for(int j = 0; j < matrix.length; j++) {
 			
 			if(matrix[tile][j] != null && !matrix[tile][j].exists) {
@@ -61,12 +80,14 @@ public class Graph{
 							resetTile(j);
 							puzzle[k] = j;
 							updateTrueLink(tile, j);
+							placedTiles.add(k);
 							
 							if(fillBorders(puzzle[k])) {
-								return true;
+								break;
 							}
 							else {
-								puzzle[k] = -1;
+								//deleteAllCreated(puzzle[k], tile);
+								resetTile(j);
 								matrix[tile][j].exists = false;
 								matrix[j][tile].exists = false;
 								tileFound = false;
@@ -76,6 +97,12 @@ public class Graph{
 					}
 				}
 				if(!tileFound) {
+					for(int x = placedTiles.size() - 1; x >= 0; x--) {
+						//matrix[tile][puzzle[placedTiles.get(x)]].exists = false;
+						//matrix[puzzle[placedTiles.get(x)]][tile].exists = false;
+						puzzle[placedTiles.get(x)] = -1;
+						placedTiles.remove(x);
+					}
 					return false;
 				}
 			}
@@ -86,23 +113,24 @@ public class Graph{
 	}
 	
 	public boolean fit(int indexTiles, int indexMatrix, int rotations) {
-		
-		if(rotations > 2) {
-			return false;
-		}
-		
 		if(indexMatrix == 2 || indexMatrix == 5 || indexMatrix == 7) {
 			if(!tiles[indexTiles].flipped) {
+				System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird geflippt");
 				tiles[indexTiles].flip();
 			}
 		}
 		else {
 			if(tiles[indexTiles].flipped) {
+				System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird zurück geflippt");
 				tiles[indexTiles].flip();
 			}
 		}
 		
-		System.out.print("Probiere: " + indexTiles + "; " + tiles[indexTiles].values[0] + " " + tiles[indexTiles].values[1] + " " + tiles[indexTiles].values[2]);
+		if(rotations > 2) {
+			return false;
+		}
+		
+		System.out.print("Probiere: " + indexTiles + " an der Stelle " + indexMatrix + ": " + tiles[indexTiles].values[0] + " " + tiles[indexTiles].values[1] + " " + tiles[indexTiles].values[2]);
 		
 		// 0: left, 1: middle, 2: right
 		
@@ -110,7 +138,7 @@ public class Graph{
 		for(int i = 0; i < matrix.length; i++) {
 			// TODO: des Ungleich -1 is neu, davor war da if des und des .exists halt, keine Ahnung es is halt sowas von zu spät für die
 			// scheiße. Ich setz gleich Kaffee auf
-			if(matrix[indexMatrix][i] != null && puzzle[i] != -1) {
+			if(matrix[indexMatrix][i] != null && getIndexTiles(i) != -1) {
 				int side = indexMatrix - i;
 				
 				int side1 = 0;
@@ -144,7 +172,7 @@ public class Graph{
 		}
 		if(fits) {
 			for(int i = 0; i < matrix.length; i++) {
-				if(matrix[indexMatrix][i] != null && puzzle[i] != -1) {
+				if(matrix[indexMatrix][i] != null && getIndexTiles(i) != -1) {
 					updateTrueLink(indexMatrix, i);
 				}
 			}
@@ -159,6 +187,38 @@ public class Graph{
 			System.out.println("Rotation");
 			return fit(indexTiles, indexMatrix, rotations + 1);
 		}
+	}
+	
+	public void deleteAllCreated(int indexMatrix, int creatorMatrix) {
+		int indexTiles = -1;
+		for(int i=0; i < puzzle.length; i++) {
+			if(puzzle[i] == indexMatrix) {
+				indexTiles = i;
+			}
+		}
+		if(indexTiles != -1) {
+			for(int x = matrix.length - 1; x >= 0; x--) {
+				if(matrix[indexMatrix][x] != null && x != creatorMatrix) {
+					deleteAllCreated(x, indexMatrix);
+					int temp = getIndexTiles(x);
+					if(temp != -1) {
+						puzzle[temp] = -1;
+					}
+					matrix[indexMatrix][x].exists = false;
+					matrix[x][indexMatrix].exists = false;
+				}
+			}
+		}
+	}
+	
+	public int getIndexTiles(int indexMatrix) {
+		int indexTiles = -1;
+		for(int i=0; i < puzzle.length; i++) {
+			if(puzzle[i] == indexMatrix) {
+				indexTiles = i;
+			}
+		}
+		return indexTiles;
 	}
 	
 	public void resetTile(int value) {

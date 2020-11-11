@@ -44,8 +44,23 @@ class Main{
     			System.out.println("Nichts zugeteilt");
     			continue;
     		}
-    		Tile t = g.tiles[g.puzzle[i]];
-    		System.out.println(i + ": " + t.values[0] + " " + t.values[1] + " " + t.values[2] + ": " + t.flipped);
+    		
+    		boolean tileExists = false;
+    		int indexTiles = -1;
+    		for(int j = 0; j < g.puzzle.length; j++) {
+    			if(g.puzzle[j] == i) {
+    				indexTiles = j;
+    				tileExists = true;
+    			}
+    		}
+    		
+    		if(tileExists) {
+    			Tile t = g.tiles[indexTiles];
+    			System.out.println(i + ": " + t.values[0] + " " + t.values[1] + " " + t.values[2] + ": " + t.flipped);
+    		}
+    		else {
+    			System.out.println("Nichts zugeteilt");
+    		}
     	}
     	for(int i=0; i< g.matrix.length; i++) {
     		for(int j=0; j<g.matrix[0].length; j++) {
