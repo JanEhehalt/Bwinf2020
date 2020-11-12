@@ -18,6 +18,8 @@
 \usepackage{lineno}
 
 \usepackage{tikz}
+\usepackage{pstricks}
+\usepackage{pst-uml}
 \usetikzlibrary{positioning}
 
 \pagestyle{fancy}
@@ -129,7 +131,20 @@ Im Wesentlichen ist das Problem der Zuordnung mit dem \emph{Stable Marriage Prob
 
 \subsection{Umsetzung}
 
-
+\begin{figure}[h]
+    \umlClass{Student}{
+        hasGift: boolean\\
+        metWish: int\\
+        index: int\\
+        presentId: int\\
+        wishes: int[]\\
+        asked: boolean[]\\
+        \hline
+        Student(int[], int, int): void\\
+        requestPresent(Present[], Student[], int, int): void\\
+    }
+    \caption{Die \emph{Student} Klasse}
+\end{figure}
 
 %\begin{linenumbers}\resetlinenumber
 %\end{linenumbers}
