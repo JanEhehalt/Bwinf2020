@@ -98,7 +98,16 @@
 \newpage
 
 \section{Wörter aufräumen}
+\subsection{Lösungsidee}
 
+Es werden zwei Listen angelegt, die jeweils alle Lücken und alle vollständigen Wörter getrennt speichern. Das Programm geht die Liste der Lücken durch und fügt für jede Lücke, der sich nur ein Wort eindeutig zuordnen lässt, das entsprechende Wort ein. Dieser Durchlauf wird so oft wiederholt, bis entweder alle Lücken gefüllt sind, oder in einem Durchlauf kein Wort mehr eingefügt werden konnte. Diese Lücken müssen anhand der Länge dem entsprechenden Wort zugeordnet werden. Dieses Verfahren muss funktionieren, da in jede Lücke nur ein Wort passen kann.  
+
+\subsection{Umsetzung}
+
+
+\section{Dreieckspuzzle}
+\section{Tobis Turnier}
+\section{Streichholzrätsel}
 Im Folgenden sieht man ein Codebeispiel für Code, der beispielhaft geschrieben wurde.
 
 \begin{lstlisting}
@@ -113,9 +122,6 @@ public static void main(String[] args){
 
 Im Codebeispiel sieht man, wie der JavaScript Compiler intern arbeitet. Besondere Achtung sollte hierbei dem Math-Befehl gegeben werden, denn Math wurde nicht importiert und deshalb crasht es bereits deshalb, nicht wegen der ZeroDivision, da JavaScript hier einfach das Ergebnis würfeln wurde. \# Ehre
 
-\section{Dreieckspuzzle}
-\section{Tobis Turnier}
-\section{Streichholzrätsel}
 \section{Wichteln}
 
 %\begin{linenumbers}\resetlinenumber
