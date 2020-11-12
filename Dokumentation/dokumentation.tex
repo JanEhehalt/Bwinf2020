@@ -123,6 +123,13 @@ public static void main(String[] args){
 Im Codebeispiel sieht man, wie der JavaScript Compiler intern arbeitet. Besondere Achtung sollte hierbei dem Math-Befehl gegeben werden, denn Math wurde nicht importiert und deshalb crasht es bereits deshalb, nicht wegen der ZeroDivision, da JavaScript hier einfach das Ergebnis würfeln wurde. \# Ehre
 
 \section{Wichteln}
+\subsection{Lösungsidee}
+
+Im Wesentlichen ist das Problem der Zuordnung mit dem \emph{Stable Marriage Problem} vergleichbar. Es gibt zwei verschiedene Gruppen, die so gut wie möglich verteilt werden müssen. Deshalb lässt sich die Aufgabe mit einer leicht angepassten Variante des \emph{Gale-Shapley} Algorithmus lösen. Allgemein fragen alle Schüler ohne Geschenk bei den Geschenken an, ob diese noch keinen Partner haben oder den neuen Partner dem aktuellen vorziehen. Dabei wird ein Erstwunsch allem vorgezogen, dann folgen Zweitwunsch, Drittwunsch und zuletzt eine Zuteilung ohne Wunsch. Jeder Schüler fragt nacheinander seine Wünsche an. Sollte er danach noch kein Geschenk haben, versucht er ein übriges Geschenk zu bekommen.
+
+\subsection{Umsetzung}
+
+
 
 %\begin{linenumbers}\resetlinenumber
 %\end{linenumbers}
