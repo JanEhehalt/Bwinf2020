@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 class Student{
 	boolean hasGift;
-	int metWish;
 	int index;
 	int presentId;
 	int[] wishes = new int[3];

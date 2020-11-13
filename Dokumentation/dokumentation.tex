@@ -135,18 +135,60 @@ Im Wesentlichen ist das Problem der Zuordnung mit dem \emph{Stable Marriage Prob
     \begin{tikzpicture} 
         \umlclass{Student}{
             hasGift: boolean\\
-            metWish: int\\
             index: int\\
             presentId: int\\
             wishes: int[]\\
             asked: boolean[]
         }{
-            Student(int[], int, int): void\\
+            Student(int[], int, int)\\
             requestPresent(Present[], Student[], int, int): void
         }
     \end{tikzpicture}
     \caption{Die Klasse \emph{Student}}
 \end{figure}
+
+Jeder Schüler wird durch ein Objekt der Klasse \emph{Student} repräsentiert. Dabei muss jeder Schüler speichern, ob er bereits ein Geschenk hat. Zudem weiß jeder Schüler, welche Geschenk er als Erst-, Zweit- und Drittwunsch will. Für den Algorithmus ist es notwendig, dass jeder Schüler zusätzlich seine Position im Array und alle Geschenke, die er schon versucht hat zu bekommen, kennt. Der Schüler braucht \emph{requestPresent()} als einzige Methode. Übergeben bekommt er zum einen den \emph{Present} und \emph{Student} Array, zum anderen den Index des entsprechenden Geschenks, sowie den Grad des Wunsches. Hierbei hat ein Erstwunsch den Grad 0, ein Zweitwunsch 1, ein Drittwunsch 2 und eine reine Zuteilung 3. Diesen Grad braucht das Geschenk, um den neuen Schüler mit dem möglicherweise aktuellen Schüler zu vergleichen und zu ermitteln, welchen Schüler es bevorzugt.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture} 
+        \umlclass{Present}{
+            studentId: int\\
+            wish: int
+        }{
+            Present()\\
+            changeStudent(students: Student[], wish: int, studentId: int): boolean
+        }
+    \end{tikzpicture}
+    \caption{Die Klasse \emph{Present}}
+\end{figure}
+
+Die Geschenke werden von der Klasse \emph{Present} repräsentiert. Ein Geschenk muss hierfür wissen, an welchen Schüler es vergeben ist. Dazu wird der Index des Schülers gespeichert. Um zwei Schüler vergleichen zu können, muss zudem bekannt sein, welchen Grad der Wunsch des aktuellen Schülers hat. Dieser wird als \emph{int} gespeichert. Damit der Algorithmus funktioniert, muss das Geschenk seinen Schüler wechseln können. Hierfür wird der \emph{Student} Array übergeben, sowie der Grad des Wunsches vom neuen Schüler und der Index des neuen Schülers. Die Methode gibt durch einen \emph{boolean} zurück, ob der übergebene Schüler übernommen oder abgelehnt wurde. Die Methode arbeitet wie folgt:
+\\
+\begin{figure}[h]
+\centering
+\begin{lstlisting}
+boolean changeStudent(Student[] students, int wish, int studentId) {
+	if(this.wish > wish){
+		if(this.studentId >= 0) {
+			students[this.studentId].hasGift = false;
+		}
+
+		this.studentId = studentId;
+		this.wish = wish;
+		students[studentId].hasGift = true;
+			
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+\end{lstlisting}
+\caption{Die Methode \emph{changeStudent()}}
+\end{figure}
+
+Zuerst wird verglichen, ob der Grad des gespeicherten Wunsches größer ist, als der des neuen Schülers. Ein kleinerer Grad ist immer einem größeren vorzuziehen. Ist der Grad des neuen Wunsches also nicht echt kleiner als der bisherige, gibt die Methode direkt \emph{false} zurück, da der neue Schüler abgelehnt wird. Andernfalls soll der neue Schüler jedoch den alten ersetzen. Hierfür wird dem alten Schüler erst mitgeteilt, dass er kein Geschenk mehr hat. Davor muss geprüft werden, ob es überhaupt einen alten Schüler gibt. Gibt es keinen, hat \emph{studentId} den Standardwert -1, weshalb dieser Fall abgefangen werden muss. Anschließend werden die Werte des neuen Schülers übernommen, ihm wird mitgeteilt, dass er nun ein Geschenk hat und die Methode gibt \emph{true} zurück.
 
 %\begin{linenumbers}\resetlinenumber
 %\end{linenumbers}
