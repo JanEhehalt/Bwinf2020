@@ -3,6 +3,9 @@ package main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 class Main{
@@ -27,10 +30,12 @@ class Main{
     			System.out.println(player.id + " " + player.strength);
     		}
 
-			System.out.println("");
-				System.out.println("LEAGUE: ID: " + league(players,1).id);
-			System.out.println("");
-			
+			/**
+			 * TODO: Auswertung der Daten für die verschiedenen Formate:
+			 * 			für Liga einfach league() ausführen mit dem Spieler Array
+			 * 			für ko das gleiche mit ko()
+			 * 			für kox5 das gleiche mit kox5();    		
+			 */
     		
     	}
     	catch(FileNotFoundException e) {
@@ -45,13 +50,14 @@ class Main{
 		if(RNG < p1.strength) return p1;
 		else return p2;
 	}
-static Player league(ArrayList<Player> players, int games) {
+	static Player league(ArrayList<Player> players) {
 		
 		boolean[][] played = new boolean[players.size()][players.size()];
 		for(int i = 0; i < played.length; i++) {
 	    	for(int j = 0; j < played.length; j++) {
 	    		played[i][j] = false;
 	    		played[j][i] = false;
+	    		played[i][i] = true;
 			}
 		}
 		
@@ -60,12 +66,10 @@ static Player league(ArrayList<Player> players, int games) {
 			finished = true;
 			for(Player p1 : players) {
 				for(Player p2 : players) {
-					if(!played[p1.id][p2.id]) {
+					if(!played[p1.id][p2.id] && p1.id != p2.id) {
 						played[p1.id][p2.id] = true;
 						played[p2.id][p1.id] = true;
-						for(int i = games; i > 0; i--) {
-							players.get(match(p1,p2).id).wins++;
-						}
+						players.get(match(p1,p2).id).wins++;
 					}
 				}
 			}
@@ -91,8 +95,13 @@ static Player league(ArrayList<Player> players, int games) {
 		if(leading.size() == 1) return leading.get(0);
 		else {
 			for(int i = 0; i < players.size(); i++) {
-				for(Player p1 : players) {
-					if(p1.id == i) return p1;
+				for(Player l : leading) {
+					if(l.id == i) {
+						for(Player p : players) {
+							p.wins = 0;
+						}
+						return l;
+					}
 				}
 			}
 		}
@@ -101,16 +110,42 @@ static Player league(ArrayList<Player> players, int games) {
 	}
 
 	static Player ko(ArrayList<Player> players) {
-		int playerAmount = players.size();
-		node root;
-		if(playerAmount % 2 == 0) {
-			root = new node();
-			root.create(playerAmount);
+		Node root;
+		if(players.size() % 2 == 0) {
+			root = new Node();
+			//Collections.shuffle(players);
+			root.create(players);
+			Player winner =  root.getWinner();
+			players.get(winner.id).koWins++;
+			return winner;
 		}
 		else System.out.println("NIX EHRE EHRE UNGERADE SPIELERZAHL");
-		
-		
 		return null;
+	}
+	
+	static Player kox5(ArrayList<Player> players) {
+		Node root;
+		if(players.size() % 2 == 0) {
+			root = new Node();
+			//Collections.shuffle(players);
+			root.create(players);
+			Player winner =  root.getx5Winner();
+			players.get(winner.id).kox5Wins++;
+			return winner;
+		}
+		else System.out.println("NIX EHRE EHRE UNGERADE SPIELERZAHL");
+		return null;
+	}
+	
+	static void getBest(ArrayList<Player> players) {
+		for(int i = 200; i > 0; i--) {
+			league(players).leagueWins++;
+			ko(players).koWins++;
+			kox5(players).kox5Wins++;
+		}
+		/**
+		 * TODO: Welcher Spieler hat am meisten Gewonnen?
+		 */
 	}
 
 	
