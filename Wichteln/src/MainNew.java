@@ -64,7 +64,7 @@ class MainNew{
         	
         	File data;
         	if(args.length == 0) {
-        		data = new File("src/wichteln1.txt");
+        		data = new File("src/wichteln0.txt");
         	}
         	else {
         		data = new File(args[0]);
