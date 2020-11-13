@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 class Main{
@@ -35,6 +36,7 @@ class Main{
 			 * 			für ko das gleiche mit ko()
 			 * 			für kox5 das gleiche mit kox5();    		
 			 */
+    		
     	}
     	catch(FileNotFoundException e) {
     		e.printStackTrace();
@@ -111,9 +113,11 @@ class Main{
 		Node root;
 		if(players.size() % 2 == 0) {
 			root = new Node();
-			Collections.shuffle(players);
+			//Collections.shuffle(players);
 			root.create(players);
-			return root.getWinner();
+			Player winner =  root.getWinner();
+			players.get(winner.id).koWins++;
+			return winner;
 		}
 		else System.out.println("NIX EHRE EHRE UNGERADE SPIELERZAHL");
 		return null;
@@ -123,12 +127,25 @@ class Main{
 		Node root;
 		if(players.size() % 2 == 0) {
 			root = new Node();
-			Collections.shuffle(players);
+			//Collections.shuffle(players);
 			root.create(players);
-			return root.getx5Winner();
+			Player winner =  root.getx5Winner();
+			players.get(winner.id).kox5Wins++;
+			return winner;
 		}
 		else System.out.println("NIX EHRE EHRE UNGERADE SPIELERZAHL");
 		return null;
+	}
+	
+	static void getBest(ArrayList<Player> players) {
+		for(int i = 200; i > 0; i--) {
+			league(players).leagueWins++;
+			ko(players).koWins++;
+			kox5(players).kox5Wins++;
+		}
+		/**
+		 * TODO: Welcher Spieler hat am meisten Gewonnen?
+		 */
 	}
 
 	
