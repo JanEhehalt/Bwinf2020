@@ -6,17 +6,46 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Main{
-	class Player{
-    	public int id;
-    	public int strength;
-    	public int wins;
-    	Player(int id, int strength){
-    		this.strength = strength;
-    		this.wins = 0;
-    		this.id = id;
+    public static void main(String[] args){
+    	try {
+    		File nice = new File("src/spielstaerken1.txt");
+    		Scanner sc = new Scanner(nice);
+    		
+    		ArrayList<Player> players = new ArrayList<>();
+    		ArrayList<Player> forReset = new ArrayList<>();
+
+    		int i = 0;
+    		sc.next(); // PLAYER AMOUNT VARIABLE BY USING ARRAYLIST
+    		while(sc.hasNextInt()) {
+    			players.add(new Player(i, sc.nextInt()));
+    			i++;
+    		}
+    		forReset = players;
+    		sc.close();
+    		
+    		for(Player player : players) {
+    			System.out.println(player.id + " " + player.strength);
+    		}
+
+			System.out.println("");
+				System.out.println("LEAGUE: ID: " + league(players,1).id);
+			System.out.println("");
+			
+    		
+    	}
+    	catch(FileNotFoundException e) {
+    		e.printStackTrace();
     	}
     }
-public static Player league(ArrayList<Player> players, int games) {
+
+	public static Player match(Player p1, Player p2) {
+		int i = p1.strength + p2.strength;
+		int RNG = (int)(Math.random() * i);
+		
+		if(RNG < p1.strength) return p1;
+		else return p2;
+	}
+static Player league(ArrayList<Player> players, int games) {
 		
 		boolean[][] played = new boolean[players.size()][players.size()];
 		for(int i = 0; i < played.length; i++) {
@@ -71,7 +100,7 @@ public static Player league(ArrayList<Player> players, int games) {
 		return null;
 	}
 
-	public static Player ko(ArrayList<Player> players) {
+	static Player ko(ArrayList<Player> players) {
 		int playerAmount = players.size();
 		node root;
 		if(playerAmount % 2 == 0) {
@@ -82,71 +111,6 @@ public static Player league(ArrayList<Player> players, int games) {
 		
 		
 		return null;
-	}
-    public static void main(String[] args){
-    	try {
-    		File nice = new File("src/spielstaerken1.txt");
-    		Scanner sc = new Scanner(nice);
-    		
-    		ArrayList<Player> players = new ArrayList<>();
-    		ArrayList<Player> forReset = new ArrayList<>();
-
-    		int i = 0;
-    		sc.next(); // PLAYER AMOUNT VARIABLE BY USING ARRAYLIST
-    		while(sc.hasNextInt()) {
-    			players.add(new Player(i, sc.nextInt()));
-    			i++;
-    		}
-    		forReset = players;
-    		sc.close();
-    		
-    		for(Player player : players) {
-    			System.out.println(player.id + " " + player.strength);
-    		}
-
-			System.out.println("");
-				System.out.println("LEAGUE: ID: " + league(players,1).id);
-			System.out.println("");
-			
-    		
-    	}
-    	catch(FileNotFoundException e) {
-    		e.printStackTrace();
-    	}
-    }
-    
-    
-    
-    
-
-    class node{
-    	public node left;
-    	public node right;
-    	public Player player;
-    	
-    	node(Player player){
-    		this.player = player;
-    	}
-    	node(){
-    		this.player = null;
-    	}
-    	
-    	Player getWinner() {
-    		if(left == null || right == null) return this.player;
-    		else return match(left.getWinner(), right.getWinner());
-    	}
-    	void create(int amount) {
-    		
-    	}
-    }
-
-
-	public static Player match(Player p1, Player p2) {
-		int i = p1.strength + p2.strength;
-		int RNG = (int)(Math.random() * i);
-		
-		if(RNG < p1.strength) return p1;
-		else return p2;
 	}
 
 	
