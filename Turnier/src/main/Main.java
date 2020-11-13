@@ -26,6 +26,7 @@ class Main{
     		ArrayList<Player> forReset = new ArrayList<>();
 
     		int i = 0;
+    		sc.next(); // PLAYER AMOUNT VARIABLE BY USING ARRAYLIST
     		while(sc.hasNextInt()) {
     			players.add(new Player(i, sc.nextInt()));
     			i++;
@@ -38,8 +39,9 @@ class Main{
     		}
 
 			System.out.println("");
-				System.out.println(league(players).id);
-    		
+				System.out.println("LEAGUE: ID: " + league(players).id);
+			System.out.println("");
+			
     		
     	}
     	catch(FileNotFoundException e) {
@@ -51,7 +53,7 @@ class Main{
     	int i = p1.strength + p2.strength;
     	int RNG = (int)(Math.random() * i);
     	
-    	if(RNG <= p1.strength) return true;
+    	if(RNG < p1.strength) return true;
     	else return false;
     }
     
