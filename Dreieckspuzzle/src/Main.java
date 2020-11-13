@@ -8,7 +8,7 @@ class Main{
     public static void main(String[] args){
     	Tile[] tiles = new Tile[9];
     	try {
-	    	File data = new File("src/puzzle1.txt");
+	    	File data = new File("src/puzzle0.txt");
 	        //File data = new File(args[0]);
 	        Scanner sc = new  Scanner(data);
 	           
@@ -36,7 +36,6 @@ class Main{
     	}
     	
     	Graph g = new Graph(tiles);
-    	g.printMatrix();
     	System.out.println(g.fillWithTiles());
     	
     	for(int i = 0; i < g.tiles.length; i++) {

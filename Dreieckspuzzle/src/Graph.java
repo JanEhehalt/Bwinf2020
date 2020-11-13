@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Graph{
 	
 	// Adjazenzmatrix
-	Link[][] matrix;
+	int[][] matrix;
 	
 	// Array, der einfach alle Tiles die insgesamt vorhanden sind speichert
 	Tile[] tiles;
@@ -13,7 +13,13 @@ public class Graph{
 	int[] puzzle;
 	
 	public Graph(Tile[] tiles){
-		matrix = new Link[9][9];
+		matrix = new int[9][9];
+		for(int x = 0; x < matrix.length; x++) {
+			for(int y = 0; y < matrix.length; y++) {
+				matrix[x][y] = -1;
+			}
+		}
+		
 		this.tiles = tiles;
 		puzzle = new int[9];
 		
@@ -66,7 +72,7 @@ public class Graph{
 		ArrayList<Integer> placedTiles = new ArrayList<>();
 		for(int j = 0; j < matrix.length; j++) {
 			
-			if(matrix[tile][j] != null && !matrix[tile][j].exists) {
+			if(/*matrix[tile][j] != -1 &&*/ matrix[tile][j] == 0) {
 				
 				boolean tileFound = false;
 				for(int k = 0; k < visited.length; k++) {
@@ -87,8 +93,7 @@ public class Graph{
 							else {
 								//deleteAllCreated(puzzle[k], tile);
 								resetTile(j);
-								matrix[tile][j].exists = false;
-								matrix[j][tile].exists = false;
+								updateFalseLink(tile, j);
 								tileFound = false;
 								continue;
 							}
@@ -100,8 +105,7 @@ public class Graph{
 						
 						int temp = getIndexTiles(placedTiles.get(x));
 						if(temp != -1) {
-							matrix[tile][placedTiles.get(x)].exists = false;
-							matrix[placedTiles.get(x)][tile].exists = false;
+							updateFalseLink(tile, placedTiles.get(x));
 							puzzle[temp] = -1;
 						}
 						placedTiles.remove(x);
@@ -141,7 +145,7 @@ public class Graph{
 		for(int i = 0; i < matrix.length; i++) {
 			// TODO: des Ungleich -1 is neu, davor war da if des und des .exists halt, keine Ahnung es is halt sowas von zu spät für die
 			// scheiße. Ich setz gleich Kaffee auf
-			if(matrix[indexMatrix][i] != null && getIndexTiles(i) != -1) {
+			if(matrix[indexMatrix][i] != -1 && getIndexTiles(i) != -1) {
 				int side = indexMatrix - i;
 				
 				int side1 = 0;
@@ -175,7 +179,7 @@ public class Graph{
 		}
 		if(fits) {
 			for(int i = 0; i < matrix.length; i++) {
-				if(matrix[indexMatrix][i] != null && getIndexTiles(i) != -1) {
+				if(matrix[indexMatrix][i] != -1 && getIndexTiles(i) != -1) {
 					updateTrueLink(indexMatrix, i);
 				}
 			}
@@ -189,28 +193,6 @@ public class Graph{
 			tiles[indexTiles].rotate();
 			System.out.println("Rotation");
 			return fit(indexTiles, indexMatrix, rotations + 1);
-		}
-	}
-	
-	public void deleteAllCreated(int indexMatrix, int creatorMatrix) {
-		int indexTiles = -1;
-		for(int i=0; i < puzzle.length; i++) {
-			if(puzzle[i] == indexMatrix) {
-				indexTiles = i;
-			}
-		}
-		if(indexTiles != -1) {
-			for(int x = matrix.length - 1; x >= 0; x--) {
-				if(matrix[indexMatrix][x] != null && x != creatorMatrix) {
-					deleteAllCreated(x, indexMatrix);
-					int temp = getIndexTiles(x);
-					if(temp != -1) {
-						puzzle[temp] = -1;
-					}
-					matrix[indexMatrix][x].exists = false;
-					matrix[x][indexMatrix].exists = false;
-				}
-			}
 		}
 	}
 	
@@ -233,16 +215,18 @@ public class Graph{
 	}
 	
 	public void updateTrueLink(int x, int y) {
-		matrix[x][y].exists = true;
-		matrix[x][y].setValue(0);
-		
-		matrix[y][x].exists = true;
-		matrix[y][x].setValue(0);
+		matrix[x][y] = 1;
+		matrix[y][x] = 1;
 	}
 	
-	public void addLink(int i, int n) {
-		matrix[i][n] = new Link();
-		matrix[n][i] = new Link();
+	public void updateFalseLink(int x, int y) {
+		matrix[x][y] = 0;
+		matrix[y][x] = 0;
+	}
+	
+	public void addLink(int x, int y) {
+		matrix[x][y] = 0;
+		matrix[y][x] = 0;
 	}
 
 	public void resetPuzzle() {
@@ -267,15 +251,4 @@ public class Graph{
 			}
 		}
 	}
-	
-	public void printMatrix() {
-		for(int i = 0; i < matrix.length; i++) {
-			for(int n = 0; n < matrix.length; n++) {
-				if(matrix[i][n] == null) System.out.print("0 ");
-				else System.out.print("1 ");
-			}	
-			System.out.println();
-		}
-	}
-
 }
