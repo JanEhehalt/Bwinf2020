@@ -29,15 +29,12 @@ class Main{
     			System.out.println(player.id + " " + player.strength);
     		}
 
-			System.out.println("");
-			System.out.println("");
-			System.out.println("LEAGUE: ID: " + league(players).id);
-			System.out.println("");
-			System.out.println("KO Winner: " + ko(players).id);
-			System.out.println("");
-			System.out.println("KOx5 Winner: " + kox5(players).id);
-			
-    		
+			/**
+			 * TODO: Auswertung der Daten für die verschiedenen Formate:
+			 * 			für Liga einfach league() ausführen mit dem Spieler Array
+			 * 			für ko das gleiche mit ko()
+			 * 			für kox5 das gleiche mit kox5();    		
+			 */
     	}
     	catch(FileNotFoundException e) {
     		e.printStackTrace();
@@ -116,7 +113,6 @@ class Main{
 			root = new Node();
 			Collections.shuffle(players);
 			root.create(players);
-			
 			return root.getWinner();
 		}
 		else System.out.println("NIX EHRE EHRE UNGERADE SPIELERZAHL");
@@ -127,6 +123,7 @@ class Main{
 		Node root;
 		if(players.size() % 2 == 0) {
 			root = new Node();
+			Collections.shuffle(players);
 			root.create(players);
 			return root.getx5Winner();
 		}
