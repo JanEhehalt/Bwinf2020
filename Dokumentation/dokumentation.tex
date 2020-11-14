@@ -293,7 +293,7 @@ public boolean fillWithTiles() {
     \label{fillWithTiles}
 \end{figure}
 
-Die Methode \emph{fillBorders(int)} versucht alle Kanten, die an die übergebene Stelle im Graphen, anliegen, zu füllen. Ob alles besetzt werden konnte, lässt sich am Rückgabewert \emph{true} oder \emph{false} erkennen. Dazu wird erst über die entsprechende Zeile in der Adjazenzmatrix iteriert. Nur beim Wert $0$ ist noch keine Kante vorhanden, also wird jetzt für diese Kante ein passendes Teil gesucht. Ob eine Teil bereits probiert wurde, wird beim \emph{visited} Array geschaut. Dort wurde bereits die eigene Stelle und alle Teile, die im Graph sind, als \emph{true} markiert, damit diese nicht erneut probiert werden. Wenn ein passendes Teil gefunden wurde, wird dieses vorläufig eingefügt. Anschließend versucht dieses Teil seine Kanten zu füllen. Scheitert es, wird es entfernt und ein neues Teil gesucht. Ist es erfolgreich, geht die Methode zum nächsten Eintrag in der Zeile der Matrix und versucht diese ebenfalls zu füllen. Der Quellcode in Abbildung \ref{fillBorders} ist ein Teil der Methode. Dort wird zuerst mit \emph{fit()} überprüft, ob das Tile an die Stelle passt. Anschließend wird es dort eingefügt und versucht alle Kanten zu füllen, indem es \emph{fillBorders()} mit der eigenen Stelle im Graphen aufruft (\emph{puzzle} speichert für jedes Tile die Position im Graphen oder $-1$). $k$ ist das aktuelle Tile, $j$ die aktuelle Kante.
+Die Methode \emph{fillBorders(int)} versucht alle Kanten, die an die übergebene Stelle im Graphen, anliegen, zu füllen. Ob alles besetzt werden konnte, lässt sich am Rückgabewert \emph{true} oder \emph{false} erkennen. Dazu wird erst über die entsprechende Zeile in der Adjazenzmatrix iteriert. Nur beim Wert $0$ ist noch keine Kante vorhanden, also wird jetzt für diese Kante ein passendes Teil gesucht. Ob ein Teil bereits probiert wurde, wird im \emph{visited} Array geprüft. Dort wurde bereits die eigene Stelle und alle Teile, die im Graph sind, als \emph{true} markiert, damit diese nicht erneut probiert werden. Wenn ein passendes Teil gefunden wurde, wird dieses vorläufig eingefügt. Anschließend versucht dieses Teil seine Kanten zu füllen. Scheitert es, wird es entfernt und ein neues Teil gesucht. Ist es erfolgreich, geht die Methode zum nächsten Eintrag in der Zeile der Matrix und versucht diese ebenfalls zu füllen. Der Quellcode in Abbildung \ref{fillBorders} ist ein Teil der Methode. Dort wird zuerst mit \emph{fit()} überprüft, ob das Tile an die Stelle passt. Anschließend wird es dort eingefügt und versucht alle Kanten zu füllen, indem es \emph{fillBorders()} mit der eigenen Stelle im Graphen aufruft (\emph{puzzle} speichert für jedes Tile die Position im Graphen oder $-1$). $k$ ist das aktuelle Tile, $j$ die aktuelle Kante.
 
 \begin{figure}[h]
     \centering
@@ -356,6 +356,599 @@ if(tiles[indexTiles].values[side1] + tiles[tile2].values[side2] != 0) {
 \end{figure}
 
 \subsection{Beispiele}
+\subsubsection{Puzzle0}
+
+In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} verwendet. Es wird gezeigt, wie sich die richtige Lösung stückweise aufbaut. Allerdings wird jegliche Rotation und Backtracking, wegen der Übersichtlichkeit, nicht dargestellt. Man soll lediglich erkennen können, wie sich der Graph bzw. das Puzzle stückweise aufbauen. Die Pfeile am Graphen stehen nicht für eine Richtung. Sie sollen lediglich veranschaulichen, welches Teil welches gelegt hat.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+    \begin{tikzpicture}[scale=1]
+    %0
+    \draw (-1,0) -- node[sloped,above]{-2} (1,0); %mitte
+    \draw (-1,0) -- node[sloped,above,rotate=180]{-1} (0,1.73); %links
+    \draw (1,0) -- node[sloped,above,rotate=180]{2} (0,1.73); %rechts
+
+    \end{tikzpicture}
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {0};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+        \end{scope}
+    \end{tikzpicture}
+    \end{subfigure}
+    \caption{Teil 0 wird gelegt}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+    \begin{tikzpicture}[scale=1]
+    %0
+    \draw (-1,0) -- node[sloped,above]{-2} (1,0); %mitte
+    \draw (-1,0) -- node[sloped,above,rotate=180]{-1} (0,1.73); %links
+    \draw (1,0) -- node[sloped,above,rotate=180]{2} (0,1.73); %rechts
+
+    %2
+    \draw (-1,0) -- node[sloped,above,rotate=180]{2} (1,0);
+    \draw (-1,0) -- node[sloped,above,rotate=0]{-1} (0,-1.73);
+    \draw (1,0) -- node[sloped,above,rotate=0]{2} (0,-1.73);
+
+    \end{tikzpicture}
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {0};
+            \node (2) at (0,-1.5) {2};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[->] (0) edge (2);
+        \end{scope}
+    \end{tikzpicture}
+
+    \end{subfigure}
+    \caption{Teil 2 wird von 0 gelegt}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+    \begin{tikzpicture}[scale=1]
+    %0
+    \draw (-1,0) -- node[sloped,above]{-2} (1,0); %mitte
+    \draw (-1,0) -- node[sloped,above,rotate=180]{-1} (0,1.73); %links
+    \draw (1,0) -- node[sloped,above,rotate=180]{2} (0,1.73); %rechts
+
+    %1
+    \draw (-2,-1.73) -- node[sloped,above]{3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-1} (-1,0);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{1} (-1,0);
+
+    %2
+    \draw (-1,0) -- node[sloped,above,rotate=180]{2} (1,0);
+    \draw (-1,0) -- node[sloped,above,rotate=0]{-1} (0,-1.73);
+    \draw (1,0) -- node[sloped,above,rotate=0]{2} (0,-1.73);
+    \end{tikzpicture}
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {0};
+            \node (1) at (-1.5,-1.5) {1};
+            \node (2) at (0,-1.5) {2};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[->] (0) edge (2);
+            \path[->] (2) edge (1);
+        \end{scope}
+    \end{tikzpicture}
+    \end{subfigure}
+    \caption{Teil 1 wird von 2 gelegt}
+    \label{Graph1}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+    \begin{tikzpicture}[scale=1]
+    %0
+    \draw (-1,0) -- node[sloped,above]{-2} (1,0); %mitte
+    \draw (-1,0) -- node[sloped,above,rotate=180]{-1} (0,1.73); %links
+    \draw (1,0) -- node[sloped,above,rotate=180]{2} (0,1.73); %rechts
+
+    %1
+    \draw (-2,-1.73) -- node[sloped,above]{3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-1} (-1,0);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{1} (-1,0);
+
+    %2
+    \draw (-1,0) -- node[sloped,above,rotate=180]{2} (1,0);
+    \draw (-1,0) -- node[sloped,above,rotate=0]{-1} (0,-1.73);
+    \draw (1,0) -- node[sloped,above,rotate=0]{2} (0,-1.73);
+
+    %5
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=0]{3} (-1,-3.46);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{2} (-1,-3.46);
+
+    \end{tikzpicture}
+
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {0};
+            \node (1) at (-1.5,-1.5) {1};
+            \node (2) at (0,-1.5) {2};
+            \node (5) at (-1.5,-3) {5};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[->] (0) edge (2);
+            \path[->] (2) edge (1);
+            \path[->] (1) edge (5);
+        \end{scope}
+    \end{tikzpicture}
+
+    \end{subfigure}
+    \caption{Teil 5 wird von 1 angelegt}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+    \begin{tikzpicture}[scale=1]
+    %0
+    \draw (-1,0) -- node[sloped,above]{-2} (1,0); %mitte
+    \draw (-1,0) -- node[sloped,above,rotate=180]{-1} (0,1.73); %links
+    \draw (1,0) -- node[sloped,above,rotate=180]{2} (0,1.73); %rechts
+
+    %1
+    \draw (-2,-1.73) -- node[sloped,above]{3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-1} (-1,0);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{1} (-1,0);
+
+    %2
+    \draw (-1,0) -- node[sloped,above,rotate=180]{2} (1,0);
+    \draw (-1,0) -- node[sloped,above,rotate=0]{-1} (0,-1.73);
+    \draw (1,0) -- node[sloped,above,rotate=0]{2} (0,-1.73);
+
+    %4
+    \draw (-3,-3.46) -- node[sloped,above]{-1} (-1,-3.46);
+    \draw (-3,-3.46) -- node[sloped,above,rotate=180]{2} (-2,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (-1,-3.46);
+
+    %5
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=0]{3} (-1,-3.46);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{2} (-1,-3.46);
+
+    \end{tikzpicture}
+
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {0};
+            \node (1) at (-1.5,-1.5) {1};
+            \node (2) at (0,-1.5) {2};
+            \node (4) at (-3,-3) {4};
+            \node (5) at (-1.5,-3) {5};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[->] (0) edge (2);
+            \path[->] (2) edge (1);
+            \path[->] (1) edge (5);
+            \path[->] (5) edge (4);
+        \end{scope}
+    \end{tikzpicture}
+
+    \end{subfigure}
+    \caption{Teil 4 wird von 5 angelegt}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+    \begin{tikzpicture}[scale=1]
+    %0
+    \draw (-1,0) -- node[sloped,above]{-2} (1,0); %mitte
+    \draw (-1,0) -- node[sloped,above,rotate=180]{-1} (0,1.73); %links
+    \draw (1,0) -- node[sloped,above,rotate=180]{2} (0,1.73); %rechts
+
+    %1
+    \draw (-2,-1.73) -- node[sloped,above]{3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-1} (-1,0);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{1} (-1,0);
+
+    %2
+    \draw (-1,0) -- node[sloped,above,rotate=180]{2} (1,0);
+    \draw (-1,0) -- node[sloped,above,rotate=0]{-1} (0,-1.73);
+    \draw (1,0) -- node[sloped,above,rotate=0]{2} (0,-1.73);
+
+    %4
+    \draw (-3,-3.46) -- node[sloped,above]{-1} (-1,-3.46);
+    \draw (-3,-3.46) -- node[sloped,above,rotate=180]{2} (-2,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (-1,-3.46);
+
+    %5
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=0]{3} (-1,-3.46);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{2} (-1,-3.46);
+
+    %6
+    \draw (-1,-3.46) -- node[sloped,above]{1} (1,-3.46);
+    \draw (-1,-3.46) -- node[sloped,above,rotate=180]{-2} (0,-1.73);
+    \draw (1,-3.46) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+
+    \end{tikzpicture}
+
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {0};
+            \node (1) at (-1.5,-1.5) {1};
+            \node (2) at (0,-1.5) {2};
+            \node (4) at (-3,-3) {4};
+            \node (5) at (-1.5,-3) {5};
+            \node (6) at (0,-3) {6};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[->] (0) edge (2);
+            \path[->] (2) edge (1);
+            \path[->] (1) edge (5);
+            \path[->] (5) edge (4);
+            \path[->] (5) edge (6);
+        \end{scope}
+    \end{tikzpicture}
+
+    \end{subfigure}
+    \caption{Teil 6 wird von 5 angelegt}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+    \begin{tikzpicture}[scale=1]
+    %0
+    \draw (-1,0) -- node[sloped,above]{-2} (1,0); %mitte
+    \draw (-1,0) -- node[sloped,above,rotate=180]{-1} (0,1.73); %links
+    \draw (1,0) -- node[sloped,above,rotate=180]{2} (0,1.73); %rechts
+
+    %1
+    \draw (-2,-1.73) -- node[sloped,above]{3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-1} (-1,0);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{1} (-1,0);
+
+    %2
+    \draw (-1,0) -- node[sloped,above,rotate=180]{2} (1,0);
+    \draw (-1,0) -- node[sloped,above,rotate=0]{-1} (0,-1.73);
+    \draw (1,0) -- node[sloped,above,rotate=0]{2} (0,-1.73);
+
+    %4
+    \draw (-3,-3.46) -- node[sloped,above]{-1} (-1,-3.46);
+    \draw (-3,-3.46) -- node[sloped,above,rotate=180]{2} (-2,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (-1,-3.46);
+
+    %5
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=0]{3} (-1,-3.46);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{2} (-1,-3.46);
+
+    %6
+    \draw (-1,-3.46) -- node[sloped,above]{1} (1,-3.46);
+    \draw (-1,-3.46) -- node[sloped,above,rotate=180]{-2} (0,-1.73);
+    \draw (1,-3.46) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+
+    %7
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{-1} (2,-1.73);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{3} (1,-3.46);
+    \draw (2,-1.73) -- node[sloped,above,rotate=0]{-2} (1,-3.46);
+
+    \end{tikzpicture}
+
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {0};
+            \node (1) at (-1.5,-1.5) {1};
+            \node (2) at (0,-1.5) {2};
+            \node (4) at (-3,-3) {4};
+            \node (5) at (-1.5,-3) {5};
+            \node (6) at (0,-3) {6};
+            \node (7) at (1.5,-3) {7};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[->] (0) edge (2);
+            \path[->] (2) edge (1);
+            \path[->] (1) edge (5);
+            \path[->] (5) edge (4);
+            \path[->] (5) edge (6);
+            \path[->] (6) edge (7);
+        \end{scope}
+    \end{tikzpicture}
+
+    \end{subfigure}
+    \caption{Teil 7 wird von 6 angelegt}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+    \begin{tikzpicture}[scale=1]
+    %0
+    \draw (-1,0) -- node[sloped,above]{-2} (1,0); %mitte
+    \draw (-1,0) -- node[sloped,above,rotate=180]{-1} (0,1.73); %links
+    \draw (1,0) -- node[sloped,above,rotate=180]{2} (0,1.73); %rechts
+
+    %1
+    \draw (-2,-1.73) -- node[sloped,above]{3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-1} (-1,0);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{1} (-1,0);
+
+    %2
+    \draw (-1,0) -- node[sloped,above,rotate=180]{2} (1,0);
+    \draw (-1,0) -- node[sloped,above,rotate=0]{-1} (0,-1.73);
+    \draw (1,0) -- node[sloped,above,rotate=0]{2} (0,-1.73);
+
+    %3
+    \draw (0,-1.73) -- node[sloped,above]{1} (2,-1.73);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{-2} (1,0);
+    \draw (2,-1.73) -- node[sloped,above,rotate=180]{-1} (1,0);
+
+    %4
+    \draw (-3,-3.46) -- node[sloped,above]{-1} (-1,-3.46);
+    \draw (-3,-3.46) -- node[sloped,above,rotate=180]{2} (-2,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (-1,-3.46);
+
+    %5
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=0]{3} (-1,-3.46);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{2} (-1,-3.46);
+
+    %6
+    \draw (-1,-3.46) -- node[sloped,above]{1} (1,-3.46);
+    \draw (-1,-3.46) -- node[sloped,above,rotate=180]{-2} (0,-1.73);
+    \draw (1,-3.46) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+
+    %7
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{-1} (2,-1.73);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{3} (1,-3.46);
+    \draw (2,-1.73) -- node[sloped,above,rotate=0]{-2} (1,-3.46);
+
+    \end{tikzpicture}
+
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {0};
+            \node (1) at (-1.5,-1.5) {1};
+            \node (2) at (0,-1.5) {2};
+            \node (3) at (1.5,-1.5) {3};
+            \node (4) at (-3,-3) {4};
+            \node (5) at (-1.5,-3) {5};
+            \node (6) at (0,-3) {6};
+            \node (7) at (1.5,-3) {7};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[->] (0) edge (2);
+            \path[->] (2) edge (1);
+            \path[->] (1) edge (5);
+            \path[->] (5) edge (4);
+            \path[->] (5) edge (6);
+            \path[->] (6) edge (7);
+            \path[->] (7) edge (3);
+        \end{scope}
+    \end{tikzpicture}
+
+    \end{subfigure}
+    \caption{Teil 3 wird von 7 angelegt}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+    \begin{tikzpicture}[scale=1]
+    %0
+    \draw (-1,0) -- node[sloped,above]{-2} (1,0); %mitte
+    \draw (-1,0) -- node[sloped,above,rotate=180]{-1} (0,1.73); %links
+    \draw (1,0) -- node[sloped,above,rotate=180]{2} (0,1.73); %rechts
+
+    %1
+    \draw (-2,-1.73) -- node[sloped,above]{3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-1} (-1,0);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{1} (-1,0);
+
+    %2
+    \draw (-1,0) -- node[sloped,above,rotate=180]{2} (1,0);
+    \draw (-1,0) -- node[sloped,above,rotate=0]{-1} (0,-1.73);
+    \draw (1,0) -- node[sloped,above,rotate=0]{2} (0,-1.73);
+
+    %3
+    \draw (0,-1.73) -- node[sloped,above]{1} (2,-1.73);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{-2} (1,0);
+    \draw (2,-1.73) -- node[sloped,above,rotate=180]{-1} (1,0);
+
+    %4
+    \draw (-3,-3.46) -- node[sloped,above]{-1} (-1,-3.46);
+    \draw (-3,-3.46) -- node[sloped,above,rotate=180]{2} (-2,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (-1,-3.46);
+
+    %5
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=0]{3} (-1,-3.46);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{2} (-1,-3.46);
+
+    %6
+    \draw (-1,-3.46) -- node[sloped,above]{1} (1,-3.46);
+    \draw (-1,-3.46) -- node[sloped,above,rotate=180]{-2} (0,-1.73);
+    \draw (1,-3.46) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+
+    %7
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{-1} (2,-1.73);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{3} (1,-3.46);
+    \draw (2,-1.73) -- node[sloped,above,rotate=0]{-2} (1,-3.46);
+
+    %8
+    \draw (1,-3.46) -- node[sloped,above]{-1} (3,-3.46);
+    \draw (1,-3.46) -- node[sloped,above,rotate=180]{2} (2,-1.73);
+    \draw (3,-3.46) -- node[sloped,above,rotate=180]{-1} (2,-1.73);
+
+    \end{tikzpicture}
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {0};
+            \node (1) at (-1.5,-1.5) {1};
+            \node (2) at (0,-1.5) {2};
+            \node (3) at (1.5,-1.5) {3};
+            \node (4) at (-3,-3) {4};
+            \node (5) at (-1.5,-3) {5};
+            \node (6) at (0,-3) {6};
+            \node (7) at (1.5,-3) {7};
+            \node (8) at (3,-3) {8};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[->] (0) edge (2);
+            \path[->] (2) edge (1);
+            \path[->] (1) edge (5);
+            \path[->] (5) edge (4);
+            \path[->] (5) edge (6);
+            \path[->] (6) edge (7);
+            \path[->] (7) edge (3);
+            \path[->] (7) edge (8);
+        \end{scope}
+    \end{tikzpicture}
+    \end{subfigure}
+    \caption{Teil 8 wird von 7 angelegt}
+\end{figure}
+
+\subsubsection{Puzzle1}
+
+Laut dem Algorithmus ist dieses Puzzle nicht lösbar.
+
+\subsubsection{Puzzle2}
+
+Dieses Puzzle ist lösbar. Die Lösung ist in Abbildung \ref{puzzle2} dargestellt.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=1]
+    %0
+    \draw (-1,0) -- node[sloped,above]{-2} (1,0); %mitte
+    \draw (-1,0) -- node[sloped,above,rotate=180]{1} (0,1.73); %links
+    \draw (1,0) -- node[sloped,above,rotate=180]{-4} (0,1.73); %rechts
+
+    %1
+    \draw (-2,-1.73) -- node[sloped,above]{-1} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-2} (-1,0);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{-3} (-1,0);
+
+    %2
+    \draw (-1,0) -- node[sloped,above,rotate=180]{2} (1,0);
+    \draw (-1,0) -- node[sloped,above,rotate=0]{3} (0,-1.73);
+    \draw (1,0) -- node[sloped,above,rotate=0]{1} (0,-1.73);
+
+    %3
+    \draw (0,-1.73) -- node[sloped,above]{1} (2,-1.73);
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{-1} (1,0);
+    \draw (2,-1.73) -- node[sloped,above,rotate=180]{-3} (1,0);
+
+    %4
+    \draw (-3,-3.46) -- node[sloped,above]{1} (-1,-3.46);
+    \draw (-3,-3.46) -- node[sloped,above,rotate=180]{-3} (-2,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-2} (-1,-3.46);
+
+    %5
+    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{1} (0,-1.73);
+    \draw (-2,-1.73) -- node[sloped,above,rotate=0]{2} (-1,-3.46);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{-4} (-1,-3.46);
+
+    %6
+    \draw (-1,-3.46) -- node[sloped,above]{-2} (1,-3.46);
+    \draw (-1,-3.46) -- node[sloped,above,rotate=180]{4} (0,-1.73);
+    \draw (1,-3.46) -- node[sloped,above,rotate=180]{-3} (0,-1.73);
+
+    %7
+    \draw (0,-1.73) -- node[sloped,above,rotate=180]{-1} (2,-1.73);
+    \draw (0,-1.73) -- node[sloped,above,rotate=0]{3} (1,-3.46);
+    \draw (2,-1.73) -- node[sloped,above,rotate=0]{4} (1,-3.46);
+
+    %8
+    \draw (1,-3.46) -- node[sloped,above]{-3} (3,-3.46);
+    \draw (1,-3.46) -- node[sloped,above,rotate=180]{-4} (2,-1.73);
+    \draw (3,-3.46) -- node[sloped,above,rotate=180]{-2} (2,-1.73);
+
+    \end{tikzpicture}
+    \caption{Die Lösung von Puzzle2}
+    \label{puzzle2}
+\end{figure}
+
+\subsubsection{Puzzle3}
+
+Laut dem Algorithmus ist dieses Puzzle nicht lösbar.
+
 
 \section{Tobis Turnier}
 \section{Streichholzrätsel}
