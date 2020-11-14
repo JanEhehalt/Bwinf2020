@@ -55,20 +55,20 @@
 %}
 
 \titleformat{\section}
-{\Large \bfseries}
+{\huge \bfseries}
 {\thesection \ }
 {0em}
 {}[\titlerule]
 
 \titleformat{\subsection}
-{\large \bfseries}
+{\Large \bfseries}
 {\thesubsection \ }
 {0em}
 {}
 
-\titleformat{\subsubsection}[runin]
-{\bfseries}
-{}
+\titleformat{\subsubsection}
+{\large \bfseries}
+{\thesubsubsection \ }
 {0em}
 {}
 
@@ -116,6 +116,14 @@ Es werden zwei Listen angelegt, die jeweils alle Lücken und alle vollständigen
 \subsection{Umsetzung}
 
 \section{Dreieckspuzzle}
+
+\subsection{Lösungsidee}
+
+Ein Algorithmus soll durch systematisches Probieren alle sinnvollen Möglichkeiten testen. Das Programm legt erst das erste Puzzleteil, versucht dann dessen anliegende Kanten mit Teilen zu füllen. Sollte es für ein Puzzleteil keine verfügbaren Teile mehr geben, die an die Kante passen, geht der Algorithmus mittels Backtracking zurück. Sobald er wieder zu einem Teil kommt, bei dem er andere Teile noch nicht probiert hat, versucht er das Puzzle ab hier wieder neu aufzubauen.
+
+\subsection{Umsetzung}
+
+Zur Darstellung der Struktur des Puzzle wird ein ungerichteter und ungewichteter Graph verwendet. Der Aufbau wird in Abbildung \ref{Graph1} gezeigt.
 
 \begin{figure}[h]
     \centering
@@ -201,16 +209,224 @@ Es werden zwei Listen angelegt, die jeweils alle Lücken und alle vollständigen
         \end{scope}
     \end{tikzpicture}
 
-        \subcaption{Als Graph}
+        \subcaption{Darstellung als Graph}
+        \label{Graph1.1}
     \end{subfigure}
-    \caption{Geile Abbildung}
+    \caption{Interne Speicherung der Puzzlestruktur}
+    \label{Graph1}
+\end{figure}
+
+Die Knoten bilden die einzelnen Puzzleteile. Wenn eine Kante im Graph existiert, dann berühren sich die beiden Puzzleteile auch im Puzzle, es muss also an den Stellen geprüft werden, ob sie zusammenpassen. Das ist der Fall, wenn beispielsweise die rechte Kante des einen Teils addiert mit der linken Kante des anderen Teils 0 ergibt.
+
+Im Folgenden wird erst auf die einzelnen Klassen und deren Funktion eingegangen, anschließend wird die Vorgehensweise des Algorithmus anhand von Zeichnungen erläutert.
+
+\subsubsection{Klassen}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture} 
+        \umlclass{Graph}{
+            $-$ matrix: int[][]\\
+            $-$ tiles: Tile[]\\
+            $-$ puzzle: int[]
+        }{
+            $+$ Graph(tiles: Tile[])\\
+            $+$ fillWithTiles(): boolean\\
+            $-$ fillBorders(tile: int): boolean\\
+            $-$ fit(indexTiles: int, indexMatrix: int, rotations: int): boolean\\
+            \dots
+        }
+    \end{tikzpicture}
+    \caption{Die Klasse \emph{Graph}}
+\end{figure}
+
+Der Graph speichert seine Adjazenzmatrix, die als Wert $-1$, $0$ und $1$ annehmen kann. $-1$ bedeutet, dass diese Kante nicht existiert. Das ist der Fall, wenn sich die zwei Teile im echten Puzzle nicht berühren können, z.B. die rechte Kante der $0$ und die untere Kante der $4$. Den Wert $0$ nimmt eine Kante an, wenn diese aktuell nicht auf beiden Seiten besetzt ist, z.B. wenn in Abbildung \ref{Graph1.1} Teil 5 fehlen würde, hätten die Kanten 4-5, 1-5 und 5-6 den Wert $0$. Der Wert $1$ bedeutet, dass die Kante besetzt ist. Ist das Puzzle gelöst, haben also alle Kanten den Wert $-1$ oder $1$. $0$ würde bedeuten, dass es noch eine Kante gibt, die besetzt werden muss. Der Graph speichert im \emph{Tile} Array alle Puzzleteile, die es gibt. Der puzzle-Array speichert die Position jedes Teils im Graphen. Ist das Teil nicht im Graphen, hat puzzle an der Stelle des Teils den Wert $-1$.
+
+Es wurden bewusst nicht alle Methoden in das Klassendiagramm übernommen, die wichtigen Methoden sind allerdings vorhanden. Die restlichen Methoden sind zur Erklärung des Algorithmus nicht von Bedeutung, sie fügen beispielsweise eine Kante am Anfang ein oder setzen das Puzzle zurück.
+
+\subsubsection{Algorithmus}
+
+Die Methode \emph{fillWithTiles()} wird aufgerufen, um das Puzzle zu lösen. Diese geht über jedes Puzzleteil und versucht das Puzzle damit an Stelle $0$ im Graphen zu lösen. Dazu wird \emph{fillBorders(0)} aufgerufen. Für den Quellcode der Methode, siehe Abbildung \ref{fillWithTiles}.
+
+\begin{figure}[h]
+    \centering
+
+\begin{lstlisting}
+public boolean fillWithTiles() {
+	for(int i = 0; i < this.tiles.length; i++) {
+		// puzzle-Array wird zurueckgesetzt
+		resetPuzzle();
+
+        // Das Tile wird an die Stelle 0 im Graph gesetzt
+		puzzle[i] = 0;
+		
+		if(fillBorders(0)) {
+            // Puzzle wurde gelöst
+			return true;
+		}
+		
+        // Puzzle konnte nicht gelöst werden, Tile wird rotiert
+		resetPuzzle();
+		puzzle[i] = 0;
+		tiles[i].rotate();
+		
+		if(fillBorders(0)) {
+			return true;
+		}
+		
+		resetPuzzle();
+		puzzle[i] = 0;
+		tiles[i].rotate();
+		
+		if(fillBorders(0)) {
+			return true;
+		}
+	}
+	return false;
+}
+\end{lstlisting}
+
+    \caption{Die Methode \emph{fillWithTiles()}}
+    \label{fillWithTiles}
+\end{figure}
+
+Die Methode \emph{fillBorders(int)} versucht alle Kanten, die an die übergebene Stelle im Graphen, anliegen, zu füllen. Ob alles besetzt werden konnte, lässt sich am Rückgabewert \emph{true} oder \emph{false} erkennen. Dazu wird erst über die entsprechende Zeile in der Adjazenzmatrix iteriert. Nur beim Wert $0$ ist noch keine Kante vorhanden, also wird jetzt für diese Kante ein passendes Teil gesucht. Ob eine Teil bereits probiert wurde, wird beim \emph{visited} Array geschaut. Dort wurde bereits die eigene Stelle und alle Teile, die im Graph sind, als \emph{true} markiert, damit diese nicht erneut probiert werden. Wenn ein passendes Teil gefunden wurde, wird dieses vorläufig eingefügt. Anschließend versucht dieses Teil seine Kanten zu füllen. Scheitert es, wird es entfernt und ein neues Teil gesucht. Ist es erfolgreich, geht die Methode zum nächsten Eintrag in der Zeile der Matrix und versucht diese ebenfalls zu füllen. Der Quellcode ist in Abbildung \ref{fillBorders} zu sehen.
+
+\begin{figure}[h]
+    \centering
+
+    \begin{lstlisting}
+private boolean fillBorders(int tile) {
+		
+    // [...] visited[] wird initialisiert und alle benutzten Teile werden auf true gesetzt
+	
+	// Für jede anliegende Kante des Tiles wird versucht einen Partner zu finden
+	ArrayList<Integer> placedTiles = new ArrayList<>();
+	for(int j = 0; j < matrix.length; j++) {
+		
+		if(matrix[tile][j] == 0) {
+			
+			boolean tileFound = false;
+			for(int k = 0; k < visited.length; k++) {
+				if(!visited[k]) {
+					visited[k] = true;
+					
+					// Das Tile wird probiert
+					if(fit(k, j, 0)) {
+						tileFound = true;
+						resetTile(j);
+						puzzle[k] = j;
+						updateTrueLink(tile, j);
+						placedTiles.add(j);
+						
+						if(fillBorders(puzzle[k])) {
+							break;
+						}
+						else {
+							resetTile(j);
+							updateFalseLink(tile, j);
+							tileFound = false;
+							continue;
+						}
+					}
+				}
+			}
+			if(!tileFound) {
+                // [...] alle vom Tile erstellten Tiles werden ebenfalls gelöscht
+				return false;
+			}
+		}
+	}
+	return true;
+}
+    \end{lstlisting}
+
+    \caption{Die Methode \emph{fillBorders}}
+    \label{fillBorders}
+\end{figure}
+
+Die Methode \emph{fit()} prüft für eine gegebene Stelle im Graphen, ob ein gegebenes Puzzleteil passt. Um zu wissen, welche Seiten bei zwei Teilen verglichen werden müssen, werden die beiden Stellen im Graph voneinander abgezogen. Kommt hier der Wert $-1$ raus, befindet sich das gefundene Teil rechts, bei $1$ links und bei jedem anderen Wert müssen die beiden mittleren Werte verglichen werden. Der Quellcode ist in den Abbildungen \ref{fit} bis \ref{fitEnde} zu finden.
+
+\begin{figure}[h]
+    \centering
+
+\begin{lstlisting}
+private boolean fit(int indexTiles, int indexMatrix, int rotations) {
+	if(indexMatrix == 2 || indexMatrix == 5 || indexMatrix == 7) {
+		if(!tiles[indexTiles].flipped) {
+			tiles[indexTiles].flip();
+		}
+	}
+	else {
+		if(tiles[indexTiles].flipped) {
+			tiles[indexTiles].flip();
+		}
+	}
+	
+	if(rotations > 2) {
+		return false;
+	}
+\end{lstlisting}
+    \caption{Das Tile wird, wenn nötig, geflippt und die Methode beendet, wenn das Tile bereits zweimal rotiert wurde}
+    \label{fit}
 \end{figure}
 
 \begin{figure}[h]
+    \centering
+\begin{lstlisting}
+boolean fits = true;
+for(int i = 0; i < matrix.length; i++) {
+	if(matrix[indexMatrix][i] != -1 && getIndexTiles(i) != -1) {
+		int side = indexMatrix - i;
+			
+		int side1 = 0;
+		int side2 = 0;
+		int tile2 = getIndexTiles(i);
+			
+		if(side == -1) {
+		    side1 = 2;
+			side2 = 0;
+		}
+		else if(side == 1) {
+			side1 = 0;
+			side2 = 2;
+		}
+		else {
+			side1 = 1;
+			side2 = 1;
+		}
+			
+		if(tiles[indexTiles].values[side1] + tiles[tile2].values[side2] != 0) {
+			fits = false;
+			break;
+		}
+	}
+}
+\end{lstlisting}
+\caption{Alle gefundenen Kanten werden geprüft}
 \end{figure}
 
-\subsection{Lösungsidee}
-\subsection{Umsetzung}
+\begin{figure}[h]
+    \centering
+\begin{lstlisting}
+if(fits) {
+	for(int i = 0; i < matrix.length; i++) {
+		if(matrix[indexMatrix][i] != -1 && getIndexTiles(i) != -1) {
+			updateTrueLink(indexMatrix, i);
+		}
+	}
+	return true;
+}
+else {
+	tiles[indexTiles].rotate();
+	return fit(indexTiles, indexMatrix, rotations + 1);
+}
+\end{lstlisting}
+
+\caption{Das Tile wird eingefügt, wenn alles passt. Ansonsten wird es rotiert und erneut probiert}
+\label{fitEnde}
+\end{figure}
+
 \subsection{Beispiele}
 
 \section{Tobis Turnier}

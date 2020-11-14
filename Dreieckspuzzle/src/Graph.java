@@ -3,14 +3,14 @@ import java.util.ArrayList;
 public class Graph{
 	
 	// Adjazenzmatrix
-	int[][] matrix;
+	private int[][] matrix;
 	
 	// Array, der einfach alle Tiles die insgesamt vorhanden sind speichert
-	Tile[] tiles;
+	public Tile[] tiles;
 	
 	// Array, der die Indizes von tiles auf die des Dreiecks mappt (Standardwert = -1)
 	// Beispiel: Tile 4 liegt im Puzzle ganz oben: puzzle[3] = 0
-	int[] puzzle;
+	public int[] puzzle;
 	
 	public Graph(Tile[] tiles){
 		matrix = new int[9][9];
@@ -38,7 +38,6 @@ public class Graph{
 			
 			resetPuzzle();
 			puzzle[i] = 0;
-			System.out.println("					Starttile wird gedreht");
 			tiles[i].rotate();
 			
 			if(fillBorders(0)) {
@@ -47,7 +46,6 @@ public class Graph{
 			
 			resetPuzzle();
 			puzzle[i] = 0;
-			System.out.println("					Starttile wird gedreht");
 			tiles[i].rotate();
 			
 			if(fillBorders(0)) {
@@ -57,9 +55,9 @@ public class Graph{
 		return false;
 	}
 
-	public boolean fillBorders(int tile) {
-		
-		// Die Tiles, die zum Einfuegen nicht mehr zur Verfuegung stehen, werden als true markiert
+	private boolean fillBorders(int tile) {
+			
+			// Die Tiles, die zum Einfuegen nicht mehr zur Verfuegung stehen, werden als true markiert
 		boolean[] visited = new boolean[9];
 		visited[tile] = true;
 		for (int j = 0; j < tiles.length; j++) {
@@ -72,7 +70,7 @@ public class Graph{
 		ArrayList<Integer> placedTiles = new ArrayList<>();
 		for(int j = 0; j < matrix.length; j++) {
 			
-			if(/*matrix[tile][j] != -1 &&*/ matrix[tile][j] == 0) {
+			if(matrix[tile][j] == 0) {
 				
 				boolean tileFound = false;
 				for(int k = 0; k < visited.length; k++) {
@@ -119,7 +117,7 @@ public class Graph{
 		// Jede Kante wurde belegt
 	}
 	
-	public boolean fit(int indexTiles, int indexMatrix, int rotations) {
+	private boolean fit(int indexTiles, int indexMatrix, int rotations) {
 		if(indexMatrix == 2 || indexMatrix == 5 || indexMatrix == 7) {
 			if(!tiles[indexTiles].flipped) {
 				System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird geflippt");
@@ -143,20 +141,12 @@ public class Graph{
 		
 		boolean fits = true;
 		for(int i = 0; i < matrix.length; i++) {
-			// TODO: des Ungleich -1 is neu, davor war da if des und des .exists halt, keine Ahnung es is halt sowas von zu spät für die
-			// scheiße. Ich setz gleich Kaffee auf
 			if(matrix[indexMatrix][i] != -1 && getIndexTiles(i) != -1) {
 				int side = indexMatrix - i;
 				
 				int side1 = 0;
 				int side2 = 0;
-				
-				int tile2 = 0;
-				for(int j = 0; j < tiles.length; j++) {
-					if(puzzle[j] == i) {
-						tile2 = j;
-					}
-				}
+				int tile2 = getIndexTiles(i);
 				
 				if(side == -1) {
 					side1 = 2;
@@ -196,7 +186,7 @@ public class Graph{
 		}
 	}
 	
-	public int getIndexTiles(int indexMatrix) {
+	private int getIndexTiles(int indexMatrix) {
 		int indexTiles = -1;
 		for(int i=0; i < puzzle.length; i++) {
 			if(puzzle[i] == indexMatrix) {
@@ -206,7 +196,7 @@ public class Graph{
 		return indexTiles;
 	}
 	
-	public void resetTile(int value) {
+	private void resetTile(int value) {
 		for(int i = 0; i < tiles.length; i++) {
 			if(puzzle[i] == value) {
 				puzzle[i] = -1;
@@ -214,22 +204,22 @@ public class Graph{
 		}
 	}
 	
-	public void updateTrueLink(int x, int y) {
+	private void updateTrueLink(int x, int y) {
 		matrix[x][y] = 1;
 		matrix[y][x] = 1;
 	}
 	
-	public void updateFalseLink(int x, int y) {
+	private void updateFalseLink(int x, int y) {
 		matrix[x][y] = 0;
 		matrix[y][x] = 0;
 	}
 	
-	public void addLink(int x, int y) {
+	private void addLink(int x, int y) {
 		matrix[x][y] = 0;
 		matrix[y][x] = 0;
 	}
 
-	public void resetPuzzle() {
+	private void resetPuzzle() {
 		for(int i = 0; i < puzzle.length; i++) {
 			puzzle[i] = -1;
 		}
