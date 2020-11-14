@@ -61,7 +61,7 @@ public class Main {
         	
 
         	System.out.println("*****");
-        	System.out.println("Satzlänge: " + sentence.size() + " Anzahl der Wörter: " + words.size());
+        	System.out.println("Satzlï¿½nge: " + sentence.size() + " Anzahl der Wï¿½rter: " + words.size());
         	System.out.println("*****");
         	System.out.println("");
         	System.out.println("Satzteile: ");
@@ -71,7 +71,7 @@ public class Main {
         	}
 	        System.out.println("*****");
 	        System.out.println("");
-	        System.out.println("Wörter:");
+	        System.out.println("Wï¿½rter:");
 	        System.out.println("*****");
 	        for(String string : words) {
         		System.out.println(string);

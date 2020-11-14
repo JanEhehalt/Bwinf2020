@@ -17,6 +17,8 @@
 \usepackage{subcaption}
 \usepackage{ucs} % Einige Unicode Zeichen
 
+\usepackage{float}
+
 % Ein paar Mathe Sachen
 \usepackage{amsmath,amssymb,amstext,mathtools}
 
@@ -409,7 +411,7 @@ if(tiles[indexTiles].values[side1] + tiles[tile2].values[side2] != 0) {
 
 In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} verwendet. Es wird gezeigt, wie sich die richtige Lösung stückweise aufbaut. Allerdings wird jegliche Rotation und Backtracking, wegen der Übersichtlichkeit, nicht dargestellt. Man soll lediglich erkennen können, wie sich der Graph bzw. das Puzzle stückweise aufbauen. Die Pfeile am Graphen stehen nicht für eine Richtung oder alle Kanten, sie sollen lediglich veranschaulichen, welches Teil welches gelegt hat.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -438,7 +440,7 @@ In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} v
     \caption{Teil 0 wird gelegt}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -475,7 +477,7 @@ In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} v
     \caption{Teil 2 wird von 0 gelegt}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -518,7 +520,7 @@ In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} v
     \label{Graph1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -570,7 +572,7 @@ In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} v
     \caption{Teil 5 wird von 1 angelegt}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -629,7 +631,7 @@ In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} v
     \caption{Teil 4 wird von 5 angelegt}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -695,7 +697,7 @@ In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} v
     \caption{Teil 6 wird von 5 angelegt}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -768,7 +770,7 @@ In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} v
     \caption{Teil 7 wird von 6 angelegt}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -848,7 +850,7 @@ In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} v
     \caption{Teil 3 wird von 7 angelegt}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -941,7 +943,7 @@ Laut dem Algorithmus ist dieses Puzzle nicht lösbar.
 
 Dieses Puzzle ist lösbar. Die Lösung ist in Abbildung \ref{puzzle2} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{tikzpicture}[scale=1]
     %0
