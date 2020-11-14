@@ -11,7 +11,7 @@ import java.util.Scanner;
 class Main{
     public static void main(String[] args){
     	try {
-    		File nice = new File("src/spielstaerken1.txt");
+    		File nice = new File("src/spielstaerken2.txt");
     		Scanner sc = new Scanner(nice);
     		
     		ArrayList<Player> players = new ArrayList<>();
@@ -30,12 +30,36 @@ class Main{
     			System.out.println(player.id + " " + player.strength);
     		}
 
-			/**
-			 * TODO: Auswertung der Daten für die verschiedenen Formate:
-			 * 			für Liga einfach league() ausführen mit dem Spieler Array
-			 * 			für ko das gleiche mit ko()
-			 * 			für kox5 das gleiche mit kox5();    		
-			 */
+    		int best = getBest(players);
+    		System.out.println();
+    		System.out.println("Best Player:    " + best);
+    		int bestWinsLeague = 0;
+    		int bestWinsKo = 0;
+    		int bestWinsKox5 = 0;
+    		
+    		int iterations = 10000;
+    		
+    		for(int j = 0; j<iterations; j++) {
+    			Player winnerLeague = league(players);
+    			Player winnerKo = ko(players);
+    			Player winnerKox5 = kox5(players);
+    			for(Player p : players) {
+    				if(p.id == best && p == winnerLeague) {
+    					bestWinsLeague++;
+    				}
+    				if(p.id == best && p == winnerKo) {
+    					bestWinsKo++;
+    				}
+    				if(p.id == best && p == winnerKox5) {
+    					bestWinsKox5++;
+    				}
+    			}
+    		}
+
+    		System.out.println();
+    		System.out.println("Winrate League: "+(float)bestWinsLeague/(float)iterations);
+    		System.out.println("Winrate Ko:     "+(float)bestWinsKo/(float)iterations);
+    		System.out.println("Winrate Kox5:   "+(float)bestWinsKox5/(float)iterations);
     		
     	}
     	catch(FileNotFoundException e) {
@@ -113,11 +137,9 @@ class Main{
 		Node root;
 		if(players.size() % 2 == 0) {
 			root = new Node();
-			//Collections.shuffle(players);
+			Collections.shuffle(players);
 			root.create(players);
-			Player winner =  root.getWinner();
-			players.get(winner.id).koWins++;
-			return winner;
+			return root.getWinner();
 		}
 		else System.out.println("NIX EHRE EHRE UNGERADE SPIELERZAHL");
 		return null;
@@ -127,25 +149,22 @@ class Main{
 		Node root;
 		if(players.size() % 2 == 0) {
 			root = new Node();
-			//Collections.shuffle(players);
+			Collections.shuffle(players);
 			root.create(players);
-			Player winner =  root.getx5Winner();
-			players.get(winner.id).kox5Wins++;
-			return winner;
+			return root.getx5Winner();
 		}
 		else System.out.println("NIX EHRE EHRE UNGERADE SPIELERZAHL");
 		return null;
 	}
 	
-	static void getBest(ArrayList<Player> players) {
-		for(int i = 200; i > 0; i--) {
-			league(players).leagueWins++;
-			ko(players).koWins++;
-			kox5(players).kox5Wins++;
+	static int getBest(ArrayList<Player> players) {
+		int highest = 0;
+		for(int i = 0; i < players.size(); i++) {
+			if(players.get(i).strength > players.get(highest).strength) {
+				highest = i;
+			}
 		}
-		/**
-		 * TODO: Welcher Spieler hat am meisten Gewonnen?
-		 */
+		return highest;
 	}
 
 	
