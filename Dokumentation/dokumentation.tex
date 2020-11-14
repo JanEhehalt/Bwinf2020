@@ -114,10 +114,59 @@ Da einige Methoden zu lang für eine Seite sind, wurde der Quellcode teilweise g
 
 \section{Wörter aufräumen}
 \subsection{Lösungsidee}
-
-Es werden zwei Listen angelegt, die jeweils alle Lücken und alle vollständigen Wörter getrennt speichern. Das Programm geht die Liste der Lücken durch und fügt für jede Lücke, der sich nur ein Wort eindeutig zuordnen lässt, das entsprechende Wort ein. Dieser Durchlauf wird so oft wiederholt, bis entweder alle Lücken gefüllt sind, oder in einem Durchlauf kein Wort mehr eingefügt werden konnte. Diese Lücken müssen anhand der Länge dem entsprechenden Wort zugeordnet werden. Dieses Verfahren muss funktionieren, da in jede Lücke nur ein Wort passen kann.  
+Es werden zwei Listen  angelegt,  die  jeweils  alle  Lücken  und  alle  einzufügenden  Wörter  getrennt speichern.  Das  Programm  geht  dann  alle  Lücken  durch  und  fügt  für  jede  Lücke,  bei  der  bereits  ein Buchstabe gegeben ist, ein eindeutig zuzuordnendes Wort ein. Das Programm achtet hierbei darauf, dass der gegebene Buchstabe, mit dem im Wort übereinstimmt, und dass das Wort genauso lang ist wie die Lücke. Sollte für eine Lücke mehr als ein Wort potenziell passen, so wird diese Lücke vorerst übersprungen.  Dieses  Verfahren  wird  dann  so  oft  ausgeführt,  bis  entweder  alle  Lücken  gefüllt  sind oder alle noch leeren Lücken keinen gegebenen Buchstaben mehr haben. Sobald es keine gegebenen Buchstaben  mehr  gibt werden  die  restlichen  Wörter  noch  anhand ihrer  Länge  den  übrigen  Lücken zugeordnet. So gibt es am Ende keine leeren Lücken mehr.
 
 \subsection{Umsetzung}
+Jede Lücke wird im Array \emph{sentence} als String gespeichert. Hierbei werden sowohl die Lücken, welche aus {\glqq}\_{\grqq} und verschiedenen Buchstaben bestehen können, als auch die Satzeichen, als eigene Elemente im Array gespeichert. Der \emph{words} Array speichert die Wörter, die in den Satz eingefügt werden müssen. Dann wird eine Schleife gestartet, die nun den Lücken Array mit Elementen  aus  dem  \emph{words}  Array  füllen  soll. Um  zu  erkennen  welche  Lücken  bereits  gefüllt  wurden, wird ein Array aus \emph{booleans} erstellt, der speichert welche Lücke bereits gefüllt wurde. Die Satzzeichen werden  hier  automatisch von Beginn an auf \emph{true}  gesetzt,  da  sie  nicht  gefüllt  werden  müssen. Dann iteriert  das  Programm über  alle  Wörter  und zählt in  wie  viele  noch  nicht  gefüllte  Lücken  das  Wort anhand  des  gegebenen  Buchstaben  und  der Länge  passen würde.  Sollte  das  Wort  in  nur  eine  Lücke passen,  so wird es  auch  in  diese eingefügt und aus  dem  \emph{words}  Array  entfernt. Sollte  das  Wort  in mehrere Lücken passen, so wird es zunächst übersprungen. Sobald einmal alle Wörter durchgegangen wurden wird noch einmal geprüft ob eines der Wörter in eine oder mehr Lücken passt. Sollte irgendein Wort  noch  eine  Lücke  finden,  der  es  eindeutig  zuzuordnen  ist,  so  wird  die  Schleife noch  nicht abgebrochen und startet  erneut. Dieses  ganz  Verfahren  läuft  also so  lange,  bis sich  kein Wort  mehr einer Lücke mithilfe eines Buchstaben zuordnen lässt. Sobald die Schleife beendet wurde kann es keine Lücke mehr geben, die einen gegebenen Buchstaben hat. Das einzige Mittel, um die Wörter zuzuordnen, ist nun also noch die Länge. Also iteriert das Programm wieder über alle Wörter und sucht für jedes Wort  eine  noch  nicht  gefüllte  Lücke,  die  genauso  lang  ist  wie  das  Wort.  Wenn  die  Lücke  gefunden wurde, wird das Wort hier eingefügt und aus dem \emph{words} Array gelöscht. Nach diesem Loop kann es nun keine ungefüllte Lücke mehr geben.
+
+Um zu prüfen, ob ein Wort anhand des gegebenen Buchstaben und der Länge in eine Lücke passt, wird die Methode \emph{fits()} benutzt. Diese bekommt zwei Übergabeparameter. Einmal das Wort, welches in die Lücke eingefügt werden soll, und die Lücke, in die das Wort eingefügt werden soll. Diese Methode läuft zunächst  einmal  über  die  Lücke  und sucht nach  einem  gegebenen  Buchstaben,  dessen  Position im String der Lücke dann gespeichert wird. Sollte kein Buchstabe gefunden werden, so gibt die Methode \emph{false} zurück, da das Wort ja nicht eindeutig zuwiesen werden kann. Sollte ein Buchstaben gefunden worden  sein,  prüfen  wir  noch  im  einzufügenden  Wort,  ob  es  an  der  gleichen  Position  den  gleichen Buchstaben  hat  und  ob  die  Länge  der  beiden  Strings  übereinstimmen.  Da  jeder  Lücke  eindeutig ein Wort zuzuordnen sein muss, muss das Wort also in diese Lücke eingefügt werden, die Methode gibt \emph{true} zurück.
+
+\subsection{Dokumentation der Beispiele}
+
+\subsubsection{Selbsterstelltes Beispiel}
+Die Funktion des Programms soll nochmal an folgendem Beispiel erläutert werden:
+\begin{itemize}
+    \item {\_}a{\_} {\_}{\_}s{\_} w{\_}{\_} {\_}{\_}{\_} {\_}{\_}d{\_}{\_}{\_} K{\_}{\_}{\_} !
+    \item Pudels also war des Das Kern
+\end{itemize}
+
+Das Programm liest nun den Lückentext in den \emph{sentence} Array ein. Dieser hätte nun an der Stelle 2 zum Beispiel {\glqq}\_\_\_{\grqq} und an der Stelle 3 {\glqq}\_\_{\grqq}. Die einzufügenden Wörter werden im \emph{words} Array gespeichert. An der Stelle 2 zum Beispiel {\glqq}war{\grqq} und an der Stelle 3 {\glqq}des{\grqq}. Der \emph{sentence} Array hat nun eine Länge von 7 und \emph{words} 6. Nun läuft das Programm in der Schleife einmal über alle Wörter und zählt, wie vielen Lücken die Worte zugeordnet werden könnten. Das erste Wort {\glqq}Pudels{\grqq} findet für sich nur genau eine Lücke. Da es also eindeutig zuzuordnen ist wird es in Lücke 5 eingefügt und  aus  \emph{words} entfernt. Das  Wort {\glqq}also{\grqq} ist  eindeutig  der  zweiten  Lücke zuzuordnen. Das Wort {\glqq}war{\grqq} hat nun zwei Lücken, in die es anhand der gegebenen Buchstaben passen würde (Lücke 1 und 3). Deshalb wird es vorerst übersprungen. Das Wort {\glqq}des{\grqq} lässt sich mithilfe der gegebenen  Buchstaben  keiner  Lücke  eindeutig  zuordnen,  weshalb  es  auch  übersprungen  wird.  Das Wort {\glqq}Das{\grqq} lässt sich nun wieder eindeutig der ersten Lücke zuordnen, wird also auch eingefügt. {\glqq}Kern{\grqq} ist  auch  eindeutig  der  Lücke  6  zuzuordnen,  wird  also  eingefügt.  Nach  diesem  ersten  Durchgang  der Schleife sehen die Arrays also wie folgt aus:
+
+\begin{labeling}{sentence}
+    \item [sentence] Das also w{\_}{\_} {\_}{\_}{\_} Pudels Kern !
+    \item [words] war das
+\end{labeling}
+
+Nun  wird  geprüft  ob  es  noch  Wörter  gibt,  die  sich  durch  gegebene  Buchstaben  noch  einer  Lücke zuordnen lassen. Da {\glqq}war{\grqq} noch eine Lücke findet wird die Schleife wiederholt. {\glqq}war{\grqq} lässt sich nun eindeutig der dritten Lücke zuordnen, da die andere Lücke, für die es auch gepasst hätte, ja nun bereits gefüllt  ist. Deshalb kann es nun in den Satz eingefügt werden. Das letzte Wort {\glqq}das{\grqq} ist nun keiner Lücke mehr zuzuordnen, weshalb die Schleife nun abbricht. Jetzt sehen die beiden Arrays so aus:
+
+\begin{labeling}{sentence}
+    \item [sentence] Das also war {\_}{\_}{\_} Pudels Kern !
+    \item [words] das
+\end{labeling}
+
+Nun folgt noch der Loop, der die Wörter lediglich anhand ihrer Länge den Lücken zuordnet. Das Wort {\glqq}war{\grqq} ist nun das einzige Wort im \emph{words} Array. {\glqq}war{\grqq} hat eine Länge von 3. Nun wird im Satz nach einer noch nicht gefüllten Lücke der Länge 3 gesucht, welche an Stelle 4 gefunden wird. Somit gibt es nun kein Wort mehr im \emph{words} Array und \emph{sentence} sieht wie folgt aus:\\
+Das also war des Pudels Kern !\\
+Der Satz ist also fertig und wird ausgegeben.
+
+\subsubsection{raetsel0}
+Der fertige Satz lautet:\\
+oh je, was für eine arbeit!
+
+\subsubsection{raetsel1}
+Der fertige Satz lautet:\\
+Am Anfang wurde das Universum erschaffen. Das machte viele Leute sehr wütend und wurde allenthalben als Schritt in die falsche Richtung angesehen.
+
+\subsubsection{raetsel2}
+Der fertige Satz lautet:\\
+Als Gregor Samsa eines Morgens aus unruhigen Träumen erwachte, fand er sich in seinem Bett zu einem ungeheuren Ungeziefer verwandelt.
+
+\subsubsection{raetsel3}
+Der fertige Satz lautet:\\
+Informatik ist die Wissenschaft von der systematischen Darstellung, Speicherung, Verarbeitung und Übertragung von Informationen, besonders der automatischen Verarbeitung mit Digitalrechnern.
+
+\subsubsection{raetsel4}
+Der fertige Satz lautet:\\
+Opa Jürgen blättert in einer Zeitschrift aus der Apotheke und findet ein Rätsel. Es ist eine Liste von Wörtern gegeben, die in die richtige Reihenfolge gebracht werden sollen, so dass sie eine lustige Geschichte ergeben. Leerzeichen und Satzzeichen sowie einige Buchstaben sind schon vorgegeben.
 
 \section{Dreieckspuzzle}
 \subsection{Lösungsidee}
@@ -358,7 +407,7 @@ if(tiles[indexTiles].values[side1] + tiles[tile2].values[side2] != 0) {
 \subsection{Beispiele}
 \subsubsection{Puzzle0}
 
-In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} verwendet. Es wird gezeigt, wie sich die richtige Lösung stückweise aufbaut. Allerdings wird jegliche Rotation und Backtracking, wegen der Übersichtlichkeit, nicht dargestellt. Man soll lediglich erkennen können, wie sich der Graph bzw. das Puzzle stückweise aufbauen. Die Pfeile am Graphen stehen nicht für eine Richtung. Sie sollen lediglich veranschaulichen, welches Teil welches gelegt hat.
+In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} verwendet. Es wird gezeigt, wie sich die richtige Lösung stückweise aufbaut. Allerdings wird jegliche Rotation und Backtracking, wegen der Übersichtlichkeit, nicht dargestellt. Man soll lediglich erkennen können, wie sich der Graph bzw. das Puzzle stückweise aufbauen. Die Pfeile am Graphen stehen nicht für eine Richtung oder alle Kanten, sie sollen lediglich veranschaulichen, welches Teil welches gelegt hat.
 
 \begin{figure}[h]
     \centering
@@ -949,8 +998,8 @@ Dieses Puzzle ist lösbar. Die Lösung ist in Abbildung \ref{puzzle2} dargestell
 
 Laut dem Algorithmus ist dieses Puzzle nicht lösbar.
 
-
 \section{Tobis Turnier}
+
 \section{Streichholzrätsel}
 \section{Wichteln}
 \subsection{Lösungsidee}
