@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args){
 		try {
-	    	File data = new File("src/raetsel0.txt");
+	    	File data = new File("src/raetsel4.txt");
 	        //File data = new File(args[0]);
 	        Scanner sc = new Scanner(data);
 	        
