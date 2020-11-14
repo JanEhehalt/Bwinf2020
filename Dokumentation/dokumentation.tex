@@ -55,19 +55,19 @@
 %}
 
 \titleformat{\section}
-{\huge \bfseries}
+{\Large \bfseries}
 {\thesection \ }
 {0em}
 {}[\titlerule]
 
 \titleformat{\subsection}
-{\Large \bfseries}
+{\large \bfseries}
 {\thesubsection \ }
 {0em}
 {}
 
 \titleformat{\subsubsection}
-{\large \bfseries}
+{\bfseries}
 {\thesubsubsection \ }
 {0em}
 {}
@@ -108,6 +108,10 @@ tabsize=3
 \thispagestyle{empty}
 \newpage
 
+\section{Allgemeine Informationen}
+
+Da einige Methoden zu lang für eine Seite sind, wurde der Quellcode teilweise gekürzt. Die wichtigen Teile sind weiterhin enthalten. Auslassungen sind entsprechend mit {\glqq}[\dots]{\grqq} gekennzeichnet und mit einer kurzen Erklärung zur Funktion des ausgelassenen Codes versehen.
+
 \section{Wörter aufräumen}
 \subsection{Lösungsidee}
 
@@ -116,7 +120,6 @@ Es werden zwei Listen angelegt, die jeweils alle Lücken und alle vollständigen
 \subsection{Umsetzung}
 
 \section{Dreieckspuzzle}
-
 \subsection{Lösungsidee}
 
 Ein Algorithmus soll durch systematisches Probieren alle sinnvollen Möglichkeiten testen. Das Programm legt erst das erste Puzzleteil, versucht dann dessen anliegende Kanten mit Teilen zu füllen. Sollte es für ein Puzzleteil keine verfügbaren Teile mehr geben, die an die Kante passen, geht der Algorithmus mittels Backtracking zurück. Sobald er wieder zu einem Teil kommt, bei dem er andere Teile noch nicht probiert hat, versucht er das Puzzle ab hier wieder neu aufzubauen.
@@ -221,6 +224,22 @@ Die Knoten bilden die einzelnen Puzzleteile. Wenn eine Kante im Graph existiert,
 Im Folgenden wird erst auf die einzelnen Klassen und deren Funktion eingegangen, anschließend wird die Vorgehensweise des Algorithmus anhand von Zeichnungen erläutert.
 
 \subsubsection{Klassen}
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture} 
+        \umlclass{Tile}{
+            $+$ values: int[]\\
+            $+$ flipped: boolean
+        }{
+            $+$ rotate(): void\\
+            $+$ flip(): void
+        }
+    \end{tikzpicture}
+    \caption{Die Klasse \emph{Tile}}
+    \label{tile}
+\end{figure}
+
+Die Klasse \emph{Tile} (Abbildung \ref{tile}) repräsentiert ein Puzzleteil. Dazu müssen die drei Kantenwerte gespeichert werden. Dies geschieht durch den Array \emph{values}. Die Seiten haben die Indizes wie folgt: $0$: links, $1$ mitte, $2$ rechts. Zudem muss gespeichert werden, ob ein Tile geflippt ist oder nicht. Dies ist nur bei den Stellen $2$, $5$, $7$ im Graph der Fall. Wenn ein Tile geflippt wird, müssen die Werte der linken und rechten Seite getauscht werden. Zudem muss das Tile in die andere Richtung rotiert werden. Die \emph{rotate()} Methode rotiert das Tile einmal um $120^\circ$.
 
 \begin{figure}[h]
     \centering
@@ -258,30 +277,14 @@ public boolean fillWithTiles() {
 		resetPuzzle();
 
         // Das Tile wird an die Stelle 0 im Graph gesetzt
-		puzzle[i] = 0;
+        puzzle[i] = 0;
 		
-		if(fillBorders(0)) {
+        if(fillBorders(0)) {
             // Puzzle wurde gelöst
-			return true;
-		}
-		
-        // Puzzle konnte nicht gelöst werden, Tile wird rotiert
-		resetPuzzle();
-		puzzle[i] = 0;
-		tiles[i].rotate();
-		
-		if(fillBorders(0)) {
-			return true;
-		}
-		
-		resetPuzzle();
-		puzzle[i] = 0;
-		tiles[i].rotate();
-		
-		if(fillBorders(0)) {
-			return true;
-		}
-	}
+            return true;
+        }
+        // [...] fillBorders() wird für jede Rotation des Tile wiederholt
+    }
 	return false;
 }
 \end{lstlisting}
@@ -290,161 +293,72 @@ public boolean fillWithTiles() {
     \label{fillWithTiles}
 \end{figure}
 
-Die Methode \emph{fillBorders(int)} versucht alle Kanten, die an die übergebene Stelle im Graphen, anliegen, zu füllen. Ob alles besetzt werden konnte, lässt sich am Rückgabewert \emph{true} oder \emph{false} erkennen. Dazu wird erst über die entsprechende Zeile in der Adjazenzmatrix iteriert. Nur beim Wert $0$ ist noch keine Kante vorhanden, also wird jetzt für diese Kante ein passendes Teil gesucht. Ob eine Teil bereits probiert wurde, wird beim \emph{visited} Array geschaut. Dort wurde bereits die eigene Stelle und alle Teile, die im Graph sind, als \emph{true} markiert, damit diese nicht erneut probiert werden. Wenn ein passendes Teil gefunden wurde, wird dieses vorläufig eingefügt. Anschließend versucht dieses Teil seine Kanten zu füllen. Scheitert es, wird es entfernt und ein neues Teil gesucht. Ist es erfolgreich, geht die Methode zum nächsten Eintrag in der Zeile der Matrix und versucht diese ebenfalls zu füllen. Der Quellcode ist in Abbildung \ref{fillBorders} zu sehen.
+Die Methode \emph{fillBorders(int)} versucht alle Kanten, die an die übergebene Stelle im Graphen, anliegen, zu füllen. Ob alles besetzt werden konnte, lässt sich am Rückgabewert \emph{true} oder \emph{false} erkennen. Dazu wird erst über die entsprechende Zeile in der Adjazenzmatrix iteriert. Nur beim Wert $0$ ist noch keine Kante vorhanden, also wird jetzt für diese Kante ein passendes Teil gesucht. Ob eine Teil bereits probiert wurde, wird beim \emph{visited} Array geschaut. Dort wurde bereits die eigene Stelle und alle Teile, die im Graph sind, als \emph{true} markiert, damit diese nicht erneut probiert werden. Wenn ein passendes Teil gefunden wurde, wird dieses vorläufig eingefügt. Anschließend versucht dieses Teil seine Kanten zu füllen. Scheitert es, wird es entfernt und ein neues Teil gesucht. Ist es erfolgreich, geht die Methode zum nächsten Eintrag in der Zeile der Matrix und versucht diese ebenfalls zu füllen. Der Quellcode in Abbildung \ref{fillBorders} ist ein Teil der Methode. Dort wird zuerst mit \emph{fit()} überprüft, ob das Tile an die Stelle passt. Anschließend wird es dort eingefügt und versucht alle Kanten zu füllen, indem es \emph{fillBorders()} mit der eigenen Stelle im Graphen aufruft (\emph{puzzle} speichert für jedes Tile die Position im Graphen oder $-1$). $k$ ist das aktuelle Tile, $j$ die aktuelle Kante.
 
 \begin{figure}[h]
     \centering
 
     \begin{lstlisting}
-private boolean fillBorders(int tile) {
-		
-    // [...] visited[] wird initialisiert und alle benutzten Teile werden auf true gesetzt
-	
-	// Für jede anliegende Kante des Tiles wird versucht einen Partner zu finden
-	ArrayList<Integer> placedTiles = new ArrayList<>();
-	for(int j = 0; j < matrix.length; j++) {
-		
-		if(matrix[tile][j] == 0) {
-			
-			boolean tileFound = false;
-			for(int k = 0; k < visited.length; k++) {
-				if(!visited[k]) {
-					visited[k] = true;
-					
-					// Das Tile wird probiert
-					if(fit(k, j, 0)) {
-						tileFound = true;
-						resetTile(j);
-						puzzle[k] = j;
-						updateTrueLink(tile, j);
-						placedTiles.add(j);
+if(fit(k, j, 0)) {
+	tileFound = true;
+	resetTile(j);
+	puzzle[k] = j;
+	updateTrueLink(tile, j);
+	placedTiles.add(j);
 						
-						if(fillBorders(puzzle[k])) {
-							break;
-						}
-						else {
-							resetTile(j);
-							updateFalseLink(tile, j);
-							tileFound = false;
-							continue;
-						}
-					}
-				}
-			}
-			if(!tileFound) {
-                // [...] alle vom Tile erstellten Tiles werden ebenfalls gelöscht
-				return false;
-			}
-		}
+	if(fillBorders(puzzle[k])) {
+		break;
 	}
-	return true;
+    else {
+		resetTile(j);
+		updateFalseLink(tile, j);
+		tileFound = false;
+	    continue;
+    }
 }
+if(!tileFound) {
+    // [...] alle vom Tile erstellten Tiles werden ebenfalls gelöscht
+    return false;
+}
+return true;
     \end{lstlisting}
 
     \caption{Die Methode \emph{fillBorders}}
     \label{fillBorders}
 \end{figure}
 
-Die Methode \emph{fit()} prüft für eine gegebene Stelle im Graphen, ob ein gegebenes Puzzleteil passt. Um zu wissen, welche Seiten bei zwei Teilen verglichen werden müssen, werden die beiden Stellen im Graph voneinander abgezogen. Kommt hier der Wert $-1$ raus, befindet sich das gefundene Teil rechts, bei $1$ links und bei jedem anderen Wert müssen die beiden mittleren Werte verglichen werden. Der Quellcode ist in den Abbildungen \ref{fit} bis \ref{fitEnde} zu finden.
+Die Methode \emph{fit()} prüft für eine gegebene Stelle im Graphen, ob ein gegebenes Puzzleteil passt. Zuerst wird geprüft, ob sich das Puzzleteil an der Stelle $2$, $5$ oder $7$ befindet. Ist dies der Fall, muss es geflippt werden. Im echten Puzzle äußert sich das an der Kante oben anstatt einer Spitze. Um zu wissen, welche Seiten bei zwei Teilen verglichen werden müssen, werden die beiden Stellen im Graph voneinander abgezogen. Kommt hier der Wert $-1$ raus, befindet sich das gefundene Teil rechts, bei $1$ links und bei jedem anderen Wert müssen die beiden mittleren Werte verglichen werden. Ist die Summe der beiden Kantenwerte der Teile $0$, passt das Puzzleteil. Der Quellcode, der eine Seite des Teils mit einer vorhandenen Kante vergleicht, ist in Abbildung \ref{fit} zu finden. $i$ ist der Index des zweiten Teils, mit dem verglichen werden muss.
 
 \begin{figure}[h]
     \centering
-
 \begin{lstlisting}
-private boolean fit(int indexTiles, int indexMatrix, int rotations) {
-	if(indexMatrix == 2 || indexMatrix == 5 || indexMatrix == 7) {
-		if(!tiles[indexTiles].flipped) {
-			tiles[indexTiles].flip();
-		}
-	}
-	else {
-		if(tiles[indexTiles].flipped) {
-			tiles[indexTiles].flip();
-		}
-	}
-	
-	if(rotations > 2) {
-		return false;
-	}
+int difference = indexMatrix - i;
+int side1 = 1;
+int side2 = 1;
+int tile2 = getIndexTiles(i);
+			
+if(difference == -1) {
+    side1 = 2;
+	side2 = 0;
+}
+else if(difference == 1) {
+	side1 = 0;
+	side2 = 2;
+}	
+
+if(tiles[indexTiles].values[side1] + tiles[tile2].values[side2] != 0) {
+    fits = false;
+    break;
+}
 \end{lstlisting}
-    \caption{Das Tile wird, wenn nötig, geflippt und die Methode beendet, wenn das Tile bereits zweimal rotiert wurde}
+    \caption{Ausschnitt von \emph{fit()}}
     \label{fit}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-\begin{lstlisting}
-boolean fits = true;
-for(int i = 0; i < matrix.length; i++) {
-	if(matrix[indexMatrix][i] != -1 && getIndexTiles(i) != -1) {
-		int side = indexMatrix - i;
-			
-		int side1 = 0;
-		int side2 = 0;
-		int tile2 = getIndexTiles(i);
-			
-		if(side == -1) {
-		    side1 = 2;
-			side2 = 0;
-		}
-		else if(side == 1) {
-			side1 = 0;
-			side2 = 2;
-		}
-		else {
-			side1 = 1;
-			side2 = 1;
-		}
-			
-		if(tiles[indexTiles].values[side1] + tiles[tile2].values[side2] != 0) {
-			fits = false;
-			break;
-		}
-	}
-}
-\end{lstlisting}
-\caption{Alle gefundenen Kanten werden geprüft}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-\begin{lstlisting}
-if(fits) {
-	for(int i = 0; i < matrix.length; i++) {
-		if(matrix[indexMatrix][i] != -1 && getIndexTiles(i) != -1) {
-			updateTrueLink(indexMatrix, i);
-		}
-	}
-	return true;
-}
-else {
-	tiles[indexTiles].rotate();
-	return fit(indexTiles, indexMatrix, rotations + 1);
-}
-\end{lstlisting}
-
-\caption{Das Tile wird eingefügt, wenn alles passt. Ansonsten wird es rotiert und erneut probiert}
-\label{fitEnde}
 \end{figure}
 
 \subsection{Beispiele}
 
 \section{Tobis Turnier}
 \section{Streichholzrätsel}
-Im Folgenden sieht man ein Codebeispiel für Code, der beispielhaft geschrieben wurde.
-
-\begin{lstlisting}
-// Kommentare sind ne geile Sache
-import com.badlogic.ShitRenderer;
-
-public static void main(String[] args){
-    Controller.control(theWorld);
-    Math.atan(1/0);
-}
-\end{lstlisting}
-
-Im Codebeispiel sieht man, wie der JavaScript Compiler intern arbeitet. Besondere Achtung sollte hierbei dem Math-Befehl gegeben werden, denn Math wurde nicht importiert und deshalb crasht es bereits deshalb, nicht wegen der ZeroDivision, da JavaScript hier einfach das Ergebnis würfeln wurde. \# Ehre
-
 \section{Wichteln}
 \subsection{Lösungsidee}
 

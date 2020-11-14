@@ -1,9 +1,7 @@
 public class Tile{
 	
 	int[] values;
-	
 	boolean flipped;
-	boolean placed;
 	
 	public Tile(int left, int middle, int right) {
 		this.values = new int[3];
