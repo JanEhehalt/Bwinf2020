@@ -178,17 +178,7 @@ public class Main {
 	        
 	        /**
 	         * After the doWhile loop has finished there can only be gaps left which don't have any chars given
-	         * Because the given .txt's have to give a distinct answer we would think
-	         * that there is only one word left for each gap
-	         * 
-	         * so we loop over the sentence and look at the gaps which aren't filled yet
-	         * the last property of the Strings we can check is the length, so we check
-	         * if the length of the gap is the same as the word's
-	         * if it is we can say that the word has to fit inside the gap
-	         * so we add it and again synchronize the filled array
-	         * 
-	         * We subtract one from j, because we remove one element from the words array. 
-	         * If we wouldn't subtract one we would skip one element or get an index out of bounds exception
+	         * Those ones are being filled with help of the only left criteria: length of the String
 	         */
 	        for(int i = 0; i < sentence.size(); i++) {
 	        	if(!filled[i]) {
