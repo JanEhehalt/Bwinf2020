@@ -1,4 +1,3 @@
-import java.util.Objects;
 
 public class Match {
 	int x;
@@ -12,7 +11,7 @@ public class Match {
 		this.x = x;
 		this.y = y;
 		this.rotation = rotation * 30;
-		this.length = 5;
+		this.length = 3;
 		this.vx = Math.cos(Math.toRadians(rotation))*length;
 		this.vy = Math.sin(Math.toRadians(rotation))*length;
 	}

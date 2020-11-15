@@ -132,7 +132,7 @@ Die Funktion des Programms soll nochmal an folgendem Beispiel erläutert werden:
     \item Pudels also war des Das Kern
 \end{itemize}
 
-Das Programm liest nun den Lückentext in den \emph{sentence} Array ein. Dieser hätte nun an der Stelle 2 zum Beispiel {\glqq}\_\_\_{\grqq} und an der Stelle 3 {\glqq}\_\_{\grqq}. Die einzufügenden Wörter werden im \emph{words} Array gespeichert. An der Stelle 2 zum Beispiel {\glqq}war{\grqq} und an der Stelle 3 {\glqq}des{\grqq}. Der \emph{sentence} Array hat nun eine Länge von 7 und \emph{words} 6. Nun läuft das Programm in der Schleife einmal über alle Wörter und zählt, wie vielen Lücken die Worte zugeordnet werden könnten. Das erste Wort {\glqq}Pudels{\grqq} findet für sich nur genau eine Lücke. Da es also eindeutig zuzuordnen ist wird es in Lücke 5 eingefügt und  aus  \emph{words} entfernt. Das  Wort {\glqq}also{\grqq} ist  eindeutig  der  zweiten  Lücke zuzuordnen. Das Wort {\glqq}war{\grqq} hat nun zwei Lücken, in die es anhand der gegebenen Buchstaben passen würde (Lücke 1 und 3). Deshalb wird es vorerst übersprungen. Das Wort {\glqq}des{\grqq} lässt sich mithilfe der gegebenen  Buchstaben  keiner  Lücke  eindeutig  zuordnen,  weshalb  es  auch  übersprungen  wird.  Das Wort {\glqq}Das{\grqq} lässt sich nun wieder eindeutig der ersten Lücke zuordnen, wird also auch eingefügt. {\glqq}Kern{\grqq} ist  auch  eindeutig  der  Lücke  6  zuzuordnen,  wird  also  eingefügt.  Nach  diesem  ersten  Durchgang  der Schleife sehen die Arrays also wie folgt aus:
+Das Programm liest nun den Lückentext in den \emph{sentence} Array ein. Dieser hätte nun an der Stelle 2 zum Beispiel {\glqq}\_\_s\_{\grqq} und an der Stelle 3 {\glqq}w\_\_{\grqq}. Die einzufügenden Wörter werden im \emph{words} Array gespeichert. An der Stelle 2 zum Beispiel {\glqq}war{\grqq} und an der Stelle 3 {\glqq}des{\grqq}. Der \emph{sentence} Array hat nun eine Länge von 7 und \emph{words} 6. Nun läuft das Programm in der Schleife einmal über alle Wörter und zählt, wie vielen Lücken die Worte zugeordnet werden könnten. Das erste Wort {\glqq}Pudels{\grqq} findet für sich nur genau eine Lücke. Da es also eindeutig zuzuordnen ist wird es in Lücke 5 eingefügt und  aus  \emph{words} entfernt. Das  Wort {\glqq}also{\grqq} ist  eindeutig  der  zweiten  Lücke zuzuordnen. Das Wort {\glqq}war{\grqq} hat nun zwei Lücken, in die es anhand der gegebenen Buchstaben passen würde (Lücke 1 und 3). Deshalb wird es vorerst übersprungen. Das Wort {\glqq}des{\grqq} lässt sich mithilfe der gegebenen  Buchstaben  keiner  Lücke  eindeutig  zuordnen,  weshalb  es  auch  übersprungen  wird.  Das Wort {\glqq}Das{\grqq} lässt sich nun wieder eindeutig der ersten Lücke zuordnen, wird also auch eingefügt. {\glqq}Kern{\grqq} ist  auch  eindeutig  der  Lücke  6  zuzuordnen,  wird  also  eingefügt.  Nach  diesem  ersten  Durchgang  der Schleife sehen die Arrays also wie folgt aus:
 
 \begin{labeling}{sentence}
     \item [sentence] Das also w{\_}{\_} {\_}{\_}{\_} Pudels Kern !
@@ -517,7 +517,6 @@ In der folgenden Reihe an Abbildungen wird das Beispiel von \emph{puzzle0.txt} v
     \end{tikzpicture}
     \end{subfigure}
     \caption{Teil 1 wird von 2 gelegt}
-    \label{Graph1}
 \end{figure}
 
 \begin{figure}[H]
