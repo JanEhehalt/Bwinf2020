@@ -136,14 +136,14 @@ Das Programm liest nun den Lückentext in den \emph{sentence} Array ein. Dieser 
 
 \begin{labeling}{sentence}
     \item [sentence] Das also w{\_}{\_} {\_}{\_}{\_} Pudels Kern !
-    \item [words] war das
+    \item [words] war des
 \end{labeling}
 
 Nun  wird  geprüft  ob  es  noch  Wörter  gibt,  die  sich  durch  gegebene  Buchstaben  noch  einer  Lücke zuordnen lassen. Da {\glqq}war{\grqq} noch eine Lücke findet wird die Schleife wiederholt. {\glqq}war{\grqq} lässt sich nun eindeutig der dritten Lücke zuordnen, da die andere Lücke, für die es auch gepasst hätte, ja nun bereits gefüllt  ist. Deshalb kann es nun in den Satz eingefügt werden. Das letzte Wort {\glqq}das{\grqq} ist nun keiner Lücke mehr zuzuordnen, weshalb die Schleife nun abbricht. Jetzt sehen die beiden Arrays so aus:
 
 \begin{labeling}{sentence}
     \item [sentence] Das also war {\_}{\_}{\_} Pudels Kern !
-    \item [words] das
+    \item [words] des
 \end{labeling}
 
 Nun folgt noch der Loop, der die Wörter lediglich anhand ihrer Länge den Lücken zuordnet. Das Wort {\glqq}war{\grqq} ist nun das einzige Wort im \emph{words} Array. {\glqq}war{\grqq} hat eine Länge von 3. Nun wird im Satz nach einer noch nicht gefüllten Lücke der Länge 3 gesucht, welche an Stelle 4 gefunden wird. Somit gibt es nun kein Wort mehr im \emph{words} Array und \emph{sentence} sieht wie folgt aus:\\
