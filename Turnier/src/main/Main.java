@@ -11,7 +11,7 @@ import java.util.Scanner;
 class Main{
     public static void main(String[] args){
     	try {
-    		File nice = new File("src/spielstaerken2.txt");
+    		File nice = new File("src/spielstaerken1.txt");
     		Scanner sc = new Scanner(nice);
     		
     		ArrayList<Player> players = new ArrayList<>();
@@ -37,7 +37,7 @@ class Main{
     		int bestWinsKo = 0;
     		int bestWinsKox5 = 0;
     		
-    		int iterations = 10000;
+    		int iterations = 1000000;
     		
     		for(int j = 0; j<iterations; j++) {
     			Player winnerLeague = league(players);
@@ -60,6 +60,7 @@ class Main{
     		System.out.println("Winrate League: "+(float)bestWinsLeague/(float)iterations);
     		System.out.println("Winrate Ko:     "+(float)bestWinsKo/(float)iterations);
     		System.out.println("Winrate Kox5:   "+(float)bestWinsKox5/(float)iterations);
+    		
     		
     	}
     	catch(FileNotFoundException e) {
@@ -108,45 +109,38 @@ class Main{
 			
 		}while(!finished);
 	
-		ArrayList<Player> leading = new ArrayList<>();
-		int mostWins = 0;
-		for(Player p1 : players) {
-			if(p1.wins > mostWins) mostWins = p1.wins;
+		int leading = 0;
+		for(Player p : players) {
+			if(p.wins > players.get(leading).wins) leading = p.id;
 		}
-		for(Player p1 : players) {
-			if(p1.wins == mostWins) leading.add(p1);
+		for(Player p : players) {
+			p.wins = 0;
 		}
-		if(leading.size() == 1) return leading.get(0);
-		else {
-			for(int i = 0; i < players.size(); i++) {
-				for(Player l : leading) {
-					if(l.id == i) {
-						for(Player p : players) {
-							p.wins = 0;
-						}
-						return l;
-					}
-				}
-			}
-		}
-		System.out.print("NO WINNER?!?!?!??!?");
-		return null;
+		return players.get(leading);
 	}
 
 	static Player ko(ArrayList<Player> players) {
 		Node root;
 		root = new Node();
-		Collections.shuffle(players);
+		//Collections.shuffle(players);
 		root.create(players);
-		return root.getWinner();
+		Player winner = root.getWinner();
+		for(Player p : players) {
+			p.wins = 0;
+		}
+		return winner;
 	}
 	
 	static Player kox5(ArrayList<Player> players) {
 		Node root;
 		root = new Node();
-		Collections.shuffle(players);
+		//Collections.shuffle(players);
 		root.create(players);
-		return root.getx5Winner();
+		Player winner = root.getx5Winner();
+		for(Player p : players) {
+			p.wins = 0;
+		}
+		return winner;
 	}
 	
 	static int getBest(ArrayList<Player> players) {
