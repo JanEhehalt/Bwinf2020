@@ -1,44 +1,4 @@
-Die match-Methode
-
-Die Match methode bekommt zwei Spieler übergeben, von welchen nur der
-zurückgegeben wird der das match gewinnt. Die Methode addiert zuerst die
-beiden Spielstärken der Spieler und genertiert dann eine zufällige Zahl, die
-zwischen dieser Summe und 0 liegt. Wenn diese generierte Zahl kleiner, als die
-Stärke von Spieler 1 ist so hat dieser gewonnen. sollte die Zahl größer oder
-gleich der Spielstärke von Spieler 2 sein, so hat dieser gewonnen.
-
-
 ko
-
-in der ko-Methode wird ein zunächst der Turnierbaum erzeugt. dazu wird eine
-Wurzel erstellt, von welcher aus der Binärbaum nach unten erzeugt wird. Die
-Methode bekommt einen Array mit den Spielern übergeben, die in den Turnierbaum
-eingefügt werden müssen, und gibt den Sieger des Turniers zurück. Der Baum
-besteht aus Knoten, die immer zwei weitere Knoten speichern. Die Wurzel
-startet dann die rekursive Methode create, die den Baum erzeugt. Diese Methode
-bekommt den Array mit den Spielern übergeben. Die Wurzel fängt nun an. Sollte
-der Array nur 2 Spieler speichern, so kann die Wurzel einen der Spieler als
-linken unterknoten speichern und den anderen als rechten. Sollte der Array
-länger sein, so erstellt er jeweils rechts und links einen Knoten, der keinen
-Spieler speichert, teilt die Spieler gleichmäßig in 2 neue Arrays auf und
-führt die Methode create bei diesen mit den neuen Arrays erneut aus. so ist
-der Array irgendwann nur noch 2 lang und alle Spieler sind in den Blättern des
-Baums. Nachdem nun der Baum erzeugt wurde kann das Turnier starten. Hierzu
-starten wir bei der Wurzel und gehen den Baum nach unten durch mit der
-rekursiven Methode getWinner. Diese prüft ob der aktuelle Knoten links und
-rechts Spieler hat, die gegeneinander spielen könnnen. Sollten beide Spieler
-existieren so spielen die beiden Spieler gegeneinander und der Knoten
-speichert den Sieger des matches als seinen Spieler. Sollte der Knoten bereits
-einen Spieler haben, so gibt er diesen zurück. So wird das Turnier gespielt
-und am Ende wird der Gewinner zurückgegeben.
-
-kox5
-
-die kox5-Methode ist prinzipiell die gleiche wie ko. Das Verfahren ist bis auf
-die match-Methode genau das gleiche. Hier wurde die Methode matchx5 angelegt.
-Diese lässt die beiden Spieler fünf mal gegeneinander spielen und lässt die
-Spieler mitzählen wie oft sie gewonnen haben. Der Spieler der häufiger
-gewonnen hat wird dann als Sieger zurückgegeben.
 
 Beispiele
 
