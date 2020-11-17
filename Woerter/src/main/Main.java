@@ -35,7 +35,7 @@ public class Main {
 	         * 		If it is we have to store the syntax in a separate String
 	         * 		the rest of the String is also added to the sentence array separate
 	         * 		! first the word then the syntax !
-	         * If there's no syntax at the end and it has '_' we can jusst add the String as a gap
+	         * If there's no syntax at the end and it has '_' we can just add the String as a gap
 	         */
         	while(sc.hasNext()) {
         		String cw = sc.next();	// cW - currentWord
@@ -58,58 +58,24 @@ public class Main {
         	while(sc.hasNext()) {
         		words.add(sc.next());
         	}
-        	
-
-        	System.out.println("*****");
-        	System.out.println("Satzl�nge: " + sentence.size() + " Anzahl der W�rter: " + words.size());
-        	System.out.println("*****");
-        	System.out.println("");
-        	System.out.println("Satzteile: ");
-        	System.out.println("*****");
-	        for(String string : sentence) {
-        		System.out.println(string);
-        	}
-	        System.out.println("*****");
-	        System.out.println("");
-	        System.out.println("W�rter:");
-	        System.out.println("*****");
-	        for(String string : words) {
-        		System.out.println(string);
-        	}
-	        System.out.println("*****");
-        	
 	        sc.close();
+	        
+	        
 	        
 	        boolean finished = true;
 	        
-	        /**
-	         * filled array
-	         * helpful for saving which position in the sentence is already filled
-	         * is always synchronized with the 'sentence' array list
-	         * 
-	         * directly making syntax positions true so that we won't look for a fitting word for those gaps  
-	         */
 	        boolean[] filled = new boolean[sentence.size()];
 	        for(int i = 0; i < filled.length; i++){
-	        	if(sentence.get(i).length() == 1) filled[i] = true;
+	        	if(isPunctuation(sentence.get(i))) filled[i] = true;
 	        	else filled[i] = false;
 	        }
 	        
 	        do {
-	        	/**
-	        	 * finished will stay true as soon as there is no gap left which is containing an char that is not '_'
-	        	 */
 	        	finished = true;
-	        	/**
-	        	 * looping over the sentence
-	        	 * 	looping over the words array if the current gap is not filled yet
-	        	 */
+	        	
 		        for(int i = 0; i < sentence.size(); i++) {
 		        	if(!filled[i]) {
-		        		/**
-		        		 * counting how many words would fit inside each gap
-		        		 * we don't count the words twice, which come up twice, because then the program would think it's not distinct
-		        		 */
+		        		
 			        	int posWords = 0;
 			        	ArrayList<Integer> positions = new ArrayList<>();
 			        	for(int j = 0; j < words.size(); j++) {
@@ -127,20 +93,7 @@ public class Main {
 				        		}
 			        		}
 			        	}
-			        	/**
-			        	 * if there's only word fitting inside a gap it is distinct
-			        	 * so we add it to the sentence
-			        	 * 
-			        	 * here we are looping over the words again in order to find the fitting word for the gap
-			        	 * since there's only one posWord we can only find the right one
-			        	 * 
-			        	 * we add the word to the sentence
-			        	 * we remove it from the left words array
-			        	 * we synchronize the filled array
-			        	 * 
-			        	 * although we remove an element we don't have to look backwards because we break the loop as soon as we have found the right word,
-			        	 * so we won't reach an index which is out of bounds
-			        	 */
+			        	
 			        	if(posWords == 1) {
 				        	for(int j = 0; j < words.size(); j++) {
 				        		if(fits(words.get(j), sentence.get(i))) {
@@ -155,12 +108,7 @@ public class Main {
 		        	}
 		        }
 		        
-		        /**
-		         * here we check whether all the gaps with given char are filled
-		         * we loop over the sentence and look at all the gaps which aren't filled
-		         * as soon as there is one gap where 'fits' returns true we can break the current loop and 
-		         * do the whole doWhile loop again
-		         */
+		        
 		        for(int i = 0; i < sentence.size(); i++) {
 		        	int posWords = 0;
 		        	if(!filled[i]) {
@@ -172,14 +120,9 @@ public class Main {
 			        	}
 		        	}
 		        }
-	        
-
+		        
 	        }while(!finished);
 	        
-	        /**
-	         * After the doWhile loop has finished there can only be gaps left which don't have any chars given
-	         * Those ones are being filled with help of the only left criteria: length of the String
-	         */
 	        for(int i = 0; i < sentence.size(); i++) {
 	        	if(!filled[i]) {
 	        		for(int j = 0; j < words.size(); j++) {
@@ -192,6 +135,7 @@ public class Main {
 	        		}
 	        	}
 	        }
+	        
 	        
 	        // Printing the final result:
 	        System.out.println("");
@@ -209,6 +153,7 @@ public class Main {
         	}
 	        System.out.println();
 	        System.out.println("*****");
+	        
 	    }
 		
 		catch(FileNotFoundException e) {
@@ -216,24 +161,9 @@ public class Main {
 		}
 	}
     
-    /**
-     * The method 'fits' is given two Strings. 'true' is being return if 'word' fits into 'gap'
-     * The gap is a string containing only '_' and up to one normal letter
-     * the method now first checks, so that the gap it's trying to fill is no syntax
-     * 		if it was it would print out an error
-     * after this is checked the method if looping over the gap char and is looking for an char inside it that is not '_'
-     *		this one has to be a normal letter
-     * then it saves it and its position inside the String
-     * 
-     * then it takes the normal word and compares the given char to the word's char at the same position
-     * if it's the same it checks whether the length of the String is equal.
-     * if it is it can return true, because the word would fit inside the gap
-     * @param word
-     * @param gap
-     * @return
-     */
+   
     public static boolean fits(String word, String gap) {
-    	if(gap.length() != 1) {
+    	if(!isPunctuation(gap)) {
 	    	char given = ' ';
 	    	int givenPos = -1;
 	    	
@@ -253,5 +183,10 @@ public class Main {
     	}
     	System.out.println("** Comma given to 'fits' method **");
     	return false;
+    }
+    
+    public static boolean isPunctuation(String string) {
+    	if(string.contains("!") || string.contains(",") || string.contains("?") || string.contains(".")) return true;
+    	else return false;
     }
 }
