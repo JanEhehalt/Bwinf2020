@@ -84,3 +84,4 @@ TODO im code:
 players.size() % 2 == 0 // macht keinen Sinn, da Annahme, dass Spieler
 entweder 8 oder 16 oder 32 ...
 in getWinner if statement macht eig keinen Sinn lol
+hallo ich hab grad reli, schau ma rein wenn du pullst
