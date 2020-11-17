@@ -1,0 +1,86 @@
+Die match-Methode
+
+Die Match methode bekommt zwei Spieler übergeben, von welchen nur der
+zurückgegeben wird der das match gewinnt. Die Methode addiert zuerst die
+beiden Spielstärken der Spieler und genertiert dann eine zufällige Zahl, die
+zwischen dieser Summe und 0 liegt. Wenn diese generierte Zahl kleiner, als die
+Stärke von Spieler 1 ist so hat dieser gewonnen. sollte die Zahl größer oder
+gleich der Spielstärke von Spieler 2 sein, so hat dieser gewonnen.
+
+
+ko
+
+in der ko-Methode wird ein zunächst der Turnierbaum erzeugt. dazu wird eine
+Wurzel erstellt, von welcher aus der Binärbaum nach unten erzeugt wird. Die
+Methode bekommt einen Array mit den Spielern übergeben, die in den Turnierbaum
+eingefügt werden müssen, und gibt den Sieger des Turniers zurück. Der Baum
+besteht aus Knoten, die immer zwei weitere Knoten speichern. Die Wurzel
+startet dann die rekursive Methode create, die den Baum erzeugt. Diese Methode
+bekommt den Array mit den Spielern übergeben. Die Wurzel fängt nun an. Sollte
+der Array nur 2 Spieler speichern, so kann die Wurzel einen der Spieler als
+linken unterknoten speichern und den anderen als rechten. Sollte der Array
+länger sein, so erstellt er jeweils rechts und links einen Knoten, der keinen
+Spieler speichert, teilt die Spieler gleichmäßig in 2 neue Arrays auf und
+führt die Methode create bei diesen mit den neuen Arrays erneut aus. so ist
+der Array irgendwann nur noch 2 lang und alle Spieler sind in den Blättern des
+Baums. Nachdem nun der Baum erzeugt wurde kann das Turnier starten. Hierzu
+starten wir bei der Wurzel und gehen den Baum nach unten durch mit der
+rekursiven Methode getWinner. Diese prüft ob der aktuelle Knoten links und
+rechts Spieler hat, die gegeneinander spielen könnnen. Sollten beide Spieler
+existieren so spielen die beiden Spieler gegeneinander und der Knoten
+speichert den Sieger des matches als seinen Spieler. Sollte der Knoten bereits
+einen Spieler haben, so gibt er diesen zurück. So wird das Turnier gespielt
+und am Ende wird der Gewinner zurückgegeben.
+
+kox5
+
+die kox5-Methode ist prinzipiell die gleiche wie ko. Das Verfahren ist bis auf
+die match-Methode genau das gleiche. Hier wurde die Methode matchx5 angelegt.
+Diese lässt die beiden Spieler fünf mal gegeneinander spielen und lässt die
+Spieler mitzählen wie oft sie gewonnen haben. Der Spieler der häufiger
+gewonnen hat wird dann als Sieger zurückgegeben.
+
+Beispiele
+
+Im Folgenden Teil wird ein Beispiel durchgespielt, in dem 4 Spieler ein
+ko-Turnier durchspielen sollen.
+Folgende Spieler werde verwendet:
+
+Spieler1 mit Spielstärke 20
+Spieler2 mit Spielstärke 40
+Spieler3 mit Spielstärke 45
+Spieler4 mit Spielstärke 90
+
+Nachdem diese Spieler nun in einem Array gesammelt wurden wird die Methode ko
+mit diesem Array ausgeführt. Nun wird zunächst eine Wurzel erstellt, die die
+Methode create mit dem Array ausführt. In der create-Methode wird die Länge
+des Arrays geprüft. Da die Länge 4, und nicht 2, beträgt erzeugt die Wurzel
+einen neuen linken und einen neuen rechten Knoten, die beide keinen Spieler
+speichern. Dann wird der SpielerArray aufgeteilt und der linke Knoten bekommt
+die ersten der beiden Spieler und der rechte Knoten die hinteren beiden
+Spieler. Beide führen wieder jeweils die Methode create aus. Da beide nun
+einen Array der Länge 2 haben erstellen beide jeweils wieder einen linken und
+rechten Knoten, die beide jeweils einen der beiden Spieler aus dem Array
+speichern. Nun muss noch ein Sieger ermittelt werden. Hierzu wird die Methode
+getWinner bei der Wurzel aufgerufen. Da die Wurzel keinen Spieler speichert
+gibt sie den Sieger eines matches zwischen den Spielern des linken und rechten
+Knotens zurück. Da diese ebenfalls keine Spieler speichern geben sie jeweils
+den Sieger eines matches zwischen den Spielern ihrer Linken und Rechten Knoten
+zurück.
+Angenommen der Linke Knoten der Wurzel bekommt am Anfang Spieler1 uns Spieler2
+übergeben. In einer grafischen Darstellung wäre Spieler1 nun ganz unten Links
+und Spieler 2 daneben. Sagen wir Spieler1 gewinnt das match. der Linke Knoten
+der Wurzel speichert nun Spieler1 als Spieler. Wenn im rechten match nun
+Spieler4 gewinnt, so speichert der rechte Knoten der Wurzel Spieler4. Nun gibt
+die Wurzel nur noch den Sieger eines matches zwischen Spieler1 und Spieler4
+zurück. gewinnt nun Spieler4, so wird dieser als Sieger zurückgegeben.
+
+
+TODO in Dokumentation: 
+Ergebnisse monitoren und Turnierform empfehlen
+
+
+TODO im code:
+players.size() % 2 == 0 // macht keinen Sinn, da Annahme, dass Spieler
+entweder 8 oder 16 oder 32 ...
+in getWinner if statement macht eig keinen Sinn lol
