@@ -135,26 +135,18 @@ class Main{
 
 	static Player ko(ArrayList<Player> players) {
 		Node root;
-		if(players.size() % 2 == 0) {
-			root = new Node();
-			Collections.shuffle(players);
-			root.create(players);
-			return root.getWinner();
-		}
-		else System.out.println("NIX EHRE EHRE UNGERADE SPIELERZAHL");
-		return null;
+		root = new Node();
+		Collections.shuffle(players);
+		root.create(players);
+		return root.getWinner();
 	}
 	
 	static Player kox5(ArrayList<Player> players) {
 		Node root;
-		if(players.size() % 2 == 0) {
-			root = new Node();
-			Collections.shuffle(players);
-			root.create(players);
-			return root.getx5Winner();
-		}
-		else System.out.println("NIX EHRE EHRE UNGERADE SPIELERZAHL");
-		return null;
+		root = new Node();
+		Collections.shuffle(players);
+		root.create(players);
+		return root.getx5Winner();
 	}
 	
 	static int getBest(ArrayList<Player> players) {
