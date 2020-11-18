@@ -105,7 +105,76 @@ class MainNew{
             	presents[i] = new Present();
             }
             
+            int[][] wishMatrix = new int[students.length][presents.length];
+            for(int i = 0; i < students.length; i++) {
+            	Student temp = students[i];
+            	wishMatrix[i][temp.wishes[0]] = 0;
+            	wishMatrix[i][temp.wishes[1]] = 1;
+            	wishMatrix[i][temp.wishes[2]] = 2;
+            }
             
+            // Beginn des Algorithmus
+            // step 0: Eindeutige höchste Wünsche werden zugeteilt
+            // step 1: Uneindeutige wünsche werden den mit einzigem Wunsch vergeben
+            // step 2: Erstes Geschenk wird an ersten mich höchsten Wunsch darauf vergeben
+            // Übergänge: 0 (false) -> 1	1 (true) -> 0		1(false) -> 2
+            
+            int step = 0;
+            boolean finished = false;
+            do {
+            	if(step == 0) {
+            		for(int i = 0; i < wishMatrix[0].length; i++) {
+            			int amountFirst = 0;
+            			int amountSecond = 0;
+            			int amountThird = 0;
+            			for(int j = 0; j < wishMatrix.length; j++) {
+            				switch(wishMatrix[i][j]) {
+            				case 0:
+            					amountFirst++;
+            					break;
+            				case 1:
+            					amountSecond++;
+            					break;
+            				case 2:
+            					amountThird++;
+            					break;
+            				}
+            			}
+            			
+            			int wish = 0;
+            			if(amountFirst == 1) {
+            				wish = 0;
+            			}
+            			else if(amountFirst == 0) {
+            				if(amountSecond == 1) {
+            					wish = 1;
+            				}
+            				else if(amountSecond == 0) {
+            					if(amountThird == 1) {
+            						wish = 2;
+            					}
+            				}
+            			}
+            			else {
+            				continue;
+            			}
+            			
+            			
+            		}
+            	}
+            	else if(step == 1) {
+            		
+            	}
+            	
+            	finished = true;
+            	for(Student s : students) {
+            		if(!s.hasGift) {
+            			finished = false;
+            		}
+            	}
+            } while (!finished);
+            
+            /*
             // Start of gale-shapley algorithm
             // Initial round
             for(int i=0; i<students.length; i++) {
@@ -136,7 +205,7 @@ class MainNew{
             		}
             	}
             } while(!finished);
-            
+            */
             for(int k=0; k<presents.length; k++) {
             	System.out.println(presents[k].studentId);
             }
