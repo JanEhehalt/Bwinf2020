@@ -32,6 +32,7 @@
 \usepackage{tikz-uml}
 \usetikzlibrary{positioning}
 \usetikzlibrary{graphs}
+\usetikzlibrary{arrows.meta}
 
 \pagestyle{fancy}
 
@@ -1006,7 +1007,7 @@ Um die verschiedenen Turniere zu Simulieren wurde  für jede Turnierform eine Me
 
 \subsection{Umsetzung}
 
-Wie bereits erwähnt wurde für jede Turnierform eine Methode erstellt. Im folgenden Teil werden die einzelnen Mehoden genauer erläutet:
+Wie bereits erwähnt wurde für jede Turnierform eine Methode erstellt. Im folgenden Teil werden die einzelnen Methoden genauer erläutert:
 
 \subsubsection{Einlesen der Datei}
 
@@ -1014,7 +1015,12 @@ Jeder Spieler wird in Form einer eigenen Klasse, die die Spielstärke und die ID
 
 \subsubsection{Die \emph{match}-Methode}
 
-
+Die \emph{match} Methode realisiert das Spiel RNG im Programm. Sie bekommt zwei Spieler übergeben, von denen nur der
+zurückgegeben wird, der das Match gewinnt. Die Methode addiert zuerst die
+beiden Spielstärken der Spieler und generiert dann eine zufällige Zahl, die
+zwischen dieser Summe und $0$ liegt. Wenn diese generierte Zahl kleiner als die
+Stärke von Spieler $1$ ist, so hat dieser gewonnen. Sollte die Zahl größer oder
+gleich der Spielstärke von Spieler $2$ sein, so hat dieser gewonnen.
 
 \subsubsection{Liga}
 
@@ -1022,7 +1028,143 @@ Die Methode \emph{league()} bekommt einen Array aus Spielern übergeben und gibt
 
 \subsubsection{Ko}
 
+In der \emph{ko} Methode wird zunächst der Turnierbaum erzeugt. Dazu wird eine
+Wurzel erstellt, von der aus der Binärbaum nach unten erzeugt wird. Die
+Methode bekommt einen Array mit den Spielern übergeben, die in den Turnierbaum
+eingefügt werden müssen und gibt den Sieger des Turniers zurück. Die Wurzel
+startet die rekursive Methode \emph{create()}, die den Baum erzeugt. Diese Methode
+bekommt den Array mit den Spielern übergeben. Die Wurzel fängt nun an. Sollte
+der Array nur 2 Spieler speichern, so kann die Wurzel einen der Spieler als
+linken Teilbaum speichern und den anderen als rechten. Sollte der Array
+länger sein, so erstellt er jeweils rechts und links einen Knoten, der keinen
+Spieler speichert, teilt die Spieler gleichmäßig in 2 neue Arrays auf und
+führt die Methode \emph{create()} bei diesen, mit den neu erzeugten Arrays erneut aus. So ist
+der Array irgendwann nur noch 2 lang und alle Spieler sind in den Blättern des
+Baums. Nachdem nun der Baum erzeugt wurde kann das Turnier starten. Hierzu
+starten wir bei der Wurzel und gehen den Baum nach unten durch mit der
+rekursiven Methode \emph{getWinner()}. Diese prüft ob der aktuelle Knoten bereits einen Spieler besitzt. Sollte er bereits einen Spieler haben, so gibt er diesen zurück. Sollte er keinen haben, so spielen die beiden Spieler der Teilbäume gegeneinander und der Knoten
+speichert den Sieger des Matches als seinen Spieler. Sind alle rekursiven Methodenaufrufe abgeschlossen, speichert die Wurzel den Sieger des Turniers.
+
+
 \subsubsection{Kox5}
+
+Die \emph{kox5()} Methode ist prinzipiell die gleiche wie \emph{ko()}. Das Verfahren ist bis auf
+die \emph{match()} Methode genau das gleiche. Hier wurde die Methode \emph{matchx5()} angelegt.
+Diese lässt die beiden Spieler fünf mal gegeneinander antreten und es wird gespeichert, wie oft jeder Spieler gewonnen hat. Der Spieler, der häufiger
+gewonnen hat, wird dann als Sieger zurückgegeben.
+
+\subsection{Beispiele}
+Im folgenden Teil wird ein Beispiel durchgespielt, in dem 4 Spieler ein Ko-Turnier veranstalten. Folgende Spieler treten an:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cc@{}}
+\toprule
+Spieler & Spielstärke \\ \midrule
+1       & 20          \\
+2       & 40          \\
+3       & 45          \\
+4       & 90          \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Nachdem diese Spieler nun in einem Array gesammelt wurden, wird die Methode \emph{ko()}
+mit diesem Array ausgeführt. Nun wird zunächst eine Wurzel erstellt, die die
+Methode \emph{create()} mit dem Array ausführt. Hier wird die Länge
+des Arrays geprüft. Da die Länge $4$, und nicht $2$, beträgt, erzeugt die Wurzel
+einen neuen linken und einen neuen rechten Teilbaum, die beide keinen Spieler
+speichern. Dann wird der Spieler Array aufgeteilt und der linke Knoten bekommt
+die ersten der beiden Spieler und der rechte Knoten die hinteren beiden
+Spieler. Beide führen wieder jeweils die Methode \emph{create()} aus. Da beide nun
+einen Array der Länge $2$ haben, erstellen beide jeweils wieder einen linken und
+rechten Knoten, die beide jeweils einen der beiden Spieler aus dem Array
+speichern. 
+
+Nun muss noch ein Sieger ermittelt werden. Hierzu wird die Methode
+\emph{getWinner()} bei der Wurzel aufgerufen. Da die Wurzel noch keinen Spieler speichert,
+gibt sie den Sieger eines Matches zwischen den Spielern des linken und rechten
+Teilbaums zurück. Da diese ebenfalls keinen Spieler speichern, geben sie jeweils
+den Sieger eines Matches zwischen den Spielern ihrer linken und rechten Knoten bzw. Teilbäume zurück. Diese Abfolge an Spielabläufen ist in den folgenden Abbildungen dargestellt.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {W};
+            \node (1) at (-2,-1.5) {K1};
+            \node (2) at (2,-1.5) {K2};
+            \node (3) at (-3,-3) {S1};
+            \node (4) at (-1,-3) {S2};
+            \node (5) at (1,-3) {S3};
+            \node (6) at (3,-3) {S4};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[-] (0) edge (1);
+            \path[-] (0) edge (2);
+            \path[-] (1) edge (3);
+            \path[-] (1) edge (4);
+            \path[-] (2) edge (5);
+            \path[-] (2) edge (6);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{Ausgangslage des Turniers}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {W};
+            \node (1) at (-2,-1.5) {S1};
+            \node (2) at (2,-1.5) {S4};
+            \node (3) at (-3,-3) {S1};
+            \node (4) at (-1,-3) {S2};
+            \node (5) at (1,-3) {S3};
+            \node (6) at (3,-3) {S4};
+        \end{scope}
+        
+        \begin{scope}
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[-] (0) edge (1);
+            \path[-] (0) edge (2);
+            \path[<-] (1) edge (3);
+            \path[-] (1) edge (4);
+            \path[-] (2) edge (5);
+            \path[<-] (2) edge (6);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{Schritt 1: S1 gewinnt gegen S2 und S4 gegen S3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node (0) at (0,0) {S4};
+            \node (1) at (-2,-1.5) {S1};
+            \node (2) at (2,-1.5) {S4};
+            \node (3) at (-3,-3) {S1};
+            \node (4) at (-1,-3) {S2};
+            \node (5) at (1,-3) {S3};
+            \node (6) at (3,-3) {S4};
+        \end{scope}
+        
+        \begin{scope}
+            %[>={Stealth[black]}]
+            %\path[-] (0) edge node[sloped,above]{Text} (2);
+            \path[-] (0) edge (1);
+            \path[<-] (0) edge (2);
+            \path[<-] (1) edge (3);
+            \path[-] (1) edge (4);
+            \path[-] (2) edge (5);
+            \path[<-] (2) edge (6);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{Schritt 2: S4 gewinnt gegen S1 und somit das Turnier}
+\end{figure}
+
 
 \section{Streichholzrätsel}
 \section{Wichteln}
