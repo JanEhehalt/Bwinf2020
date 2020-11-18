@@ -59,7 +59,7 @@ public class Graph{
 			
 			// Die Tiles, die zum Einfuegen nicht mehr zur Verfuegung stehen, werden als true markiert
 		boolean[] visited = new boolean[9];
-		visited[tile] = true;
+		visited[getIndexTiles(tile)] = true;
 		for (int j = 0; j < tiles.length; j++) {
 			if(puzzle[j] != -1) {
 				visited[j] = true;

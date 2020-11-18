@@ -15,17 +15,9 @@ public class Tile{
 		int oldMiddle = values[1];
 		int oldRight = values[2];
 		
-		if(flipped) {
 			values[2] = oldLeft;
 			values[1] = oldRight;
 			values[0] = oldMiddle;
-		}
-		else {
-			values[2] = oldMiddle;
-			values[1] = oldLeft;
-			values[0] = oldRight;
-			
-		}
 	}
 	
 	public void flip() {
