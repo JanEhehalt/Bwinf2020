@@ -104,7 +104,7 @@ class Main{
 					if(!played[p1.id][p2.id])
 						finished = false;
 				}
-			}i
+			}
 			
 			
 			
