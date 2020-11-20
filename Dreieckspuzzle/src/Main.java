@@ -50,6 +50,7 @@ class Main{
     			if(g.puzzle[j] == i) {
     				indexTiles = j;
     				tileExists = true;
+    				break;
     			}
     		}
     		

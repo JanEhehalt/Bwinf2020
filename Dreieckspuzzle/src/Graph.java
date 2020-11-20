@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Graph{
 	
 	// Adjazenzmatrix
@@ -11,6 +9,8 @@ public class Graph{
 	// Array, der die Indizes von tiles auf die des Dreiecks mappt (Standardwert = -1)
 	// Beispiel: Tile 4 liegt im Puzzle ganz oben: puzzle[3] = 0
 	public int[] puzzle;
+	
+	public int[][] placedTiles = new int[9][2];
 	
 	public Graph(Tile[] tiles){
 		matrix = new int[9][9];
@@ -55,11 +55,11 @@ public class Graph{
 		return false;
 	}
 
-	private boolean fillBorders(int tile) {
+	private boolean fillBorders(int indexMatrix) {
 			
 			// Die Tiles, die zum Einfuegen nicht mehr zur Verfuegung stehen, werden als true markiert
 		boolean[] visited = new boolean[9];
-		visited[getIndexTiles(tile)] = true;
+		visited[getIndexTiles(indexMatrix)] = true;
 		for (int j = 0; j < tiles.length; j++) {
 			if(puzzle[j] != -1) {
 				visited[j] = true;
@@ -67,10 +67,10 @@ public class Graph{
 		}
 		
 		// Für jede anliegende Kante des Tiles wird versucht einen Partner zu finden
-		ArrayList<Integer> placedTiles = new ArrayList<>();
+		
 		for(int j = 0; j < matrix.length; j++) {
 			
-			if(matrix[tile][j] == 0) {
+			if(matrix[indexMatrix][j] == 0) {
 				
 				boolean tileFound = false;
 				for(int k = 0; k < visited.length; k++) {
@@ -80,18 +80,14 @@ public class Graph{
 						// Das Tile wird probiert
 						if(fit(k, j, 0)) {
 							tileFound = true;
-							resetTile(j);
-							puzzle[k] = j;
-							updateTrueLink(tile, j);
-							placedTiles.add(j);
+							addPlacedTile(indexMatrix, j);
 							
-							if(fillBorders(puzzle[k])) {
+							if(fillBorders(j)) {
 								break;
 							}
 							else {
-								//deleteAllCreated(puzzle[k], tile);
-								resetTile(j);
-								updateFalseLink(tile, j);
+								puzzle[k] = -1;
+								updateFalseLink(indexMatrix, j);
 								tileFound = false;
 								continue;
 							}
@@ -99,22 +95,14 @@ public class Graph{
 					}
 				}
 				if(!tileFound) {
-					for(int x = placedTiles.size() - 1; x >= 0; x--) {
-						
-						int temp = getIndexTiles(placedTiles.get(x));
-						if(temp != -1) {
-							updateFalseLink(tile, placedTiles.get(x));
-							puzzle[temp] = -1;
-						}
-						placedTiles.remove(x);
-					}
+					
+					removePlaced(indexMatrix);
+					
 					return false;
 				}
 			}
 		}
 		return true;
-		
-		// Jede Kante wurde belegt
 	}
 	
 	private boolean fit(int indexTiles, int indexMatrix, int rotations) {
@@ -168,11 +156,13 @@ public class Graph{
 			}
 		}
 		if(fits) {
+			resetTile(indexMatrix);
 			for(int i = 0; i < matrix.length; i++) {
 				if(matrix[indexMatrix][i] != -1 && getIndexTiles(i) != -1) {
 					updateTrueLink(indexMatrix, i);
 				}
 			}
+			puzzle[indexTiles] = indexMatrix;
 			System.out.print(" true");
 			System.out.println();
 			return true;
@@ -186,11 +176,26 @@ public class Graph{
 		}
 	}
 	
+	private void removePlaced(int indexMatrix) {
+		for(int x = 0; x < placedTiles[0].length; x++) {
+			if(placedTiles[indexMatrix][x] != 0) {
+				int temp = getIndexTiles(placedTiles[indexMatrix][x]);
+				if(temp != -1) {
+					removePlaced(placedTiles[indexMatrix][x]);
+					updateFalseLink(indexMatrix, placedTiles[indexMatrix][x]);
+					puzzle[temp] = -1;
+				}
+			}
+		}
+		placedTiles[indexMatrix] = new int[2];
+	}
+	
 	private int getIndexTiles(int indexMatrix) {
 		int indexTiles = -1;
 		for(int i=0; i < puzzle.length; i++) {
 			if(puzzle[i] == indexMatrix) {
 				indexTiles = i;
+				break;
 			}
 		}
 		return indexTiles;
@@ -212,6 +217,15 @@ public class Graph{
 	private void updateFalseLink(int x, int y) {
 		matrix[x][y] = 0;
 		matrix[y][x] = 0;
+	}
+	
+	private void addPlacedTile(int indexMatrix, int value) {
+		for(int i = 0; i < placedTiles[0].length; i++) {
+			if(placedTiles[indexMatrix][i] == 0) {
+				placedTiles[indexMatrix][i] = value;
+				break;
+			}
+		}
 	}
 	
 	private void addLink(int x, int y) {
@@ -240,5 +254,7 @@ public class Graph{
 				tile.flip();
 			}
 		}
+		
+		placedTiles = new int[9][2];
 	}
 }

@@ -123,47 +123,64 @@ class MainNew{
             boolean finished = false;
             do {
             	if(step == 0) {
-            		for(int i = 0; i < wishMatrix[0].length; i++) {
-            			int amountFirst = 0;
-            			int amountSecond = 0;
-            			int amountThird = 0;
-            			for(int j = 0; j < wishMatrix.length; j++) {
-            				switch(wishMatrix[i][j]) {
-            				case 0:
-            					amountFirst++;
-            					break;
-            				case 1:
-            					amountSecond++;
-            					break;
-            				case 2:
-            					amountThird++;
-            					break;
-            				}
-            			}
+            		boolean stepFinished = false;
+            		while(!stepFinished) {
+            			stepFinished = true;
             			
-            			int wish = 0;
-            			if(amountFirst == 1) {
-            				wish = 0;
-            			}
-            			else if(amountFirst == 0) {
-            				if(amountSecond == 1) {
-            					wish = 1;
-            				}
-            				else if(amountSecond == 0) {
-            					if(amountThird == 1) {
-            						wish = 2;
-            					}
-            				}
-            			}
-            			else {
-            				continue;
-            			}
-            			
-            			
+                		for(int i = 0; i < wishMatrix[0].length; i++) {
+                			if(presents[i].studentId != -1) {
+	                			int amountFirst = 0;
+	                			int amountSecond = 0;
+	                			int amountThird = 0;
+	                			for(int j = 0; j < wishMatrix.length; j++) {
+	                				if(!students[j].hasGift) {
+		                				switch(wishMatrix[i][j]) {
+		                				case 0:
+		                					amountFirst++;
+		                					break;
+		                				case 1:
+		                					amountSecond++;
+		                					break;
+		                				case 2:
+		                					amountThird++;
+		                					break;
+		                				}
+	                				}
+	                			}
+	                			
+	                			int wish = 0;
+	                			if(amountFirst == 1) {
+	                				stepFinished = false;
+	                				wish = 0;
+	                			}
+	                			else if(amountFirst == 0) {
+	                				if(amountSecond == 1) {
+	                					stepFinished = false;
+	                					wish = 1;
+	                				}
+	                				else if(amountSecond == 0) {
+	                					if(amountThird == 1) {
+	                						stepFinished = false;
+	                						wish = 2;
+	                					}
+	                				}
+	                			}
+	                			else {
+	                				continue;
+	                			}
+	                			
+	                			for(int j = 0; j < wishMatrix.length; j++) {
+	                				if(wishMatrix[i][j] == wish) {
+	                					presents[i].changeStudent(students, wish, j);
+	                				}
+	                			}
+	                		}
+                		}
             		}
+            		step = 1;
             	}
             	else if(step == 1) {
-            		
+            		break;
             	}
             	
             	finished = true;
