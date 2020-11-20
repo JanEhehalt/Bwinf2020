@@ -11,7 +11,7 @@ import java.util.Scanner;
 class Main{
     public static void main(String[] args){
     	try {
-    		File nice = new File("src/spielstaerken1.txt");
+    		File nice = new File("src/spielstaerken4.txt");
     		Scanner sc = new Scanner(nice);
     		
     		ArrayList<Player> players = new ArrayList<>();
@@ -123,24 +123,26 @@ class Main{
 	static Player ko(ArrayList<Player> players) {
 		Node root;
 		root = new Node();
-		//Collections.shuffle(players);
+		Collections.shuffle(players);
 		root.create(players);
 		Player winner = root.getWinner();
 		for(Player p : players) {
 			p.wins = 0;
 		}
+		sortById(players);
 		return winner;
 	}
 	
 	static Player kox5(ArrayList<Player> players) {
 		Node root;
 		root = new Node();
-		//Collections.shuffle(players);
+		Collections.shuffle(players);
 		root.create(players);
 		Player winner = root.getx5Winner();
 		for(Player p : players) {
 			p.wins = 0;
 		}
+		sortById(players);
 		return winner;
 	}
 	
@@ -152,6 +154,16 @@ class Main{
 			}
 		}
 		return highest;
+	}
+	
+	static void sortById(ArrayList<Player> players) {
+		Player[] sortedPlayers = new Player[players.size()];
+		for(Player p : players) {
+			sortedPlayers[p.id] = p;
+		}
+		for(int i = 0; i < sortedPlayers.length; i++){
+			players.set(i, sortedPlayers[i]);
+		}
 	}
 
 	
