@@ -11,7 +11,7 @@ import java.util.Scanner;
 class Main{
     public static void main(String[] args){
     	try {
-    		File nice = new File("src/spielstaerken4.txt");
+    		File nice = new File("spielstaerken3.txt");
     		Scanner sc = new Scanner(nice);
     		
     		ArrayList<Player> players = new ArrayList<>();

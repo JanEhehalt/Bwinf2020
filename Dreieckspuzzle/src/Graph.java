@@ -35,7 +35,7 @@ public class Graph{
 			if(fillBorders(0)) {
 				return true;
 			}
-			
+			System.out.println("aöldskfj");
 			resetPuzzle();
 			puzzle[i] = 0;
 			tiles[i].rotate();
@@ -43,7 +43,7 @@ public class Graph{
 			if(fillBorders(0)) {
 				return true;
 			}
-			
+			System.out.println("!fsdgdf");
 			resetPuzzle();
 			puzzle[i] = 0;
 			tiles[i].rotate();
@@ -59,7 +59,6 @@ public class Graph{
 			
 			// Die Tiles, die zum Einfuegen nicht mehr zur Verfuegung stehen, werden als true markiert
 		boolean[] visited = new boolean[9];
-		visited[getIndexTiles(indexMatrix)] = true;
 		for (int j = 0; j < tiles.length; j++) {
 			if(puzzle[j] != -1) {
 				visited[j] = true;
@@ -81,6 +80,19 @@ public class Graph{
 						if(fit(k, j, 0)) {
 							tileFound = true;
 							addPlacedTile(indexMatrix, j);
+							
+							
+							System.out.println(getIndexTiles(0));
+							System.out.println(getIndexTiles(2));
+							System.out.println(getIndexTiles(1));
+							System.out.println(getIndexTiles(5));
+							System.out.println(getIndexTiles(4));
+							System.out.println(getIndexTiles(6));
+							System.out.println(getIndexTiles(7));
+							System.out.println(getIndexTiles(3));
+							System.out.println(getIndexTiles(8));
+							
+							System.out.println();
 							
 							if(fillBorders(j)) {
 								break;
@@ -108,13 +120,13 @@ public class Graph{
 	private boolean fit(int indexTiles, int indexMatrix, int rotations) {
 		if(indexMatrix == 2 || indexMatrix == 5 || indexMatrix == 7) {
 			if(!tiles[indexTiles].flipped) {
-				System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird geflippt");
+				//System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird geflippt");
 				tiles[indexTiles].flip();
 			}
 		}
 		else {
 			if(tiles[indexTiles].flipped) {
-				System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird zurück geflippt");
+				//System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird zurück geflippt");
 				tiles[indexTiles].flip();
 			}
 		}
@@ -123,7 +135,7 @@ public class Graph{
 			return false;
 		}
 		
-		System.out.print("Probiere: " + indexTiles + " an der Stelle " + indexMatrix + ": " + tiles[indexTiles].values[0] + " " + tiles[indexTiles].values[1] + " " + tiles[indexTiles].values[2]);
+		//System.out.print("Probiere: " + indexTiles + " an der Stelle " + indexMatrix + ": " + tiles[indexTiles].values[0] + " " + tiles[indexTiles].values[1] + " " + tiles[indexTiles].values[2]);
 		
 		// 0: left, 1: middle, 2: right
 		
@@ -158,20 +170,20 @@ public class Graph{
 		if(fits) {
 			resetTile(indexMatrix);
 			for(int i = 0; i < matrix.length; i++) {
-				if(matrix[indexMatrix][i] != -1 && getIndexTiles(i) != -1) {
+				if(matrix[indexMatrix][i] == 0 && getIndexTiles(i) != -1) {
 					updateTrueLink(indexMatrix, i);
 				}
 			}
 			puzzle[indexTiles] = indexMatrix;
-			System.out.print(" true");
-			System.out.println();
+			//System.out.print(" true");
+			//System.out.println();
 			return true;
 		}
 		else {
-			System.out.print(" false");
-			System.out.println();
+			//System.out.print(" false");
+			//System.out.println();
 			tiles[indexTiles].rotate();
-			System.out.println("Rotation");
+			//System.out.println("Rotation");
 			return fit(indexTiles, indexMatrix, rotations + 1);
 		}
 	}
