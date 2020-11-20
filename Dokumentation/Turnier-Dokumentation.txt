@@ -45,3 +45,53 @@ players.size() % 2 == 0 // macht keinen Sinn, da Annahme, dass Spieler
 entweder 8 oder 16 oder 32 ...
 in getWinner if statement macht eig keinen Sinn lol
 hallo ich hab grad reli, schau ma rein wenn du pullst
+
+Im Folgenden Teil werden noch die Ergebnisse der einzelnen Dateien dokumentiert. Es wird ermittelt, wie häufig der stärkste Spieler durchschnittlich gewinnt und auf dieser Basis ein Turnierformat empfohlen. Dazu werden alle drei Turnierformate 1 000 000 mal durchgeführt und es wird mitgezählt, wie viele Spiele der beste Spieler gewonnen hat.
+
+Spielstaerken1:
+
+Diese Datei beinhaltet 8 Spieler, deren Spielstärke gleichmäßig verteilt zwischen 0 und 100 liegt. Der Stärkste Spieler hat eine Stärke von 100.
+Wenn wir die Turnierformen 1 000 000 mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
+
+Liga:	34,5 %
+Ko:	40,4 %
+Kox5:	47,4 %
+
+Daraus lässt sich schließen, dass die Turnierform Kox5 hier die mit kleinem Abstand besten Ergebnisse liefert.
+
+
+Spielstaerken2:
+
+Diese Datei beinhaltet wieder 8 Spieler. Die hälfte der Spieler hat eine relativ niedrige Stärke, während die andere hälfte relativ Spielstark ist. Der stärkste Spieler hat wieder eine Stärke von 100.
+Wenn wir die Turnierformen 1 000 000 mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
+
+Liga:	20,9 %
+Ko:	30,2 %
+Kox5:	32,7 %
+
+Daraus lässt sich schließen, dass die Turnierform Kox5 hier wieder mit kleinem Abstand vor Ko die besten Werte liefert.
+
+
+Spielstaerken3:
+
+Diese Datei beinhaltet 16 Spieler. Die Spielstärken sind relativ gleichmäßig verteilt und der stärkste Spieler hat eine Stärke von 93.
+Wenn wir die Turnierformen 1 000 000 mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
+
+Liga:	31,6 %
+Ko:	16,6 %
+Kox5:	19,2 %
+
+Hier liefert die Turnierform Liga die mit Abstand besten Werte.
+
+
+
+Spielstaerken4:
+
+Diese Datei beinhaltet 16 Spieler. Alle, bis auf ein Spieler, haben hier die Spielstärke 95. Dieser eine Spieler hat die Stärke 100, und ist somit der Stärkste der Spieler.
+Wenn wir die Turnierformen 1 000 000 mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
+
+Liga:	11,5 %
+Ko:	 0,7 %
+Kox5:	 0,7 %
+
+Turnierform Ko und Kox5 liefern hier sehr ähnliche Werte. Die Werte von Kox5 sind minimal besser. Liga liefert hier wieder die mit Abstand besten Werte.
