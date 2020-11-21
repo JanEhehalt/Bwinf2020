@@ -7,9 +7,8 @@
 \usepackage{fontspec}
 \usepackage[ngerman]{babel}
 \usepackage{setspace}
-\usepackage{fancyhdr}
+%\usepackage{fancyhdr}
 \usepackage{titling}
-\usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage[stable]{footmisc}
@@ -17,7 +16,13 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{ucs} % Einige Unicode Zeichen
+\usepackage[headsepline,footsepline]{scrlayer-scrpage}
+\usepackage{titlesec}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm}
+
 \usepackage{siunitx}
+\sisetup{locale = DE}
 
 % Fonts Fonts und noch mehr fonts
 %\usepackage{kpfonts}
@@ -40,28 +45,17 @@
 \usetikzlibrary{graphs}
 \usetikzlibrary{arrows.meta}
 
-\pagestyle{fancy}
+\pagestyle{scrheadings}
+\clearpairofpagestyles
 
-\fancyhf{}
-\fancyhead[L]{}
-\fancyhead[C]{\emph{\nouppercase\rightmark}}
-\fancyhead[R]{}
-\fancyfoot[C]{\thepage}
-
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
+\automark{section}
+\ihead{Team-ID: $00441$}
+\ohead{\headmark}
+\cfoot[\pagemark]{\pagemark}
 
 \renewcommand{\familydefault}{\rmdefault}
 
 \addtokomafont{labelinglabel}{\sffamily}
-
-%\renewcommand{\maketitle}{
-%  \begin{center}
-%    {\huge \bfseries \thetitle}\\
-%    \vspace{.25em}
-%    {\Large \theauthor}
-%  \end{center}
-%}
 
 \titleformat{\section}
 {\Large \bfseries}
@@ -106,15 +100,23 @@ tabsize=3
 }
 
 \title{Dokumentation zu den Aufgaben des 39. Bundeswettbewerbs Informatik, 1. Runde}
-\author{von Jan Ehehalt, Jonathan Hager}
+\author{Jan Ehehalt, Jonathan Hager}
 \date{}
 
 \begin{document}
-\maketitle
 \thispagestyle{empty}
+\begin{center}
+	\setlength{\parskip}{2ex}
+\rule{\textwidth}{.4pt}\par
+{\huge\bfseries \thetitle \par}
+\rule{\textwidth}{.4pt}\par
+\bigbreak
+{\Large \theauthor \par}
+\end{center}
 \newpage
-\tableofcontents
+
 \thispagestyle{empty}
+\tableofcontents
 \newpage
 
 \section{Allgemeine Informationen}
@@ -1185,7 +1187,7 @@ Wenn wir die Turnierformen $1000000$ mal simulieren, so ergeben sich für die Si
 \begin{tabular}{@{}cc@{}}
 \toprule
 Turnierform & Siegesrate                \\ \midrule
-Liga        & \SI{34.5}{\percent}       \\
+    Liga        & \SI{34.5}{\percent}       \\
     Ko          & \SI{40.4}{\percent}       \\
     Kox5        & \SI{47.4}{\percent}       \\ \bottomrule
 \end{tabular}
@@ -1314,10 +1316,12 @@ boolean changeStudent(Student[] students, int wish, int studentId) {
 \end{figure}
 
 Zuerst wird verglichen, ob der Grad des gespeicherten Wunsches größer ist, als der des neuen Schülers. Ein kleinerer Grad ist immer einem größeren vorzuziehen. Ist der Grad des neuen Wunsches also nicht echt kleiner als der bisherige, gibt die Methode direkt \emph{false} zurück, da der neue Schüler abgelehnt wird. Andernfalls soll der neue Schüler jedoch den alten ersetzen. Hierfür wird dem alten Schüler erst mitgeteilt, dass er kein Geschenk mehr hat. Davor muss geprüft werden, ob es überhaupt einen alten Schüler gibt. Gibt es keinen, hat \emph{studentId} den Standardwert -1, weshalb dieser Fall abgefangen werden muss. Anschließend werden die Werte des neuen Schülers übernommen, ihm wird mitgeteilt, dass er nun ein Geschenk hat und die Methode gibt \emph{true} zurück. Der Algorithmus selbst ist in zwei Phasen unterteilt:
+
 \begin{enumerate}
     \item Jeder Schüler versucht seinen Erstwunsch zu bekommen.
     \item Jeder Schüler fragt pro Durchlauf ein Geschenk, dass er noch nicht versucht hat, an. Hierbei werden nacheinander die Wünsche favorisiert. Sind bereits alle probiert wurden, werden einfach alle restlichen Geschenke versucht.
 \end{enumerate}
+
 Phase 1 findet nur beim ersten Durchlauf durch alle Schüler statt. Danach wird in Phase 2 übergegangen und solang über alle Schüler iteriert, bis jeder ein Geschenk bekommen hat. Endet die Schleife, wurde die bestmögliche Verteilung erreicht. Der gesamte Quellcode des Algorithmus ist in Abbildung \ref{AlgWichteln} zu finden.
 
 \begin{figure}[h]
