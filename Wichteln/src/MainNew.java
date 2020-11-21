@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-class Student{
+class Studentnotsoold{
 	boolean hasGift;
 	int index;
 	int presentId;
 	int[] wishes = new int[3];
 	boolean[] asked;
 	
-	public Student(int[] wishes, int presentAmount, int index){
+	public Studentnotsoold(int[] wishes, int presentAmount, int index){
 		this.presentId = -1;
 		this.wishes = wishes;
 		this.hasGift = false;
@@ -19,7 +19,7 @@ class Student{
 		this.index = index;
 	}
 	
-	void requestPresent(Present[] presents, Student[] students, int presentId, int wish) {
+	/*void requestPresent(Present[] presents, Student[] students, int presentId, int wish) {
 		if(presents[presentId].changeStudent(students, wish, index)) {
 			hasGift = true;
 			if(this.presentId >= 0) {
@@ -28,19 +28,19 @@ class Student{
 			this.presentId = presentId;
 		}
 		asked[presentId] = true;
-	}
+	}*/
 }
 
-class Present{
+class Presentnotsoold{
 	int studentId;
 	int wish;
 	
-	public Present() {
+	public Presentnotsoold() {
 		studentId = -1;
 		wish = 4;
 	}
 	
-	boolean changeStudent(Student[] students, int wish, int studentId) {
+	boolean changeStudent(Studentnotsoold[] students, int wish, int studentId) {
 		if(this.wish > wish){
 			if(this.studentId >= 0) {
 				students[this.studentId].hasGift = false;
@@ -83,7 +83,7 @@ class MainNew{
             }
             sc.close();
             
-            Student[] students = new Student[ints.size() / 3];
+            Studentnotsoold[] students = new Studentnotsoold[ints.size() / 3];
             for(int i=0; i < ints.size(); i+=3) {
         		int[] wishes = new int[3];
         		int tempIndex = i/3;
@@ -94,20 +94,20 @@ class MainNew{
         		wishes[1] = ints.get(i + 1);
         		wishes[2] = ints.get(i + 2);
 
-        		students[tempIndex] = new Student(wishes, ints.size() / 3, tempIndex);
+        		students[tempIndex] = new Studentnotsoold(wishes, ints.size() / 3, tempIndex);
             }
-            for(Student s : students) {
+            for(Studentnotsoold s : students) {
             	//System.out.println(s.wishes[0] + "|" + s.wishes[1] + "|" + s.wishes[2]);
             }
             
-            Present[] presents = new Present[students.length];
+            Presentnotsoold[] presents = new Presentnotsoold[students.length];
             for(int i=0; i<presents.length; i++) {
-            	presents[i] = new Present();
+            	presents[i] = new Presentnotsoold();
             }
             
             int[][] wishMatrix = new int[students.length][presents.length];
             for(int i = 0; i < students.length; i++) {
-            	Student temp = students[i];
+            	Studentnotsoold temp = students[i];
             	wishMatrix[i][temp.wishes[0]] = 0;
             	wishMatrix[i][temp.wishes[1]] = 1;
             	wishMatrix[i][temp.wishes[2]] = 2;
@@ -184,7 +184,7 @@ class MainNew{
             	}
             	
             	finished = true;
-            	for(Student s : students) {
+            	for(Studentnotsoold s : students) {
             		if(!s.hasGift) {
             			finished = false;
             		}
@@ -228,7 +228,7 @@ class MainNew{
             }
             
             int score = 0;
-            for(Student student : students) {
+            for(Studentnotsoold student : students) {
             	if(student.presentId == student.wishes[0])
             		score += 3;
             	else if(student.presentId == student.wishes[1])
