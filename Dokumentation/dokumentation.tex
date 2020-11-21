@@ -16,6 +16,10 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{ucs} % Einige Unicode Zeichen
+\usepackage{siunitx}
+
+%\usepackage{kpfonts}
+%\usepackage{fourier}
 
 \usepackage{float}
 
@@ -1054,6 +1058,7 @@ Diese lässt die beiden Spieler fünf mal gegeneinander antreten und es wird ges
 gewonnen hat, wird dann als Sieger zurückgegeben.
 
 \subsection{Beispiele}
+\subsection{Selbsterstelltes Beispiel}
 Im folgenden Teil wird ein Beispiel durchgespielt, in dem 4 Spieler ein Ko-Turnier veranstalten. Folgende Spieler treten an:
 
 \begin{table}[H]
@@ -1165,6 +1170,80 @@ den Sieger eines Matches zwischen den Spielern ihrer linken und rechten Knoten b
     \caption{Schritt 2: S4 gewinnt gegen S1 und somit das Turnier}
 \end{figure}
 
+
+Im folgenden Teil werden noch die Ergebnisse der einzelnen Dateien dokumentiert. Es wird ermittelt, wie häufig der stärkste Spieler durchschnittlich gewinnt und auf dieser Basis ein Turnierformat empfohlen. Dazu werden alle drei Turnierformate $1000000$ mal durchgeführt und es wird mitgezählt, wie viele Spiele der beste Spieler gewonnen hat, um daraus einen Durchschnittswert zu berechnen.
+
+\subsection{spielstaerken1}
+
+Diese Datei beinhaltet $8$ Spieler, deren Spielstärke gleichmäßig verteilt zwischen $0$ und $100$ liegt. Der stärkste Spieler hat eine Stärke von $100$.
+Wenn wir die Turnierformen $1000000$ mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
+
+\begin{table}[H]
+    \centering
+\begin{tabular}{@{}cc@{}}
+\toprule
+Turnierform & Siegesrate                \\ \midrule
+Liga        & \SI{34.5}{\percent}       \\
+    Ko          & \SI{40.4}{\percent}       \\
+    Kox5        & \SI{47.4}{\percent}       \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Daraus lässt sich schließen, dass die Turnierform Kox5 hier die, mit kleinem Abstand, besten Ergebnisse liefert.
+
+\subsection{spielstaerken2}
+
+Diese Datei beinhaltet wieder $8$ Spieler. Die Hälfte der Spieler hat eine relativ niedrige Stärke, während die andere Hälfte relativ Spielstark ist. Der stärkste Spieler hat wieder eine Stärke von $100$.
+Wenn wir die Turnierformen $1000000$ mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
+
+\begin{table}[H]
+    \centering
+\begin{tabular}{@{}cc@{}}
+\toprule
+Turnierform & Siegesrate                \\ \midrule
+Liga        & \SI{20.9}{\percent}       \\
+    Ko          & \SI{30.2}{\percent}       \\
+    Kox5        & \SI{32.7}{\percent}       \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Daraus lässt sich schließen, dass die Turnierform Kox5 hier wieder mit kleinem Abstand die besten Werte liefert.
+
+\subsection{spielstaerken3}
+
+Diese Datei beinhaltet $16$ Spieler. Die Spielstärken sind relativ gleichmäßig verteilt und der stärkste Spieler hat eine Stärke von $93$.
+Wenn wir die Turnierformen $1000000$ mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
+
+\begin{table}[H]
+    \centering
+\begin{tabular}{@{}cc@{}}
+\toprule
+Turnierform & Siegesrate                \\ \midrule
+Liga        & \SI{31.6}{\percent}       \\
+    Ko          & \SI{16.6}{\percent}       \\
+    Kox5        & \SI{19.2}{\percent}       \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Hier liefert die Turnierform Liga die mit Abstand besten Werte.
+
+\subsection{spielstaerken4}
+
+Diese Datei beinhaltet $16$ Spieler. Alle, bis auf ein Spieler, haben hier die Spielstärke $95$. Dieser eine Spieler hat die Stärke $100$, und ist somit der Stärkste der Spieler.
+Wenn wir die Turnierformen $1000000$ mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
+
+\begin{table}[H]
+    \centering
+\begin{tabular}{@{}cc@{}}
+\toprule
+Turnierform & Siegesrate                \\ \midrule
+Liga        & \SI{11.5}{\percent}       \\
+    Ko          & \SI{0.7}{\percent}       \\
+    Kox5        & \SI{0.7}{\percent}       \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Turnierform Ko und Kox5 liefern hier sehr ähnliche Werte. Die Werte von Kox5 sind minimal besser. Liga liefert hier wieder die mit Abstand besten Werte.
 
 \section{Streichholzrätsel}
 \section{Wichteln}
