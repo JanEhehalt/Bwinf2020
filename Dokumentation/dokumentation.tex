@@ -179,6 +179,116 @@ Informatik ist die Wissenschaft von der systematischen Darstellung, Speicherung,
 Der fertige Satz lautet:\\
 Opa Jürgen blättert in einer Zeitschrift aus der Apotheke und findet ein Rätsel. Es ist eine Liste von Wörtern gegeben, die in die richtige Reihenfolge gebracht werden sollen, so dass sie eine lustige Geschichte ergeben. Leerzeichen und Satzzeichen sowie einige Buchstaben sind schon vorgegeben.
 
+\subsection{Quellcode}
+
+\begin{lstlisting}[H]
+
+// Here the sentence is filled
+    boolean finished = true;
+	        
+    boolean[] filled = new boolean[sentence.size()];
+    for(int i = 0; i < filled.length; i++){
+        if(isPunctuation(sentence.get(i))) filled[i] = true;
+        else filled[i] = false;
+    }
+    
+    do {
+        finished = true;
+        
+        for(int i = 0; i < sentence.size(); i++) {
+            if(!filled[i]) {
+                
+                int posWords = 0;
+                ArrayList<Integer> positions = new ArrayList<>();
+                for(int j = 0; j < words.size(); j++) {
+                    if(fits(words.get(j), sentence.get(i))) {
+                        boolean availableTwice = false;
+                        for(Integer o : positions) {
+                            if(words.get(o).equals(words.get(j))) {
+                                availableTwice = true;
+                                break;
+                            }
+                        }
+                        if(!availableTwice) {
+                            posWords++;
+                            positions.add(j);
+                        }
+                    }
+                }
+                
+                if(posWords == 1) {
+                    for(int j = 0; j < words.size(); j++) {
+                        if(fits(words.get(j), sentence.get(i))) {
+                            sentence.set(i, words.get(j));
+                            words.remove(j);
+                            filled[i] = true;
+                            posWords--;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        for(int i = 0; i < sentence.size(); i++) {
+            int posWords = 0;
+            if(!filled[i]) {
+                for(int j = 0; j < words.size(); j++) {
+                    if(fits(words.get(j), sentence.get(i))) {
+                        finished = false;
+                        break;
+                    }
+                }
+            }
+        }
+        
+    }while(!finished);
+    
+    for(int i = 0; i < sentence.size(); i++) {
+        if(!filled[i]) {
+            for(int j = 0; j < words.size(); j++) {
+                if(sentence.get(i).length() == words.get(j).length()) {
+                    sentence.set(i, words.get(j));
+                    words.remove(j);
+                    j--;
+                    filled[i] = true;
+                }
+            }
+        }
+    }
+
+//important functions
+
+    public static boolean fits(String word, String gap) {
+    	if(!isPunctuation(gap)) {
+	    	char given = ' ';
+	    	int givenPos = -1;
+	    	
+	    	for(int i = 0; i < gap.length(); i++) {
+	    		if(gap.charAt(i) != '_') {
+	    			given = gap.charAt(i);
+	    			givenPos = i;
+	    			break;
+	    		}
+	    	}
+	    	if(givenPos == -1) return false;
+	    	if( gap.length() == word.length() && gap.charAt(givenPos) == word.charAt(givenPos) ) {
+	    		return true;
+	    	}
+	    	else return false;
+	    	
+        }
+    	return false;
+    }
+
+    public static boolean isPunctuation(String string) {
+    	if(string.contains("!") || string.contains(",") || string.contains("?") || string.contains(".")) return true;
+    	else return false;
+    }
+    
+\end{lstlisting}
+
 \section{Dreieckspuzzle}
 \subsection{Lösungsidee}
 
@@ -1062,7 +1172,7 @@ Diese lässt die beiden Spieler fünf mal gegeneinander antreten und es wird ges
 gewonnen hat, wird dann als Sieger zurückgegeben.
 
 \subsection{Beispiele}
-\subsection{Selbsterstelltes Beispiel}
+\subsubsection{Selbsterstelltes Beispiel}
 Im folgenden Teil wird ein Beispiel durchgespielt, in dem 4 Spieler ein Ko-Turnier veranstalten. Folgende Spieler treten an:
 
 \begin{table}[H]
@@ -1177,7 +1287,7 @@ den Sieger eines Matches zwischen den Spielern ihrer linken und rechten Knoten b
 
 Im folgenden Teil werden noch die Ergebnisse der einzelnen Dateien dokumentiert. Es wird ermittelt, wie häufig der stärkste Spieler durchschnittlich gewinnt und auf dieser Basis ein Turnierformat empfohlen. Dazu werden alle drei Turnierformate $1000000$ mal durchgeführt und es wird mitgezählt, wie viele Spiele der beste Spieler gewonnen hat, um daraus einen Durchschnittswert zu berechnen.
 
-\subsection{spielstaerken1}
+\subsubsection{spielstaerken1}
 
 Diese Datei beinhaltet $8$ Spieler, deren Spielstärke gleichmäßig verteilt zwischen $0$ und $100$ liegt. Der stärkste Spieler hat eine Stärke von $100$.
 Wenn wir die Turnierformen $1000000$ mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
@@ -1195,7 +1305,7 @@ Turnierform & Siegesrate                \\ \midrule
 
 Daraus lässt sich schließen, dass die Turnierform Kox5 hier die, mit kleinem Abstand, besten Ergebnisse liefert.
 
-\subsection{spielstaerken2}
+\subsubsection{spielstaerken2}
 
 Diese Datei beinhaltet wieder $8$ Spieler. Die Hälfte der Spieler hat eine relativ niedrige Stärke, während die andere Hälfte relativ Spielstark ist. Der stärkste Spieler hat wieder eine Stärke von $100$.
 Wenn wir die Turnierformen $1000000$ mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
@@ -1213,7 +1323,7 @@ Liga        & \SI{20.9}{\percent}       \\
 
 Daraus lässt sich schließen, dass die Turnierform Kox5 hier wieder mit kleinem Abstand die besten Werte liefert.
 
-\subsection{spielstaerken3}
+\subsubsection{spielstaerken3}
 
 Diese Datei beinhaltet $16$ Spieler. Die Spielstärken sind relativ gleichmäßig verteilt und der stärkste Spieler hat eine Stärke von $93$.
 Wenn wir die Turnierformen $1000000$ mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
@@ -1231,10 +1341,12 @@ Liga        & \SI{31.6}{\percent}       \\
 
 Hier liefert die Turnierform Liga die mit Abstand besten Werte.
 
-\subsection{spielstaerken4}
+\subsubsection{spielstaerken4}
 
 Diese Datei beinhaltet $16$ Spieler. Alle, bis auf ein Spieler, haben hier die Spielstärke $95$. Dieser eine Spieler hat die Stärke $100$, und ist somit der Stärkste der Spieler.
 Wenn wir die Turnierformen $1000000$ mal simulieren, so ergeben sich für die Siegeswahrscheinlichkeiten des stärksten Spielers folgende Werte:
+
+\
 
 \begin{table}[H]
     \centering
@@ -1248,6 +1360,178 @@ Liga        & \SI{11.5}{\percent}       \\
 \end{table}
 
 Turnierform Ko und Kox5 liefern hier sehr ähnliche Werte. Die Werte von Kox5 sind minimal besser. Liga liefert hier wieder die mit Abstand besten Werte.
+
+\subsection{Quellcode}
+
+\begin{lstlisting}[H]
+
+//Liga
+    static Player league(ArrayList<Player> players) {
+		
+		boolean[][] played = new boolean[players.size()][players.size()];
+		for(int i = 0; i < played.length; i++) {
+	    	for(int j = 0; j < played.length; j++) {
+	    		played[i][j] = false;
+	    		played[j][i] = false;
+	    		played[i][i] = true;
+			}
+		}
+		
+		boolean finished = true;
+		do {
+			finished = true;
+			for(Player p1 : players) {
+				for(Player p2 : players) {
+					if(!played[p1.id][p2.id] && p1.id != p2.id) {
+						played[p1.id][p2.id] = true;
+						played[p2.id][p1.id] = true;
+						players.get(match(p1,p2).id).wins++;
+					}
+				}
+			}
+	
+			for(Player p1 : players) {
+				for(Player p2 : players) {
+					if(!played[p1.id][p2.id])
+						finished = false;
+				}
+			}
+			
+			
+			
+		}while(!finished);
+	
+		int leading = 0;
+		for(Player p : players) {
+			if(p.wins > players.get(leading).wins) leading = p.id;
+		}
+		for(Player p : players) {
+			p.wins = 0;
+		}
+		return players.get(leading);
+    }
+
+//Ko
+    static Player ko(ArrayList<Player> players) {
+		Node root;
+		root = new Node();
+		Collections.shuffle(players);
+		root.create(players);
+		Player winner = root.getWinner();
+		for(Player p : players) {
+			p.wins = 0;
+		}
+		sortById(players);
+		return winner;
+    }
+
+//Kox5
+    static Player kox5(ArrayList<Player> players) {
+        Node root;
+        root = new Node();
+        Collections.shuffle(players);
+        root.create(players);
+        Player winner = root.getx5Winner();
+        for(Player p : players) {
+            p.wins = 0;
+        }
+        sortById(players);
+        return winner;
+    }
+
+//Node für Binärbaum
+    //Erstellen des Baumes
+        public void create(ArrayList<Player> players) {
+            if(players.size() == 2) {
+                left = new Node(players.get(0));
+                right = new Node(players.get(1));
+            }
+            else {
+                left = new Node();
+                right = new Node();
+                int split = players.size() / 2;
+                ArrayList<Player> forLeft = new ArrayList<>();
+                ArrayList<Player> forRight = new ArrayList<>();
+                for(int i = 0; i < split; i++) {
+                    forLeft.add(players.get(i));
+                    forRight.add(players.get(i+split));
+                }
+                left.create(forLeft);
+                right.create(forRight);
+            }
+        }
+
+    //Gewinner ermitteln
+        Player getWinner() {
+            if(this.player != null) return this.player;
+            else return match(left.getWinner(), right.getWinner());
+        }
+        Player getx5Winner() {
+            if(this.player != null) return this.player;
+            else return matchx5(left.getWinner(), right.getWinner());
+        }
+
+//match Methoden
+    public static Player match(Player p1, Player p2) {
+        int i = p1.strength + p2.strength;
+        int RNG = (int)(Math.random() * i);
+        
+        if(RNG < p1.strength) return p1;
+        else return p2;
+    }
+
+    public static Player matchx5(Player p1, Player p2) {
+        for(int j = 0; j < 5; j++) {
+            int i = p1.strength + p2.strength;
+            int RNG = (int)(Math.random() * i);
+            
+            if(RNG < p1.strength) p1.wins++;
+            else p2.wins++;
+        }
+        if(p1.wins > p2.wins) return p1;
+        else return p2;
+        
+    }
+
+//Auswertung der verschiedenen Turnierformen
+    int best = getBest(players);
+    int bestWinsLeague = 0;
+    int bestWinsKo = 0;
+    int bestWinsKox5 = 0;
+    
+    int iterations = 1000000;
+    
+    for(int j = 0; j<iterations; j++) {
+        Player winnerLeague = league(players);
+        Player winnerKo = ko(players);
+        Player winnerKox5 = kox5(players);
+        for(Player p : players) {
+            if(p.id == best && p == winnerLeague) {
+                bestWinsLeague++;
+            }
+            if(p.id == best && p == winnerKo) {
+                bestWinsKo++;
+            }
+            if(p.id == best && p == winnerKox5) {
+                bestWinsKox5++;
+            }
+        }
+    }
+    float winrateLeague = (float)bestWinsLeague/(float)iterations;
+    float winrateKo = (float)bestWinsKo/(float)iterations;
+    float winrateKox5 = (float)bestWinsKox5/(float)iterations;
+
+    if(winrateLeague > winrateKo && winrateLeague > winrateKox5){
+        System.out.println("Für diese Spielerkonstellation kann man die Turnierform Liga empfehlen. Der beste Spieler hat " + winrateLeague*100+"% der "+iterations+" Durchgänge gewonnen.");
+    }
+    else if(winrateKo > winrateKox5){
+        System.out.println("Für diese Spielerkonstellation kann man die Turnierform Ko empfehlen. Der beste Spieler hat " + winrateKo*100+"% der "+iterations+" Durchgänge gewonnen.");
+    }
+    else{
+        System.out.println("Für diese Spielerkonstellation kann man die Turnierform Kox5 empfehlen. Der beste Spieler hat " + bestWinsKox5*100+"% der "+iterations+" Durchgänge gewonnen.");
+    }
+
+\end{lstlisting}
 
 \section{Streichholzrätsel}
 \section{Wichteln}
