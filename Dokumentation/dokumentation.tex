@@ -1534,6 +1534,14 @@ Turnierform Ko und Kox5 liefern hier sehr ähnliche Werte. Die Werte von Kox5 si
 \end{lstlisting}
 
 \section{Streichholzrätsel}
+\subsection{Lösungsidee}
+
+Man hat 2 Streichholzstrukturen. Dann wird in beiden geschaut, welche Streichhölzer deckungsgleich sind, wenn man sie übereinander legt. Diese können beim umlegen dann liegen bleiben, während man die anderen Streichhölzer an die richtige Position legt.
+
+\subsection{Umsetzung}
+
+Um die Lösungsidee umzusetzen werden die beiden Streichholzstrukturen in Form von gerichteten Graphen gespeichert. Wenn zwei Streichhölzer aneinander liegen, so gibt es an der Berührstelle einen Knoten. Dieser ist mit den anliegenden Knoten immer gegenseitig verbunden. Die Kanten speichern dann den Winkel in dem die beiden Knoten zueinander liegen. Um zu ermitteln welche der Streichhölzer deckungsgleich sind wird die Isomorphie der beiden Graphen ermittelt. Der Isomorphe Teil der Graphen wird dann in einem eigenen Graphen ermitteln
+
 \section{Wichteln}
 \subsection{Lösungsidee}
 
