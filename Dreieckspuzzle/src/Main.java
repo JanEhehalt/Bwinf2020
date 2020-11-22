@@ -8,8 +8,8 @@ class Main{
     public static void main(String[] args){
     	Tile[] tiles = new Tile[9];
     	try {
-	    	//File data = new File("src/puzzle1.txt");
-	        File data = new File(args[0]);
+	    	File data = new File("src/puzzle1.txt");
+	        //File data = new File(args[0]);
 	        Scanner sc = new  Scanner(data);
 	           
 	        sc.nextLine();

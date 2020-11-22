@@ -74,7 +74,7 @@ public class Graph{
 				link++;
 				
 				boolean tileFound = false;
-				for(int k = 0; k < visited.length; k++) {
+				for(int k = 0; k < visited[0].length; k++) {
 					if(!visited[link][k]) {
 						visited[link][k] = true;
 						
