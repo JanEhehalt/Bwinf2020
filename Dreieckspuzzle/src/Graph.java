@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Graph{
 	
 	// Adjazenzmatrix
@@ -55,76 +57,86 @@ public class Graph{
 		return false;
 	}
 	
-	private boolean fillBorders(int indexMatrix) {
-		boolean[][] visited = new boolean[2][9];
-		int link = -1;
-		for(int j = 0; j < 2; j++) {
-			for (int i = 0; i < tiles.length; i++) {
-				if(puzzle[i] != -1) {
-					visited[j][i] = true;
-				}
-				else {
-					visited[j][i] = false;
-				}
+	private boolean fillLink(int indexMatrix, ArrayList<Integer> links, int index) {
+		if(index >= links.size()) {
+			return true;
+		}
+		
+		if(getIndexTiles(links.get(index)) != -1) {
+			return fillLink(indexMatrix, links, index+1);
+		}
+		
+		boolean[] visited = new boolean[9];
+		for (int i = 0; i < tiles.length; i++) {
+			if(puzzle[i] != -1) {
+				visited[i] = true;
 			}
 		}
-		for(int j = 0; j < matrix.length; j++) {
 			
-			if(matrix[indexMatrix][j] == 0) {
-				link++;
+		boolean tileFound = false;
+		for(int k = 0; k < visited.length; k++) {
+			if(!visited[k]) {
+				visited[k] = true;
 				
-				boolean tileFound = false;
-				for(int k = 0; k < visited[0].length; k++) {
-					if(!visited[link][k]) {
-						visited[link][k] = true;
+				for(int i = 0; i < 3; i++) {
+					if(fit(k, links.get(index))) {
+						tileFound = true;
+						addPlacedTile(indexMatrix, links.get(index));
 						
-						for(int i = 0; i < 3; i++) {
-							if(fit(k, j)) {
-								tileFound = true;
-								addPlacedTile(indexMatrix, j);
-								
-								
-								System.out.print(getIndexTiles(0) + " ");
-								System.out.print(getIndexTiles(2) + " ");
-								System.out.print(getIndexTiles(1) + " ");
-								System.out.print(getIndexTiles(5) + " ");
-								System.out.print(getIndexTiles(4) + " ");
-								System.out.print(getIndexTiles(6) + " ");
-								System.out.print(getIndexTiles(7) + " ");
-								System.out.print(getIndexTiles(3) + " ");
-								System.out.print(getIndexTiles(8) + " ");
-								
-								System.out.println();
-								
-								if(fillBorders(j)) {
-									k = visited.length;
-									break;
-								}
-								else {
-									removePlaced(indexMatrix, j);
-									tileFound = false;
-								}
+						
+						System.out.print(getIndexTiles(0) + " ");
+						System.out.print(getIndexTiles(2) + " ");
+						System.out.print(getIndexTiles(1) + " ");
+						System.out.print(getIndexTiles(5) + " ");
+						System.out.print(getIndexTiles(4) + " ");
+						System.out.print(getIndexTiles(6) + " ");
+						System.out.print(getIndexTiles(7) + " ");
+						System.out.print(getIndexTiles(3) + " ");
+						System.out.print(getIndexTiles(8) + " ");
+						
+						System.out.println();
+						
+						if(fillBorders(links.get(index))) {
+							
+							if(fillLink(indexMatrix, links, index+1)) {
+								return true;
 							}
-							tiles[k].rotate();
+							else {
+								removePlaced(indexMatrix, links.get(index));
+							}
+						}
+						else {
+							removePlaced(indexMatrix, links.get(index));
+							tileFound = false;
 						}
 					}
-				}
-				if(!tileFound) {
-					if(link == 0) {
-						removeAllPlaced(indexMatrix);
-						return false;
-					}
-					else {
-						link = -1;
-						j = 0;
-						visited[1] = new boolean[9];
-						removeAllPlaced(indexMatrix);
-					}
-					
+					tiles[k].rotate();
 				}
 			}
 		}
-		return true;
+		if(!tileFound) {
+			removePlaced(indexMatrix, links.get(index));
+			return false;
+		}
+		return false;
+	}
+	
+	private boolean fillBorders(int indexMatrix) {
+		ArrayList<Integer> links = new ArrayList<>();
+		for(int j = 0; j < matrix.length; j++) {
+			if(matrix[indexMatrix][j] == 0) {
+				links.add(j);
+			}
+		}
+		System.out.println(links.toString());
+		
+		if(fillLink(indexMatrix, links, 0)) {
+			return true;
+		}
+		else {
+			removeAllPlaced(indexMatrix);
+			return false;
+		}
 	}
 	
 	private boolean fit(int indexTiles, int indexMatrix) {
