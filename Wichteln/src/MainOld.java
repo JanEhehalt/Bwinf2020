@@ -15,7 +15,7 @@ class StudentOld{
 	
 }
 
-class Main{
+class MainOld{
     public static void main(String[] args){
         try{
         	
@@ -24,8 +24,8 @@ class Main{
         		return;
         	}
 
-            //File data = new File("wichteln1.txt");
-            File data = new File(args[0]);
+            File data = new File("src/wichteln1.txt");
+            //File data = new File(args[0]);
             Scanner sc = new  Scanner(data);
             
             ArrayList<Integer> ints = new ArrayList<Integer>();
