@@ -54,70 +54,80 @@ public class Graph{
 		}
 		return false;
 	}
-
+	
 	private boolean fillBorders(int indexMatrix) {
-			
-			// Die Tiles, die zum Einfuegen nicht mehr zur Verfuegung stehen, werden als true markiert
-		boolean[] visited = new boolean[9];
-		for (int j = 0; j < tiles.length; j++) {
-			if(puzzle[j] != -1) {
-				visited[j] = true;
+		boolean[][] visited = new boolean[2][9];
+		int link = -1;
+		for(int j = 0; j < 2; j++) {
+			for (int i = 0; i < tiles.length; i++) {
+				if(puzzle[i] != -1) {
+					visited[j][i] = true;
+				}
+				else {
+					visited[j][i] = false;
+				}
 			}
 		}
-		
-		// Für jede anliegende Kante des Tiles wird versucht einen Partner zu finden
-		
 		for(int j = 0; j < matrix.length; j++) {
 			
 			if(matrix[indexMatrix][j] == 0) {
+				link++;
 				
 				boolean tileFound = false;
 				for(int k = 0; k < visited.length; k++) {
-					if(!visited[k]) {
-						visited[k] = true;
+					if(!visited[link][k]) {
+						visited[link][k] = true;
 						
-						// Das Tile wird probiert
-						if(fit(k, j, 0)) {
-							tileFound = true;
-							addPlacedTile(indexMatrix, j);
-							
-							
-							System.out.println(getIndexTiles(0));
-							System.out.println(getIndexTiles(2));
-							System.out.println(getIndexTiles(1));
-							System.out.println(getIndexTiles(5));
-							System.out.println(getIndexTiles(4));
-							System.out.println(getIndexTiles(6));
-							System.out.println(getIndexTiles(7));
-							System.out.println(getIndexTiles(3));
-							System.out.println(getIndexTiles(8));
-							
-							System.out.println();
-							
-							if(fillBorders(j)) {
-								break;
+						for(int i = 0; i < 3; i++) {
+							if(fit(k, j)) {
+								tileFound = true;
+								addPlacedTile(indexMatrix, j);
+								
+								
+								System.out.print(getIndexTiles(0) + " ");
+								System.out.print(getIndexTiles(2) + " ");
+								System.out.print(getIndexTiles(1) + " ");
+								System.out.print(getIndexTiles(5) + " ");
+								System.out.print(getIndexTiles(4) + " ");
+								System.out.print(getIndexTiles(6) + " ");
+								System.out.print(getIndexTiles(7) + " ");
+								System.out.print(getIndexTiles(3) + " ");
+								System.out.print(getIndexTiles(8) + " ");
+								
+								System.out.println();
+								
+								if(fillBorders(j)) {
+									k = visited.length;
+									break;
+								}
+								else {
+									removePlaced(indexMatrix, j);
+									tileFound = false;
+								}
 							}
-							else {
-								puzzle[k] = -1;
-								updateFalseLink(indexMatrix, j);
-								tileFound = false;
-								continue;
-							}
+							tiles[k].rotate();
 						}
 					}
 				}
 				if(!tileFound) {
+					if(link == 0) {
+						removeAllPlaced(indexMatrix);
+						return false;
+					}
+					else {
+						link = -1;
+						j = 0;
+						visited[1] = new boolean[9];
+						removeAllPlaced(indexMatrix);
+					}
 					
-					removePlaced(indexMatrix);
-					
-					return false;
 				}
 			}
 		}
 		return true;
 	}
 	
-	private boolean fit(int indexTiles, int indexMatrix, int rotations) {
+	private boolean fit(int indexTiles, int indexMatrix) {
 		if(indexMatrix == 2 || indexMatrix == 5 || indexMatrix == 7) {
 			if(!tiles[indexTiles].flipped) {
 				//System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird geflippt");
@@ -129,10 +139,6 @@ public class Graph{
 				//System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird zurück geflippt");
 				tiles[indexTiles].flip();
 			}
-		}
-		
-		if(rotations > 2) {
-			return false;
 		}
 		
 		//System.out.print("Probiere: " + indexTiles + " an der Stelle " + indexMatrix + ": " + tiles[indexTiles].values[0] + " " + tiles[indexTiles].values[1] + " " + tiles[indexTiles].values[2]);
@@ -168,7 +174,6 @@ public class Graph{
 			}
 		}
 		if(fits) {
-			resetTile(indexMatrix);
 			for(int i = 0; i < matrix.length; i++) {
 				if(matrix[indexMatrix][i] == 0 && getIndexTiles(i) != -1) {
 					updateTrueLink(indexMatrix, i);
@@ -182,24 +187,31 @@ public class Graph{
 		else {
 			//System.out.print(" false");
 			//System.out.println();
-			tiles[indexTiles].rotate();
+			//tiles[indexTiles].rotate();
 			//System.out.println("Rotation");
-			return fit(indexTiles, indexMatrix, rotations + 1);
+			//return fit(indexTiles, indexMatrix, rotations + 1);
+			return false;
 		}
 	}
 	
-	private void removePlaced(int indexMatrix) {
+	private void removeAllPlaced(int indexMatrix) {
 		for(int x = 0; x < placedTiles[0].length; x++) {
 			if(placedTiles[indexMatrix][x] != 0) {
-				int temp = getIndexTiles(placedTiles[indexMatrix][x]);
-				if(temp != -1) {
-					removePlaced(placedTiles[indexMatrix][x]);
-					updateFalseLink(indexMatrix, placedTiles[indexMatrix][x]);
-					puzzle[temp] = -1;
-				}
+				removePlaced(indexMatrix, placedTiles[indexMatrix][x]);
 			}
 		}
 		placedTiles[indexMatrix] = new int[2];
+	}
+	
+	private void removePlaced(int indexMatrix, int value) {
+		for(int i=0; i < placedTiles[0].length; i++) {
+			if(placedTiles[indexMatrix][i] == value) {
+				removeAllPlaced(value);
+				placedTiles[indexMatrix][i] = 0;
+				resetTile(value);
+				updateFalseLink(indexMatrix, value);
+			}
+		}
 	}
 	
 	private int getIndexTiles(int indexMatrix) {
