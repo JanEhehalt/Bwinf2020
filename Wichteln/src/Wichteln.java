@@ -94,8 +94,8 @@ class Wichteln{
         	
         	File data;
         	if(args.length == 0) {
-        		System.out.println("Ungültiger Dateiname: Automatische Einlesung der Datei: wichteln0.txt");
-        		data = new File("src/wichteln0.txt");
+        		System.out.println("Ungï¿½ltiger Dateiname: Automatische Einlesung der Datei: wichteln0.txt");
+        		data = new File("src/wichteln7.txt");
         	}
         	else {
         		data = new File(args[0]);

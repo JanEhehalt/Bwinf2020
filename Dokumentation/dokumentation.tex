@@ -871,18 +871,16 @@ Wie bereits erwähnt wurde für jede Turnierform eine Methode erstellt. Im folge
     \begin{figure}[H]
     \centering
     \begin{tikzpicture} 
-        \umlclass{Node}{
-            $+$ left: Node\\
-            $+$ right: Node\\
-            $+$ player: Player
+        \umlclass{Turnier}{
+            $+$ \underline{players: ArrayList$<$Player$>$}
         }{
-            $+$ Node()\\
-            $+$ Node(player: Player)\\
-            $+$ getWinner(): Player\\
-            $+$ getx5Winner(): Player\\
-            $+$ create(players: ArrayList$<$Player$>$): void\\
+            $+$ \underline{main(args: String[]): void}\\
             $+$ \underline{match(p1: Player, p2: Player): Player}\\
-            $+$ \underline{matchx5(p1: Player, p2: Player): Player}
+            $+$ \underline{league(players: ArrayList$<$Player$>$): Player}\\
+            $+$ \underline{ko(players: ArrayList$<$Player$>$): Player}\\
+            $+$ \underline{kox5(players: ArrayList$<$Player$>$): Player}\\
+            $+$ \underline{getBest(players: ArrayList$<$Player$>$): int}\\
+            $+$ \underline{sortById(players: ArrayList$<$Player$>$): void}
         }
     \end{tikzpicture}
     \caption{Die Klasse \emph{Turnier}}

@@ -76,12 +76,27 @@ class MainOld{
             System.out.println("Unbeschenkt: "+ falseAmount + "    Beschenkt: " + trueAmount);
             
             int score = 0;
+            int firstcounter = 0;
+            int secondcounter = 0;
+            int thirdcounter = 0;
             for(StudentOld s : students) {
-            	if(s.metWish != -1)
-            	score += 3-s.metWish;
+            	if(s.metWish == 0) {
+            		firstcounter++;
+            		score += 3;
+            	}
+            	else if(s.metWish == 1) {
+            		secondcounter++;
+            		score += 2;
+            	}
+            	else if(s.metWish == 2) {
+            		thirdcounter++;
+            		score += 1;
+            	}
             }
             System.out.println(score);
-            
+            System.out.println(firstcounter);
+            System.out.println(secondcounter);
+            System.out.println(thirdcounter);
             for(StudentOld s : students) {
             	//System.out.println(s.presentId);
             }
