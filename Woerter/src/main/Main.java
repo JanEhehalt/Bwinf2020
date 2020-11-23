@@ -10,39 +10,25 @@ public class Main {
 
     public static void main(String[] args){
 		try {
-	    	File data = new File("src/raetsel4.txt");
-	        //File data = new File(args[0]);
+			File data;
+    		if(args.length == 0) {
+        		System.out.println("Ungültiger Dateiname: Automatische Einlesung der Datei: raetsel0.txt");
+        		System.out.println();
+        		data = new File("raetsel0.txt");
+        	}
+        	else {
+        		data = new File(args[0]);
+        	};
 	        Scanner sc = new Scanner(data);
 	        
-	        /**
-	         * The array words is storing the words which aren't added to the sentence yet
-	         * The array sentence is storing all the gaps and the syntax of the sentence in the right order
-	         */
 	        ArrayList<String> words = new ArrayList<>();
 	        ArrayList<String> sentence = new ArrayList<>();
 	
-	        /**
-	         * with the scanner we can go over the file
-	         * first we add the gaps to the sentence
-	         * first we save the last char of the current String
-	         * we differentiate between different cases
-	         * 
-	         * First we check whether there is no more gap
-	         * This is the case as soon as our word does not have any '_'
-	         * 		in the case there are no more gaps we still add our current String to the words array
-	         * 		because we can't go back with the scanner
-	         * Then we check if the last char of the String is syntax. 
-	         * 		If it is we have to store the syntax in a separate String
-	         * 		the rest of the String is also added to the sentence array separate
-	         * 		! first the word then the syntax !
-	         * If there's no syntax at the end and it has '_' we can just add the String as a gap
-	         */
         	while(sc.hasNext()) {
         		String cw = sc.next();	// cW - currentWord
         		
         		char last = cw.charAt(cw.length()-1);
         		
-        		// removed here checking for last being on syntax
         		if(!cw.contains("_")) { 
         			words.add(cw);
         			break;
@@ -137,7 +123,6 @@ public class Main {
 	        }
 	        
 	        
-	        // Printing the final result:
 	        System.out.println("");
 	        System.out.println("final order of the sentence: ");
 	        System.out.println("*****");

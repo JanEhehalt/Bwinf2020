@@ -37,7 +37,6 @@ public class Graph{
 			if(fillBorders(0)) {
 				return true;
 			}
-			System.out.println("aöldskfj");
 			resetPuzzle();
 			puzzle[i] = 0;
 			tiles[i].rotate();
@@ -45,7 +44,6 @@ public class Graph{
 			if(fillBorders(0)) {
 				return true;
 			}
-			System.out.println("!fsdgdf");
 			resetPuzzle();
 			puzzle[i] = 0;
 			tiles[i].rotate();

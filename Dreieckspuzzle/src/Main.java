@@ -8,8 +8,15 @@ class Main{
     public static void main(String[] args){
     	Tile[] tiles = new Tile[9];
     	try {
-	    	File data = new File("src/puzzle3.txt");
-	        //File data = new File(args[0]);
+    		File data;
+    		if(args.length == 0) {
+        		System.out.println("Ungültiger Dateiname: Automatische Einlesung der Datei: puzzle0.txt");
+        		System.out.println();
+        		data = new File("puzzle0.txt");
+        	}
+        	else {
+        		data = new File(args[0]);
+        	}
 	        Scanner sc = new  Scanner(data);
 	           
 	        sc.nextLine();
@@ -36,11 +43,12 @@ class Main{
     	}
     	
     	Graph g = new Graph(tiles);
-    	System.out.println(g.fillWithTiles());
+    	System.out.println("Lösbar: "+ g.fillWithTiles());
+    	System.out.println();
     	
     	for(int i = 0; i < g.tiles.length; i++) {
     		if(g.puzzle[i] < 0) {
-    			System.out.println("Nichts zugeteilt");
+    			System.out.println("Puzzle unmöglich");
     			continue;
     		}
     		
@@ -56,10 +64,10 @@ class Main{
     		
     		if(tileExists) {
     			Tile t = g.tiles[indexTiles];
-    			System.out.println(i + ": " + t.values[0] + " " + t.values[1] + " " + t.values[2] + ": " + t.flipped);
+    			System.out.println("Tile an Stelle " + i + ": " + t.values[0] + " " + t.values[1] + " " + t.values[2] + "   flipped: " + t.flipped);
     		}
     		else {
-    			System.out.println("Nichts zugeteilt");
+    			System.out.println("Puzzle unmöglich");
     		}
     	}
     }
