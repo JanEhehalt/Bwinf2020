@@ -8,7 +8,7 @@ class Main{
     public static void main(String[] args){
     	Tile[] tiles = new Tile[9];
     	try {
-	    	File data = new File("src/puzzle0.txt");
+	    	File data = new File("src/puzzle3.txt");
 	        //File data = new File(args[0]);
 	        Scanner sc = new  Scanner(data);
 	           
@@ -56,7 +56,7 @@ class Main{
     		
     		if(tileExists) {
     			Tile t = g.tiles[indexTiles];
-    			System.out.println(i + ": " + t.values[0] + " " + t.values[1] + " " + t.values[2] + ": " + t.flipped);
+    			System.out.println(i + ": " + t.values[1] + " " + t.values[0] + " " + t.values[2] + ": " + t.flipped);
     		}
     		else {
     			System.out.println("Nichts zugeteilt");

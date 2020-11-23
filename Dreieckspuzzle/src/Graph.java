@@ -6,11 +6,11 @@ public class Graph{
 	private int[][] matrix;
 	
 	// Array, der einfach alle Tiles die insgesamt vorhanden sind speichert
-	private Tile[] tiles;
+	public Tile[] tiles;
 	
 	// Array, der die Indizes von tiles auf die des Dreiecks mappt (Standardwert = -1)
 	// Beispiel: Tile 4 liegt im Puzzle ganz oben: puzzle[3] = 0
-	private int[] puzzle;
+	public int[] puzzle;
 	
 	private int[][] placedTiles = new int[9][2];
 	
@@ -61,7 +61,6 @@ public class Graph{
 		if(index >= links.size()) {
 			return true;
 		}
-		
 		if(getIndexTiles(links.get(index)) != -1) {
 			return fillLink(indexMatrix, links, index+1);
 		}
@@ -82,20 +81,6 @@ public class Graph{
 					if(fit(k, links.get(index))) {
 						tileFound = true;
 						addPlacedTile(indexMatrix, links.get(index));
-						
-						
-						System.out.print(getIndexTiles(0) + " ");
-						System.out.print(getIndexTiles(2) + " ");
-						System.out.print(getIndexTiles(1) + " ");
-						System.out.print(getIndexTiles(5) + " ");
-						System.out.print(getIndexTiles(4) + " ");
-						System.out.print(getIndexTiles(6) + " ");
-						System.out.print(getIndexTiles(7) + " ");
-						System.out.print(getIndexTiles(3) + " ");
-						System.out.print(getIndexTiles(8) + " ");
-						
-						System.out.println();
-						
 						if(fillBorders(links.get(index))) {
 							
 							if(fillLink(indexMatrix, links, index+1)) {
@@ -128,8 +113,6 @@ public class Graph{
 				links.add(j);
 			}
 		}
-		System.out.println(links.toString());
-		
 		if(fillLink(indexMatrix, links, 0)) {
 			return true;
 		}
@@ -142,20 +125,14 @@ public class Graph{
 	private boolean fit(int indexTiles, int indexMatrix) {
 		if(indexMatrix == 2 || indexMatrix == 5 || indexMatrix == 7) {
 			if(!tiles[indexTiles].flipped) {
-				//System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird geflippt");
 				tiles[indexTiles].flip();
 			}
 		}
 		else {
 			if(tiles[indexTiles].flipped) {
-				//System.out.println("Tile " + indexTiles + " an der Stelle " + indexMatrix + " wird zurück geflippt");
 				tiles[indexTiles].flip();
 			}
 		}
-		
-		//System.out.print("Probiere: " + indexTiles + " an der Stelle " + indexMatrix + ": " + tiles[indexTiles].values[0] + " " + tiles[indexTiles].values[1] + " " + tiles[indexTiles].values[2]);
-		
-		// 0: left, 1: middle, 2: right
 		
 		boolean fits = true;
 		for(int i = 0; i < matrix.length; i++) {
@@ -192,16 +169,9 @@ public class Graph{
 				}
 			}
 			puzzle[indexTiles] = indexMatrix;
-			//System.out.print(" true");
-			//System.out.println();
 			return true;
 		}
 		else {
-			//System.out.print(" false");
-			//System.out.println();
-			//tiles[indexTiles].rotate();
-			//System.out.println("Rotation");
-			//return fit(indexTiles, indexMatrix, rotations + 1);
 			return false;
 		}
 	}
