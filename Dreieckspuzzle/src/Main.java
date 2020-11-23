@@ -56,7 +56,7 @@ class Main{
     		
     		if(tileExists) {
     			Tile t = g.tiles[indexTiles];
-    			System.out.println(i + ": " + t.values[1] + " " + t.values[0] + " " + t.values[2] + ": " + t.flipped);
+    			System.out.println(i + ": " + t.values[0] + " " + t.values[1] + " " + t.values[2] + ": " + t.flipped);
     		}
     		else {
     			System.out.println("Nichts zugeteilt");
