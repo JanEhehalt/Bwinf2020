@@ -185,22 +185,25 @@ Opa Jürgen blättert in einer Zeitschrift aus der Apotheke und findet ein Räts
 \subsection{Quellcode}
 
 \begin{figure}[H]
-    \centering
-\begin{lstlisting}
-boolean finished = true;
-        
+\centering
+\begin{lstlisting}  
 boolean[] filled = new boolean[sentence.size()];
 for(int i = 0; i < filled.length; i++){
     if(isPunctuation(sentence.get(i))) filled[i] = true;
     else filled[i] = false;
 }
+\end{lstlisting}
+\caption{Vordefinierter Array, der angibt welche Lücke gefüllt ist}
+\end{figure}
 
+\begin{figure}[H]
+\centering
+\begin{lstlisting}
+boolean finished = true;
 do {
     finished = true;
-    
     for(int i = 0; i < sentence.size(); i++) {
         if(!filled[i]) {
-            
             int posWords = 0;
             ArrayList<Integer> positions = new ArrayList<>();
             for(int j = 0; j < words.size(); j++) {
@@ -218,7 +221,6 @@ do {
                     }
                 }
             }
-            
             if(posWords == 1) {
                 for(int j = 0; j < words.size(); j++) {
                     if(fits(words.get(j), sentence.get(i))) {
@@ -232,8 +234,6 @@ do {
             }
         }
     }
-    
-    
     for(int i = 0; i < sentence.size(); i++) {
         int posWords = 0;
         if(!filled[i]) {
@@ -245,9 +245,14 @@ do {
             }
         }
     }
-    
 }while(!finished);
+\end{lstlisting}
+\caption{Generelle Schleife, die die Lücken füllt}
+\end{figure}
 
+\begin{figure}[H]
+\centering
+\begin{lstlisting}
 for(int i = 0; i < sentence.size(); i++) {
     if(!filled[i]) {
         for(int j = 0; j < words.size(); j++) {
@@ -261,7 +266,7 @@ for(int i = 0; i < sentence.size(); i++) {
     }
 }
 \end{lstlisting}
-\caption{Genereller Durchlauf}
+\caption{Zuordnung der restlichen Wörter anhand ihrer Länge}
 \end{figure}
 
 \begin{figure}[H]
