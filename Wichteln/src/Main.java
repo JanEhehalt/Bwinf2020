@@ -4,28 +4,29 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-class StudentOld{
+class Student{
 	boolean gifted;
 	int metWish;
 	int presentId;
 	int[] wishes = new int[3];
-	public StudentOld(int[] wishes){
+	public Student(int[] wishes){
 		this.wishes = wishes;
 	}
 	
 }
 
-class MainOld{
+class Main{
     public static void main(String[] args){
         try{
-        	
-        	if(args.length == 0 && false) {
-        		System.out.println("You need to give a filename as an argument");
-        		return;
+        	File data;
+    		if(args.length == 0) {
+        		System.out.println("Ungültiger Dateiname: Automatische Einlesung der Datei: wichteln1.txt");
+        		System.out.println();
+        		data = new File("wichteln1.txt");
         	}
-
-            File data = new File("src/wichteln7.txt");
-            //File data = new File(args[0]);
+        	else {
+        		data = new File(args[0]);
+        	}
             Scanner sc = new  Scanner(data);
             
             ArrayList<Integer> ints = new ArrayList<Integer>();
@@ -40,7 +41,7 @@ class MainOld{
             }
             sc.close();
             
-            StudentOld[] students = new StudentOld[ints.size() / 3];
+            Student[] students = new Student[ints.size() / 3];
             for(int i=0; i < ints.size(); i+=3) {
         		int[] wishes = new int[3];
         		int tempIndex = i/3;
@@ -51,20 +52,20 @@ class MainOld{
         		wishes[1] = ints.get(i + 1);
         		wishes[2] = ints.get(i + 2);
 
-        		students[tempIndex] = new StudentOld(wishes);
+        		students[tempIndex] = new Student(wishes);
             }
-            for(StudentOld s : students) {
+            for(Student s : students) {
             	System.out.println(s.wishes[0] + "|" + s.wishes[1] + "|" + s.wishes[2]);
             }
             boolean[] presents = new boolean[students.length];
             
-            geschenke(0, students, presents);
-            geschenke(1, students, presents);
-            geschenke(2, students, presents);
-            nachverteilung(students, presents);
+            distributePresents(0, students, presents);
+            distributePresents(1, students, presents);
+            distributePresents(2, students, presents);
+            fillLastWishes(students, presents);
             
             int falseAmount = 0;
-            for(StudentOld s : students) {
+            for(Student s : students) {
                 System.out.println(s.gifted);
             	if(!s.gifted) falseAmount++;
             }
@@ -79,7 +80,7 @@ class MainOld{
             int firstcounter = 0;
             int secondcounter = 0;
             int thirdcounter = 0;
-            for(StudentOld s : students) {
+            for(Student s : students) {
             	if(s.metWish == 0) {
             		firstcounter++;
             		score += 3;
@@ -97,7 +98,7 @@ class MainOld{
             System.out.println(firstcounter);
             System.out.println(secondcounter);
             System.out.println(thirdcounter);
-            for(StudentOld s : students) {
+            for(Student s : students) {
             	//System.out.println(s.presentId);
             }
             
@@ -110,7 +111,7 @@ class MainOld{
         
     }
 
-    static void geschenke(int n, StudentOld[] students, boolean[] presents){
+    static void distributePresents(int n, Student[] students, boolean[] presents){
     	for(int i = 0; i < students.length; i++){
     		if(students[i].gifted) continue;
     		if(presents[students[i].wishes[n]]) continue;
@@ -120,7 +121,7 @@ class MainOld{
 			presents[students[i].wishes[n]] = true;
     	}
     }
-    static void nachverteilung(StudentOld[] students, boolean[] presents){
+    static void fillLastWishes(Student[] students, boolean[] presents){
     	for(int i = 0; i < students.length; i++){
     		if(!students[i].gifted) {
     			for(int n = 0; n < students.length; n++){
