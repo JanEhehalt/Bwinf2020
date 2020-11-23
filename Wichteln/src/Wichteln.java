@@ -40,11 +40,11 @@ class Wichteln{
 		
 		for(int i = 0; i < presents.length; i++) {
 			//matrix[s][i] = 0;
-			verboseMatrix[s][i] = 4;
+			verboseMatrix[s][i] = 3;
 		}
 		for(int i = 0; i < presents.length; i++) {
 			//matrix[i][p] = 0;
-			verboseMatrix[i][p] = 4;
+			verboseMatrix[i][p] = 3;
 		}
 	}
 	
@@ -138,7 +138,7 @@ class Wichteln{
             verboseMatrix = new int[students.length][presents.length];
             for(int i = 0; i < students.length; i++) {
             	for(int j = 0; j < students.length; j++) {
-            		verboseMatrix[i][j] = 4;
+            		verboseMatrix[i][j] = 3;
             	}
             }
             
@@ -148,35 +148,6 @@ class Wichteln{
             	verboseMatrix[i][temp.wishes[1]] = 1;
             	verboseMatrix[i][temp.wishes[2]] = 2;
             }
-            
-            /*
-            System.out.println();
-            for(int i = 0; i < students.length; i++) {
-            	for(int j = 0; j < students.length; j++) {
-            		System.out.print(matrix[i][j] + " ");
-            	}
-            	System.out.println();
-            }
-            System.out.println();
-            */
-            
-            /*
-        	matrix = new int[students.length][presents.length];
-            // Die matrix wird so weit wie möglich vereinfacht p: Present, s: student
-            for(int p = 0; p < students.length; p++) {
-            	if(presents[p].studentId != -1) {
-            		continue;
-            	}
-            	for(int s = 0; s < students.length; s++) {
-            		if(students[s].hasGift) {
-            			continue;
-            		}
-            		if(verboseMatrix[s][p] == i) {
-            			matrix[s][p] = 1;
-            		}
-            	}
-            }
-            */
             
         	int step = 0;
             boolean finished = false;
@@ -322,7 +293,7 @@ class Wichteln{
             System.out.println(first);
             System.out.println(second);
             System.out.println(third);
-            
+            System.out.println();
         
     }
     

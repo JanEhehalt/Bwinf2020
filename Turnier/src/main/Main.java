@@ -15,7 +15,6 @@ class Main{
     		Scanner sc = new Scanner(nice);
     		
     		ArrayList<Player> players = new ArrayList<>();
-    		ArrayList<Player> forReset = new ArrayList<>();
 
     		int i = 0;
     		sc.next(); // PLAYER AMOUNT VARIABLE BY USING ARRAYLIST
@@ -23,7 +22,6 @@ class Main{
     			players.add(new Player(i, sc.nextInt()));
     			i++;
     		}
-    		forReset = players;
     		sc.close();
     		
     		for(Player player : players) {
