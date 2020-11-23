@@ -24,7 +24,7 @@ class MainOld{
         		return;
         	}
 
-            File data = new File("src/wichteln1.txt");
+            File data = new File("src/wichteln7.txt");
             //File data = new File(args[0]);
             Scanner sc = new  Scanner(data);
             

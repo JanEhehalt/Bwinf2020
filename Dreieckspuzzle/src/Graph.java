@@ -6,13 +6,13 @@ public class Graph{
 	private int[][] matrix;
 	
 	// Array, der einfach alle Tiles die insgesamt vorhanden sind speichert
-	public Tile[] tiles;
+	private Tile[] tiles;
 	
 	// Array, der die Indizes von tiles auf die des Dreiecks mappt (Standardwert = -1)
 	// Beispiel: Tile 4 liegt im Puzzle ganz oben: puzzle[3] = 0
-	public int[] puzzle;
+	private int[] puzzle;
 	
-	public int[][] placedTiles = new int[9][2];
+	private int[][] placedTiles = new int[9][2];
 	
 	public Graph(Tile[] tiles){
 		matrix = new int[9][9];

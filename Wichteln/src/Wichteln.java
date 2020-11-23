@@ -35,14 +35,57 @@ class Wichteln{
 			students[presents[p].studentId].hasGift = false;
 		}
 		presents[p].studentId = s;
+		students[s].presentId = p;
 		students[s].hasGift = true;
 		
 		for(int i = 0; i < presents.length; i++) {
-			matrix[s][i] = 0;
+			//matrix[s][i] = 0;
+			verboseMatrix[s][i] = 4;
 		}
 		for(int i = 0; i < presents.length; i++) {
-			matrix[i][p] = 0;
+			//matrix[i][p] = 0;
+			verboseMatrix[i][p] = 4;
 		}
+	}
+	
+	public static int getHighestWish(int[][] wishMatrix, int p) {
+		int highestWish = 4;
+		for(int i=0; i < students.length; i++) {
+			if(wishMatrix[i][p] < highestWish) {
+				highestWish = wishMatrix[i][p];
+			}
+		}
+		return highestWish;
+	}
+	
+	public static int getWishAmount(int[][] wishMatrix, int p, int wish) {
+		int counter = 0;
+		for(int i=0; i < students.length; i++) {
+			if(wishMatrix[i][p] == wish) {
+				counter++;
+			}
+		}
+		return counter;
+	}
+	
+	public static int getHighestPossibleWish(int[][] wishMatrix, int s) {
+		int highestWish = 4;
+		for(int i=0; i < students.length; i++) {
+			if(wishMatrix[s][i] < highestWish) {
+				highestWish = wishMatrix[s][i];
+			}
+		}
+		return highestWish;
+	}
+	
+	public static int getWishAmountStudent(int[][] wishMatrix, int s) {
+		int counter = 0;
+		for(int i=0; i < students.length; i++) {
+			if(wishMatrix[s][i] < 3) {
+				counter++;
+			}
+		}
+		return counter;
 	}
 	
     public static void main(String[] args){
@@ -106,22 +149,7 @@ class Wichteln{
             	verboseMatrix[i][temp.wishes[2]] = 2;
             }
             
-            matrix = new int[students.length][presents.length];
-            // Die matrix wird so weit wie möglich vereinfacht p: Present, s: student
-            for(int p = 0; p < students.length; p++) {
-            	int highestWish = 2;
-            	for(int s = 0; s < students.length; s++) {
-            		if(verboseMatrix[s][p] < highestWish) {
-            			highestWish = verboseMatrix[s][p];
-            		}
-            	}
-            	
-            	for(int s = 0; s < students.length; s++) {
-            		if(verboseMatrix[s][p] == highestWish) {
-            			matrix[s][p] = 1;
-            		}
-            	}
-            }
+            /*
             System.out.println();
             for(int i = 0; i < students.length; i++) {
             	for(int j = 0; j < students.length; j++) {
@@ -130,8 +158,27 @@ class Wichteln{
             	System.out.println();
             }
             System.out.println();
+            */
             
-            int step = 0;
+            /*
+        	matrix = new int[students.length][presents.length];
+            // Die matrix wird so weit wie möglich vereinfacht p: Present, s: student
+            for(int p = 0; p < students.length; p++) {
+            	if(presents[p].studentId != -1) {
+            		continue;
+            	}
+            	for(int s = 0; s < students.length; s++) {
+            		if(students[s].hasGift) {
+            			continue;
+            		}
+            		if(verboseMatrix[s][p] == i) {
+            			matrix[s][p] = 1;
+            		}
+            	}
+            }
+            */
+            
+        	int step = 0;
             boolean finished = false;
             
             while(!finished) {
@@ -139,22 +186,18 @@ class Wichteln{
             		boolean stepFinished = false;
             		while(!stepFinished) {
             			stepFinished = true;
-            			
+            			System.out.println("Step 0");
             			for(int p = 0; p < presents.length; p++) {
-            				int counter = 0;
-            				for(int s = 0; s < students.length; s++) {
-            					if(matrix[s][p] == 1) {
-            						counter++;
-            					}
-            				}
+            				int highestWish = getHighestWish(verboseMatrix, p);
+            				int amount = getWishAmount(verboseMatrix, p, highestWish);
             				
-            				if(counter == 1) {
+            				if(amount == 1 && highestWish < 4) {
             					stepFinished = false;
             					for(int s = 0; s < students.length; s++) {
-                					if(matrix[s][p] == 1) {
-                						setStudent(p, s);
-                						students[s].presentId = p;
-                					}
+            						if(verboseMatrix[s][p] == highestWish) {
+            							setStudent(p, s);
+                						break;
+            						}
                 				}
             				}
             			}
@@ -163,39 +206,49 @@ class Wichteln{
             	}
             	
             	if(step == 1) {
+            		System.out.println("Step 1");
             		boolean stepFinished = false;
-            		while(!stepFinished) {
-            			stepFinished = true;
             			
-            			for(int s = 0; s < presents.length; s++) {
-            				int counter = 0;
-            				for(int p = 0; p < students.length; p++) {
-            					if(matrix[s][p] == 1) {
-            						counter++;
+        			for(int s = 0; s < presents.length && !stepFinished; s++) {
+        				int highestWish = getHighestPossibleWish(verboseMatrix, s);
+        				int amount = getWishAmountStudent(verboseMatrix, s);
+        				
+        				if(amount == 1) {
+        					for(int p = 0; p < students.length; p++) {
+        						int highestWishPresent = getHighestWish(verboseMatrix, p);
+            					if(verboseMatrix[s][p] == highestWish && highestWish <= highestWishPresent) {
+            						setStudent(p, s);
+            						stepFinished = true;
+            						break;
             					}
             				}
-            				
-            				if(counter == 1) {
-            					stepFinished = false;
-            					for(int p = 0; p < students.length; p++) {
-                					if(matrix[s][p] == 1) {
-                						setStudent(p, s);
-                						students[s].presentId = p;
-                						step = 0;
-                					}
-                				}
-            				}
-            			}
+        				}
+        			}
+            		if(stepFinished) {
+            			step = 0;
             		}
-            		step = 2;
+            		else {
+            			step = 2;
+            		}
             	}
             	
             	if(step == 2) {
+            		System.out.println("Step 2");
+            		int highestWish = 3;
+            		for(int p = 0; p < presents.length; p++) {
+            			int highestWishPresent = getHighestWish(verboseMatrix, p);
+            			if(highestWishPresent < highestWish) {
+            				highestWish = highestWishPresent;
+            			}
+            		}
+            		if(highestWish == 3) {
+            			break;
+            		}
+            		
             		for(int p = 0; p < presents.length; p++) {
             			for(int s = 0; s < students.length; s++) {
-            				if(matrix[s][p] == 1) {
+            				if(verboseMatrix[s][p] == highestWish) {
             					setStudent(p, s);
-            					students[s].presentId = p;
         						step = 0;
         						break;
             				}
@@ -210,18 +263,20 @@ class Wichteln{
             	}
             }
             
+            
             // Die restlichen Geschenke werden einfach verteilt
             for(int p = 0; p < presents.length; p++) {
 				if(presents[p].studentId == -1) {
 					for(int s = 0; s < students.length; s++) {
 						if(!students[s].hasGift) {
 							setStudent(p, s);
-							students[s].presentId = p;
+							break;
 						}
 					}
 				}
     		}
             
+            /*
             for(int k=0; k<presents.length; k++) {
             	System.out.println(presents[k].studentId);
             }
@@ -239,21 +294,35 @@ class Wichteln{
             		System.out.print(matrix[i][j] + " ");
             	}
             	System.out.println();
-            }
+            }*/
 
+            int first = 0;
+            int second = 0;
+            int third = 0;
+            
             int score = 0;
             for(Student student : students) {
-            	if(student.presentId == student.wishes[0])
+            	if(student.presentId == student.wishes[0]) {
             		score += 3;
-            	else if(student.presentId == student.wishes[1])
+            		first++;
+            	}
+            	else if(student.presentId == student.wishes[1]) {
             		score += 2;
-            	else if(student.presentId == student.wishes[2])
+            		second++;
+            	}
+            	else if(student.presentId == student.wishes[2]) {
             		score += 1;
+            		third++;
+            	}
             }
             System.out.println("");
             System.out.println("");
             System.out.println(score);
             System.out.println();
+            System.out.println(first);
+            System.out.println(second);
+            System.out.println(third);
+            
         
     }
     

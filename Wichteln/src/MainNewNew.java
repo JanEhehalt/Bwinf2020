@@ -3,24 +3,24 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Student{
+class Studentlol{
 	public int id;
 	public int present;
 	public int[] wishes = new int[3];
-	public Student(int id, int[] wishes) {
+	public Studentlol(int id, int[] wishes) {
 		this.id = id;
 		this.wishes = wishes;
 		this.present = -1;
 	}
 }
-class Present{
+class Presenddasdft{
 	public int id;
 	public int student;
 	public int fulfillingWish;
 	public ArrayList<Integer> applicantsForOne = new ArrayList<>();
 	public ArrayList<Integer> applicantsForTwo = new ArrayList<>();
 	public ArrayList<Integer> applicantsForThree = new ArrayList<>();
-	public Present(int id) {
+	public Presenddasdft(int id) {
 		this.id = id;
 		this.student = -1;
 		this.fulfillingWish = 4;
@@ -55,7 +55,7 @@ public class MainNewNew {
             }
             sc.close();
             
-            Student[] students = new Student[ints.size() / 3];
+            Studentlol[] students = new Studentlol[ints.size() / 3];
             for(int i=0; i < ints.size(); i+=3) {
         		int[] wishes = new int[3];
         		int tempIndex = i/3;
@@ -66,16 +66,16 @@ public class MainNewNew {
         		wishes[1] = ints.get(i + 1);
         		wishes[2] = ints.get(i + 2);
 
-        		students[tempIndex] = new Student(tempIndex, wishes);
+        		students[tempIndex] = new Studentlol(tempIndex, wishes);
             }
-            for(Student s : students) {
+            for(Studentlol s : students) {
             	System.out.println(s.wishes[0] + "|" + s.wishes[1] + "|" + s.wishes[2]);
             }
         	System.out.println();
         	
-        	Present[] presents = new Present[students.length];
+        	Presenddasdft[] presents = new Presenddasdft[students.length];
             for(int i=0; i<presents.length; i++) {
-            	presents[i] = new Present(i);
+            	presents[i] = new Presenddasdft(i);
             	ArrayList<Integer> wishesForOne = new ArrayList<>();
             	ArrayList<Integer> wishesForTwo = new ArrayList<>();
             	ArrayList<Integer> wishesForThree = new ArrayList<>();
@@ -94,7 +94,7 @@ public class MainNewNew {
             	presents[i].applicantsForTwo = wishesForTwo;
             	presents[i].applicantsForThree = wishesForThree;
             }
-            for(Present p : presents) {
+            for(Presenddasdft p : presents) {
             	System.out.print(p.applicantsForOne + " ");
             	System.out.print(p.applicantsForTwo + " ");
             	System.out.print(p.applicantsForThree+ " ");
