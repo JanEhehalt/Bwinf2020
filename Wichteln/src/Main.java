@@ -22,7 +22,7 @@ class Main{
     		if(args.length == 0) {
         		System.out.println("Ungültiger Dateiname: Automatische Einlesung der Datei: wichteln1.txt");
         		System.out.println();
-        		data = new File("wichteln1.txt");
+        		data = new File("src/wichteln1.txt");
         	}
         	else {
         		data = new File(args[0]);
@@ -66,7 +66,7 @@ class Main{
             
             int falseAmount = 0;
             for(Student s : students) {
-                System.out.println(s.gifted);
+                System.out.println(s.presentId);
             	if(!s.gifted) falseAmount++;
             }
             System.out.println("--");

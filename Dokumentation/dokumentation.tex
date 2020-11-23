@@ -1383,8 +1383,85 @@ static void fillLastWishes(Student[] students, boolean[] presents){
 \end{figure}
 
 Nach diesen Methodenaufrufen sind nun alle Geschenke möglichst gut verteilt, da möglichst viele Erstwünsche erfüllt wurden.
+So werden die Methoden aufgerufen:
+\begin{figure}[H]
+\centering
+\begin{lstlisting}
+    boolean[] presents = new boolean[students.length];
+            
+    distributePresents(0, students, presents);
+    distributePresents(1, students, presents);
+    distributePresents(2, students, presents);
+    fillLastWishes(students, presents);
+    
+    int falseAmount = 0;
+    for(Student s : students) {
+        System.out.println(s.gifted);
+        if(!s.gifted) falseAmount++;
+    }
+    System.out.println("--");
+    for(boolean s : presents) {
+        System.out.println(s);
+    }
+    
+\end{lstlisting}
+\caption{Die Methodenaufrufe der \emph{Main()}-Methode}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{lstlisting}
+int trueAmount = students.length - falseAmount;
+System.out.println("Unbeschenkt: "+ falseAmount + "    Beschenkt: " + trueAmount);
+
+int score = 0;
+int firstcounter = 0;
+int secondcounter = 0;
+int thirdcounter = 0;
+for(Student s : students) {
+    if(s.metWish == 0) {
+        firstcounter++;
+        score += 3;
+    }
+    else if(s.metWish == 1) {
+        secondcounter++;
+        score += 2;
+    }
+    else if(s.metWish == 2) {
+        thirdcounter++;
+        score += 1;
+    }
+}
+System.out.println(score);
+System.out.println(firstcounter);
+System.out.println(secondcounter);
+System.out.println(thirdcounter);
+\end{lstlisting}
+\caption{Die Ausgabe der Ergebnisse}
+\end{figure}
 
 \subsection{Beispiele}
+
+\subsubsection{wichteln1}
+\begin{table}[H]
+    \centering
+\begin{tabular}{@{}cc@{}}
+\toprule
+Schüler & zugeordnetes Geschenk & Wünsche               \\ \midrule
+0        &     1                &   1|9|5   \\
+1        &     0                &  1|6|2    \\
+2        &     3                &  3|6|0    \\
+3        &     2                &  2|3|8    \\
+4        &     4                &  2|6|8    \\
+5        &     7                &  3|2|1    \\
+6        &     6                &  6|5|1    \\
+7        &     9                &  9|1|3    \\
+8        &     8                &  8|7|0    \\
+9        &     5                &  3|8|5    \\
+        &            \\ \bottomrule
+
+\end{tabular}
+\end{table}
 
 
 \end{document}
