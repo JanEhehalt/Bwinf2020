@@ -1,0 +1,2005 @@
+Wünsche Schüler 0: 483|789|142
+Wünsche Schüler 1: 27|921|35
+Wünsche Schüler 2: 4|246|535
+Wünsche Schüler 3: 901|145|763
+Wünsche Schüler 4: 366|137|983
+Wünsche Schüler 5: 379|661|351
+Wünsche Schüler 6: 62|377|317
+Wünsche Schüler 7: 979|867|685
+Wünsche Schüler 8: 530|337|578
+Wünsche Schüler 9: 865|430|498
+Wünsche Schüler 10: 570|941|346
+Wünsche Schüler 11: 58|308|261
+Wünsche Schüler 12: 867|939|957
+Wünsche Schüler 13: 653|72|407
+Wünsche Schüler 14: 853|565|922
+Wünsche Schüler 15: 659|380|622
+Wünsche Schüler 16: 751|452|783
+Wünsche Schüler 17: 550|719|725
+Wünsche Schüler 18: 303|318|876
+Wünsche Schüler 19: 579|860|920
+Wünsche Schüler 20: 254|645|60
+Wünsche Schüler 21: 721|758|800
+Wünsche Schüler 22: 142|882|806
+Wünsche Schüler 23: 102|721|57
+Wünsche Schüler 24: 976|431|365
+Wünsche Schüler 25: 494|615|43
+Wünsche Schüler 26: 993|683|850
+Wünsche Schüler 27: 351|79|988
+Wünsche Schüler 28: 79|744|81
+Wünsche Schüler 29: 959|891|742
+Wünsche Schüler 30: 601|452|414
+Wünsche Schüler 31: 43|150|206
+Wünsche Schüler 32: 744|213|846
+Wünsche Schüler 33: 475|187|983
+Wünsche Schüler 34: 437|379|878
+Wünsche Schüler 35: 346|467|824
+Wünsche Schüler 36: 948|30|393
+Wünsche Schüler 37: 593|188|18
+Wünsche Schüler 38: 84|398|291
+Wünsche Schüler 39: 682|519|990
+Wünsche Schüler 40: 920|180|752
+Wünsche Schüler 41: 533|467|152
+Wünsche Schüler 42: 603|238|426
+Wünsche Schüler 43: 130|651|518
+Wünsche Schüler 44: 454|261|431
+Wünsche Schüler 45: 431|180|579
+Wünsche Schüler 46: 967|37|828
+Wünsche Schüler 47: 922|317|474
+Wünsche Schüler 48: 181|902|650
+Wünsche Schüler 49: 466|789|338
+Wünsche Schüler 50: 704|903|495
+Wünsche Schüler 51: 349|95|772
+Wünsche Schüler 52: 629|744|52
+Wünsche Schüler 53: 842|183|28
+Wünsche Schüler 54: 389|770|695
+Wünsche Schüler 55: 530|703|186
+Wünsche Schüler 56: 742|496|567
+Wünsche Schüler 57: 454|755|19
+Wünsche Schüler 58: 108|607|213
+Wünsche Schüler 59: 470|379|324
+Wünsche Schüler 60: 148|603|745
+Wünsche Schüler 61: 234|485|795
+Wünsche Schüler 62: 695|213|121
+Wünsche Schüler 63: 18|696|290
+Wünsche Schüler 64: 630|729|496
+Wünsche Schüler 65: 884|284|802
+Wünsche Schüler 66: 891|233|884
+Wünsche Schüler 67: 878|508|425
+Wünsche Schüler 68: 137|518|197
+Wünsche Schüler 69: 17|213|797
+Wünsche Schüler 70: 128|996|539
+Wünsche Schüler 71: 638|560|488
+Wünsche Schüler 72: 401|491|920
+Wünsche Schüler 73: 115|265|906
+Wünsche Schüler 74: 685|826|142
+Wünsche Schüler 75: 153|128|525
+Wünsche Schüler 76: 544|278|896
+Wünsche Schüler 77: 890|695|972
+Wünsche Schüler 78: 918|461|34
+Wünsche Schüler 79: 797|302|763
+Wünsche Schüler 80: 479|87|194
+Wünsche Schüler 81: 830|379|245
+Wünsche Schüler 82: 955|213|96
+Wünsche Schüler 83: 120|739|659
+Wünsche Schüler 84: 398|920|414
+Wünsche Schüler 85: 643|204|164
+Wünsche Schüler 86: 239|603|676
+Wünsche Schüler 87: 174|349|100
+Wünsche Schüler 88: 837|395|489
+Wünsche Schüler 89: 500|98|133
+Wünsche Schüler 90: 931|828|3
+Wünsche Schüler 91: 835|37|971
+Wünsche Schüler 92: 474|536|454
+Wünsche Schüler 93: 27|861|612
+Wünsche Schüler 94: 559|763|733
+Wünsche Schüler 95: 125|92|530
+Wünsche Schüler 96: 259|147|105
+Wünsche Schüler 97: 548|769|146
+Wünsche Schüler 98: 377|842|155
+Wünsche Schüler 99: 128|64|821
+Wünsche Schüler 100: 320|325|512
+Wünsche Schüler 101: 232|35|421
+Wünsche Schüler 102: 856|773|671
+Wünsche Schüler 103: 312|791|552
+Wünsche Schüler 104: 205|664|340
+Wünsche Schüler 105: 187|203|474
+Wünsche Schüler 106: 12|961|782
+Wünsche Schüler 107: 768|921|336
+Wünsche Schüler 108: 588|867|683
+Wünsche Schüler 109: 340|147|112
+Wünsche Schüler 110: 847|505|619
+Wünsche Schüler 111: 420|204|176
+Wünsche Schüler 112: 27|12|646
+Wünsche Schüler 113: 62|245|730
+Wünsche Schüler 114: 34|803|334
+Wünsche Schüler 115: 434|132|167
+Wünsche Schüler 116: 909|138|984
+Wünsche Schüler 117: 454|281|137
+Wünsche Schüler 118: 846|91|587
+Wünsche Schüler 119: 800|814|696
+Wünsche Schüler 120: 816|20|858
+Wünsche Schüler 121: 324|796|683
+Wünsche Schüler 122: 150|676|182
+Wünsche Schüler 123: 81|501|719
+Wünsche Schüler 124: 630|297|498
+Wünsche Schüler 125: 714|21|637
+Wünsche Schüler 126: 681|754|52
+Wünsche Schüler 127: 315|37|674
+Wünsche Schüler 128: 167|722|611
+Wünsche Schüler 129: 710|727|613
+Wünsche Schüler 130: 920|209|557
+Wünsche Schüler 131: 898|136|448
+Wünsche Schüler 132: 550|693|938
+Wünsche Schüler 133: 654|884|497
+Wünsche Schüler 134: 105|891|839
+Wünsche Schüler 135: 428|105|336
+Wünsche Schüler 136: 245|933|791
+Wünsche Schüler 137: 201|835|670
+Wünsche Schüler 138: 789|302|387
+Wünsche Schüler 139: 782|548|541
+Wünsche Schüler 140: 127|932|180
+Wünsche Schüler 141: 234|123|360
+Wünsche Schüler 142: 32|582|64
+Wünsche Schüler 143: 892|955|205
+Wünsche Schüler 144: 578|134|58
+Wünsche Schüler 145: 720|893|407
+Wünsche Schüler 146: 187|334|764
+Wünsche Schüler 147: 505|776|559
+Wünsche Schüler 148: 783|107|452
+Wünsche Schüler 149: 123|853|985
+Wünsche Schüler 150: 187|149|731
+Wünsche Schüler 151: 104|98|312
+Wünsche Schüler 152: 780|817|452
+Wünsche Schüler 153: 486|57|507
+Wünsche Schüler 154: 95|817|105
+Wünsche Schüler 155: 730|261|123
+Wünsche Schüler 156: 606|625|733
+Wünsche Schüler 157: 921|316|995
+Wünsche Schüler 158: 670|946|20
+Wünsche Schüler 159: 732|724|525
+Wünsche Schüler 160: 961|927|277
+Wünsche Schüler 161: 290|123|419
+Wünsche Schüler 162: 105|238|840
+Wünsche Schüler 163: 452|678|272
+Wünsche Schüler 164: 74|475|785
+Wünsche Schüler 165: 622|449|685
+Wünsche Schüler 166: 892|167|468
+Wünsche Schüler 167: 434|664|105
+Wünsche Schüler 168: 733|768|191
+Wünsche Schüler 169: 800|360|840
+Wünsche Schüler 170: 494|651|135
+Wünsche Schüler 171: 550|324|264
+Wünsche Schüler 172: 579|166|789
+Wünsche Schüler 173: 683|32|442
+Wünsche Schüler 174: 576|988|776
+Wünsche Schüler 175: 188|524|12
+Wünsche Schüler 176: 901|105|475
+Wünsche Schüler 177: 922|17|132
+Wünsche Schüler 178: 963|377|739
+Wünsche Schüler 179: 174|575|153
+Wünsche Schüler 180: 888|3|720
+Wünsche Schüler 181: 751|611|780
+Wünsche Schüler 182: 264|563|300
+Wünsche Schüler 183: 946|942|272
+Wünsche Schüler 184: 579|791|632
+Wünsche Schüler 185: 563|706|865
+Wünsche Schüler 186: 517|962|921
+Wünsche Schüler 187: 990|454|605
+Wünsche Schüler 188: 918|785|125
+Wünsche Schüler 189: 491|137|918
+Wünsche Schüler 190: 697|484|371
+Wünsche Schüler 191: 963|592|167
+Wünsche Schüler 192: 561|487|352
+Wünsche Schüler 193: 363|990|701
+Wünsche Schüler 194: 488|578|287
+Wünsche Schüler 195: 565|921|992
+Wünsche Schüler 196: 638|565|416
+Wünsche Schüler 197: 44|831|335
+Wünsche Schüler 198: 498|516|465
+Wünsche Schüler 199: 706|112|892
+Wünsche Schüler 200: 337|603|755
+Wünsche Schüler 201: 592|105|599
+Wünsche Schüler 202: 287|208|398
+Wünsche Schüler 203: 817|351|750
+Wünsche Schüler 204: 336|484|104
+Wünsche Schüler 205: 709|861|98
+Wünsche Schüler 206: 153|382|373
+Wünsche Schüler 207: 604|380|645
+Wünsche Schüler 208: 972|662|146
+Wünsche Schüler 209: 27|707|434
+Wünsche Schüler 210: 733|162|89
+Wünsche Schüler 211: 280|420|36
+Wünsche Schüler 212: 73|757|291
+Wünsche Schüler 213: 289|833|389
+Wünsche Schüler 214: 561|149|751
+Wünsche Schüler 215: 9|918|324
+Wünsche Schüler 216: 211|46|626
+Wünsche Schüler 217: 201|650|878
+Wünsche Schüler 218: 541|933|803
+Wünsche Schüler 219: 379|261|504
+Wünsche Schüler 220: 21|937|622
+Wünsche Schüler 221: 379|153|674
+Wünsche Schüler 222: 638|544|75
+Wünsche Schüler 223: 56|550|575
+Wünsche Schüler 224: 34|412|105
+Wünsche Schüler 225: 355|365|758
+Wünsche Schüler 226: 603|601|205
+Wünsche Schüler 227: 208|769|512
+Wünsche Schüler 228: 6|798|142
+Wünsche Schüler 229: 380|160|65
+Wünsche Schüler 230: 511|550|106
+Wünsche Schüler 231: 837|242|241
+Wünsche Schüler 232: 605|475|808
+Wünsche Schüler 233: 632|78|891
+Wünsche Schüler 234: 892|961|880
+Wünsche Schüler 235: 706|995|730
+Wünsche Schüler 236: 534|544|57
+Wünsche Schüler 237: 887|696|334
+Wünsche Schüler 238: 426|782|254
+Wünsche Schüler 239: 533|606|793
+Wünsche Schüler 240: 883|142|249
+Wünsche Schüler 241: 998|883|360
+Wünsche Schüler 242: 547|280|180
+Wünsche Schüler 243: 614|199|179
+Wünsche Schüler 244: 120|558|9
+Wünsche Schüler 245: 105|191|508
+Wünsche Schüler 246: 334|187|395
+Wünsche Schüler 247: 174|846|988
+Wünsche Schüler 248: 154|132|743
+Wünsche Schüler 249: 440|20|655
+Wünsche Schüler 250: 533|857|790
+Wünsche Schüler 251: 627|889|706
+Wünsche Schüler 252: 999|319|208
+Wünsche Schüler 253: 555|550|776
+Wünsche Schüler 254: 149|446|602
+Wünsche Schüler 255: 573|519|154
+Wünsche Schüler 256: 655|548|254
+Wünsche Schüler 257: 211|191|697
+Wünsche Schüler 258: 305|89|817
+Wünsche Schüler 259: 500|96|620
+Wünsche Schüler 260: 611|918|238
+Wünsche Schüler 261: 714|6|775
+Wünsche Schüler 262: 349|637|534
+Wünsche Schüler 263: 255|183|145
+Wünsche Schüler 264: 457|380|601
+Wünsche Schüler 265: 997|769|720
+Wünsche Schüler 266: 891|421|303
+Wünsche Schüler 267: 622|78|61
+Wünsche Schüler 268: 210|962|104
+Wünsche Schüler 269: 301|252|46
+Wünsche Schüler 270: 249|135|766
+Wünsche Schüler 271: 19|241|318
+Wünsche Schüler 272: 840|777|822
+Wünsche Schüler 273: 596|799|699
+Wünsche Schüler 274: 389|664|719
+Wünsche Schüler 275: 167|564|682
+Wünsche Schüler 276: 148|538|988
+Wünsche Schüler 277: 637|691|105
+Wünsche Schüler 278: 829|777|126
+Wünsche Schüler 279: 86|291|505
+Wünsche Schüler 280: 366|153|375
+Wünsche Schüler 281: 833|461|775
+Wünsche Schüler 282: 408|300|238
+Wünsche Schüler 283: 409|540|459
+Wünsche Schüler 284: 842|225|682
+Wünsche Schüler 285: 533|757|565
+Wünsche Schüler 286: 228|406|273
+Wünsche Schüler 287: 733|101|352
+Wünsche Schüler 288: 201|949|854
+Wünsche Schüler 289: 413|993|12
+Wünsche Schüler 290: 339|466|309
+Wünsche Schüler 291: 452|255|997
+Wünsche Schüler 292: 58|558|892
+Wünsche Schüler 293: 138|281|289
+Wünsche Schüler 294: 298|885|551
+Wünsche Schüler 295: 340|755|43
+Wünsche Schüler 296: 857|379|264
+Wünsche Schüler 297: 802|768|398
+Wünsche Schüler 298: 606|637|635
+Wünsche Schüler 299: 733|892|508
+Wünsche Schüler 300: 156|797|829
+Wünsche Schüler 301: 6|242|204
+Wünsche Schüler 302: 835|721|16
+Wünsche Schüler 303: 484|974|407
+Wünsche Schüler 304: 993|917|691
+Wünsche Schüler 305: 126|454|550
+Wünsche Schüler 306: 126|993|161
+Wünsche Schüler 307: 993|867|241
+Wünsche Schüler 308: 221|983|688
+Wünsche Schüler 309: 471|308|517
+Wünsche Schüler 310: 353|287|427
+Wünsche Schüler 311: 484|86|539
+Wünsche Schüler 312: 578|100|62
+Wünsche Schüler 313: 325|711|104
+Wünsche Schüler 314: 285|719|837
+Wünsche Schüler 315: 475|665|174
+Wünsche Schüler 316: 134|118|565
+Wünsche Schüler 317: 425|21|100
+Wünsche Schüler 318: 202|866|365
+Wünsche Schüler 319: 394|631|11
+Wünsche Schüler 320: 795|630|233
+Wünsche Schüler 321: 846|806|12
+Wünsche Schüler 322: 179|629|997
+Wünsche Schüler 323: 548|19|127
+Wünsche Schüler 324: 189|898|176
+Wünsche Schüler 325: 673|751|183
+Wünsche Schüler 326: 744|539|920
+Wünsche Schüler 327: 153|345|550
+Wünsche Schüler 328: 835|234|94
+Wünsche Schüler 329: 335|62|112
+Wünsche Schüler 330: 264|866|704
+Wünsche Schüler 331: 133|698|61
+Wünsche Schüler 332: 717|108|121
+Wünsche Schüler 333: 937|322|257
+Wünsche Schüler 334: 211|671|498
+Wünsche Schüler 335: 799|804|201
+Wünsche Schüler 336: 671|620|241
+Wünsche Schüler 337: 627|231|318
+Wünsche Schüler 338: 273|483|888
+Wünsche Schüler 339: 151|166|518
+Wünsche Schüler 340: 682|985|683
+Wünsche Schüler 341: 938|695|775
+Wünsche Schüler 342: 454|301|714
+Wünsche Schüler 343: 846|437|541
+Wünsche Schüler 344: 578|42|755
+Wünsche Schüler 345: 398|290|898
+Wünsche Schüler 346: 179|280|800
+Wünsche Schüler 347: 662|611|469
+Wünsche Schüler 348: 11|168|952
+Wünsche Schüler 349: 519|163|189
+Wünsche Schüler 350: 974|95|419
+Wünsche Schüler 351: 246|809|27
+Wünsche Schüler 352: 195|548|541
+Wünsche Schüler 353: 138|935|430
+Wünsche Schüler 354: 464|622|434
+Wünsche Schüler 355: 848|205|995
+Wünsche Schüler 356: 380|124|733
+Wünsche Schüler 357: 182|334|35
+Wünsche Schüler 358: 437|355|46
+Wünsche Schüler 359: 988|831|656
+Wünsche Schüler 360: 12|370|449
+Wünsche Schüler 361: 624|172|953
+Wünsche Schüler 362: 613|377|204
+Wünsche Schüler 363: 140|964|93
+Wünsche Schüler 364: 187|920|380
+Wünsche Schüler 365: 685|674|327
+Wünsche Schüler 366: 35|942|485
+Wünsche Schüler 367: 239|552|891
+Wünsche Schüler 368: 27|731|740
+Wünsche Schüler 369: 895|267|592
+Wünsche Schüler 370: 878|96|121
+Wünsche Schüler 371: 844|371|706
+Wünsche Schüler 372: 814|686|320
+Wünsche Schüler 373: 837|535|542
+Wünsche Schüler 374: 112|869|3
+Wünsche Schüler 375: 750|35|970
+Wünsche Schüler 376: 148|590|423
+Wünsche Schüler 377: 806|40|538
+Wünsche Schüler 378: 541|907|291
+Wünsche Schüler 379: 131|444|965
+Wünsche Schüler 380: 657|301|351
+Wünsche Schüler 381: 420|891|561
+Wünsche Schüler 382: 203|889|497
+Wünsche Schüler 383: 430|872|784
+Wünsche Schüler 384: 618|86|81
+Wünsche Schüler 385: 830|496|837
+Wünsche Schüler 386: 639|21|866
+Wünsche Schüler 387: 149|92|246
+Wünsche Schüler 388: 306|724|579
+Wünsche Schüler 389: 796|415|655
+Wünsche Schüler 390: 238|52|562
+Wünsche Schüler 391: 425|427|685
+Wünsche Schüler 392: 386|3|261
+Wünsche Schüler 393: 861|630|380
+Wünsche Schüler 394: 819|194|9
+Wünsche Schüler 395: 782|157|884
+Wünsche Schüler 396: 938|604|553
+Wünsche Schüler 397: 190|34|691
+Wünsche Schüler 398: 123|438|730
+Wünsche Schüler 399: 484|300|475
+Wünsche Schüler 400: 355|420|939
+Wünsche Schüler 401: 153|703|795
+Wünsche Schüler 402: 665|377|379
+Wünsche Schüler 403: 202|541|615
+Wünsche Schüler 404: 21|81|643
+Wünsche Schüler 405: 829|111|641
+Wünsche Schüler 406: 256|33|814
+Wünsche Schüler 407: 806|58|624
+Wünsche Schüler 408: 695|349|758
+Wünsche Schüler 409: 717|246|128
+Wünsche Schüler 410: 903|805|739
+Wünsche Schüler 411: 110|670|563
+Wünsche Schüler 412: 639|437|168
+Wünsche Schüler 413: 304|861|107
+Wünsche Schüler 414: 740|872|745
+Wünsche Schüler 415: 342|670|892
+Wünsche Schüler 416: 555|797|796
+Wünsche Schüler 417: 81|264|365
+Wünsche Schüler 418: 850|110|268
+Wünsche Schüler 419: 689|205|870
+Wünsche Schüler 420: 539|476|887
+Wünsche Schüler 421: 944|320|167
+Wünsche Schüler 422: 196|659|782
+Wünsche Schüler 423: 54|565|128
+Wünsche Schüler 424: 713|874|590
+Wünsche Schüler 425: 720|87|485
+Wünsche Schüler 426: 536|420|932
+Wünsche Schüler 427: 149|181|305
+Wünsche Schüler 428: 878|496|946
+Wünsche Schüler 429: 42|674|889
+Wünsche Schüler 430: 121|850|60
+Wünsche Schüler 431: 733|153|514
+Wünsche Schüler 432: 888|482|94
+Wünsche Schüler 433: 64|427|542
+Wünsche Schüler 434: 168|58|578
+Wünsche Schüler 435: 672|470|416
+Wünsche Schüler 436: 922|137|799
+Wünsche Schüler 437: 83|781|842
+Wünsche Schüler 438: 613|475|250
+Wünsche Schüler 439: 20|467|319
+Wünsche Schüler 440: 902|312|367
+Wünsche Schüler 441: 167|445|375
+Wünsche Schüler 442: 234|452|297
+Wünsche Schüler 443: 764|276|248
+Wünsche Schüler 444: 626|622|671
+Wünsche Schüler 445: 135|604|163
+Wünsche Schüler 446: 473|102|670
+Wünsche Schüler 447: 228|370|557
+Wünsche Schüler 448: 6|615|200
+Wünsche Schüler 449: 246|313|183
+Wünsche Schüler 450: 564|423|797
+Wünsche Schüler 451: 875|523|398
+Wünsche Schüler 452: 213|428|485
+Wünsche Schüler 453: 96|348|23
+Wünsche Schüler 454: 972|889|409
+Wünsche Schüler 455: 70|883|35
+Wünsche Schüler 456: 436|996|683
+Wünsche Schüler 457: 159|545|678
+Wünsche Schüler 458: 806|289|448
+Wünsche Schüler 459: 205|83|267
+Wünsche Schüler 460: 239|721|165
+Wünsche Schüler 461: 475|721|164
+Wünsche Schüler 462: 353|415|407
+Wünsche Schüler 463: 142|744|883
+Wünsche Schüler 464: 637|475|466
+Wünsche Schüler 465: 482|494|662
+Wünsche Schüler 466: 563|157|551
+Wünsche Schüler 467: 34|387|498
+Wünsche Schüler 468: 901|897|846
+Wünsche Schüler 469: 364|474|925
+Wünsche Schüler 470: 104|689|481
+Wünsche Schüler 471: 100|543|137
+Wünsche Schüler 472: 744|35|498
+Wünsche Schüler 473: 743|691|336
+Wünsche Schüler 474: 863|882|517
+Wünsche Schüler 475: 234|846|476
+Wünsche Schüler 476: 204|409|693
+Wünsche Schüler 477: 102|409|703
+Wünsche Schüler 478: 442|210|123
+Wünsche Schüler 479: 518|56|200
+Wünsche Schüler 480: 507|387|868
+Wünsche Schüler 481: 675|166|62
+Wünsche Schüler 482: 628|709|575
+Wünsche Schüler 483: 460|744|73
+Wünsche Schüler 484: 590|216|10
+Wünsche Schüler 485: 332|157|678
+Wünsche Schüler 486: 533|590|679
+Wünsche Schüler 487: 93|73|373
+Wünsche Schüler 488: 856|719|61
+Wünsche Schüler 489: 471|157|751
+Wünsche Schüler 490: 132|685|461
+Wünsche Schüler 491: 606|582|142
+Wünsche Schüler 492: 196|83|837
+Wünsche Schüler 493: 662|536|689
+Wünsche Schüler 494: 939|898|869
+Wünsche Schüler 495: 828|677|218
+Wünsche Schüler 496: 465|362|311
+Wünsche Schüler 497: 362|65|102
+Wünsche Schüler 498: 340|346|946
+Wünsche Schüler 499: 186|261|475
+Wünsche Schüler 500: 780|865|335
+Wünsche Schüler 501: 520|129|974
+Wünsche Schüler 502: 434|937|510
+Wünsche Schüler 503: 56|839|98
+Wünsche Schüler 504: 497|811|81
+Wünsche Schüler 505: 892|96|769
+Wünsche Schüler 506: 782|257|819
+Wünsche Schüler 507: 290|747|349
+Wünsche Schüler 508: 651|806|242
+Wünsche Schüler 509: 889|717|438
+Wünsche Schüler 510: 799|335|828
+Wünsche Schüler 511: 120|264|697
+Wünsche Schüler 512: 639|733|923
+Wünsche Schüler 513: 153|756|373
+Wünsche Schüler 514: 874|126|166
+Wünsche Schüler 515: 556|984|793
+Wünsche Schüler 516: 657|791|461
+Wünsche Schüler 517: 427|392|698
+Wünsche Schüler 518: 496|114|287
+Wünsche Schüler 519: 302|883|344
+Wünsche Schüler 520: 940|241|261
+Wünsche Schüler 521: 630|424|900
+Wünsche Schüler 522: 524|547|880
+Wünsche Schüler 523: 744|641|437
+Wünsche Schüler 524: 161|684|366
+Wünsche Schüler 525: 190|678|149
+Wünsche Schüler 526: 652|712|238
+Wünsche Schüler 527: 211|454|965
+Wünsche Schüler 528: 456|89|135
+Wünsche Schüler 529: 86|561|603
+Wünsche Schüler 530: 120|681|379
+Wünsche Schüler 531: 744|942|370
+Wünsche Schüler 532: 782|303|860
+Wünsche Schüler 533: 733|965|329
+Wünsche Schüler 534: 371|471|445
+Wünsche Schüler 535: 516|319|821
+Wünsche Schüler 536: 324|205|912
+Wünsche Schüler 537: 131|974|105
+Wünsche Schüler 538: 184|188|829
+Wünsche Schüler 539: 809|752|544
+Wünsche Schüler 540: 888|177|122
+Wünsche Schüler 541: 50|407|782
+Wünsche Schüler 542: 439|64|129
+Wünsche Schüler 543: 185|382|193
+Wünsche Schüler 544: 234|850|3
+Wünsche Schüler 545: 779|340|646
+Wünsche Schüler 546: 18|363|86
+Wünsche Schüler 547: 268|677|867
+Wünsche Schüler 548: 86|625|613
+Wünsche Schüler 549: 345|888|695
+Wünsche Schüler 550: 275|9|122
+Wünsche Schüler 551: 377|237|664
+Wünsche Schüler 552: 123|27|452
+Wünsche Schüler 553: 64|902|188
+Wünsche Schüler 554: 713|16|407
+Wünsche Schüler 555: 530|753|679
+Wünsche Schüler 556: 189|912|653
+Wünsche Schüler 557: 677|676|853
+Wünsche Schüler 558: 664|64|113
+Wünsche Schüler 559: 575|404|918
+Wünsche Schüler 560: 843|394|291
+Wünsche Schüler 561: 239|27|103
+Wünsche Schüler 562: 201|339|140
+Wünsche Schüler 563: 365|519|719
+Wünsche Schüler 564: 445|165|151
+Wünsche Schüler 565: 153|471|751
+Wünsche Schüler 566: 213|416|391
+Wünsche Schüler 567: 64|434|538
+Wünsche Schüler 568: 132|550|189
+Wünsche Schüler 569: 442|78|466
+Wünsche Schüler 570: 504|354|441
+Wünsche Schüler 571: 829|312|431
+Wünsche Schüler 572: 670|979|983
+Wünsche Schüler 573: 485|799|606
+Wünsche Schüler 574: 942|318|775
+Wünsche Schüler 575: 377|340|229
+Wünsche Schüler 576: 484|602|149
+Wünsche Schüler 577: 431|481|722
+Wünsche Schüler 578: 105|431|629
+Wünsche Schüler 579: 559|218|535
+Wünsche Schüler 580: 785|565|379
+Wünsche Schüler 581: 776|127|146
+Wünsche Schüler 582: 882|337|643
+Wünsche Schüler 583: 380|550|55
+Wünsche Schüler 584: 853|130|469
+Wünsche Schüler 585: 408|932|413
+Wünsche Schüler 586: 551|995|347
+Wünsche Schüler 587: 154|637|302
+Wünsche Schüler 588: 251|966|649
+Wünsche Schüler 589: 430|842|791
+Wünsche Schüler 590: 920|806|302
+Wünsche Schüler 591: 442|259|82
+Wünsche Schüler 592: 360|86|575
+Wünsche Schüler 593: 242|431|571
+Wünsche Schüler 594: 174|508|52
+Wünsche Schüler 595: 222|423|265
+Wünsche Schüler 596: 290|461|206
+Wünsche Schüler 597: 431|757|897
+Wünsche Schüler 598: 15|661|737
+Wünsche Schüler 599: 665|354|414
+Wünsche Schüler 600: 931|578|743
+Wünsche Schüler 601: 930|185|346
+Wünsche Schüler 602: 719|630|606
+Wünsche Schüler 603: 130|777|334
+Wünsche Schüler 604: 524|255|556
+Wünsche Schüler 605: 196|337|639
+Wünsche Schüler 606: 866|575|58
+Wünsche Schüler 607: 731|604|407
+Wünsche Schüler 608: 863|688|493
+Wünsche Schüler 609: 603|96|76
+Wünsche Schüler 610: 835|290|415
+Wünsche Schüler 611: 903|83|731
+Wünsche Schüler 612: 958|363|420
+Wünsche Schüler 613: 19|575|705
+Wünsche Schüler 614: 199|732|955
+Wünsche Schüler 615: 154|896|498
+Wünsche Schüler 616: 211|535|920
+Wünsche Schüler 617: 579|149|611
+Wünsche Schüler 618: 476|752|105
+Wünsche Schüler 619: 408|530|648
+Wünsche Schüler 620: 297|565|763
+Wünsche Schüler 621: 827|56|676
+Wünsche Schüler 622: 50|21|484
+Wünsche Schüler 623: 514|434|291
+Wünsche Schüler 624: 742|475|687
+Wünsche Schüler 625: 990|281|758
+Wünsche Schüler 626: 189|110|74
+Wünsche Schüler 627: 622|335|828
+Wünsche Schüler 628: 421|249|7
+Wünsche Schüler 629: 149|572|382
+Wünsche Schüler 630: 782|437|362
+Wünsche Schüler 631: 971|104|806
+Wünsche Schüler 632: 380|926|62
+Wünsche Schüler 633: 637|11|27
+Wünsche Schüler 634: 80|300|915
+Wünsche Schüler 635: 728|659|6
+Wünsche Schüler 636: 40|119|185
+Wünsche Schüler 637: 42|211|317
+Wünsche Schüler 638: 146|308|627
+Wünsche Schüler 639: 404|366|95
+Wünsche Schüler 640: 452|315|925
+Wünsche Schüler 641: 558|334|470
+Wünsche Schüler 642: 847|536|725
+Wünsche Schüler 643: 600|828|27
+Wünsche Schüler 644: 215|651|525
+Wünsche Schüler 645: 633|412|683
+Wünsche Schüler 646: 149|830|199
+Wünsche Schüler 647: 581|148|203
+Wünsche Schüler 648: 535|335|577
+Wünsche Schüler 649: 25|806|965
+Wünsche Schüler 650: 241|407|738
+Wünsche Schüler 651: 49|11|422
+Wünsche Schüler 652: 464|334|407
+Wünsche Schüler 653: 241|622|182
+Wünsche Schüler 654: 200|613|920
+Wünsche Schüler 655: 52|719|206
+Wünsche Schüler 656: 354|691|993
+Wünsche Schüler 657: 499|413|559
+Wünsche Schüler 658: 657|167|842
+Wünsche Schüler 659: 712|837|127
+Wünsche Schüler 660: 773|430|485
+Wünsche Schüler 661: 264|830|918
+Wünsche Schüler 662: 892|444|284
+Wünsche Schüler 663: 625|366|609
+Wünsche Schüler 664: 777|903|561
+Wünsche Schüler 665: 50|940|830
+Wünsche Schüler 666: 815|592|627
+Wünsche Schüler 667: 395|586|763
+Wünsche Schüler 668: 191|782|693
+Wünsche Schüler 669: 154|561|20
+Wünsche Schüler 670: 445|431|574
+Wünsche Schüler 671: 396|219|445
+Wünsche Schüler 672: 218|789|318
+Wünsche Schüler 673: 765|294|518
+Wünsche Schüler 674: 181|291|657
+Wünsche Schüler 675: 347|360|979
+Wünsche Schüler 676: 679|129|313
+Wünsche Schüler 677: 290|19|932
+Wünsche Schüler 678: 408|84|552
+Wünsche Schüler 679: 481|165|371
+Wünsche Schüler 680: 859|677|303
+Wünsche Schüler 681: 247|997|722
+Wünsche Schüler 682: 452|190|677
+Wünsche Schüler 683: 561|968|303
+Wünsche Schüler 684: 92|240|35
+Wünsche Schüler 685: 453|61|918
+Wünsche Schüler 686: 840|374|533
+Wünsche Schüler 687: 550|168|492
+Wünsche Schüler 688: 61|335|599
+Wünsche Schüler 689: 699|816|497
+Wünsche Schüler 690: 100|475|875
+Wünsche Schüler 691: 957|12|246
+Wünsche Schüler 692: 869|65|213
+Wünsche Schüler 693: 201|287|65
+Wünsche Schüler 694: 731|995|530
+Wünsche Schüler 695: 828|853|87
+Wünsche Schüler 696: 254|733|147
+Wünsche Schüler 697: 167|355|497
+Wünsche Schüler 698: 62|180|91
+Wünsche Schüler 699: 466|37|500
+Wünsche Schüler 700: 705|544|60
+Wünsche Schüler 701: 810|415|157
+Wünsche Schüler 702: 441|150|739
+Wünsche Schüler 703: 590|716|505
+Wünsche Schüler 704: 371|296|372
+Wünsche Schüler 705: 19|976|37
+Wünsche Schüler 706: 81|131|327
+Wünsche Schüler 707: 456|544|659
+Wünsche Schüler 708: 406|444|782
+Wünsche Schüler 709: 699|303|678
+Wünsche Schüler 710: 919|407|999
+Wünsche Schüler 711: 722|185|475
+Wünsche Schüler 712: 142|311|960
+Wünsche Schüler 713: 318|769|955
+Wünsche Schüler 714: 777|379|620
+Wünsche Schüler 715: 319|519|425
+Wünsche Schüler 716: 613|485|581
+Wünsche Schüler 717: 319|475|973
+Wünsche Schüler 718: 681|733|253
+Wünsche Schüler 719: 763|625|906
+Wünsche Schüler 720: 189|128|46
+Wünsche Schüler 721: 476|527|132
+Wünsche Schüler 722: 374|297|137
+Wünsche Schüler 723: 232|467|267
+Wünsche Schüler 724: 327|112|827
+Wünsche Schüler 725: 315|876|533
+Wünsche Schüler 726: 366|291|346
+Wünsche Schüler 727: 613|412|153
+Wünsche Schüler 728: 172|327|205
+Wünsche Schüler 729: 466|452|866
+Wünsche Schüler 730: 225|517|398
+Wünsche Schüler 731: 945|425|485
+Wünsche Schüler 732: 629|104|311
+Wünsche Schüler 733: 837|152|575
+Wünsche Schüler 734: 791|34|427
+Wünsche Schüler 735: 648|622|60
+Wünsche Schüler 736: 717|883|630
+Wünsche Schüler 737: 802|891|631
+Wünsche Schüler 738: 738|225|737
+Wünsche Schüler 739: 153|883|340
+Wünsche Schüler 740: 404|461|87
+Wünsche Schüler 741: 203|212|107
+Wünsche Schüler 742: 231|344|579
+Wünsche Schüler 743: 11|338|259
+Wünsche Schüler 744: 373|952|88
+Wünsche Schüler 745: 600|884|475
+Wünsche Schüler 746: 484|135|850
+Wünsche Schüler 747: 844|599|464
+Wünsche Schüler 748: 807|481|147
+Wünsche Schüler 749: 284|165|861
+Wünsche Schüler 750: 517|624|425
+Wünsche Schüler 751: 391|577|985
+Wünsche Schüler 752: 891|973|430
+Wünsche Schüler 753: 437|91|722
+Wünsche Schüler 754: 430|837|475
+Wünsche Schüler 755: 530|410|679
+Wünsche Schüler 756: 754|681|740
+Wünsche Schüler 757: 856|609|823
+Wünsche Schüler 758: 679|769|241
+Wünsche Schüler 759: 550|439|365
+Wünsche Schüler 760: 751|4|147
+Wünsche Schüler 761: 599|17|648
+Wünsche Schüler 762: 802|689|971
+Wünsche Schüler 763: 357|171|530
+Wünsche Schüler 764: 95|322|142
+Wünsche Schüler 765: 878|790|549
+Wünsche Schüler 766: 493|833|861
+Wünsche Schüler 767: 866|318|157
+Wünsche Schüler 768: 505|355|43
+Wünsche Schüler 769: 374|483|234
+Wünsche Schüler 770: 6|142|167
+Wünsche Schüler 771: 20|699|213
+Wünsche Schüler 772: 983|829|412
+Wünsche Schüler 773: 796|775|50
+Wünsche Schüler 774: 971|800|106
+Wünsche Schüler 775: 494|154|963
+Wünsche Schüler 776: 474|966|146
+Wünsche Schüler 777: 519|853|302
+Wünsche Schüler 778: 819|691|79
+Wünsche Schüler 779: 338|256|421
+Wünsche Schüler 780: 530|604|421
+Wünsche Schüler 781: 861|559|486
+Wünsche Schüler 782: 3|440|130
+Wünsche Schüler 783: 189|65|251
+Wünsche Schüler 784: 625|739|499
+Wünsche Schüler 785: 105|142|392
+Wünsche Schüler 786: 140|575|861
+Wünsche Schüler 787: 470|123|782
+Wünsche Schüler 788: 877|798|561
+Wünsche Schüler 789: 577|275|555
+Wünsche Schüler 790: 640|147|755
+Wünsche Schüler 791: 170|452|19
+Wünsche Schüler 792: 172|880|766
+Wünsche Schüler 793: 739|565|866
+Wünsche Schüler 794: 285|466|550
+Wünsche Schüler 795: 189|123|352
+Wünsche Schüler 796: 400|911|615
+Wünsche Schüler 797: 81|657|882
+Wünsche Schüler 798: 62|238|842
+Wünsche Schüler 799: 398|987|327
+Wünsche Schüler 800: 682|300|604
+Wünsche Schüler 801: 539|398|317
+Wünsche Schüler 802: 460|102|846
+Wünsche Schüler 803: 995|827|878
+Wünsche Schüler 804: 467|61|656
+Wünsche Schüler 805: 68|697|70
+Wünsche Schüler 806: 770|694|539
+Wünsche Schüler 807: 484|810|340
+Wünsche Schüler 808: 918|131|35
+Wünsche Schüler 809: 127|773|932
+Wünsche Schüler 810: 791|735|306
+Wünsche Schüler 811: 407|459|278
+Wünsche Schüler 812: 257|387|642
+Wünsche Schüler 813: 234|959|806
+Wünsche Schüler 814: 506|511|339
+Wünsche Schüler 815: 648|26|201
+Wünsche Schüler 816: 442|928|304
+Wünsche Schüler 817: 882|508|25
+Wünsche Schüler 818: 484|768|246
+Wünsche Schüler 819: 351|586|799
+Wünsche Schüler 820: 179|945|334
+Wünsche Schüler 821: 167|755|66
+Wünsche Schüler 822: 927|334|883
+Wünsche Schüler 823: 147|639|374
+Wünsche Schüler 824: 209|744|293
+Wünsche Schüler 825: 699|722|16
+Wünsche Schüler 826: 739|10|185
+Wünsche Schüler 827: 891|920|722
+Wünsche Schüler 828: 123|993|431
+Wünsche Schüler 829: 603|765|84
+Wünsche Schüler 830: 952|475|675
+Wünsche Schüler 831: 834|171|803
+Wünsche Schüler 832: 803|183|826
+Wünsche Schüler 833: 101|632|291
+Wünsche Schüler 834: 782|149|776
+Wünsche Schüler 835: 819|843|850
+Wünsche Schüler 836: 281|98|154
+Wünsche Schüler 837: 641|578|719
+Wünsche Schüler 838: 37|6|145
+Wünsche Schüler 839: 426|830|371
+Wünsche Schüler 840: 200|28|45
+Wünsche Schüler 841: 603|547|786
+Wünsche Schüler 842: 645|776|475
+Wünsche Schüler 843: 290|441|892
+Wünsche Schüler 844: 783|306|835
+Wünsche Schüler 845: 259|759|821
+Wünsche Schüler 846: 408|360|193
+Wünsche Schüler 847: 684|440|866
+Wünsche Schüler 848: 622|875|650
+Wünsche Schüler 849: 775|20|611
+Wünsche Schüler 850: 360|593|307
+Wünsche Schüler 851: 986|535|84
+Wünsche Schüler 852: 636|607|298
+Wünsche Schüler 853: 340|7|19
+Wünsche Schüler 854: 16|891|485
+Wünsche Schüler 855: 781|452|661
+Wünsche Schüler 856: 925|110|407
+Wünsche Schüler 857: 256|153|798
+Wünsche Schüler 858: 388|457|476
+Wünsche Schüler 859: 247|879|265
+Wünsche Schüler 860: 261|607|112
+Wünsche Schüler 861: 400|993|837
+Wünsche Schüler 862: 158|826|962
+Wünsche Schüler 863: 669|721|302
+Wünsche Schüler 864: 903|241|249
+Wünsche Schüler 865: 339|153|96
+Wünsche Schüler 866: 635|776|677
+Wünsche Schüler 867: 548|879|161
+Wünsche Schüler 868: 995|246|241
+Wünsche Schüler 869: 501|57|59
+Wünsche Schüler 870: 803|27|728
+Wünsche Schüler 871: 500|100|213
+Wünsche Schüler 872: 70|327|584
+Wünsche Schüler 873: 374|769|552
+Wünsche Schüler 874: 635|306|557
+Wünsche Schüler 875: 357|461|805
+Wünsche Schüler 876: 766|154|189
+Wünsche Schüler 877: 494|485|875
+Wünsche Schüler 878: 83|142|639
+Wünsche Schüler 879: 104|294|988
+Wünsche Schüler 880: 183|803|974
+Wünsche Schüler 881: 721|562|58
+Wünsche Schüler 882: 799|19|205
+Wünsche Schüler 883: 224|911|742
+Wünsche Schüler 884: 814|985|900
+Wünsche Schüler 885: 18|100|659
+Wünsche Schüler 886: 592|283|21
+Wünsche Schüler 887: 464|745|865
+Wünsche Schüler 888: 664|335|277
+Wünsche Schüler 889: 327|96|12
+Wünsche Schüler 890: 476|725|12
+Wünsche Schüler 891: 517|412|103
+Wünsche Schüler 892: 867|186|765
+Wünsche Schüler 893: 430|434|18
+Wünsche Schüler 894: 460|651|108
+Wünsche Schüler 895: 412|431|560
+Wünsche Schüler 896: 174|386|320
+Wünsche Schüler 897: 800|303|677
+Wünsche Schüler 898: 853|907|149
+Wünsche Schüler 899: 140|148|586
+Wünsche Schüler 900: 129|434|920
+Wünsche Schüler 901: 357|62|854
+Wünsche Schüler 902: 835|500|645
+Wünsche Schüler 903: 86|508|738
+Wünsche Schüler 904: 335|694|965
+Wünsche Schüler 905: 524|777|800
+Wünsche Schüler 906: 908|467|130
+Wünsche Schüler 907: 148|95|222
+Wünsche Schüler 908: 826|215|507
+Wünsche Schüler 909: 801|714|185
+Wünsche Schüler 910: 315|398|360
+Wünsche Schüler 911: 756|377|147
+Wünsche Schüler 912: 944|971|931
+Wünsche Schüler 913: 664|988|606
+Wünsche Schüler 914: 70|856|349
+Wünsche Schüler 915: 194|251|993
+Wünsche Schüler 916: 544|939|302
+Wünsche Schüler 917: 198|363|639
+Wünsche Schüler 918: 544|897|251
+Wünsche Schüler 919: 306|892|413
+Wünsche Schüler 920: 189|973|263
+Wünsche Schüler 921: 574|229|409
+Wünsche Schüler 922: 206|814|599
+Wünsche Schüler 923: 15|287|98
+Wünsche Schüler 924: 791|19|375
+Wünsche Schüler 925: 657|550|604
+Wünsche Schüler 926: 398|278|404
+Wünsche Schüler 927: 380|431|884
+Wünsche Schüler 928: 412|486|709
+Wünsche Schüler 929: 821|21|614
+Wünsche Schüler 930: 148|265|884
+Wünsche Schüler 931: 365|813|803
+Wünsche Schüler 932: 618|29|933
+Wünsche Schüler 933: 703|942|407
+Wünsche Schüler 934: 105|118|605
+Wünsche Schüler 935: 728|520|884
+Wünsche Schüler 936: 333|98|561
+Wünsche Schüler 937: 930|334|945
+Wünsche Schüler 938: 225|628|152
+Wünsche Schüler 939: 162|664|565
+Wünsche Schüler 940: 971|944|9
+Wünsche Schüler 941: 973|768|381
+Wünsche Schüler 942: 988|33|396
+Wünsche Schüler 943: 995|373|65
+Wünsche Schüler 944: 656|64|382
+Wünsche Schüler 945: 225|920|552
+Wünsche Schüler 946: 129|937|267
+Wünsche Schüler 947: 424|524|578
+Wünsche Schüler 948: 606|512|345
+Wünsche Schüler 949: 412|567|974
+Wünsche Schüler 950: 129|673|498
+Wünsche Schüler 951: 237|401|570
+Wünsche Schüler 952: 968|673|896
+Wünsche Schüler 953: 653|303|16
+Wünsche Schüler 954: 281|442|821
+Wünsche Schüler 955: 89|805|704
+Wünsche Schüler 956: 637|891|657
+Wünsche Schüler 957: 517|137|319
+Wünsche Schüler 958: 199|203|946
+Wünsche Schüler 959: 829|836|882
+Wünsche Schüler 960: 213|157|533
+Wünsche Schüler 961: 157|842|547
+Wünsche Schüler 962: 105|19|464
+Wünsche Schüler 963: 316|208|123
+Wünsche Schüler 964: 122|90|218
+Wünsche Schüler 965: 439|516|272
+Wünsche Schüler 966: 83|153|150
+Wünsche Schüler 967: 346|98|394
+Wünsche Schüler 968: 11|333|615
+Wünsche Schüler 969: 215|70|327
+Wünsche Schüler 970: 653|135|384
+Wünsche Schüler 971: 148|234|971
+Wünsche Schüler 972: 998|60|452
+Wünsche Schüler 973: 146|287|382
+Wünsche Schüler 974: 391|576|287
+Wünsche Schüler 975: 443|481|650
+Wünsche Schüler 976: 287|615|442
+Wünsche Schüler 977: 763|164|138
+Wünsche Schüler 978: 256|407|346
+Wünsche Schüler 979: 104|891|730
+Wünsche Schüler 980: 148|945|458
+Wünsche Schüler 981: 800|123|239
+Wünsche Schüler 982: 875|486|649
+Wünsche Schüler 983: 683|599|382
+Wünsche Schüler 984: 213|46|111
+Wünsche Schüler 985: 61|366|569
+Wünsche Schüler 986: 720|142|533
+Wünsche Schüler 987: 587|712|829
+Wünsche Schüler 988: 106|456|866
+Wünsche Schüler 989: 431|437|910
+Wünsche Schüler 990: 78|620|821
+Wünsche Schüler 991: 389|850|211
+Wünsche Schüler 992: 539|129|185
+Wünsche Schüler 993: 379|758|421
+Wünsche Schüler 994: 485|822|440
+Wünsche Schüler 995: 390|994|416
+Wünsche Schüler 996: 763|205|57
+Wünsche Schüler 997: 554|241|4
+Wünsche Schüler 998: 342|662|420
+Wünsche Schüler 999: 793|520|380
+Schüler 0 bekommt das Geschenk 483.
+Schüler 1 bekommt das Geschenk 27.
+Schüler 2 bekommt das Geschenk 4.
+Schüler 3 bekommt das Geschenk 901.
+Schüler 4 bekommt das Geschenk 366.
+Schüler 5 bekommt das Geschenk 379.
+Schüler 6 bekommt das Geschenk 62.
+Schüler 7 bekommt das Geschenk 979.
+Schüler 8 bekommt das Geschenk 530.
+Schüler 9 bekommt das Geschenk 865.
+Schüler 10 bekommt das Geschenk 570.
+Schüler 11 bekommt das Geschenk 58.
+Schüler 12 bekommt das Geschenk 867.
+Schüler 13 bekommt das Geschenk 653.
+Schüler 14 bekommt das Geschenk 853.
+Schüler 15 bekommt das Geschenk 659.
+Schüler 16 bekommt das Geschenk 751.
+Schüler 17 bekommt das Geschenk 550.
+Schüler 18 bekommt das Geschenk 303.
+Schüler 19 bekommt das Geschenk 579.
+Schüler 20 bekommt das Geschenk 254.
+Schüler 21 bekommt das Geschenk 721.
+Schüler 22 bekommt das Geschenk 142.
+Schüler 23 bekommt das Geschenk 102.
+Schüler 24 bekommt das Geschenk 976.
+Schüler 25 bekommt das Geschenk 494.
+Schüler 26 bekommt das Geschenk 993.
+Schüler 27 bekommt das Geschenk 351.
+Schüler 28 bekommt das Geschenk 79.
+Schüler 29 bekommt das Geschenk 959.
+Schüler 30 bekommt das Geschenk 601.
+Schüler 31 bekommt das Geschenk 43.
+Schüler 32 bekommt das Geschenk 744.
+Schüler 33 bekommt das Geschenk 475.
+Schüler 34 bekommt das Geschenk 437.
+Schüler 35 bekommt das Geschenk 346.
+Schüler 36 bekommt das Geschenk 948.
+Schüler 37 bekommt das Geschenk 593.
+Schüler 38 bekommt das Geschenk 84.
+Schüler 39 bekommt das Geschenk 682.
+Schüler 40 bekommt das Geschenk 920.
+Schüler 41 bekommt das Geschenk 533.
+Schüler 42 bekommt das Geschenk 603.
+Schüler 43 bekommt das Geschenk 130.
+Schüler 44 bekommt das Geschenk 454.
+Schüler 45 bekommt das Geschenk 431.
+Schüler 46 bekommt das Geschenk 967.
+Schüler 47 bekommt das Geschenk 922.
+Schüler 48 bekommt das Geschenk 181.
+Schüler 49 bekommt das Geschenk 466.
+Schüler 50 bekommt das Geschenk 704.
+Schüler 51 bekommt das Geschenk 349.
+Schüler 52 bekommt das Geschenk 629.
+Schüler 53 bekommt das Geschenk 842.
+Schüler 54 bekommt das Geschenk 389.
+Schüler 55 bekommt das Geschenk 0.
+Schüler 56 bekommt das Geschenk 742.
+Schüler 57 bekommt das Geschenk 755.
+Schüler 58 bekommt das Geschenk 108.
+Schüler 59 bekommt das Geschenk 470.
+Schüler 60 bekommt das Geschenk 148.
+Schüler 61 bekommt das Geschenk 234.
+Schüler 62 bekommt das Geschenk 695.
+Schüler 63 bekommt das Geschenk 18.
+Schüler 64 bekommt das Geschenk 630.
+Schüler 65 bekommt das Geschenk 884.
+Schüler 66 bekommt das Geschenk 891.
+Schüler 67 bekommt das Geschenk 878.
+Schüler 68 bekommt das Geschenk 137.
+Schüler 69 bekommt das Geschenk 17.
+Schüler 70 bekommt das Geschenk 128.
+Schüler 71 bekommt das Geschenk 638.
+Schüler 72 bekommt das Geschenk 401.
+Schüler 73 bekommt das Geschenk 115.
+Schüler 74 bekommt das Geschenk 685.
+Schüler 75 bekommt das Geschenk 153.
+Schüler 76 bekommt das Geschenk 544.
+Schüler 77 bekommt das Geschenk 890.
+Schüler 78 bekommt das Geschenk 918.
+Schüler 79 bekommt das Geschenk 797.
+Schüler 80 bekommt das Geschenk 479.
+Schüler 81 bekommt das Geschenk 830.
+Schüler 82 bekommt das Geschenk 955.
+Schüler 83 bekommt das Geschenk 120.
+Schüler 84 bekommt das Geschenk 398.
+Schüler 85 bekommt das Geschenk 643.
+Schüler 86 bekommt das Geschenk 239.
+Schüler 87 bekommt das Geschenk 174.
+Schüler 88 bekommt das Geschenk 837.
+Schüler 89 bekommt das Geschenk 500.
+Schüler 90 bekommt das Geschenk 931.
+Schüler 91 bekommt das Geschenk 835.
+Schüler 92 bekommt das Geschenk 474.
+Schüler 93 bekommt das Geschenk 612.
+Schüler 94 bekommt das Geschenk 559.
+Schüler 95 bekommt das Geschenk 125.
+Schüler 96 bekommt das Geschenk 259.
+Schüler 97 bekommt das Geschenk 548.
+Schüler 98 bekommt das Geschenk 377.
+Schüler 99 bekommt das Geschenk 1.
+Schüler 100 bekommt das Geschenk 320.
+Schüler 101 bekommt das Geschenk 232.
+Schüler 102 bekommt das Geschenk 856.
+Schüler 103 bekommt das Geschenk 312.
+Schüler 104 bekommt das Geschenk 205.
+Schüler 105 bekommt das Geschenk 187.
+Schüler 106 bekommt das Geschenk 12.
+Schüler 107 bekommt das Geschenk 768.
+Schüler 108 bekommt das Geschenk 588.
+Schüler 109 bekommt das Geschenk 340.
+Schüler 110 bekommt das Geschenk 847.
+Schüler 111 bekommt das Geschenk 420.
+Schüler 112 bekommt das Geschenk 646.
+Schüler 113 bekommt das Geschenk 2.
+Schüler 114 bekommt das Geschenk 34.
+Schüler 115 bekommt das Geschenk 434.
+Schüler 116 bekommt das Geschenk 909.
+Schüler 117 bekommt das Geschenk 5.
+Schüler 118 bekommt das Geschenk 846.
+Schüler 119 bekommt das Geschenk 800.
+Schüler 120 bekommt das Geschenk 816.
+Schüler 121 bekommt das Geschenk 324.
+Schüler 122 bekommt das Geschenk 150.
+Schüler 123 bekommt das Geschenk 81.
+Schüler 124 bekommt das Geschenk 8.
+Schüler 125 bekommt das Geschenk 714.
+Schüler 126 bekommt das Geschenk 681.
+Schüler 127 bekommt das Geschenk 315.
+Schüler 128 bekommt das Geschenk 167.
+Schüler 129 bekommt das Geschenk 710.
+Schüler 130 bekommt das Geschenk 557.
+Schüler 131 bekommt das Geschenk 898.
+Schüler 132 bekommt das Geschenk 693.
+Schüler 133 bekommt das Geschenk 654.
+Schüler 134 bekommt das Geschenk 105.
+Schüler 135 bekommt das Geschenk 428.
+Schüler 136 bekommt das Geschenk 245.
+Schüler 137 bekommt das Geschenk 201.
+Schüler 138 bekommt das Geschenk 789.
+Schüler 139 bekommt das Geschenk 782.
+Schüler 140 bekommt das Geschenk 127.
+Schüler 141 bekommt das Geschenk 13.
+Schüler 142 bekommt das Geschenk 32.
+Schüler 143 bekommt das Geschenk 892.
+Schüler 144 bekommt das Geschenk 578.
+Schüler 145 bekommt das Geschenk 720.
+Schüler 146 bekommt das Geschenk 14.
+Schüler 147 bekommt das Geschenk 505.
+Schüler 148 bekommt das Geschenk 783.
+Schüler 149 bekommt das Geschenk 123.
+Schüler 150 bekommt das Geschenk 22.
+Schüler 151 bekommt das Geschenk 104.
+Schüler 152 bekommt das Geschenk 780.
+Schüler 153 bekommt das Geschenk 486.
+Schüler 154 bekommt das Geschenk 95.
+Schüler 155 bekommt das Geschenk 730.
+Schüler 156 bekommt das Geschenk 606.
+Schüler 157 bekommt das Geschenk 921.
+Schüler 158 bekommt das Geschenk 670.
+Schüler 159 bekommt das Geschenk 732.
+Schüler 160 bekommt das Geschenk 961.
+Schüler 161 bekommt das Geschenk 290.
+Schüler 162 bekommt das Geschenk 23.
+Schüler 163 bekommt das Geschenk 452.
+Schüler 164 bekommt das Geschenk 74.
+Schüler 165 bekommt das Geschenk 622.
+Schüler 166 bekommt das Geschenk 468.
+Schüler 167 bekommt das Geschenk 24.
+Schüler 168 bekommt das Geschenk 733.
+Schüler 169 bekommt das Geschenk 30.
+Schüler 170 bekommt das Geschenk 31.
+Schüler 171 bekommt das Geschenk 36.
+Schüler 172 bekommt das Geschenk 166.
+Schüler 173 bekommt das Geschenk 683.
+Schüler 174 bekommt das Geschenk 576.
+Schüler 175 bekommt das Geschenk 188.
+Schüler 176 bekommt das Geschenk 38.
+Schüler 177 bekommt das Geschenk 39.
+Schüler 178 bekommt das Geschenk 963.
+Schüler 179 bekommt das Geschenk 41.
+Schüler 180 bekommt das Geschenk 888.
+Schüler 181 bekommt das Geschenk 45.
+Schüler 182 bekommt das Geschenk 264.
+Schüler 183 bekommt das Geschenk 946.
+Schüler 184 bekommt das Geschenk 47.
+Schüler 185 bekommt das Geschenk 563.
+Schüler 186 bekommt das Geschenk 517.
+Schüler 187 bekommt das Geschenk 990.
+Schüler 188 bekommt das Geschenk 48.
+Schüler 189 bekommt das Geschenk 491.
+Schüler 190 bekommt das Geschenk 697.
+Schüler 191 bekommt das Geschenk 51.
+Schüler 192 bekommt das Geschenk 561.
+Schüler 193 bekommt das Geschenk 363.
+Schüler 194 bekommt das Geschenk 488.
+Schüler 195 bekommt das Geschenk 565.
+Schüler 196 bekommt das Geschenk 53.
+Schüler 197 bekommt das Geschenk 44.
+Schüler 198 bekommt das Geschenk 498.
+Schüler 199 bekommt das Geschenk 706.
+Schüler 200 bekommt das Geschenk 337.
+Schüler 201 bekommt das Geschenk 592.
+Schüler 202 bekommt das Geschenk 287.
+Schüler 203 bekommt das Geschenk 817.
+Schüler 204 bekommt das Geschenk 336.
+Schüler 205 bekommt das Geschenk 709.
+Schüler 206 bekommt das Geschenk 382.
+Schüler 207 bekommt das Geschenk 604.
+Schüler 208 bekommt das Geschenk 972.
+Schüler 209 bekommt das Geschenk 707.
+Schüler 210 bekommt das Geschenk 59.
+Schüler 211 bekommt das Geschenk 280.
+Schüler 212 bekommt das Geschenk 73.
+Schüler 213 bekommt das Geschenk 289.
+Schüler 214 bekommt das Geschenk 63.
+Schüler 215 bekommt das Geschenk 9.
+Schüler 216 bekommt das Geschenk 211.
+Schüler 217 bekommt das Geschenk 650.
+Schüler 218 bekommt das Geschenk 541.
+Schüler 219 bekommt das Geschenk 67.
+Schüler 220 bekommt das Geschenk 21.
+Schüler 221 bekommt das Geschenk 69.
+Schüler 222 bekommt das Geschenk 75.
+Schüler 223 bekommt das Geschenk 56.
+Schüler 224 bekommt das Geschenk 71.
+Schüler 225 bekommt das Geschenk 355.
+Schüler 226 bekommt das Geschenk 72.
+Schüler 227 bekommt das Geschenk 208.
+Schüler 228 bekommt das Geschenk 6.
+Schüler 229 bekommt das Geschenk 380.
+Schüler 230 bekommt das Geschenk 511.
+Schüler 231 bekommt das Geschenk 77.
+Schüler 232 bekommt das Geschenk 605.
+Schüler 233 bekommt das Geschenk 632.
+Schüler 234 bekommt das Geschenk 85.
+Schüler 235 bekommt das Geschenk 88.
+Schüler 236 bekommt das Geschenk 534.
+Schüler 237 bekommt das Geschenk 887.
+Schüler 238 bekommt das Geschenk 426.
+Schüler 239 bekommt das Geschenk 90.
+Schüler 240 bekommt das Geschenk 883.
+Schüler 241 bekommt das Geschenk 998.
+Schüler 242 bekommt das Geschenk 547.
+Schüler 243 bekommt das Geschenk 614.
+Schüler 244 bekommt das Geschenk 97.
+Schüler 245 bekommt das Geschenk 99.
+Schüler 246 bekommt das Geschenk 334.
+Schüler 247 bekommt das Geschenk 107.
+Schüler 248 bekommt das Geschenk 154.
+Schüler 249 bekommt das Geschenk 440.
+Schüler 250 bekommt das Geschenk 109.
+Schüler 251 bekommt das Geschenk 627.
+Schüler 252 bekommt das Geschenk 999.
+Schüler 253 bekommt das Geschenk 555.
+Schüler 254 bekommt das Geschenk 149.
+Schüler 255 bekommt das Geschenk 573.
+Schüler 256 bekommt das Geschenk 655.
+Schüler 257 bekommt das Geschenk 113.
+Schüler 258 bekommt das Geschenk 305.
+Schüler 259 bekommt das Geschenk 620.
+Schüler 260 bekommt das Geschenk 611.
+Schüler 261 bekommt das Geschenk 114.
+Schüler 262 bekommt das Geschenk 116.
+Schüler 263 bekommt das Geschenk 255.
+Schüler 264 bekommt das Geschenk 457.
+Schüler 265 bekommt das Geschenk 997.
+Schüler 266 bekommt das Geschenk 117.
+Schüler 267 bekommt das Geschenk 119.
+Schüler 268 bekommt das Geschenk 210.
+Schüler 269 bekommt das Geschenk 301.
+Schüler 270 bekommt das Geschenk 249.
+Schüler 271 bekommt das Geschenk 19.
+Schüler 272 bekommt das Geschenk 840.
+Schüler 273 bekommt das Geschenk 596.
+Schüler 274 bekommt das Geschenk 136.
+Schüler 275 bekommt das Geschenk 139.
+Schüler 276 bekommt das Geschenk 538.
+Schüler 277 bekommt das Geschenk 637.
+Schüler 278 bekommt das Geschenk 829.
+Schüler 279 bekommt das Geschenk 86.
+Schüler 280 bekommt das Geschenk 375.
+Schüler 281 bekommt das Geschenk 833.
+Schüler 282 bekommt das Geschenk 408.
+Schüler 283 bekommt das Geschenk 409.
+Schüler 284 bekommt das Geschenk 141.
+Schüler 285 bekommt das Geschenk 757.
+Schüler 286 bekommt das Geschenk 228.
+Schüler 287 bekommt das Geschenk 352.
+Schüler 288 bekommt das Geschenk 949.
+Schüler 289 bekommt das Geschenk 413.
+Schüler 290 bekommt das Geschenk 339.
+Schüler 291 bekommt das Geschenk 143.
+Schüler 292 bekommt das Geschenk 144.
+Schüler 293 bekommt das Geschenk 138.
+Schüler 294 bekommt das Geschenk 298.
+Schüler 295 bekommt das Geschenk 145.
+Schüler 296 bekommt das Geschenk 857.
+Schüler 297 bekommt das Geschenk 802.
+Schüler 298 bekommt das Geschenk 155.
+Schüler 299 bekommt das Geschenk 160.
+Schüler 300 bekommt das Geschenk 156.
+Schüler 301 bekommt das Geschenk 163.
+Schüler 302 bekommt das Geschenk 169.
+Schüler 303 bekommt das Geschenk 484.
+Schüler 304 bekommt das Geschenk 917.
+Schüler 305 bekommt das Geschenk 126.
+Schüler 306 bekommt das Geschenk 171.
+Schüler 307 bekommt das Geschenk 173.
+Schüler 308 bekommt das Geschenk 221.
+Schüler 309 bekommt das Geschenk 471.
+Schüler 310 bekommt das Geschenk 353.
+Schüler 311 bekommt das Geschenk 175.
+Schüler 312 bekommt das Geschenk 176.
+Schüler 313 bekommt das Geschenk 325.
+Schüler 314 bekommt das Geschenk 285.
+Schüler 315 bekommt das Geschenk 178.
+Schüler 316 bekommt das Geschenk 134.
+Schüler 317 bekommt das Geschenk 425.
+Schüler 318 bekommt das Geschenk 202.
+Schüler 319 bekommt das Geschenk 394.
+Schüler 320 bekommt das Geschenk 795.
+Schüler 321 bekommt das Geschenk 192.
+Schüler 322 bekommt das Geschenk 179.
+Schüler 323 bekommt das Geschenk 197.
+Schüler 324 bekommt das Geschenk 189.
+Schüler 325 bekommt das Geschenk 673.
+Schüler 326 bekommt das Geschenk 207.
+Schüler 327 bekommt das Geschenk 214.
+Schüler 328 bekommt das Geschenk 94.
+Schüler 329 bekommt das Geschenk 335.
+Schüler 330 bekommt das Geschenk 216.
+Schüler 331 bekommt das Geschenk 133.
+Schüler 332 bekommt das Geschenk 717.
+Schüler 333 bekommt das Geschenk 937.
+Schüler 334 bekommt das Geschenk 217.
+Schüler 335 bekommt das Geschenk 799.
+Schüler 336 bekommt das Geschenk 671.
+Schüler 337 bekommt das Geschenk 219.
+Schüler 338 bekommt das Geschenk 273.
+Schüler 339 bekommt das Geschenk 151.
+Schüler 340 bekommt das Geschenk 985.
+Schüler 341 bekommt das Geschenk 938.
+Schüler 342 bekommt das Geschenk 220.
+Schüler 343 bekommt das Geschenk 223.
+Schüler 344 bekommt das Geschenk 226.
+Schüler 345 bekommt das Geschenk 227.
+Schüler 346 bekommt das Geschenk 230.
+Schüler 347 bekommt das Geschenk 662.
+Schüler 348 bekommt das Geschenk 11.
+Schüler 349 bekommt das Geschenk 519.
+Schüler 350 bekommt das Geschenk 974.
+Schüler 351 bekommt das Geschenk 246.
+Schüler 352 bekommt das Geschenk 195.
+Schüler 353 bekommt das Geschenk 935.
+Schüler 354 bekommt das Geschenk 464.
+Schüler 355 bekommt das Geschenk 848.
+Schüler 356 bekommt das Geschenk 124.
+Schüler 357 bekommt das Geschenk 182.
+Schüler 358 bekommt das Geschenk 233.
+Schüler 359 bekommt das Geschenk 988.
+Schüler 360 bekommt das Geschenk 370.
+Schüler 361 bekommt das Geschenk 624.
+Schüler 362 bekommt das Geschenk 613.
+Schüler 363 bekommt das Geschenk 140.
+Schüler 364 bekommt das Geschenk 235.
+Schüler 365 bekommt das Geschenk 674.
+Schüler 366 bekommt das Geschenk 35.
+Schüler 367 bekommt das Geschenk 552.
+Schüler 368 bekommt das Geschenk 236.
+Schüler 369 bekommt das Geschenk 895.
+Schüler 370 bekommt das Geschenk 240.
+Schüler 371 bekommt das Geschenk 844.
+Schüler 372 bekommt das Geschenk 814.
+Schüler 373 bekommt das Geschenk 542.
+Schüler 374 bekommt das Geschenk 112.
+Schüler 375 bekommt das Geschenk 750.
+Schüler 376 bekommt das Geschenk 423.
+Schüler 377 bekommt das Geschenk 806.
+Schüler 378 bekommt das Geschenk 907.
+Schüler 379 bekommt das Geschenk 131.
+Schüler 380 bekommt das Geschenk 657.
+Schüler 381 bekommt das Geschenk 243.
+Schüler 382 bekommt das Geschenk 203.
+Schüler 383 bekommt das Geschenk 430.
+Schüler 384 bekommt das Geschenk 618.
+Schüler 385 bekommt das Geschenk 244.
+Schüler 386 bekommt das Geschenk 639.
+Schüler 387 bekommt das Geschenk 248.
+Schüler 388 bekommt das Geschenk 306.
+Schüler 389 bekommt das Geschenk 796.
+Schüler 390 bekommt das Geschenk 238.
+Schüler 391 bekommt das Geschenk 252.
+Schüler 392 bekommt das Geschenk 386.
+Schüler 393 bekommt das Geschenk 861.
+Schüler 394 bekommt das Geschenk 819.
+Schüler 395 bekommt das Geschenk 258.
+Schüler 396 bekommt das Geschenk 553.
+Schüler 397 bekommt das Geschenk 190.
+Schüler 398 bekommt das Geschenk 438.
+Schüler 399 bekommt das Geschenk 300.
+Schüler 400 bekommt das Geschenk 260.
+Schüler 401 bekommt das Geschenk 262.
+Schüler 402 bekommt das Geschenk 665.
+Schüler 403 bekommt das Geschenk 266.
+Schüler 404 bekommt das Geschenk 269.
+Schüler 405 bekommt das Geschenk 111.
+Schüler 406 bekommt das Geschenk 256.
+Schüler 407 bekommt das Geschenk 270.
+Schüler 408 bekommt das Geschenk 271.
+Schüler 409 bekommt das Geschenk 274.
+Schüler 410 bekommt das Geschenk 903.
+Schüler 411 bekommt das Geschenk 110.
+Schüler 412 bekommt das Geschenk 276.
+Schüler 413 bekommt das Geschenk 304.
+Schüler 414 bekommt das Geschenk 740.
+Schüler 415 bekommt das Geschenk 342.
+Schüler 416 bekommt das Geschenk 279.
+Schüler 417 bekommt das Geschenk 282.
+Schüler 418 bekommt das Geschenk 850.
+Schüler 419 bekommt das Geschenk 689.
+Schüler 420 bekommt das Geschenk 539.
+Schüler 421 bekommt das Geschenk 944.
+Schüler 422 bekommt das Geschenk 196.
+Schüler 423 bekommt das Geschenk 54.
+Schüler 424 bekommt das Geschenk 713.
+Schüler 425 bekommt das Geschenk 87.
+Schüler 426 bekommt das Geschenk 536.
+Schüler 427 bekommt das Geschenk 286.
+Schüler 428 bekommt das Geschenk 288.
+Schüler 429 bekommt das Geschenk 42.
+Schüler 430 bekommt das Geschenk 121.
+Schüler 431 bekommt das Geschenk 292.
+Schüler 432 bekommt das Geschenk 293.
+Schüler 433 bekommt das Geschenk 64.
+Schüler 434 bekommt das Geschenk 168.
+Schüler 435 bekommt das Geschenk 672.
+Schüler 436 bekommt das Geschenk 295.
+Schüler 437 bekommt das Geschenk 83.
+Schüler 438 bekommt das Geschenk 250.
+Schüler 439 bekommt das Geschenk 20.
+Schüler 440 bekommt das Geschenk 902.
+Schüler 441 bekommt das Geschenk 299.
+Schüler 442 bekommt das Geschenk 308.
+Schüler 443 bekommt das Geschenk 764.
+Schüler 444 bekommt das Geschenk 626.
+Schüler 445 bekommt das Geschenk 135.
+Schüler 446 bekommt das Geschenk 473.
+Schüler 447 bekommt das Geschenk 309.
+Schüler 448 bekommt das Geschenk 615.
+Schüler 449 bekommt das Geschenk 313.
+Schüler 450 bekommt das Geschenk 564.
+Schüler 451 bekommt das Geschenk 875.
+Schüler 452 bekommt das Geschenk 213.
+Schüler 453 bekommt das Geschenk 96.
+Schüler 454 bekommt das Geschenk 310.
+Schüler 455 bekommt das Geschenk 70.
+Schüler 456 bekommt das Geschenk 436.
+Schüler 457 bekommt das Geschenk 159.
+Schüler 458 bekommt das Geschenk 448.
+Schüler 459 bekommt das Geschenk 267.
+Schüler 460 bekommt das Geschenk 165.
+Schüler 461 bekommt das Geschenk 314.
+Schüler 462 bekommt das Geschenk 415.
+Schüler 463 bekommt das Geschenk 321.
+Schüler 464 bekommt das Geschenk 323.
+Schüler 465 bekommt das Geschenk 482.
+Schüler 466 bekommt das Geschenk 326.
+Schüler 467 bekommt das Geschenk 387.
+Schüler 468 bekommt das Geschenk 897.
+Schüler 469 bekommt das Geschenk 364.
+Schüler 470 bekommt das Geschenk 328.
+Schüler 471 bekommt das Geschenk 100.
+Schüler 472 bekommt das Geschenk 329.
+Schüler 473 bekommt das Geschenk 743.
+Schüler 474 bekommt das Geschenk 863.
+Schüler 475 bekommt das Geschenk 330.
+Schüler 476 bekommt das Geschenk 204.
+Schüler 477 bekommt das Geschenk 331.
+Schüler 478 bekommt das Geschenk 442.
+Schüler 479 bekommt das Geschenk 518.
+Schüler 480 bekommt das Geschenk 507.
+Schüler 481 bekommt das Geschenk 675.
+Schüler 482 bekommt das Geschenk 628.
+Schüler 483 bekommt das Geschenk 460.
+Schüler 484 bekommt das Geschenk 590.
+Schüler 485 bekommt das Geschenk 332.
+Schüler 486 bekommt das Geschenk 341.
+Schüler 487 bekommt das Geschenk 93.
+Schüler 488 bekommt das Geschenk 343.
+Schüler 489 bekommt das Geschenk 344.
+Schüler 490 bekommt das Geschenk 132.
+Schüler 491 bekommt das Geschenk 582.
+Schüler 492 bekommt das Geschenk 348.
+Schüler 493 bekommt das Geschenk 350.
+Schüler 494 bekommt das Geschenk 939.
+Schüler 495 bekommt das Geschenk 828.
+Schüler 496 bekommt das Geschenk 465.
+Schüler 497 bekommt das Geschenk 362.
+Schüler 498 bekommt das Geschenk 356.
+Schüler 499 bekommt das Geschenk 186.
+Schüler 500 bekommt das Geschenk 358.
+Schüler 501 bekommt das Geschenk 520.
+Schüler 502 bekommt das Geschenk 510.
+Schüler 503 bekommt das Geschenk 839.
+Schüler 504 bekommt das Geschenk 497.
+Schüler 505 bekommt das Geschenk 359.
+Schüler 506 bekommt das Geschenk 361.
+Schüler 507 bekommt das Geschenk 747.
+Schüler 508 bekommt das Geschenk 651.
+Schüler 509 bekommt das Geschenk 889.
+Schüler 510 bekommt das Geschenk 367.
+Schüler 511 bekommt das Geschenk 368.
+Schüler 512 bekommt das Geschenk 923.
+Schüler 513 bekommt das Geschenk 369.
+Schüler 514 bekommt das Geschenk 874.
+Schüler 515 bekommt das Geschenk 556.
+Schüler 516 bekommt das Geschenk 372.
+Schüler 517 bekommt das Geschenk 427.
+Schüler 518 bekommt das Geschenk 496.
+Schüler 519 bekommt das Geschenk 302.
+Schüler 520 bekommt das Geschenk 940.
+Schüler 521 bekommt das Geschenk 900.
+Schüler 522 bekommt das Geschenk 524.
+Schüler 523 bekommt das Geschenk 376.
+Schüler 524 bekommt das Geschenk 161.
+Schüler 525 bekommt das Geschenk 678.
+Schüler 526 bekommt das Geschenk 652.
+Schüler 527 bekommt das Geschenk 378.
+Schüler 528 bekommt das Geschenk 456.
+Schüler 529 bekommt das Geschenk 381.
+Schüler 530 bekommt das Geschenk 383.
+Schüler 531 bekommt das Geschenk 385.
+Schüler 532 bekommt das Geschenk 860.
+Schüler 533 bekommt das Geschenk 965.
+Schüler 534 bekommt das Geschenk 371.
+Schüler 535 bekommt das Geschenk 516.
+Schüler 536 bekommt das Geschenk 393.
+Schüler 537 bekommt das Geschenk 397.
+Schüler 538 bekommt das Geschenk 184.
+Schüler 539 bekommt das Geschenk 809.
+Schüler 540 bekommt das Geschenk 177.
+Schüler 541 bekommt das Geschenk 50.
+Schüler 542 bekommt das Geschenk 439.
+Schüler 543 bekommt das Geschenk 185.
+Schüler 544 bekommt das Geschenk 399.
+Schüler 545 bekommt das Geschenk 779.
+Schüler 546 bekommt das Geschenk 402.
+Schüler 547 bekommt das Geschenk 268.
+Schüler 548 bekommt das Geschenk 403.
+Schüler 549 bekommt das Geschenk 345.
+Schüler 550 bekommt das Geschenk 275.
+Schüler 551 bekommt das Geschenk 405.
+Schüler 552 bekommt das Geschenk 411.
+Schüler 553 bekommt das Geschenk 417.
+Schüler 554 bekommt das Geschenk 418.
+Schüler 555 bekommt das Geschenk 753.
+Schüler 556 bekommt das Geschenk 912.
+Schüler 557 bekommt das Geschenk 677.
+Schüler 558 bekommt das Geschenk 664.
+Schüler 559 bekommt das Geschenk 575.
+Schüler 560 bekommt das Geschenk 843.
+Schüler 561 bekommt das Geschenk 103.
+Schüler 562 bekommt das Geschenk 419.
+Schüler 563 bekommt das Geschenk 365.
+Schüler 564 bekommt das Geschenk 445.
+Schüler 565 bekommt das Geschenk 422.
+Schüler 566 bekommt das Geschenk 416.
+Schüler 567 bekommt das Geschenk 429.
+Schüler 568 bekommt das Geschenk 432.
+Schüler 569 bekommt das Geschenk 433.
+Schüler 570 bekommt das Geschenk 504.
+Schüler 571 bekommt das Geschenk 435.
+Schüler 572 bekommt das Geschenk 446.
+Schüler 573 bekommt das Geschenk 485.
+Schüler 574 bekommt das Geschenk 942.
+Schüler 575 bekommt das Geschenk 229.
+Schüler 576 bekommt das Geschenk 602.
+Schüler 577 bekommt das Geschenk 447.
+Schüler 578 bekommt das Geschenk 449.
+Schüler 579 bekommt das Geschenk 450.
+Schüler 580 bekommt das Geschenk 785.
+Schüler 581 bekommt das Geschenk 776.
+Schüler 582 bekommt das Geschenk 882.
+Schüler 583 bekommt das Geschenk 55.
+Schüler 584 bekommt das Geschenk 469.
+Schüler 585 bekommt das Geschenk 932.
+Schüler 586 bekommt das Geschenk 551.
+Schüler 587 bekommt das Geschenk 451.
+Schüler 588 bekommt das Geschenk 251.
+Schüler 589 bekommt das Geschenk 455.
+Schüler 590 bekommt das Geschenk 459.
+Schüler 591 bekommt das Geschenk 82.
+Schüler 592 bekommt das Geschenk 360.
+Schüler 593 bekommt das Geschenk 242.
+Schüler 594 bekommt das Geschenk 508.
+Schüler 595 bekommt das Geschenk 222.
+Schüler 596 bekommt das Geschenk 461.
+Schüler 597 bekommt das Geschenk 462.
+Schüler 598 bekommt das Geschenk 15.
+Schüler 599 bekommt das Geschenk 414.
+Schüler 600 bekommt das Geschenk 463.
+Schüler 601 bekommt das Geschenk 930.
+Schüler 602 bekommt das Geschenk 719.
+Schüler 603 bekommt das Geschenk 472.
+Schüler 604 bekommt das Geschenk 477.
+Schüler 605 bekommt das Geschenk 478.
+Schüler 606 bekommt das Geschenk 866.
+Schüler 607 bekommt das Geschenk 731.
+Schüler 608 bekommt das Geschenk 688.
+Schüler 609 bekommt das Geschenk 76.
+Schüler 610 bekommt das Geschenk 480.
+Schüler 611 bekommt das Geschenk 487.
+Schüler 612 bekommt das Geschenk 958.
+Schüler 613 bekommt das Geschenk 489.
+Schüler 614 bekommt das Geschenk 199.
+Schüler 615 bekommt das Geschenk 896.
+Schüler 616 bekommt das Geschenk 490.
+Schüler 617 bekommt das Geschenk 495.
+Schüler 618 bekommt das Geschenk 476.
+Schüler 619 bekommt das Geschenk 502.
+Schüler 620 bekommt das Geschenk 297.
+Schüler 621 bekommt das Geschenk 827.
+Schüler 622 bekommt das Geschenk 503.
+Schüler 623 bekommt das Geschenk 514.
+Schüler 624 bekommt das Geschenk 687.
+Schüler 625 bekommt das Geschenk 509.
+Schüler 626 bekommt das Geschenk 513.
+Schüler 627 bekommt das Geschenk 515.
+Schüler 628 bekommt das Geschenk 421.
+Schüler 629 bekommt das Geschenk 572.
+Schüler 630 bekommt das Geschenk 521.
+Schüler 631 bekommt das Geschenk 971.
+Schüler 632 bekommt das Geschenk 926.
+Schüler 633 bekommt das Geschenk 522.
+Schüler 634 bekommt das Geschenk 80.
+Schüler 635 bekommt das Geschenk 728.
+Schüler 636 bekommt das Geschenk 40.
+Schüler 637 bekommt das Geschenk 317.
+Schüler 638 bekommt das Geschenk 146.
+Schüler 639 bekommt das Geschenk 404.
+Schüler 640 bekommt das Geschenk 523.
+Schüler 641 bekommt das Geschenk 558.
+Schüler 642 bekommt das Geschenk 525.
+Schüler 643 bekommt das Geschenk 600.
+Schüler 644 bekommt das Geschenk 215.
+Schüler 645 bekommt das Geschenk 633.
+Schüler 646 bekommt das Geschenk 526.
+Schüler 647 bekommt das Geschenk 581.
+Schüler 648 bekommt das Geschenk 535.
+Schüler 649 bekommt das Geschenk 25.
+Schüler 650 bekommt das Geschenk 241.
+Schüler 651 bekommt das Geschenk 49.
+Schüler 652 bekommt das Geschenk 528.
+Schüler 653 bekommt das Geschenk 529.
+Schüler 654 bekommt das Geschenk 200.
+Schüler 655 bekommt das Geschenk 52.
+Schüler 656 bekommt das Geschenk 354.
+Schüler 657 bekommt das Geschenk 499.
+Schüler 658 bekommt das Geschenk 531.
+Schüler 659 bekommt das Geschenk 712.
+Schüler 660 bekommt das Geschenk 773.
+Schüler 661 bekommt das Geschenk 532.
+Schüler 662 bekommt das Geschenk 444.
+Schüler 663 bekommt das Geschenk 625.
+Schüler 664 bekommt das Geschenk 777.
+Schüler 665 bekommt das Geschenk 537.
+Schüler 666 bekommt das Geschenk 815.
+Schüler 667 bekommt das Geschenk 395.
+Schüler 668 bekommt das Geschenk 191.
+Schüler 669 bekommt das Geschenk 540.
+Schüler 670 bekommt das Geschenk 543.
+Schüler 671 bekommt das Geschenk 396.
+Schüler 672 bekommt das Geschenk 218.
+Schüler 673 bekommt das Geschenk 765.
+Schüler 674 bekommt das Geschenk 291.
+Schüler 675 bekommt das Geschenk 347.
+Schüler 676 bekommt das Geschenk 679.
+Schüler 677 bekommt das Geschenk 545.
+Schüler 678 bekommt das Geschenk 546.
+Schüler 679 bekommt das Geschenk 481.
+Schüler 680 bekommt das Geschenk 859.
+Schüler 681 bekommt das Geschenk 247.
+Schüler 682 bekommt das Geschenk 549.
+Schüler 683 bekommt das Geschenk 560.
+Schüler 684 bekommt das Geschenk 92.
+Schüler 685 bekommt das Geschenk 453.
+Schüler 686 bekommt das Geschenk 566.
+Schüler 687 bekommt das Geschenk 492.
+Schüler 688 bekommt das Geschenk 61.
+Schüler 689 bekommt das Geschenk 699.
+Schüler 690 bekommt das Geschenk 568.
+Schüler 691 bekommt das Geschenk 957.
+Schüler 692 bekommt das Geschenk 869.
+Schüler 693 bekommt das Geschenk 571.
+Schüler 694 bekommt das Geschenk 580.
+Schüler 695 bekommt das Geschenk 583.
+Schüler 696 bekommt das Geschenk 585.
+Schüler 697 bekommt das Geschenk 589.
+Schüler 698 bekommt das Geschenk 180.
+Schüler 699 bekommt das Geschenk 591.
+Schüler 700 bekommt das Geschenk 705.
+Schüler 701 bekommt das Geschenk 810.
+Schüler 702 bekommt das Geschenk 441.
+Schüler 703 bekommt das Geschenk 716.
+Schüler 704 bekommt das Geschenk 296.
+Schüler 705 bekommt das Geschenk 594.
+Schüler 706 bekommt das Geschenk 595.
+Schüler 707 bekommt das Geschenk 597.
+Schüler 708 bekommt das Geschenk 406.
+Schüler 709 bekommt das Geschenk 598.
+Schüler 710 bekommt das Geschenk 919.
+Schüler 711 bekommt das Geschenk 722.
+Schüler 712 bekommt das Geschenk 311.
+Schüler 713 bekommt das Geschenk 318.
+Schüler 714 bekommt das Geschenk 607.
+Schüler 715 bekommt das Geschenk 319.
+Schüler 716 bekommt das Geschenk 608.
+Schüler 717 bekommt das Geschenk 610.
+Schüler 718 bekommt das Geschenk 253.
+Schüler 719 bekommt das Geschenk 763.
+Schüler 720 bekommt das Geschenk 616.
+Schüler 721 bekommt das Geschenk 527.
+Schüler 722 bekommt das Geschenk 374.
+Schüler 723 bekommt das Geschenk 617.
+Schüler 724 bekommt das Geschenk 327.
+Schüler 725 bekommt das Geschenk 876.
+Schüler 726 bekommt das Geschenk 619.
+Schüler 727 bekommt das Geschenk 621.
+Schüler 728 bekommt das Geschenk 172.
+Schüler 729 bekommt das Geschenk 623.
+Schüler 730 bekommt das Geschenk 225.
+Schüler 731 bekommt das Geschenk 945.
+Schüler 732 bekommt das Geschenk 634.
+Schüler 733 bekommt das Geschenk 152.
+Schüler 734 bekommt das Geschenk 791.
+Schüler 735 bekommt das Geschenk 648.
+Schüler 736 bekommt das Geschenk 642.
+Schüler 737 bekommt das Geschenk 631.
+Schüler 738 bekommt das Geschenk 738.
+Schüler 739 bekommt das Geschenk 644.
+Schüler 740 bekommt das Geschenk 647.
+Schüler 741 bekommt das Geschenk 212.
+Schüler 742 bekommt das Geschenk 231.
+Schüler 743 bekommt das Geschenk 658.
+Schüler 744 bekommt das Geschenk 373.
+Schüler 745 bekommt das Geschenk 660.
+Schüler 746 bekommt das Geschenk 661.
+Schüler 747 bekommt das Geschenk 663.
+Schüler 748 bekommt das Geschenk 807.
+Schüler 749 bekommt das Geschenk 284.
+Schüler 750 bekommt das Geschenk 666.
+Schüler 751 bekommt das Geschenk 391.
+Schüler 752 bekommt das Geschenk 667.
+Schüler 753 bekommt das Geschenk 91.
+Schüler 754 bekommt das Geschenk 668.
+Schüler 755 bekommt das Geschenk 410.
+Schüler 756 bekommt das Geschenk 754.
+Schüler 757 bekommt das Geschenk 609.
+Schüler 758 bekommt das Geschenk 769.
+Schüler 759 bekommt das Geschenk 676.
+Schüler 760 bekommt das Geschenk 680.
+Schüler 761 bekommt das Geschenk 599.
+Schüler 762 bekommt das Geschenk 686.
+Schüler 763 bekommt das Geschenk 357.
+Schüler 764 bekommt das Geschenk 322.
+Schüler 765 bekommt das Geschenk 790.
+Schüler 766 bekommt das Geschenk 493.
+Schüler 767 bekommt das Geschenk 690.
+Schüler 768 bekommt das Geschenk 692.
+Schüler 769 bekommt das Geschenk 696.
+Schüler 770 bekommt das Geschenk 698.
+Schüler 771 bekommt das Geschenk 700.
+Schüler 772 bekommt das Geschenk 983.
+Schüler 773 bekommt das Geschenk 701.
+Schüler 774 bekommt das Geschenk 702.
+Schüler 775 bekommt das Geschenk 708.
+Schüler 776 bekommt das Geschenk 966.
+Schüler 777 bekommt das Geschenk 711.
+Schüler 778 bekommt das Geschenk 691.
+Schüler 779 bekommt das Geschenk 338.
+Schüler 780 bekommt das Geschenk 715.
+Schüler 781 bekommt das Geschenk 718.
+Schüler 782 bekommt das Geschenk 3.
+Schüler 783 bekommt das Geschenk 65.
+Schüler 784 bekommt das Geschenk 723.
+Schüler 785 bekommt das Geschenk 392.
+Schüler 786 bekommt das Geschenk 724.
+Schüler 787 bekommt das Geschenk 726.
+Schüler 788 bekommt das Geschenk 877.
+Schüler 789 bekommt das Geschenk 577.
+Schüler 790 bekommt das Geschenk 640.
+Schüler 791 bekommt das Geschenk 170.
+Schüler 792 bekommt das Geschenk 880.
+Schüler 793 bekommt das Geschenk 739.
+Schüler 794 bekommt das Geschenk 727.
+Schüler 795 bekommt das Geschenk 729.
+Schüler 796 bekommt das Geschenk 400.
+Schüler 797 bekommt das Geschenk 734.
+Schüler 798 bekommt das Geschenk 736.
+Schüler 799 bekommt das Geschenk 987.
+Schüler 800 bekommt das Geschenk 737.
+Schüler 801 bekommt das Geschenk 741.
+Schüler 802 bekommt das Geschenk 746.
+Schüler 803 bekommt das Geschenk 995.
+Schüler 804 bekommt das Geschenk 467.
+Schüler 805 bekommt das Geschenk 68.
+Schüler 806 bekommt das Geschenk 770.
+Schüler 807 bekommt das Geschenk 748.
+Schüler 808 bekommt das Geschenk 749.
+Schüler 809 bekommt das Geschenk 752.
+Schüler 810 bekommt das Geschenk 735.
+Schüler 811 bekommt das Geschenk 407.
+Schüler 812 bekommt das Geschenk 257.
+Schüler 813 bekommt das Geschenk 760.
+Schüler 814 bekommt das Geschenk 506.
+Schüler 815 bekommt das Geschenk 26.
+Schüler 816 bekommt das Geschenk 928.
+Schüler 817 bekommt das Geschenk 761.
+Schüler 818 bekommt das Geschenk 762.
+Schüler 819 bekommt das Geschenk 586.
+Schüler 820 bekommt das Geschenk 767.
+Schüler 821 bekommt das Geschenk 66.
+Schüler 822 bekommt das Geschenk 927.
+Schüler 823 bekommt das Geschenk 147.
+Schüler 824 bekommt das Geschenk 209.
+Schüler 825 bekommt das Geschenk 771.
+Schüler 826 bekommt das Geschenk 10.
+Schüler 827 bekommt das Geschenk 772.
+Schüler 828 bekommt das Geschenk 774.
+Schüler 829 bekommt das Geschenk 778.
+Schüler 830 bekommt das Geschenk 952.
+Schüler 831 bekommt das Geschenk 834.
+Schüler 832 bekommt das Geschenk 803.
+Schüler 833 bekommt das Geschenk 101.
+Schüler 834 bekommt das Geschenk 784.
+Schüler 835 bekommt das Geschenk 787.
+Schüler 836 bekommt das Geschenk 281.
+Schüler 837 bekommt das Geschenk 641.
+Schüler 838 bekommt das Geschenk 37.
+Schüler 839 bekommt das Geschenk 788.
+Schüler 840 bekommt das Geschenk 28.
+Schüler 841 bekommt das Geschenk 786.
+Schüler 842 bekommt das Geschenk 645.
+Schüler 843 bekommt das Geschenk 792.
+Schüler 844 bekommt das Geschenk 794.
+Schüler 845 bekommt das Geschenk 759.
+Schüler 846 bekommt das Geschenk 193.
+Schüler 847 bekommt das Geschenk 684.
+Schüler 848 bekommt das Geschenk 804.
+Schüler 849 bekommt das Geschenk 775.
+Schüler 850 bekommt das Geschenk 307.
+Schüler 851 bekommt das Geschenk 986.
+Schüler 852 bekommt das Geschenk 636.
+Schüler 853 bekommt das Geschenk 7.
+Schüler 854 bekommt das Geschenk 16.
+Schüler 855 bekommt das Geschenk 781.
+Schüler 856 bekommt das Geschenk 925.
+Schüler 857 bekommt das Geschenk 798.
+Schüler 858 bekommt das Geschenk 388.
+Schüler 859 bekommt das Geschenk 879.
+Schüler 860 bekommt das Geschenk 261.
+Schüler 861 bekommt das Geschenk 808.
+Schüler 862 bekommt das Geschenk 158.
+Schüler 863 bekommt das Geschenk 669.
+Schüler 864 bekommt das Geschenk 811.
+Schüler 865 bekommt das Geschenk 812.
+Schüler 866 bekommt das Geschenk 635.
+Schüler 867 bekommt das Geschenk 818.
+Schüler 868 bekommt das Geschenk 820.
+Schüler 869 bekommt das Geschenk 501.
+Schüler 870 bekommt das Geschenk 823.
+Schüler 871 bekommt das Geschenk 824.
+Schüler 872 bekommt das Geschenk 584.
+Schüler 873 bekommt das Geschenk 825.
+Schüler 874 bekommt das Geschenk 831.
+Schüler 875 bekommt das Geschenk 805.
+Schüler 876 bekommt das Geschenk 766.
+Schüler 877 bekommt das Geschenk 832.
+Schüler 878 bekommt das Geschenk 838.
+Schüler 879 bekommt das Geschenk 294.
+Schüler 880 bekommt das Geschenk 183.
+Schüler 881 bekommt das Geschenk 562.
+Schüler 882 bekommt das Geschenk 841.
+Schüler 883 bekommt das Geschenk 224.
+Schüler 884 bekommt das Geschenk 845.
+Schüler 885 bekommt das Geschenk 849.
+Schüler 886 bekommt das Geschenk 283.
+Schüler 887 bekommt das Geschenk 745.
+Schüler 888 bekommt das Geschenk 277.
+Schüler 889 bekommt das Geschenk 851.
+Schüler 890 bekommt das Geschenk 725.
+Schüler 891 bekommt das Geschenk 852.
+Schüler 892 bekommt das Geschenk 855.
+Schüler 893 bekommt das Geschenk 858.
+Schüler 894 bekommt das Geschenk 862.
+Schüler 895 bekommt das Geschenk 412.
+Schüler 896 bekommt das Geschenk 864.
+Schüler 897 bekommt das Geschenk 868.
+Schüler 898 bekommt das Geschenk 870.
+Schüler 899 bekommt das Geschenk 871.
+Schüler 900 bekommt das Geschenk 129.
+Schüler 901 bekommt das Geschenk 854.
+Schüler 902 bekommt das Geschenk 872.
+Schüler 903 bekommt das Geschenk 873.
+Schüler 904 bekommt das Geschenk 694.
+Schüler 905 bekommt das Geschenk 881.
+Schüler 906 bekommt das Geschenk 908.
+Schüler 907 bekommt das Geschenk 885.
+Schüler 908 bekommt das Geschenk 826.
+Schüler 909 bekommt das Geschenk 801.
+Schüler 910 bekommt das Geschenk 886.
+Schüler 911 bekommt das Geschenk 756.
+Schüler 912 bekommt das Geschenk 893.
+Schüler 913 bekommt das Geschenk 894.
+Schüler 914 bekommt das Geschenk 899.
+Schüler 915 bekommt das Geschenk 194.
+Schüler 916 bekommt das Geschenk 904.
+Schüler 917 bekommt das Geschenk 198.
+Schüler 918 bekommt das Geschenk 905.
+Schüler 919 bekommt das Geschenk 906.
+Schüler 920 bekommt das Geschenk 263.
+Schüler 921 bekommt das Geschenk 574.
+Schüler 922 bekommt das Geschenk 206.
+Schüler 923 bekommt das Geschenk 911.
+Schüler 924 bekommt das Geschenk 913.
+Schüler 925 bekommt das Geschenk 914.
+Schüler 926 bekommt das Geschenk 278.
+Schüler 927 bekommt das Geschenk 915.
+Schüler 928 bekommt das Geschenk 916.
+Schüler 929 bekommt das Geschenk 821.
+Schüler 930 bekommt das Geschenk 265.
+Schüler 931 bekommt das Geschenk 813.
+Schüler 932 bekommt das Geschenk 29.
+Schüler 933 bekommt das Geschenk 703.
+Schüler 934 bekommt das Geschenk 118.
+Schüler 935 bekommt das Geschenk 924.
+Schüler 936 bekommt das Geschenk 333.
+Schüler 937 bekommt das Geschenk 929.
+Schüler 938 bekommt das Geschenk 933.
+Schüler 939 bekommt das Geschenk 162.
+Schüler 940 bekommt das Geschenk 934.
+Schüler 941 bekommt das Geschenk 973.
+Schüler 942 bekommt das Geschenk 33.
+Schüler 943 bekommt das Geschenk 936.
+Schüler 944 bekommt das Geschenk 656.
+Schüler 945 bekommt das Geschenk 941.
+Schüler 946 bekommt das Geschenk 943.
+Schüler 947 bekommt das Geschenk 424.
+Schüler 948 bekommt das Geschenk 512.
+Schüler 949 bekommt das Geschenk 567.
+Schüler 950 bekommt das Geschenk 947.
+Schüler 951 bekommt das Geschenk 237.
+Schüler 952 bekommt das Geschenk 968.
+Schüler 953 bekommt das Geschenk 950.
+Schüler 954 bekommt das Geschenk 951.
+Schüler 955 bekommt das Geschenk 89.
+Schüler 956 bekommt das Geschenk 953.
+Schüler 957 bekommt das Geschenk 954.
+Schüler 958 bekommt das Geschenk 956.
+Schüler 959 bekommt das Geschenk 836.
+Schüler 960 bekommt das Geschenk 960.
+Schüler 961 bekommt das Geschenk 157.
+Schüler 962 bekommt das Geschenk 962.
+Schüler 963 bekommt das Geschenk 316.
+Schüler 964 bekommt das Geschenk 122.
+Schüler 965 bekommt das Geschenk 272.
+Schüler 966 bekommt das Geschenk 964.
+Schüler 967 bekommt das Geschenk 98.
+Schüler 968 bekommt das Geschenk 969.
+Schüler 969 bekommt das Geschenk 970.
+Schüler 970 bekommt das Geschenk 384.
+Schüler 971 bekommt das Geschenk 975.
+Schüler 972 bekommt das Geschenk 60.
+Schüler 973 bekommt das Geschenk 977.
+Schüler 974 bekommt das Geschenk 978.
+Schüler 975 bekommt das Geschenk 443.
+Schüler 976 bekommt das Geschenk 980.
+Schüler 977 bekommt das Geschenk 164.
+Schüler 978 bekommt das Geschenk 981.
+Schüler 979 bekommt das Geschenk 982.
+Schüler 980 bekommt das Geschenk 458.
+Schüler 981 bekommt das Geschenk 984.
+Schüler 982 bekommt das Geschenk 649.
+Schüler 983 bekommt das Geschenk 989.
+Schüler 984 bekommt das Geschenk 46.
+Schüler 985 bekommt das Geschenk 569.
+Schüler 986 bekommt das Geschenk 991.
+Schüler 987 bekommt das Geschenk 587.
+Schüler 988 bekommt das Geschenk 106.
+Schüler 989 bekommt das Geschenk 910.
+Schüler 990 bekommt das Geschenk 78.
+Schüler 991 bekommt das Geschenk 992.
+Schüler 992 bekommt das Geschenk 994.
+Schüler 993 bekommt das Geschenk 758.
+Schüler 994 bekommt das Geschenk 822.
+Schüler 995 bekommt das Geschenk 390.
+Schüler 996 bekommt das Geschenk 57.
+Schüler 997 bekommt das Geschenk 554.
+Schüler 998 bekommt das Geschenk 996.
+Schüler 999 bekommt das Geschenk 793.
+Unbeschenkt: 0    Beschenkt: 1000
+Insgesamter score: 1861
+Erfüllte Erstwünsche: 541
+Erfüllte Zweitwünsche: 94
+Erfüllte Drittwünsche: 50

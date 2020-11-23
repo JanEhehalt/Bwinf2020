@@ -1,0 +1,65 @@
+Wünsche Schüler 0: 27|1|13
+Wünsche Schüler 1: 20|13|27
+Wünsche Schüler 2: 13|21|27
+Wünsche Schüler 3: 13|27|20
+Wünsche Schüler 4: 27|5|13
+Wünsche Schüler 5: 11|7|4
+Wünsche Schüler 6: 23|2|14
+Wünsche Schüler 7: 27|13|15
+Wünsche Schüler 8: 13|23|27
+Wünsche Schüler 9: 18|26|12
+Wünsche Schüler 10: 27|13|23
+Wünsche Schüler 11: 11|12|28
+Wünsche Schüler 12: 11|12|6
+Wünsche Schüler 13: 13|27|23
+Wünsche Schüler 14: 1|13|4
+Wünsche Schüler 15: 27|13|18
+Wünsche Schüler 16: 0|28|11
+Wünsche Schüler 17: 26|6|27
+Wünsche Schüler 18: 26|16|10
+Wünsche Schüler 19: 12|13|27
+Wünsche Schüler 20: 18|21|20
+Wünsche Schüler 21: 27|13|21
+Wünsche Schüler 22: 14|5|12
+Wünsche Schüler 23: 11|5|12
+Wünsche Schüler 24: 29|1|17
+Wünsche Schüler 25: 23|14|1
+Wünsche Schüler 26: 17|26|23
+Wünsche Schüler 27: 7|15|23
+Wünsche Schüler 28: 23|5|4
+Wünsche Schüler 29: 28|16|4
+Schüler 0 bekommt das Geschenk 27.
+Schüler 1 bekommt das Geschenk 20.
+Schüler 2 bekommt das Geschenk 13.
+Schüler 3 bekommt das Geschenk 2.
+Schüler 4 bekommt das Geschenk 5.
+Schüler 5 bekommt das Geschenk 11.
+Schüler 6 bekommt das Geschenk 23.
+Schüler 7 bekommt das Geschenk 15.
+Schüler 8 bekommt das Geschenk 3.
+Schüler 9 bekommt das Geschenk 18.
+Schüler 10 bekommt das Geschenk 8.
+Schüler 11 bekommt das Geschenk 9.
+Schüler 12 bekommt das Geschenk 6.
+Schüler 13 bekommt das Geschenk 10.
+Schüler 14 bekommt das Geschenk 1.
+Schüler 15 bekommt das Geschenk 19.
+Schüler 16 bekommt das Geschenk 0.
+Schüler 17 bekommt das Geschenk 26.
+Schüler 18 bekommt das Geschenk 16.
+Schüler 19 bekommt das Geschenk 12.
+Schüler 20 bekommt das Geschenk 21.
+Schüler 21 bekommt das Geschenk 22.
+Schüler 22 bekommt das Geschenk 14.
+Schüler 23 bekommt das Geschenk 24.
+Schüler 24 bekommt das Geschenk 29.
+Schüler 25 bekommt das Geschenk 25.
+Schüler 26 bekommt das Geschenk 17.
+Schüler 27 bekommt das Geschenk 7.
+Schüler 28 bekommt das Geschenk 4.
+Schüler 29 bekommt das Geschenk 28.
+Unbeschenkt: 0    Beschenkt: 30
+Insgesamter score: 54
+Erfüllte Erstwünsche: 15
+Erfüllte Zweitwünsche: 3
+Erfüllte Drittwünsche: 3
