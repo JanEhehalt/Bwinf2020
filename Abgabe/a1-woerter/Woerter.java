@@ -1,24 +1,22 @@
-package main;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class Woerter{
 	
 
     public static void main(String[] args){
 		try {
 			File data;
     		if(args.length == 0) {
-        		System.out.println("Ungültiger Dateiname: Automatische Einlesung der Datei: raetsel0.txt");
+        		System.out.println("Ungueltiger Dateiname: Automatische Einlesung der Datei: raetsel0.txt");
         		System.out.println();
         		data = new File("raetsel0.txt");
         	}
         	else {
         		data = new File(args[0]);
-        	};
+        	}
 	        Scanner sc = new Scanner(data);
 	        
 	        ArrayList<String> words = new ArrayList<>();

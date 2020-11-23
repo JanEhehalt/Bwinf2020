@@ -126,9 +126,11 @@ tabsize=3
 
 Da einige Methoden zu lang für eine Seite sind, wurde der Quellcode teilweise gekürzt. Die wichtigen Teile sind weiterhin enthalten. Auslassungen sind entsprechend mit {\glqq}[\dots]{\grqq} gekennzeichnet und mit einer kurzen Erklärung zur Funktion des ausgelassenen Codes versehen.
 
+Die Programme sind alle als kompilierte Java-Dateien vorhanden. Sie können mit dem beigelegten sh-Skript ausgeführt werden, oder natürlich direkt über die Kommandozeile. Beim Programm Woerter-aufraeumen gibt es in manchen Terminals Probleme mit dem Einlesen, deshalb gibt das Programm hier nichts aus. Die Ergebnisse sind jedoch alle in der Dokumentation vorhanden.
+
 \section{Wörter aufräumen}
 \subsection{Lösungsidee}
-Es werden zwei Listen  angelegt,  die  jeweils  alle  Lücken  und  alle  einzufügenden  Wörter  getrennt speichern.  Das  Programm  geht  dann  alle  Lücken  durch  und  fügt  für  jede  Lücke,  bei  der  bereits  ein Buchstabe gegeben ist, ein eindeutig zuzuordnendes Wort ein. Das Programm achtet hierbei darauf, dass der gegebene Buchstabe, mit dem im Wort übereinstimmt, und dass das Wort genauso lang ist wie die Lücke. Sollte für eine Lücke mehr als ein Wort potenziell passen, so wird diese Lücke vorerst übersprungen.  Dieses  Verfahren  wird  dann  so  oft  ausgeführt,  bis  entweder  alle  Lücken  gefüllt  sind oder alle noch leeren Lücken keinen gegebenen Buchstaben mehr haben. Sobald es keine gegebenen Buchstaben  mehr  gibt werden  die  restlichen  Wörter  noch  anhand ihrer  Länge  den  übrigen  Lücken zugeordnet. So gibt es am Ende keine leeren Lücken mehr.
+Es werden zwei Listen  angelegt,  die  jeweils  alle  Lücken  und  alle  einzufügenden  Wörter  getrennt speichern.  Das  Programm  geht  dann  alle  Lücken  durch  und  fügt  für  jede  Lücke,  bei  der  bereits  ein Buchstabe gegeben ist, ein eindeutig zuzuordnendes Wort ein. Das Programm achtet hierbei darauf, dass der gegebene Buchstabe, mit dem im Wort übereinstimmt, und dass das Wort genauso lang ist wie die Lücke. Sollte für eine Lücke mehr als ein Wort potenziell passen, so wird diese Lücke vorerst übersprungen.  Dieses  Verfahren  wird  dann  so  oft  ausgeführt,  bis  entweder  alle  Lücken  gefüllt  sind oder alle noch leere Lücken keinen gegebenen Buchstaben mehr haben. Sobald es keine gegebenen Buchstaben  mehr  gibt, werden  die  restlichen  Wörter  noch  anhand ihrer  Länge  den  übrigen  Lücken zugeordnet. So gibt es am Ende keine leeren Lücken mehr.
 
 \subsection{Umsetzung}
 Jede Lücke wird im Array \emph{sentence} als String gespeichert. Hierbei werden sowohl die Lücken, welche aus {\glqq}\_{\grqq} und verschiedenen Buchstaben bestehen können, als auch die Satzeichen, als eigene Elemente im Array gespeichert. Der \emph{words} Array speichert die Wörter, die in den Satz eingefügt werden müssen. Dann wird eine Schleife gestartet, die nun den Lücken Array mit Elementen  aus  dem  \emph{words}  Array  füllen  soll. Um  zu  erkennen  welche  Lücken  bereits  gefüllt  wurden, wird ein Array aus \emph{booleans} erstellt, der speichert welche Lücke bereits gefüllt wurde. Die Satzzeichen werden  hier  automatisch von Beginn an auf \emph{true}  gesetzt,  da  sie  nicht  gefüllt  werden  müssen. Dann iteriert  das  Programm über  alle  Wörter  und zählt in  wie  viele  noch  nicht  gefüllte  Lücken  das  Wort anhand  des  gegebenen  Buchstaben  und  der Länge  passen würde.  Sollte  das  Wort  in  nur  eine  Lücke passen,  so wird es  auch  in  diese eingefügt und aus  dem  \emph{words}  Array  entfernt. Sollte  das  Wort  in mehrere Lücken passen, so wird es zunächst übersprungen. Sobald einmal alle Wörter durchgegangen wurden wird noch einmal geprüft ob eines der Wörter in eine oder mehr Lücken passt. Sollte irgendein Wort  noch  eine  Lücke  finden,  der  es  eindeutig  zuzuordnen  ist,  so  wird  die  Schleife noch  nicht abgebrochen und startet  erneut. Dieses  ganz  Verfahren  läuft  also so  lange,  bis sich  kein Wort  mehr einer Lücke mithilfe eines Buchstaben zuordnen lässt. Sobald die Schleife beendet wurde kann es keine Lücke mehr geben, die einen gegebenen Buchstaben hat. Das einzige Mittel, um die Wörter zuzuordnen, ist nun also noch die Länge. Also iteriert das Programm wieder über alle Wörter und sucht für jedes Wort  eine  noch  nicht  gefüllte  Lücke,  die  genauso  lang  ist  wie  das  Wort.  Wenn  die  Lücke  gefunden wurde, wird das Wort hier eingefügt und aus dem \emph{words} Array gelöscht. Nach diesem Loop kann es nun keine ungefüllte Lücke mehr geben.
@@ -393,21 +395,23 @@ Die Klasse \emph{Tile} (Abbildung \ref{tile}) repräsentiert ein Puzzleteil. Daz
     \caption{Die Klasse \emph{Graph}}
 \end{figure}
 
-Der Graph speichert seine Adjazenzmatrix, die als Wert $-1$, $0$ und $1$ annehmen kann. $-1$ bedeutet, dass diese Kante nicht existiert. Das ist der Fall, wenn sich die zwei Teile im echten Puzzle nicht berühren können, z.B. die rechte Kante der $0$ und die untere Kante der $4$. Den Wert $0$ nimmt eine Kante an, wenn diese aktuell nicht auf beiden Seiten besetzt ist, z.B. wenn in Abbildung \ref{Graph1} Teil 5 fehlen würde, hätten die Kanten 4-5, 1-5 und 5-6 den Wert $0$. Der Wert $1$ bedeutet, dass die Kante besetzt ist. Ist das Puzzle gelöst, haben also alle Kanten den Wert $-1$ oder $1$. $0$ würde bedeuten, dass es noch eine Kante gibt, die besetzt werden muss. Der Graph speichert im \emph{Tile} Array alle Puzzleteile, die es gibt. Der puzzle-Array speichert die Position jedes Teils im Graphen. Ist das Teil nicht im Graphen, hat puzzle an der Stelle des Teils den Wert $-1$. Der Array \emph{placedTiles} wird verwendet, um beim Backtracking alle platzierten Teile entfernen zu können. Dieser speichert welche Teile von wem gelegt wurden. Jeder Index im Array speichert einen Array, der angibt, welche Positionen im Puzzle von diesem Index gelegt wurden. Die Methoden \emph{removeAllPlaced} und \emph{removePlaced} werden verwendet, um falsch gelegte Teile wieder zu entfernen. Sie kümmern sich gleichzeitig darum, dass alle rekursiv gelegten Teile ebenfalls entfernt werden.
+Der Graph speichert seine Adjazenzmatrix, die als Wert $-1$, $0$ und $1$ annehmen kann. $-1$ bedeutet, dass diese Kante nicht existiert. Das ist der Fall, wenn sich die zwei Teile im echten Puzzle nicht berühren können, z.B. die rechte Kante der $0$ und die untere Kante der $4$. Den Wert $0$ nimmt eine Kante an, wenn diese aktuell nicht auf beiden Seiten besetzt ist, z.B. wenn in Abbildung \ref{Graph1} Teil 5 fehlen würde, hätten die Kanten 4-5, 1-5 und 5-6 den Wert $0$. Der Wert $1$ bedeutet, dass die Kante besetzt ist. Ist das Puzzle gelöst, haben also alle Kanten den Wert $-1$ oder $1$. $0$ würde bedeuten, dass es noch eine Kante gibt, die besetzt werden muss. Der Graph speichert im \emph{Tile} Array alle Puzzleteile, die es gibt. Der puzzle-Array speichert die Position jedes Teils im Graphen. Ist das Teil nicht im Graphen, hat puzzle an der Stelle des Teils den Wert $-1$. Der Array \emph{placedTiles()} wird verwendet, um beim Backtracking alle platzierten Teile entfernen zu können. Dieser speichert welche Teile von wem gelegt wurden. Jeder Index im Array speichert einen Array, der angibt, welche Positionen im Puzzle von diesem Index gelegt wurden. Die Methoden \emph{removeAllPlaced()} und \emph{removePlaced()} werden verwendet, um falsch gelegte Teile wieder zu entfernen. Sie kümmern sich gleichzeitig darum, dass alle rekursiv gelegten Teile ebenfalls entfernt werden.
 
 Es wurden bewusst nicht alle Methoden in das Klassendiagramm übernommen, die wichtigen Methoden sind allerdings vorhanden. Die restlichen Methoden sind zur Erklärung des Algorithmus nicht von Bedeutung, sie fügen beispielsweise eine Kante am Anfang ein oder setzen das Puzzle zurück. Sie lassen sich dennoch im Anhang finden.
 
 \subsubsection{Algorithmus}
 
-Die Methode \emph{fillWithTiles()} wird aufgerufen, um das Puzzle zu lösen. Diese geht über jedes Puzzleteil und versucht das Puzzle damit an Stelle $0$ im Graphen zu lösen. Dazu wird \emph{fillBorders(0)} aufgerufen. Für den Quellcode der Methode, siehe Abbildung \ref{fillWithTiles}.
+Die Methode \emph{fillWithTiles()} wird aufgerufen, um das Puzzle zu lösen. Diese geht über jedes Puzzleteil und versucht das Puzzle damit an Stelle $0$ im Graphen zu lösen. Dazu wird \emph{fillBorders(0)} aufgerufen.
 
-Die Methode \emph{fillBorders()} iteriert einmal über alle Kanten und speichert unbesetzte Kanten in einer ArrayList. Im Anschluss wird \emph{fillLink()} mit der eigenen Position im Puzzle und der ArrayList der Kanten aufgerufen. 
+Die Methode \emph{fillBorders()} iteriert einmal über alle ihre Kanten und speichert unbesetzte Kanten in einer ArrayList. Im Anschluss wird \emph{fillLink()} mit der eigenen Position im Puzzle und der ArrayList der Kanten aufgerufen. 
 
-\emph{fillLink()} sucht nun rekursiv für alle übergebenen Kanten Puzzleteile. Es beginnt mit der ersten Kante in der \emph{links} ArrayList. Zuerst wird ein \emph{boolean} Array angelegt, an dem später überprüft werden kann, ob ein bestimmtes Teil schon probiert wurde. Beim Erstellen werden direkt alle Puzzleteile als besucht markiert, die schon im Puzzle verwendet werden, damit diese nicht erneut gelegt werden. Jetzt werden alle nicht besuchten Teile probiert. Dazu wird mit der Methode \emph{fit()} überprüft, ob das potentielle Teil an die Position passt. Im nächsten Absatz wird \emph{fit()} genauer erläutert. Wurde ein passendes Teil gefunden, wird es vorerst eingefügt und \emph{fillBorders()} bei diesem aufgerufen. Klappt es, ist dieser "Teilbaum" komplett und \emph{fillLink()} ruft sich selbst erneut auf, allerdings mit einem größeren Index, sodass dieser Aufruf versucht, die nächste Kante zu füllen. Sobald es keine Kanten mehr zu füllen gibt, wird \emph{true} zurückgegeben. Klappt \emph{fillBorders()} oder der nächste \emph{fillLink()} Aufruf jedoch nicht, da diese \emph{false} zurückgeben, werden erst die falsch platzierten Teile entfernt und das Teil entweder rotiert und alles wird erneut probiert, oder nach drei Rotationen wird das nächste Tile probiert.
+\emph{fillLink()} sucht nun rekursiv für alle übergebenen Kanten Puzzleteile. Es beginnt mit der ersten Kante in der \emph{links} ArrayList. Zuerst wird ein \emph{boolean} Array angelegt, an dem später überprüft werden kann, ob ein bestimmtes Teil schon probiert wurde. Beim Erstellen werden direkt alle Puzzleteile als besucht markiert, die schon im Puzzle verwendet werden, damit diese nicht erneut gelegt werden. Jetzt werden alle nicht besuchten Teile probiert. Dazu wird mit der Methode \emph{fit()} überprüft, ob das potentielle Teil an die Position passt. Im nächsten Absatz wird \emph{fit()} genauer erläutert. Wurde ein passendes Teil gefunden, wird es vorerst eingefügt und \emph{fillBorders()} bei diesem aufgerufen. Klappt es, ist dieser "Teilbaum" komplett und \emph{fillLink()} ruft sich selbst erneut auf, allerdings mit einem größeren Index, sodass dieser Aufruf versucht, die nächste Kante zu füllen. Sobald es keine Kanten mehr zu füllen gibt, wird \emph{true} zurückgegeben. Klappt \emph{fillBorders()} oder der nächste \emph{fillLink()} Aufruf jedoch nicht, da diese \emph{false} zurückgeben, werden erst die falsch platzierten Teile entfernt und das Teil entweder rotiert und alles wird erneut probiert, oder nach drei Rotationen wird das nächste Teil probiert.
 
-\emph{fit()} prüft zuerst, ob die aktuelle Position $2$, $5$ oder $7$ ist, denn dann muss das Teil geflippt sein. Danach wird allgemein angenommen, dass das Teil passt. Es wird über alle Kanten des Teils iteriert. Wenn eine gefunden wurde, bei der der Partner vorhanden ist, das Teil also eventuell nicht passen kann, wird getestet, ob das Teil passt. Hierfür muss erstmal bestimmt werden, welche beiden Seiten miteinander verglichen werden müssen. Wie man in Abbildung \ref{Graph1} erkennen kann, ist die Differenz zweier Teile auf einer Höhe $=\pm 1$. Sind sie auf verschiedenen Höhen, ist die Differenz $\neq\pm 1$. In diesem Fall werden die beiden mittleren Seiten miteinander verglichen. Sonst muss noch bestimmt werden, ob das gefundene Teil links oder rechts vom Teil, das die Methode aufruft, ist. Der Index vom gefundenen Teil wird von dem des aufrufenden Teils abgezogen. Ist die Differenz $-1$, muss die rechte Seite des aufrufenden mit der linken des gefundenen Teils verglichen werden und andersrum. Nun werden die Werte der beiden Seiten addiert. Sollte die Summe nicht $0$ sein, passt das Teil nicht und die Methode gibt \emph{false} zurück. Wurden alle Kanten verglichen und das Teil passt überall, wird es eingefügt und \emph{true} zurückgegeben.
+\emph{fit()} prüft zuerst, ob die aktuelle Position $2$, $5$ oder $7$ ist, denn dann muss das Teil geflippt sein. Danach wird allgemein angenommen, dass das Teil passt. Es wird über alle Kanten des Teils iteriert. Wenn eine gefunden wurde, bei der der Partner vorhanden ist, das Teil also eventuell nicht passen kann, wird getestet, ob das Teil passt. Hierfür muss erstmal bestimmt werden, welche beiden Seiten miteinander verglichen werden müssen. Wie man in Abbildung \ref{Graph1} erkennen kann, ist die Differenz zweier Teile auf einer Höhe $=\pm 1$. Sind sie auf verschiedenen Höhen, ist die Differenz $\neq\pm 1$. In diesem Fall werden die beiden mittleren Seiten miteinander verglichen. Sonst muss noch bestimmt werden, ob das gefundene Teil links oder rechts vom Teil, das die Methode aufruft, ist. Der Index vom gefundenen Teil wird von dem des aufrufenden Teils abgezogen. Ist die Differenz $-1$, muss die rechte Seite des aufrufenden mit der linken des gefundenen Teils verglichen werden, bei $1$ andersrum. Nun werden die Werte der beiden Seiten addiert. Sollte die Summe nicht $0$ sein, passt das Teil nicht und die Methode gibt \emph{false} zurück. Wurden alle Kanten verglichen und das Teil passt überall, wird es eingefügt und \emph{true} zurückgegeben.
 
 \subsection{Dokumentation der Beispiele}
+
+Die Ausgabe des Programms besteht aus drei Zahlen pro Teil und der Position des Tiles. Die Position lässt sich dem Graphen entnehmen, die drei Zahlen geben immer die linke, mittlere und rechte Seite an. Zudem gibt ein \emph{boolean} am Ende jeder Zeile an, ob das Teil geflippt werden muss, also um $180^\circ$ gedreht werden muss.
 
 \subsubsection{puzzle0}
 In der folgenden Abbildung sieht man die Lösung für "puzzle0.txt" und daneben den Graphen. Die Pfeile zwischen den Knoten stellen nicht die Kanten dar, sondern zeigen, welcher Knoten welchen Knoten gelegt hat und sind nochmals zur Veranschaulichung der Tiefensuche da.
@@ -824,14 +828,114 @@ private boolean fit(int indexTiles, int indexMatrix) {
     \caption{Die Methode \emph{fit()}}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \begin{lstlisting}
+private void removeAllPlaced(int indexMatrix) {
+    for(int x = 0; x < placedTiles[0].length; x++) {
+        if(placedTiles[indexMatrix][x] != 0) {
+            removePlaced(indexMatrix, placedTiles[indexMatrix][x]);
+        }
+    }
+    placedTiles[indexMatrix] = new int[2];
+}
+
+private void removePlaced(int indexMatrix, int value) {
+    for(int i=0; i < placedTiles[0].length; i++) {
+        if(placedTiles[indexMatrix][i] == value) {
+            removeAllPlaced(value);
+            placedTiles[indexMatrix][i] = 0;
+            resetTile(value);
+            updateFalseLink(indexMatrix, value);
+        }
+    }
+}
+
+private int getIndexTiles(int indexMatrix) {
+    int indexTiles = -1;
+    for(int i=0; i < puzzle.length; i++) {
+        if(puzzle[i] == indexMatrix) {
+            indexTiles = i;
+            break;
+        }
+    }
+    return indexTiles;
+}
+
+private void resetTile(int value) {
+    for(int i = 0; i < tiles.length; i++) {
+        if(puzzle[i] == value) {
+            puzzle[i] = -1;
+        }
+    }
+}
+    \end{lstlisting}
+    \caption{weitere Methoden}
+\end{figure}
+	
+\begin{figure}[H]
+    \centering
+    \begin{lstlisting}
+private void updateTrueLink(int x, int y) {
+    matrix[x][y] = 1;
+    matrix[y][x] = 1;
+}
+
+private void updateFalseLink(int x, int y) {
+    matrix[x][y] = 0;
+    matrix[y][x] = 0;
+}
+
+private void addPlacedTile(int indexMatrix, int value) {
+    for(int i = 0; i < placedTiles[0].length; i++) {
+        if(placedTiles[indexMatrix][i] == 0) {
+            placedTiles[indexMatrix][i] = value;
+            break;
+        }
+    }
+}
+
+private void addLink(int x, int y) {
+    matrix[x][y] = 0;
+    matrix[y][x] = 0;
+}
+
+private void resetPuzzle() {
+    for(int i = 0; i < puzzle.length; i++) {
+        puzzle[i] = -1;
+    }
+    
+    // Mögliche Kantenverbindungen werden angelegt (s. Skizze)
+    addLink(0,2);
+    addLink(1,2);
+    addLink(1,5);
+    addLink(2,3);
+    addLink(3,7);
+    addLink(4,5);
+    addLink(5,6);
+    addLink(6,7);
+    addLink(7,8);
+    
+    for(Tile tile : tiles) {
+        if(tile.flipped) {
+            tile.flip();
+        }
+    }
+    
+    placedTiles = new int[9][2];
+}
+    \end{lstlisting}
+    \caption{weitere Methoden}
+\end{figure}
+
 \section{Tobis Turnier}
 \subsection{Lösungsidee}
 
-Um die verschiedenen Turniere zu Simulieren wurde  für jede Turnierform eine Methode erstellt, die den Sieger des Turniers zurückgibt. So können können viele Turniere einfach durch Aufrufe dieser Methoden simuliert werden.
+Der stärkste Spieler wird ermittelt und anschließend wird jede Turnierform n-mal simuliert. Dabei wird gespeichert, wie oft der stärkste Spieler gewonnen hat. Am Ende wird der Anteil berechnet, in Prozent umgerechnet und anhand der Werte kann dann eine Turnierform für Tobi empfohlen werden.
 
 \subsection{Umsetzung}
 
-Wie bereits erwähnt wurde für jede Turnierform eine Methode erstellt. Im folgenden Teil werden die einzelnen Methoden genauer erläutert:
+Es wurde für jede Turnierform eine Methode erstellt. Im folgenden Teil werden die einzelnen Methoden genauer erläutert:
 
 \subsubsection{Klassendiagramme}
 \begin{figure}[H]
@@ -887,7 +991,7 @@ Wie bereits erwähnt wurde für jede Turnierform eine Methode erstellt. Im folge
 \end{figure}
 \subsubsection{Einlesen der Datei}
 
-Jeder Spieler wird in Form einer eigenen Klasse, die die Spielstärke und die ID speichert, in einem Array gespeichert. Das Programm geht die gegebene Datei lediglich Zeile für Zeile durch und erstellt in jeder Zeile, außer der ersten, einen neuen Spieler, der die Spielstärke hat die die Zeile angibt. Nebenbei zählen wir noch eine Variable hoch, die jedem Spieler eine neue ID zuordnet.
+Jeder Spieler wird in Form einer eigenen Klasse, die die Spielstärke und die ID speichert, in einem Array gespeichert. Das Programm geht die gegebene Datei lediglich Zeile für Zeile durch und erstellt in jeder Zeile, außer der ersten, einen neuen Spieler, der die Spielstärke hat, die die Zeile angibt. Nebenbei zählen wir noch eine Variable hoch, die jedem Spieler eine neue ID zuordnet.
 
 \subsubsection{Die \emph{match}-Methode}
 
@@ -900,7 +1004,7 @@ gleich der Spielstärke von Spieler $2$ sein, so hat dieser gewonnen.
 
 \subsubsection{Liga}
 
-Die Methode \emph{league()} bekommt einen Array aus Spielern übergeben und gibt am Ende einen Spieler zurück, der die Liga gewonnen hat. In der Liga spielt jeder Spieler genau einmal gegen jeden anderen. Um zu wissen, wer bereits gegen wen gespielt hat, speichern wir uns nebenbei einen zweidimensionalen Array aus booleans. Dieser wird dann mithilfe eines Loop an allen Stellen auf false gestellt, außer in der Diagonalen, also zum Beispiel an Stelle [1][1], damit die Spieler nicht einmal gegen sich selbst spielen. Danach startet eine Schleife die so lange läuft, bis der zweidimensionale Array kein false mehr speichert, also jeder Spieler einmal gegen jeden anderen Spieler gespielt hat. In der Schleife wird für jeden Spieler im übergebenen Array einmal über alle Spieler gegangen und anhand des zweidimensionalen Arrays geprüft, ob die beiden Spieler bereits gegeneinander gespielt haben. Sollten sie noch nicht gegeneinander gespielt haben, so spielen sie nun mithilfe der Methode match gegeneinander. Der gewinner des matches fügt dann seiner wins variable einen Sieg hinzu. Außerdem setzen wir den zweidimensionalen Array an der Stelle der beiden Spieler auf true. Sobald diese Schleife nun abbricht hat jeder Spieler nun einmal gegen jeden gespielt und jeder Spieler weiß, wie häufig er gewonnen hat. Nun wird geprüft welcher der Spieler die meisten Siege hat, also die Liga gewonnen hat. Dazu wird erst geprüft, was die höchste Anzahl an Siegen ist, die einer der Spieler erreicht hat. Dann fügen wir in einen neuen Array aus Spielern alle Spieler hinzu, die so viele Siege wie der Spieler mit den meisten Siegen hat. So haben wir nun alle Spieler, die potenziell gewinnen könnten. Sollten mehr als ein Spieler in diesem Array sein, so entscheidet die ID wer gewinnt. Wir zählen eine Variable von 0 hoch und sobald im Array ein Spieler ist, dessen ID gleich der Variable ist geben wir diesen zurück als Gewinner. Wenn wir nur einen Spieler im Array haben, so können wir diesen direkt zurückgeben.
+Die Methode \emph{league()} bekommt einen Array aus Spielern übergeben und gibt am Ende einen Spieler zurück, der die Liga gewonnen hat. In der Liga spielt jeder Spieler genau einmal gegen jeden anderen. Um zu wissen, wer bereits gegen wen gespielt hat, speichern wir uns nebenbei einen zweidimensionalen Array aus \emph{booleans}. Dieser wird dann mithilfe eines Loop an allen Stellen auf \emph{false} gestellt, außer in der Diagonalen, also zum Beispiel an Stelle [1][1], damit die Spieler nicht einmal gegen sich selbst spielen. Danach startet eine Schleife die so lange läuft, bis der zweidimensionale Array kein \emph{false} mehr speichert, also jeder Spieler einmal gegen jeden anderen Spieler gespielt hat. In der Schleife wird für jeden Spieler im übergebenen Array einmal über alle Spieler gegangen und anhand des zweidimensionalen Arrays geprüft, ob die beiden Spieler bereits gegeneinander gespielt haben. Sollten sie noch nicht gegeneinander gespielt haben, so spielen sie nun mithilfe der Methode match gegeneinander. Der gewinner des matches fügt dann seiner wins variable einen Sieg hinzu. Außerdem setzen wir den zweidimensionalen Array an der Stelle der beiden Spieler auf true. Sobald diese Schleife nun abbricht hat jeder Spieler nun einmal gegen jeden gespielt und jeder Spieler weiß, wie häufig er gewonnen hat. Nun wird geprüft welcher der Spieler die meisten Siege hat, also die Liga gewonnen hat. Dazu wird erst geprüft, was die höchste Anzahl an Siegen ist, die einer der Spieler erreicht hat. Dann fügen wir in einen neuen Array aus Spielern alle Spieler hinzu, die so viele Siege wie der Spieler mit den meisten Siegen hat. So haben wir nun alle Spieler, die potenziell gewinnen könnten. Sollten mehr als ein Spieler in diesem Array sein, so entscheidet die ID wer gewinnt. Wir zählen eine Variable von 0 hoch und sobald im Array ein Spieler ist, dessen ID gleich der Variable ist geben wir diesen zurück als Gewinner. Wenn wir nur einen Spieler im Array haben, so können wir diesen direkt zurückgeben.
 
 \subsubsection{Ko}
 
@@ -1405,14 +1509,14 @@ So werden die Methoden aufgerufen:
     }
     
 \end{lstlisting}
-\caption{Die Methodenaufrufe der \emph{Main()}-Methode}
+\caption{Die Methodenaufrufe der \emph{main()} Methode}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \begin{lstlisting}
 int trueAmount = students.length - falseAmount;
-System.out.println("Unbeschenkt: "+ falseAmount + "    Beschenkt: " + trueAmount);
+System.out.println("Unbeschenkt: " + falseAmount + "    Beschenkt: " + trueAmount);
 
 int score = 0;
 int firstcounter = 0;
@@ -1463,7 +1567,7 @@ Schüler & zugeordnetes Geschenk & Wünsche               \\ \midrule
 \end{tabular}
 \end{table}
 
-Insgesamt wurden 6 Erstwünsche, 0 Zweitwünsche und 1 Drittwunsch erfüllt. Das ergibt einen Gesamtscore von 19.
+Insgesamt wurden 6 Erstwünsche, 0 Zweitwünsche und 1 Drittwunsch erfüllt.
 
 \subsubsection{wichteln2}
 \begin{table}[H]
@@ -1486,25 +1590,25 @@ Schüler & zugeordnetes Geschenk & Wünsche               \\ \midrule
 \end{tabular}
 \end{table}
 
-Insgesamt wurden 3 Erstwünsche, 0 Zweitwünsche und 0 Drittwünsche erfüllt. Das ergibt einen Gesamtscore von 9.
+Insgesamt wurden 3 Erstwünsche, 0 Zweitwünsche und 0 Drittwünsche erfüllt.
 
 \subsubsection{restliche Beispiele}
-Die Beispiele mit 30, 100 und 1000 Schülern wurden aus offensichtlichen Platzgünden in separate Dateien auszulagern. Diese finden sich in dem zugehörigen Unterordner zu Aufgabe a5. Die Anzahl der erfüllten Wünsche wird dennoch noch kurz angeführt:
+Die Beispiele mit 30, 100 und 1000 Schülern wurden aus offensichtlichen Platzgründen in separate Dateien ausgelagert. Diese finden sich in dem zugehörigen Unterordner zu Aufgabe a5. Die Anzahl der erfüllten Wünsche wird dennoch noch kurz angeführt:
 
-\subsection{wichteln3}
-Insgesamt wurden 15 Erstwünsche, 6 Zweitwünsche und 1 Drittwunsch erfüllt. Das ergibt einen Gesamtscore von 58.
+\subsubsection{wichteln3}
+Insgesamt wurden 15 Erstwünsche, 6 Zweitwünsche und 1 Drittwunsch erfüllt.
 
-\subsection{wichteln4}
-Insgesamt wurden 15 Erstwünsche, 3 Zweitwünsche und 3 Drittwünsche erfüllt. Das ergibt einen Gesamtscore von 30.
+\subsubsection{wichteln4}
+Insgesamt wurden 15 Erstwünsche, 3 Zweitwünsche und 3 Drittwünsche erfüllt.
 
-\subsection{wichteln5}
-Insgesamt wurden 13 Erstwünsche, 1 Zweitwunsch und 6 Drittwünsche erfüllt. Das ergibt einen Gesamtscore von 47.
+\subsubsection{wichteln5}
+Insgesamt wurden 13 Erstwünsche, 1 Zweitwunsch und 6 Drittwünsche erfüllt.
 
-\subsection{wichteln6}
-Insgesamt wurden 37 Erstwünsche, 3 Zweitwünsche und 18 Drittwünsche erfüllt. Das ergibt einen Gesamtscore von 135.
+\subsubsection{wichteln6}
+Insgesamt wurden 37 Erstwünsche, 3 Zweitwünsche und 18 Drittwünsche erfüllt.
 
-\subsection{wichteln7}
-Insgesamt wurden 541 Erstwünsche, 94 Zweitwünsche und 50 Drittwünsche erfüllt. Das ergibt einen Gesamtscore von 1861.
+\subsubsection{wichteln7}
+Insgesamt wurden 541 Erstwünsche, 94 Zweitwünsche und 50 Drittwünsche erfüllt. 
 
 
 \end{document}

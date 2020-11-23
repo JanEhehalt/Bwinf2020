@@ -1,5 +1,3 @@
-package main;
-
 public class Player {
 	public int id;
 	public int strength;

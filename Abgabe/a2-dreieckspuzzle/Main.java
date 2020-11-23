@@ -4,13 +4,12 @@ import java.util.Scanner;
 
 class Main{
 	
-	
     public static void main(String[] args){
     	Tile[] tiles = new Tile[9];
     	try {
     		File data;
     		if(args.length == 0) {
-        		System.out.println("Ungültiger Dateiname: Automatische Einlesung der Datei: puzzle0.txt");
+        		System.out.println("Ungueltiger Dateiname: Automatische Einlesung der Datei: puzzle0.txt");
         		System.out.println();
         		data = new File("puzzle0.txt");
         	}
@@ -43,12 +42,12 @@ class Main{
     	}
     	
     	Graph g = new Graph(tiles);
-    	System.out.println("Lösbar: "+ g.fillWithTiles());
+    	System.out.println("Loesbar: "+ g.fillWithTiles());
     	System.out.println();
     	
     	for(int i = 0; i < g.tiles.length; i++) {
     		if(g.puzzle[i] < 0) {
-    			System.out.println("Puzzle unmöglich");
+    			System.out.println("Puzzle unmoeglich");
     			continue;
     		}
     		
@@ -67,7 +66,7 @@ class Main{
     			System.out.println("Tile an Stelle " + i + ": " + t.values[0] + " " + t.values[1] + " " + t.values[2] + "   flipped: " + t.flipped);
     		}
     		else {
-    			System.out.println("Puzzle unmöglich");
+    			System.out.println("Puzzle unmoeglich");
     		}
     	}
     }

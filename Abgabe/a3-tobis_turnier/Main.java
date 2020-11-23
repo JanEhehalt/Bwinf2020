@@ -1,5 +1,3 @@
-package main;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -16,7 +14,7 @@ class Main{
     	try {
     		File data;
     		if(args.length == 0) {
-        		System.out.println("Ungültiger Dateiname: Automatische Einlesung der Datei: spielstaerken1.txt");
+        		System.out.println("Ungueltiger Dateiname: Automatische Einlesung der Datei: spielstaerken1.txt");
         		System.out.println();
         		data = new File("spielstaerken1.txt");
         	}
@@ -37,7 +35,7 @@ class Main{
     	}
     	
 		for(Player player : players) {
-			System.out.println("Spieler: " + player.id + " Spielstärke: " + player.strength);
+			System.out.println("Spieler: " + player.id + " Spielstaerke: " + player.strength);
 		}
 
 		int best = getBest(players);
@@ -71,7 +69,7 @@ class Main{
 		float winrateKo = (float)bestWinsKo/(float)iterations;
 		float winrateKox5 = (float)bestWinsKox5/(float)iterations;
 
-		System.out.println("Durchgänge: " + iterations);
+		System.out.println("Durchgaenge: " + iterations);
 		System.out.println();
 		System.out.println("Ligasiege: " + bestWinsLeague);
 		System.out.println("Ko-Siege: " + bestWinsKo);

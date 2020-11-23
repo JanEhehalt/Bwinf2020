@@ -20,9 +20,9 @@ class Main{
         try{
         	File data;
     		if(args.length == 0) {
-        		System.out.println("Ungültiger Dateiname: Automatische Einlesung der Datei: wichteln1.txt");
+        		System.out.println("Ungueltiger Dateiname: Automatische Einlesung der Datei: wichteln1.txt");
         		System.out.println();
-        		data = new File("/wichteln1.txt");
+        		data = new File("wichteln1.txt");
         	}
         	else {
         		data = new File(args[0]);
@@ -53,7 +53,7 @@ class Main{
         		students[tempIndex] = new Student(wishes);
             }
             for(int i = 0; i < students.length; i++) {
-            	System.out.println("Wünsche Schüler "+i + ": "+ students[i].wishes[0] + "|" + students[i].wishes[1] + "|" + students[i].wishes[2]);
+            	System.out.println("Wuensche Schueler "+i + ": "+ students[i].wishes[0] + "|" + students[i].wishes[1] + "|" + students[i].wishes[2]);
             }
             boolean[] presents = new boolean[students.length];
             
@@ -66,7 +66,7 @@ class Main{
             for(int i = 0; i < students.length; i++) {
             	if(!students[i].gifted) falseAmount++;
             	else {
-            		System.out.println("Schüler "+i + " bekommt das Geschenk " + students[i].presentId+".");
+            		System.out.println("Schueler "+i + " bekommt das Geschenk " + students[i].presentId+".");
             	}
             }
             int trueAmount = students.length - falseAmount;
@@ -91,9 +91,9 @@ class Main{
             	}
             }
             System.out.println("Insgesamter score: "+score);
-            System.out.println("Erfüllte Erstwünsche: "+firstcounter);
-            System.out.println("Erfüllte Zweitwünsche: "+secondcounter);
-            System.out.println("Erfüllte Drittwünsche: "+thirdcounter);
+            System.out.println("Erfuellte Erstwuensche: "+firstcounter);
+            System.out.println("Erfuellte Zweitwuensche: "+secondcounter);
+            System.out.println("Erfuellte Drittwuensche: "+thirdcounter);
             for(Student s : students) {
             	//System.out.println(s.presentId);
             }
