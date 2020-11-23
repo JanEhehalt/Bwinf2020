@@ -1324,36 +1324,36 @@ Die Idee hinter unserem Programm ist, dass zuerst möglichst viele erstwünsche 
 
 Jeder Schüler wird durch die Klasse \emph{student} repräsentiert. Jeder Schüler speichert ob er bereits ein Geschenk erhalten hat und wenn ja, welches Geschenk er erhalten hat und welcher seiner Wünsche erfüllt wurde. Außerdem speichert der Schüler welche drei Wünsche er überhaupt hat.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{tikzpicture} 
         \umlclass{Student}{
-            gifted: boolean\\
-            metWish: int\\
-            presentId: int\\
-            wishes: int[]
+            $+$ gifted: boolean\\
+            $+$ metWish: int\\
+            $+$ presentId: int\\
+            $+$ wishes: int[]
         }{
-            Student(wishes: int[])
+            $+$ Student(wishes: int[])
         }
     \end{tikzpicture}
     \caption{Die Klasse \emph{Student}}
 \end{figure}
 
-Die Methode emph{distributePresents()} bekommt einmal die ganzen Schüler, dann die Geschenke und dann noch einen Integer übergeben. Diese Methode versucht den Wunsch den der Integer angibt bei allen Schülern mit den Geschenken zu erfüllen. Ist der übergebene int also zum Beispiel 0 erfüllt die Methode möglichst viele Erstwünsche der Schüler. Um dies zu erreichen läuft die Methode einmal über alle Schüler. Sollte der Schüler noch kein Geschenk haben und sein Geschenk an der Stelle des zu erfüllenden Wunsches noch nicht vergeben sein, so wird dem Schüler der Wunsch erfüllt.
+Die Methode \emph{distributePresents()} bekommt einmal die ganzen Schüler, dann die Geschenke und dann noch einen Integer übergeben. Diese Methode versucht den Wunsch den der Integer angibt bei allen Schülern mit den Geschenken zu erfüllen. Ist der übergebene int also zum Beispiel 0 erfüllt die Methode möglichst viele Erstwünsche der Schüler. Um dies zu erreichen läuft die Methode einmal über alle Schüler. Sollte der Schüler noch kein Geschenk haben und sein Geschenk an der Stelle des zu erfüllenden Wunsches noch nicht vergeben sein, so wird dem Schüler der Wunsch erfüllt.
 
 \begin{figure}[H]
 \centering
 \begin{lstlisting}
-    static void distributePresents(int n, Student[] students, boolean[] presents){
-        for(int i = 0; i < students.length; i++){
-            if(students[i].gifted) continue;
-            if(presents[students[i].wishes[n]]) continue;
-            students[i].gifted = true;
-            students[i].metWish = n;
-            students[i].presentId = students[i].wishes[n];
-            presents[students[i].wishes[n]] = true;
-        }
-    }  
+static void distributePresents(int n, Student[] students, boolean[] presents){
+    for(int i = 0; i < students.length; i++){
+        if(students[i].gifted) continue;
+        if(presents[students[i].wishes[n]]) continue;
+        students[i].gifted = true;
+        students[i].metWish = n;
+        students[i].presentId = students[i].wishes[n];
+        presents[students[i].wishes[n]] = true;
+    }
+}  
 \end{lstlisting}
 \caption{Die Methoden \emph{distributePresents()}}
 \end{figure}
@@ -1363,21 +1363,21 @@ Nun wird diese Methode einmal für Wunsch 1, Wunsch 2 und Wunsch 3 aufgerufen. S
 \begin{figure}[H]
 \centering
 \begin{lstlisting}
-    static void fillLastWishes(Student[] students, boolean[] presents){
-    	for(int i = 0; i < students.length; i++){
-    		if(!students[i].gifted) {
-    			for(int n = 0; n < students.length; n++){
-    				if(!presents[n]){
-    					students[i].gifted = true;
-    					students[i].metWish = -1;
-    	    			students[i].presentId = n;
-    					presents[n] = true;
-    					break;
-    				}
-    			}
-			}
-    	}
+static void fillLastWishes(Student[] students, boolean[] presents){
+    for(int i = 0; i < students.length; i++){
+        if(!students[i].gifted) {
+            for(int n = 0; n < students.length; n++){
+                if(!presents[n]){
+                    students[i].gifted = true;
+                    students[i].metWish = -1;
+                    students[i].presentId = n;
+                    presents[n] = true;
+                    break;
+                }
+            }
+        }
     }
+}
 \end{lstlisting}
 \caption{Die Methoden \emph{distributePresents()}}
 \end{figure}
