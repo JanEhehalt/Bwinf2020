@@ -1,0 +1,185 @@
+Wünsche Schüler 0: 0|23|24
+Wünsche Schüler 1: 26|28|0
+Wünsche Schüler 2: 37|16|52
+Wünsche Schüler 3: 22|20|48
+Wünsche Schüler 4: 29|28|53
+Wünsche Schüler 5: 20|21|64
+Wünsche Schüler 6: 37|36|41
+Wünsche Schüler 7: 44|20|23
+Wünsche Schüler 8: 2|16|54
+Wünsche Schüler 9: 41|24|50
+Wünsche Schüler 10: 8|10|86
+Wünsche Schüler 11: 32|21|64
+Wünsche Schüler 12: 22|26|85
+Wünsche Schüler 13: 25|24|49
+Wünsche Schüler 14: 37|32|2
+Wünsche Schüler 15: 41|14|83
+Wünsche Schüler 16: 27|4|54
+Wünsche Schüler 17: 38|25|79
+Wünsche Schüler 18: 14|39|65
+Wünsche Schüler 19: 34|41|4
+Wünsche Schüler 20: 5|13|62
+Wünsche Schüler 21: 22|27|31
+Wünsche Schüler 22: 30|25|20
+Wünsche Schüler 23: 13|28|85
+Wünsche Schüler 24: 13|32|83
+Wünsche Schüler 25: 11|37|0
+Wünsche Schüler 26: 11|24|73
+Wünsche Schüler 27: 38|11|37
+Wünsche Schüler 28: 29|4|77
+Wünsche Schüler 29: 24|22|36
+Wünsche Schüler 30: 47|32|53
+Wünsche Schüler 31: 4|32|29
+Wünsche Schüler 32: 17|39|31
+Wünsche Schüler 33: 37|23|32
+Wünsche Schüler 34: 38|28|73
+Wünsche Schüler 35: 13|24|52
+Wünsche Schüler 36: 4|29|7
+Wünsche Schüler 37: 47|13|48
+Wünsche Schüler 38: 41|47|4
+Wünsche Schüler 39: 30|19|86
+Wünsche Schüler 40: 47|31|64
+Wünsche Schüler 41: 32|26|82
+Wünsche Schüler 42: 28|17|13
+Wünsche Schüler 43: 21|32|42
+Wünsche Schüler 44: 4|46|80
+Wünsche Schüler 45: 13|20|84
+Wünsche Schüler 46: 37|20|83
+Wünsche Schüler 47: 47|13|73
+Wünsche Schüler 48: 15|27|21
+Wünsche Schüler 49: 26|11|21
+Wünsche Schüler 50: 39|27|62
+Wünsche Schüler 51: 22|37|64
+Wünsche Schüler 52: 23|28|47
+Wünsche Schüler 53: 15|47|13
+Wünsche Schüler 54: 4|37|61
+Wünsche Schüler 55: 23|0|19
+Wünsche Schüler 56: 34|13|86
+Wünsche Schüler 57: 45|20|69
+Wünsche Schüler 58: 12|41|22
+Wünsche Schüler 59: 23|17|80
+Wünsche Schüler 60: 32|29|13
+Wünsche Schüler 61: 44|26|74
+Wünsche Schüler 62: 11|47|30
+Wünsche Schüler 63: 13|47|66
+Wünsche Schüler 64: 9|32|39
+Wünsche Schüler 65: 0|14|79
+Wünsche Schüler 66: 8|29|37
+Wünsche Schüler 67: 8|46|44
+Wünsche Schüler 68: 29|27|31
+Wünsche Schüler 69: 44|13|32
+Wünsche Schüler 70: 17|34|64
+Wünsche Schüler 71: 27|46|89
+Wünsche Schüler 72: 2|26|73
+Wünsche Schüler 73: 29|4|47
+Wünsche Schüler 74: 23|32|48
+Wünsche Schüler 75: 4|26|20
+Wünsche Schüler 76: 15|47|57
+Wünsche Schüler 77: 10|27|28
+Wünsche Schüler 78: 16|23|27
+Wünsche Schüler 79: 47|19|23
+Wünsche Schüler 80: 7|41|83
+Wünsche Schüler 81: 37|27|62
+Wünsche Schüler 82: 10|22|74
+Wünsche Schüler 83: 23|37|48
+Wünsche Schüler 84: 37|11|17
+Wünsche Schüler 85: 40|29|88
+Wünsche Schüler 86: 19|37|69
+Wünsche Schüler 87: 0|19|10
+Wünsche Schüler 88: 47|41|29
+Wünsche Schüler 89: 7|16|34
+Schüler 0 bekommt das Geschenk 0.
+Schüler 1 bekommt das Geschenk 26.
+Schüler 2 bekommt das Geschenk 37.
+Schüler 3 bekommt das Geschenk 22.
+Schüler 4 bekommt das Geschenk 29.
+Schüler 5 bekommt das Geschenk 20.
+Schüler 6 bekommt das Geschenk 36.
+Schüler 7 bekommt das Geschenk 44.
+Schüler 8 bekommt das Geschenk 2.
+Schüler 9 bekommt das Geschenk 41.
+Schüler 10 bekommt das Geschenk 8.
+Schüler 11 bekommt das Geschenk 32.
+Schüler 12 bekommt das Geschenk 85.
+Schüler 13 bekommt das Geschenk 25.
+Schüler 14 bekommt das Geschenk 1.
+Schüler 15 bekommt das Geschenk 83.
+Schüler 16 bekommt das Geschenk 27.
+Schüler 17 bekommt das Geschenk 38.
+Schüler 18 bekommt das Geschenk 14.
+Schüler 19 bekommt das Geschenk 34.
+Schüler 20 bekommt das Geschenk 5.
+Schüler 21 bekommt das Geschenk 3.
+Schüler 22 bekommt das Geschenk 30.
+Schüler 23 bekommt das Geschenk 13.
+Schüler 24 bekommt das Geschenk 6.
+Schüler 25 bekommt das Geschenk 11.
+Schüler 26 bekommt das Geschenk 73.
+Schüler 27 bekommt das Geschenk 18.
+Schüler 28 bekommt das Geschenk 77.
+Schüler 29 bekommt das Geschenk 24.
+Schüler 30 bekommt das Geschenk 47.
+Schüler 31 bekommt das Geschenk 4.
+Schüler 32 bekommt das Geschenk 17.
+Schüler 33 bekommt das Geschenk 33.
+Schüler 34 bekommt das Geschenk 35.
+Schüler 35 bekommt das Geschenk 52.
+Schüler 36 bekommt das Geschenk 42.
+Schüler 37 bekommt das Geschenk 48.
+Schüler 38 bekommt das Geschenk 43.
+Schüler 39 bekommt das Geschenk 86.
+Schüler 40 bekommt das Geschenk 31.
+Schüler 41 bekommt das Geschenk 82.
+Schüler 42 bekommt das Geschenk 28.
+Schüler 43 bekommt das Geschenk 21.
+Schüler 44 bekommt das Geschenk 46.
+Schüler 45 bekommt das Geschenk 84.
+Schüler 46 bekommt das Geschenk 49.
+Schüler 47 bekommt das Geschenk 50.
+Schüler 48 bekommt das Geschenk 15.
+Schüler 49 bekommt das Geschenk 51.
+Schüler 50 bekommt das Geschenk 39.
+Schüler 51 bekommt das Geschenk 64.
+Schüler 52 bekommt das Geschenk 23.
+Schüler 53 bekommt das Geschenk 53.
+Schüler 54 bekommt das Geschenk 61.
+Schüler 55 bekommt das Geschenk 54.
+Schüler 56 bekommt das Geschenk 55.
+Schüler 57 bekommt das Geschenk 45.
+Schüler 58 bekommt das Geschenk 12.
+Schüler 59 bekommt das Geschenk 80.
+Schüler 60 bekommt das Geschenk 56.
+Schüler 61 bekommt das Geschenk 74.
+Schüler 62 bekommt das Geschenk 58.
+Schüler 63 bekommt das Geschenk 66.
+Schüler 64 bekommt das Geschenk 9.
+Schüler 65 bekommt das Geschenk 79.
+Schüler 66 bekommt das Geschenk 59.
+Schüler 67 bekommt das Geschenk 60.
+Schüler 68 bekommt das Geschenk 63.
+Schüler 69 bekommt das Geschenk 65.
+Schüler 70 bekommt das Geschenk 67.
+Schüler 71 bekommt das Geschenk 89.
+Schüler 72 bekommt das Geschenk 68.
+Schüler 73 bekommt das Geschenk 69.
+Schüler 74 bekommt das Geschenk 70.
+Schüler 75 bekommt das Geschenk 71.
+Schüler 76 bekommt das Geschenk 57.
+Schüler 77 bekommt das Geschenk 10.
+Schüler 78 bekommt das Geschenk 16.
+Schüler 79 bekommt das Geschenk 72.
+Schüler 80 bekommt das Geschenk 7.
+Schüler 81 bekommt das Geschenk 62.
+Schüler 82 bekommt das Geschenk 75.
+Schüler 83 bekommt das Geschenk 76.
+Schüler 84 bekommt das Geschenk 78.
+Schüler 85 bekommt das Geschenk 40.
+Schüler 86 bekommt das Geschenk 19.
+Schüler 87 bekommt das Geschenk 81.
+Schüler 88 bekommt das Geschenk 87.
+Schüler 89 bekommt das Geschenk 88.
+Unbeschenkt: 0    Beschenkt: 90
+Insgesamter score: 135
+Erfüllte Erstwünsche: 37
+Erfüllte Zweitwünsche: 3
+Erfüllte Drittwünsche: 18

@@ -1,0 +1,65 @@
+Wünsche Schüler 0: 3|1|24
+Wünsche Schüler 1: 5|13|6
+Wünsche Schüler 2: 6|11|9
+Wünsche Schüler 3: 17|6|18
+Wünsche Schüler 4: 14|3|26
+Wünsche Schüler 5: 1|17|26
+Wünsche Schüler 6: 3|9|17
+Wünsche Schüler 7: 17|6|12
+Wünsche Schüler 8: 17|14|24
+Wünsche Schüler 9: 6|10|12
+Wünsche Schüler 10: 13|14|21
+Wünsche Schüler 11: 12|13|5
+Wünsche Schüler 12: 6|0|18
+Wünsche Schüler 13: 14|6|12
+Wünsche Schüler 14: 9|12|6
+Wünsche Schüler 15: 3|7|11
+Wünsche Schüler 16: 14|0|25
+Wünsche Schüler 17: 1|6|22
+Wünsche Schüler 18: 6|3|12
+Wünsche Schüler 19: 5|9|2
+Wünsche Schüler 20: 0|15|6
+Wünsche Schüler 21: 9|6|3
+Wünsche Schüler 22: 3|14|22
+Wünsche Schüler 23: 10|3|9
+Wünsche Schüler 24: 10|12|17
+Wünsche Schüler 25: 3|6|11
+Wünsche Schüler 26: 10|9|29
+Wünsche Schüler 27: 11|12|9
+Wünsche Schüler 28: 16|11|3
+Wünsche Schüler 29: 14|6|24
+Schüler 0 bekommt das Geschenk 3.
+Schüler 1 bekommt das Geschenk 5.
+Schüler 2 bekommt das Geschenk 6.
+Schüler 3 bekommt das Geschenk 17.
+Schüler 4 bekommt das Geschenk 14.
+Schüler 5 bekommt das Geschenk 1.
+Schüler 6 bekommt das Geschenk 4.
+Schüler 7 bekommt das Geschenk 8.
+Schüler 8 bekommt das Geschenk 24.
+Schüler 9 bekommt das Geschenk 15.
+Schüler 10 bekommt das Geschenk 13.
+Schüler 11 bekommt das Geschenk 12.
+Schüler 12 bekommt das Geschenk 18.
+Schüler 13 bekommt das Geschenk 19.
+Schüler 14 bekommt das Geschenk 9.
+Schüler 15 bekommt das Geschenk 7.
+Schüler 16 bekommt das Geschenk 25.
+Schüler 17 bekommt das Geschenk 22.
+Schüler 18 bekommt das Geschenk 20.
+Schüler 19 bekommt das Geschenk 2.
+Schüler 20 bekommt das Geschenk 0.
+Schüler 21 bekommt das Geschenk 21.
+Schüler 22 bekommt das Geschenk 23.
+Schüler 23 bekommt das Geschenk 10.
+Schüler 24 bekommt das Geschenk 26.
+Schüler 25 bekommt das Geschenk 27.
+Schüler 26 bekommt das Geschenk 29.
+Schüler 27 bekommt das Geschenk 11.
+Schüler 28 bekommt das Geschenk 16.
+Schüler 29 bekommt das Geschenk 28.
+Unbeschenkt: 0    Beschenkt: 30
+Insgesamter score: 47
+Erfüllte Erstwünsche: 13
+Erfüllte Zweitwünsche: 1
+Erfüllte Drittwünsche: 6
