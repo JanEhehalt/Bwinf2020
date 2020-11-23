@@ -303,61 +303,6 @@ Zur Darstellung der Struktur des Puzzle wird ein ungerichteter und ungewichteter
 
 \begin{figure}[h]
     \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-    \begin{tikzpicture}[scale=1]
-    %0
-    \draw (-1,0) -- node[sloped,above]{1} (1,0); %mitte
-    \draw (-1,0) -- node[sloped,above,rotate=180]{2} (0,1.73); %links
-    \draw (1,0) -- node[sloped,above,rotate=180]{-2} (0,1.73); %rechts
-
-    %1
-    \draw (-2,-1.73) -- node[sloped,above]{1} (0,-1.73);
-    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{2} (-1,0);
-    \draw (0,-1.73) -- node[sloped,above,rotate=180]{-2} (-1,0);
-
-    %2
-    \draw (-1,0) -- node[sloped,above,rotate=180]{1} (1,0);
-    \draw (-1,0) -- node[sloped,above,rotate=0]{2} (0,-1.73);
-    \draw (1,0) -- node[sloped,above,rotate=0]{-2} (0,-1.73);
-
-    %3
-    \draw (0,-1.73) -- node[sloped,above]{1} (2,-1.73);
-    \draw (0,-1.73) -- node[sloped,above,rotate=180]{2} (1,0);
-    \draw (2,-1.73) -- node[sloped,above,rotate=180]{-2} (1,0);
-
-    %4
-    \draw (-3,-3.46) -- node[sloped,above]{1} (-1,-3.46);
-    \draw (-3,-3.46) -- node[sloped,above,rotate=180]{2} (-2,-1.73);
-    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{-2} (-1,-3.46);
-
-    %5
-    \draw (-2,-1.73) -- node[sloped,above,rotate=180]{1} (0,-1.73);
-    \draw (-2,-1.73) -- node[sloped,above,rotate=0]{2} (-1,-3.46);
-    \draw (0,-1.73) -- node[sloped,above,rotate=0]{-2} (-1,-3.46);
-
-    %6
-    \draw (-1,-3.46) -- node[sloped,above]{1} (1,-3.46);
-    \draw (-1,-3.46) -- node[sloped,above,rotate=180]{2} (0,-1.73);
-    \draw (1,-3.46) -- node[sloped,above,rotate=180]{-2} (0,-1.73);
-
-    %7
-    \draw (0,-1.73) -- node[sloped,above,rotate=180]{1} (2,-1.73);
-    \draw (0,-1.73) -- node[sloped,above,rotate=0]{2} (1,-3.46);
-    \draw (2,-1.73) -- node[sloped,above,rotate=0]{-2} (1,-3.46);
-
-    %8
-    \draw (1,-3.46) -- node[sloped,above]{1} (3,-3.46);
-    \draw (1,-3.46) -- node[sloped,above,rotate=180]{2} (2,-1.73);
-    \draw (3,-3.46) -- node[sloped,above,rotate=180]{-2} (2,-1.73);
-    \end{tikzpicture}
-
-        \subcaption{Das Puzzle}
-    \end{subfigure}
-\hfill
-    \begin{subfigure}[t]{0.45\textwidth}
-    \centering
-
     \begin{tikzpicture}
         \begin{scope}[every node/.style={circle,thick,draw}]
             \node (0) at (0,0) {0};
@@ -384,10 +329,6 @@ Zur Darstellung der Struktur des Puzzle wird ein ungerichteter und ungewichteter
             \path[-] (7) edge (8);
         \end{scope}
     \end{tikzpicture}
-
-        \subcaption{Darstellung als Graph}
-        \label{Graph1.1}
-    \end{subfigure}
     \caption{Interne Speicherung der Puzzlestruktur}
     \label{Graph1}
 \end{figure}
@@ -412,7 +353,7 @@ Im Folgenden wird erst auf die einzelnen Klassen und deren Funktion eingegangen,
     \label{tile}
 \end{figure}
 
-Die Klasse \emph{Tile} (Abbildung \ref{tile}) repräsentiert ein Puzzleteil. Dazu müssen die drei Kantenwerte gespeichert werden. Dies geschieht durch den Array \emph{values}. Die Seiten haben die Indizes wie folgt: $0$: links, $1$ mitte, $2$ rechts. Zudem muss gespeichert werden, ob ein Tile geflippt ist oder nicht. Dies ist nur bei den Stellen $2$, $5$, $7$ im Graph der Fall. Wenn ein Tile geflippt wird, müssen die Werte der linken und rechten Seite getauscht werden. Zudem muss das Tile in die andere Richtung rotiert werden. Die \emph{rotate()} Methode rotiert das Tile einmal um $120^\circ$.
+Die Klasse \emph{Tile} (Abbildung \ref{tile}) repräsentiert ein Puzzleteil. Dazu müssen die drei Kantenwerte gespeichert werden. Dies geschieht durch den Array \emph{values}. Die Seiten haben die Indizes wie folgt: $0$: links, $1$ mitte, $2$ rechts. Zudem muss gespeichert werden, ob ein Tile geflippt ist oder nicht. Dies ist nur bei den Stellen $2$, $5$, $7$ im Graph der Fall. Wenn ein Tile geflippt wird, müssen die Werte der linken und rechten Seite getauscht werden. Die \emph{rotate()} Methode rotiert das Tile einmal um $120^\circ$.
 
 \begin{figure}[h]
     \centering
@@ -420,21 +361,25 @@ Die Klasse \emph{Tile} (Abbildung \ref{tile}) repräsentiert ein Puzzleteil. Daz
         \umlclass{Graph}{
             $-$ matrix: int[][]\\
             $-$ tiles: Tile[]\\
-            $-$ puzzle: int[]
+            $-$ puzzle: int[]\\
+            $-$ placedTiles: int[][]
         }{
             $+$ Graph(tiles: Tile[])\\
             $+$ fillWithTiles(): boolean\\
+            $-$ fillLink(indexMatrix: int, links: ArrayList$<$Integer$>$, index: int): boolean\\
             $-$ fillBorders(tile: int): boolean\\
-            $-$ fit(indexTiles: int, indexMatrix: int, rotations: int): boolean\\
+            $-$ fit(indexTiles: int, indexMatrix: int): boolean\\
+            $-$ removeAllPlaced(indexMatrix: int): void\\
+            $-$ removePlaced(indexMatrix: int, value: int): void\\
             \dots
         }
     \end{tikzpicture}
     \caption{Die Klasse \emph{Graph}}
 \end{figure}
 
-Der Graph speichert seine Adjazenzmatrix, die als Wert $-1$, $0$ und $1$ annehmen kann. $-1$ bedeutet, dass diese Kante nicht existiert. Das ist der Fall, wenn sich die zwei Teile im echten Puzzle nicht berühren können, z.B. die rechte Kante der $0$ und die untere Kante der $4$. Den Wert $0$ nimmt eine Kante an, wenn diese aktuell nicht auf beiden Seiten besetzt ist, z.B. wenn in Abbildung \ref{Graph1.1} Teil 5 fehlen würde, hätten die Kanten 4-5, 1-5 und 5-6 den Wert $0$. Der Wert $1$ bedeutet, dass die Kante besetzt ist. Ist das Puzzle gelöst, haben also alle Kanten den Wert $-1$ oder $1$. $0$ würde bedeuten, dass es noch eine Kante gibt, die besetzt werden muss. Der Graph speichert im \emph{Tile} Array alle Puzzleteile, die es gibt. Der puzzle-Array speichert die Position jedes Teils im Graphen. Ist das Teil nicht im Graphen, hat puzzle an der Stelle des Teils den Wert $-1$.
+Der Graph speichert seine Adjazenzmatrix, die als Wert $-1$, $0$ und $1$ annehmen kann. $-1$ bedeutet, dass diese Kante nicht existiert. Das ist der Fall, wenn sich die zwei Teile im echten Puzzle nicht berühren können, z.B. die rechte Kante der $0$ und die untere Kante der $4$. Den Wert $0$ nimmt eine Kante an, wenn diese aktuell nicht auf beiden Seiten besetzt ist, z.B. wenn in Abbildung \ref{Graph1} Teil 5 fehlen würde, hätten die Kanten 4-5, 1-5 und 5-6 den Wert $0$. Der Wert $1$ bedeutet, dass die Kante besetzt ist. Ist das Puzzle gelöst, haben also alle Kanten den Wert $-1$ oder $1$. $0$ würde bedeuten, dass es noch eine Kante gibt, die besetzt werden muss. Der Graph speichert im \emph{Tile} Array alle Puzzleteile, die es gibt. Der puzzle-Array speichert die Position jedes Teils im Graphen. Ist das Teil nicht im Graphen, hat puzzle an der Stelle des Teils den Wert $-1$. Der Array \emph{placedTiles} wird verwendet, um beim Backtracking alle platzierten Teile entfernen zu können. Dieser speichert welche Teile von wem gelegt wurden. Jeder Index im Array speichert einen Array, der angibt, welche Positionen im Puzzle von diesem Index gelegt wurden. Die Methoden \emph{removeAllPlaced} und \emph{removePlaced} werden verwendet, um falsch gelegte Teile wieder zu entfernen. Sie kümmern sich gleichzeitig darum, dass alle rekursiv gelegten Teile ebenfalls entfernt werden.
 
-Es wurden bewusst nicht alle Methoden in das Klassendiagramm übernommen, die wichtigen Methoden sind allerdings vorhanden. Die restlichen Methoden sind zur Erklärung des Algorithmus nicht von Bedeutung, sie fügen beispielsweise eine Kante am Anfang ein oder setzen das Puzzle zurück.
+Es wurden bewusst nicht alle Methoden in das Klassendiagramm übernommen, die wichtigen Methoden sind allerdings vorhanden. Die restlichen Methoden sind zur Erklärung des Algorithmus nicht von Bedeutung, sie fügen beispielsweise eine Kante am Anfang ein oder setzen das Puzzle zurück. Sie lassen sich dennoch im Anhang finden.
 
 \subsubsection{Algorithmus}
 
@@ -456,18 +401,25 @@ public boolean fillWithTiles() {
             // Puzzle wurde gelöst
             return true;
         }
-        // [...] fillBorders() wird für jede Rotation des Tile wiederholt
+
+        resetPuzzle();
+        puzzle[i] = 0;
+        tiles[i].rotate();
+
+        // [...] fillBorders(0) wird für jede Rotation des Tile wiederholt
     }
 	return false;
 }
 \end{lstlisting}
-
     \caption{Die Methode \emph{fillWithTiles()}}
     \label{fillWithTiles}
 \end{figure}
 
-Die Methode \emph{fillBorders(int)} versucht alle Kanten, die an die übergebene Stelle im Graphen, anliegen, zu füllen. Ob alles besetzt werden konnte, lässt sich am Rückgabewert \emph{true} oder \emph{false} erkennen. Dazu wird erst über die entsprechende Zeile in der Adjazenzmatrix iteriert. Nur beim Wert $0$ ist noch keine Kante vorhanden, also wird jetzt für diese Kante ein passendes Teil gesucht. Ob ein Teil bereits probiert wurde, wird im \emph{visited} Array geprüft. Dort wurde bereits die eigene Stelle und alle Teile, die im Graph sind, als \emph{true} markiert, damit diese nicht erneut probiert werden. Wenn ein passendes Teil gefunden wurde, wird dieses vorläufig eingefügt. Anschließend versucht dieses Teil seine Kanten zu füllen. Scheitert es, wird es entfernt und ein neues Teil gesucht. Ist es erfolgreich, geht die Methode zum nächsten Eintrag in der Zeile der Matrix und versucht diese ebenfalls zu füllen. Der Quellcode in Abbildung \ref{fillBorders} ist ein Teil der Methode. Dort wird zuerst mit \emph{fit()} überprüft, ob das Tile an die Stelle passt. Anschließend wird es dort eingefügt und versucht alle Kanten zu füllen, indem es \emph{fillBorders()} mit der eigenen Stelle im Graphen aufruft (\emph{puzzle} speichert für jedes Tile die Position im Graphen oder $-1$). $k$ ist das aktuelle Tile, $j$ die aktuelle Kante.
+Die Methode \emph{fillBorders()} iteriert einmal über alle Kanten und speichert unbesetzte Kanten in einer ArrayList. Im Anschluss wird \emph{fillLink()} mit der eigenen Position im Puzzle und der ArrayList der Kanten aufgerufen. 
 
+\emph{fillLink()} sucht nun rekursiv für alle übergebenen Kanten Puzzleteile. Es beginnt mit der ersten Kante in der \emph{links} ArrayList. Zuerst wird ein \emph{boolean} Array angelegt, an dem später überprüft werden kann, ob ein bestimmtes Teil schon probiert wurde. Beim Erstellen werden direkt alle Puzzleteile als besucht markiert, die schon im Puzzle verwendet werden, damit diese nicht erneut gelegt werden. Jetzt werden alle nicht besuchten Teile probiert. Dazu wird mit der Methode \emph{fit()} überprüft, ob das potentielle Teil an die Position passt. Im nächsten Absatz wird \emph{fit()} genauer erläutert. Wurde ein passendes Teil gefunden, wird es vorerst eingefügt und \emph{fillBorders()} bei diesem aufgerufen. Klappt es, ist dieser "Teilbaum" komplett und \emph{fillLink()} ruft sich selbst erneut auf, allerdings mit einem größeren Index, sodass dieser Aufruf versucht, die nächste Kante zu füllen. Sobald es keine Kanten mehr zu füllen gibt, wird \emph{true} zurückgegeben. Klappt \emph{fillBorders()} oder der nächste \emph{fillLink()} Aufruf jedoch nicht, da diese \emph{false} zurückgeben, werden erst die falsch platzierten Teile entfernt und das Teil entweder rotiert und alles wird erneut probiert, oder nach drei Rotationen wird das nächste Tile probiert.
+
+\emph{fit()} prüft zuerst, ob 
 \begin{figure}[h]
     \centering
 
@@ -1553,19 +1505,13 @@ System.out.println("Für diese Spielerkonstellation kann man die Turnierform Kox
 \end{lstlisting}
 \end{figure}
 
-\section{Streichholzrätsel}
-\subsection{Lösungsidee}
-
-Man hat 2 Streichholzstrukturen. Dann wird in beiden geschaut, welche Streichhölzer deckungsgleich sind, wenn man sie übereinander legt. Diese können beim umlegen dann liegen bleiben, während man die anderen Streichhölzer an die richtige Position legt.
-
-\subsection{Umsetzung}
-
-Um die Lösungsidee umzusetzen werden die beiden Streichholzstrukturen in Form von gerichteten Graphen gespeichert. Wenn zwei Streichhölzer aneinander liegen, so gibt es an der Berührstelle einen Knoten. Dieser ist mit den anliegenden Knoten immer gegenseitig verbunden. Die Kanten speichern dann den Winkel in dem die beiden Knoten zueinander liegen. Um zu ermitteln welche der Streichhölzer deckungsgleich sind wird die Isomorphie der beiden Graphen ermittelt. Der Isomorphe Teil der Graphen wird dann in einem eigenen Graphen ermitteln
-
 \section{Wichteln}
+
+Im folgenden Kapitel wird häufig das Wort "Grad" verwendet. Damit ist der Grad des Wunsches gemeint. Ein Erstwunsch hat den Grad 1, ein Zweitwunsch den Grad 2, ein Drittwunsch 3 und eine Zuteilung ohne Wunsch 4.
+
 \subsection{Lösungsidee}
 
-Im Wesentlichen ist das Problem der Zuordnung mit dem \emph{Stable Marriage Problem} vergleichbar. Es gibt zwei verschiedene Gruppen, die so gut wie möglich verteilt werden müssen. Deshalb lässt sich die Aufgabe mit einer leicht angepassten Variante des \emph{Gale-Shapley} Algorithmus lösen. Allgemein fragen alle Schüler ohne Geschenk bei den Geschenken an, ob diese noch keinen Partner haben oder den neuen Partner dem aktuellen vorziehen. Dabei wird ein Erstwunsch allem vorgezogen, dann folgen Zweitwunsch, Drittwunsch und zuletzt eine Zuteilung ohne Wunsch. Jeder Schüler fragt nacheinander seine Wünsche an. Sollte er danach noch kein Geschenk haben, versucht er ein übriges Geschenk zu bekommen.
+Unsere Lösungsidee basiert darauf, dass die Verteilung am besten ist, wenn jedes Geschenk so gut wie möglich verteilt ist. Jedes Geschenk weiß, welcher Schüler es mit welchem Grad will. Dann bekommt jedes Geschenk einen möglichst hohen Wunsch zugeteilt.
 
 \subsection{Umsetzung}
 
