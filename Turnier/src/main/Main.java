@@ -9,6 +9,9 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 class Main{
+	
+	static ArrayList<Player> players = new ArrayList<>();
+	
     public static void main(String[] args){
     	try {
     		File data;
@@ -22,8 +25,6 @@ class Main{
         	}
     		Scanner sc = new Scanner(data);
     		
-    		ArrayList<Player> players = new ArrayList<>();
-
     		int i = 0;
     		sc.next(); // PLAYER AMOUNT VARIABLE BY USING ARRAYLIST
     		while(sc.hasNextInt()) {
@@ -31,61 +32,62 @@ class Main{
     			i++;
     		}
     		sc.close();
-    		
-    		for(Player player : players) {
-    			System.out.println("Spieler: " + player.id + " Spielstärke: " + player.strength);
-    		}
-
-    		int best = getBest(players);
-    		System.out.println();
-    		System.out.println("Best Player:    " + best);
-    		System.out.println();
-    		int bestWinsLeague = 0;
-    		int bestWinsKo = 0;
-    		int bestWinsKox5 = 0;
-    		
-    		int iterations = 1000000;
-    		
-    		for(int j = 0; j<iterations; j++) {
-    			Player winnerLeague = league(players);
-    			Player winnerKo = ko(players);
-    			Player winnerKox5 = kox5(players);
-    			for(Player p : players) {
-    				if(p.id == best && p == winnerLeague) {
-    					bestWinsLeague++;
-    				}
-    				if(p.id == best && p == winnerKo) {
-    					bestWinsKo++;
-    				}
-    				if(p.id == best && p == winnerKox5) {
-    					bestWinsKox5++;
-    				}
-    			}
-    		}
-
-    		float winrateLeague = (float)bestWinsLeague/(float)iterations;
-    		float winrateKo = (float)bestWinsKo/(float)iterations;
-    		float winrateKox5 = (float)bestWinsKox5/(float)iterations;
-    		
-    		System.out.println("Ligasiege: " + bestWinsLeague);
-    		System.out.println("Ko-Siege: " + bestWinsKo);
-    		System.out.println("Kox5-Siege: " + bestWinsKox5);
-
-    		System.out.println();
-    		
-    		if(winrateLeague > winrateKo && winrateLeague > winrateKox5){
-    		System.out.println("Das beste Turnierformat ist Liga, da der beste Spieler hier " + winrateLeague*100 + " Prozent aller Ligen gewonnen hat");
-    		}
-    		else if(winrateKo > winrateKox5){
-    		System.out.println("Das beste Turnierformat ist Ko, da der beste Spieler hier " + winrateKo*100 + " Prozent aller Ligen gewonnen hat");
-    		}
-    		else{
-    		System.out.println("Das beste Turnierformat ist Kox5, da der beste Spieler hier " + winrateKox5*100 + " Prozent aller Ligen gewonnen hat");}
-    		
-    	}
-    	catch(FileNotFoundException e) {
+    	}catch(FileNotFoundException e) {
     		e.printStackTrace();
     	}
+    	
+		for(Player player : players) {
+			System.out.println("Spieler: " + player.id + " Spielstärke: " + player.strength);
+		}
+
+		int best = getBest(players);
+		System.out.println();
+		System.out.println("Best Player:    " + best);
+		System.out.println();
+		int bestWinsLeague = 0;
+		int bestWinsKo = 0;
+		int bestWinsKox5 = 0;
+		
+		int iterations = 1000000;
+		
+		for(int j = 0; j<iterations; j++) {
+			Player winnerLeague = league(players);
+			Player winnerKo = ko(players);
+			Player winnerKox5 = kox5(players);
+			for(Player p : players) {
+				if(p.id == best && p == winnerLeague) {
+					bestWinsLeague++;
+				}
+				if(p.id == best && p == winnerKo) {
+					bestWinsKo++;
+				}
+				if(p.id == best && p == winnerKox5) {
+					bestWinsKox5++;
+				}
+			}
+		}
+
+		float winrateLeague = (float)bestWinsLeague/(float)iterations;
+		float winrateKo = (float)bestWinsKo/(float)iterations;
+		float winrateKox5 = (float)bestWinsKox5/(float)iterations;
+
+		System.out.println("Durchgänge: " + iterations);
+		System.out.println();
+		System.out.println("Ligasiege: " + bestWinsLeague);
+		System.out.println("Ko-Siege: " + bestWinsKo);
+		System.out.println("Kox5-Siege: " + bestWinsKox5);
+
+		System.out.println();
+		
+		if(winrateLeague > winrateKo && winrateLeague > winrateKox5){
+		System.out.println("Das beste Turnierformat ist Liga, da der beste Spieler hier " + winrateLeague*100 + " Prozent aller Ligen gewonnen hat");
+		}
+		else if(winrateKo > winrateKox5){
+		System.out.println("Das beste Turnierformat ist Ko, da der beste Spieler hier " + winrateKo*100 + " Prozent aller Ligen gewonnen hat");
+		}
+		else{
+		System.out.println("Das beste Turnierformat ist Kox5, da der beste Spieler hier " + winrateKox5*100 + " Prozent aller Ligen gewonnen hat");}
+		
     }
 
 	public static Player match(Player p1, Player p2) {
