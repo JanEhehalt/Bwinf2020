@@ -187,112 +187,120 @@ Opa Jürgen blättert in einer Zeitschrift aus der Apotheke und findet ein Räts
 \begin{figure}[H]
     \centering
 \begin{lstlisting}
-
-// Here the sentence is filled
-    boolean finished = true;
-	        
-    boolean[] filled = new boolean[sentence.size()];
-    for(int i = 0; i < filled.length; i++){
-        if(isPunctuation(sentence.get(i))) filled[i] = true;
-        else filled[i] = false;
-    }
-    
-    do {
-        finished = true;
+boolean finished = true;
         
-        for(int i = 0; i < sentence.size(); i++) {
-            if(!filled[i]) {
-                
-                int posWords = 0;
-                ArrayList<Integer> positions = new ArrayList<>();
-                for(int j = 0; j < words.size(); j++) {
-                    if(fits(words.get(j), sentence.get(i))) {
-                        boolean availableTwice = false;
-                        for(Integer o : positions) {
-                            if(words.get(o).equals(words.get(j))) {
-                                availableTwice = true;
-                                break;
-                            }
-                        }
-                        if(!availableTwice) {
-                            posWords++;
-                            positions.add(j);
-                        }
-                    }
-                }
-                
-                if(posWords == 1) {
-                    for(int j = 0; j < words.size(); j++) {
-                        if(fits(words.get(j), sentence.get(i))) {
-                            sentence.set(i, words.get(j));
-                            words.remove(j);
-                            filled[i] = true;
-                            posWords--;
+boolean[] filled = new boolean[sentence.size()];
+for(int i = 0; i < filled.length; i++){
+    if(isPunctuation(sentence.get(i))) filled[i] = true;
+    else filled[i] = false;
+}
+
+do {
+    finished = true;
+    
+    for(int i = 0; i < sentence.size(); i++) {
+        if(!filled[i]) {
+            
+            int posWords = 0;
+            ArrayList<Integer> positions = new ArrayList<>();
+            for(int j = 0; j < words.size(); j++) {
+                if(fits(words.get(j), sentence.get(i))) {
+                    boolean availableTwice = false;
+                    for(Integer o : positions) {
+                        if(words.get(o).equals(words.get(j))) {
+                            availableTwice = true;
                             break;
                         }
                     }
+                    if(!availableTwice) {
+                        posWords++;
+                        positions.add(j);
+                    }
                 }
             }
-        }
-        
-        
-        for(int i = 0; i < sentence.size(); i++) {
-            int posWords = 0;
-            if(!filled[i]) {
+            
+            if(posWords == 1) {
                 for(int j = 0; j < words.size(); j++) {
                     if(fits(words.get(j), sentence.get(i))) {
-                        finished = false;
+                        sentence.set(i, words.get(j));
+                        words.remove(j);
+                        filled[i] = true;
+                        posWords--;
                         break;
                     }
                 }
             }
         }
-        
-    }while(!finished);
+    }
+    
     
     for(int i = 0; i < sentence.size(); i++) {
+        int posWords = 0;
         if(!filled[i]) {
             for(int j = 0; j < words.size(); j++) {
-                if(sentence.get(i).length() == words.get(j).length()) {
-                    sentence.set(i, words.get(j));
-                    words.remove(j);
-                    j--;
-                    filled[i] = true;
+                if(fits(words.get(j), sentence.get(i))) {
+                    finished = false;
+                    break;
                 }
             }
         }
     }
+    
+}while(!finished);
 
-//important functions
-
-    public static boolean fits(String word, String gap) {
-    	if(!isPunctuation(gap)) {
-	    	char given = ' ';
-	    	int givenPos = -1;
-	    	
-	    	for(int i = 0; i < gap.length(); i++) {
-	    		if(gap.charAt(i) != '_') {
-	    			given = gap.charAt(i);
-	    			givenPos = i;
-	    			break;
-	    		}
-	    	}
-	    	if(givenPos == -1) return false;
-	    	if( gap.length() == word.length() && gap.charAt(givenPos) == word.charAt(givenPos) ) {
-	    		return true;
-	    	}
-	    	else return false;
-	    	
+for(int i = 0; i < sentence.size(); i++) {
+    if(!filled[i]) {
+        for(int j = 0; j < words.size(); j++) {
+            if(sentence.get(i).length() == words.get(j).length()) {
+                sentence.set(i, words.get(j));
+                words.remove(j);
+                j--;
+                filled[i] = true;
+            }
         }
-    	return false;
     }
+}
+\end{lstlisting}
+\caption{Genereller Durchlauf}
+\end{figure}
 
+\begin{figure}[H]
+    \centering
+\begin{lstlisting}
+public static boolean fits(String word, String gap) {
+    if(!isPunctuation(gap)) {
+        char given = ' ';
+        int givenPos = -1;
+        
+        for(int i = 0; i < gap.length(); i++) {
+            if(gap.charAt(i) != '_') {
+                given = gap.charAt(i);
+                givenPos = i;
+                break;
+            }
+        }
+        if(givenPos == -1) return false;
+        if( gap.length() == word.length() && gap.charAt(givenPos) == word.charAt(givenPos) ) {
+            return true;
+        }
+        else return false;
+        
+    }
+    return false;
+}
+\end{lstlisting}
+\capture{Die Methode \emph{fits} prüft, ob ein Wort in eine Lücke passt}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+\begin{lstlisting}
     public static boolean isPunctuation(String string) {
     	if(string.contains("!") || string.contains(",") || string.contains("?") || string.contains(".")) return true;
     	else return false;
     }
-    
 \end{lstlisting}
+\caption{Die Methode \emph{isPunctuation} gibt zurück, ob ein Element aus dem \emph{sentence} Array ein Satzzeichen ist.}
 \end{figure}
 
 \section{Dreieckspuzzle}
@@ -1059,7 +1067,6 @@ Turnierform Ko und Kox5 liefern hier sehr ähnliche Werte. Die Werte von Kox5 si
 \begin{figure}[H]
     \centering
 \begin{lstlisting}
-//Liga
 static Player league(ArrayList<Player> players) {
     
     boolean[][] played = new boolean[players.size()][players.size()];
@@ -1108,7 +1115,6 @@ static Player league(ArrayList<Player> players) {
 \begin{figure}[H]
     \centering
     \begin{lstlisting}
-//Ko
 static Player ko(ArrayList<Player> players) {
     Node root;
     root = new Node();
@@ -1122,7 +1128,6 @@ static Player ko(ArrayList<Player> players) {
     return winner;
 }
 
-//Kox5
 static Player kox5(ArrayList<Player> players) {
     Node root;
     root = new Node();
@@ -1136,12 +1141,12 @@ static Player kox5(ArrayList<Player> players) {
     return winner;
 }
     \end{lstlisting}
-    \caption{Der Code für die beiden Ko-Formen}
+    \caption{Der beiden Methoden für Ko und Kox5}
 \end{figure}
 
 \begin{figure}[H]
-    \centering
-    \begin{lstlisting}
+\centering
+\begin{lstlisting}
 //Node für Binärbaum
 //Erstellen des Baumes
 public void create(ArrayList<Player> players) {
@@ -1163,14 +1168,13 @@ public void create(ArrayList<Player> players) {
         right.create(forRight);
     }
 }
-    \end{lstlisting}
-    \caption{Die Klasse \emph{Node}}
+\end{lstlisting}
+\caption{Die Klasse \emph{Node}}
 \end{figure}
 
 \begin{figure}[H]
-    \centering
-    \begin{lstlisting}
-//Gewinner ermitteln
+\centering
+\begin{lstlisting}
 Player getWinner() {
     if(this.player != null) return this.player;
     else return match(left.getWinner(), right.getWinner());
@@ -1180,7 +1184,6 @@ Player getx5Winner() {
     else return matchx5(left.getWinner(), right.getWinner());
 }
 
-//match Methoden
 public static Player match(Player p1, Player p2) {
 int i = p1.strength + p2.strength;
 int RNG = (int)(Math.random() * i);
@@ -1201,8 +1204,13 @@ if(p1.wins > p2.wins) return p1;
 else return p2;
 
 }
+\end{lstlisting}
+\caption{Die Methoden der Klasse \emph{Node}}
+\end{figure}
 
-//Auswertung der verschiedenen Turnierformen
+\begin{figure}[H]
+\centering
+\begin{lstlisting}
 int best = getBest(players);
 int bestWinsLeague = 0;
 int bestWinsKo = 0;
@@ -1230,17 +1238,23 @@ float winrateLeague = (float)bestWinsLeague/(float)iterations;
 float winrateKo = (float)bestWinsKo/(float)iterations;
 float winrateKox5 = (float)bestWinsKox5/(float)iterations;
 
+System.out.println("Ligasiege: " + bestWinsLeague);
+System.out.println("Ko-Siege: " + bestWinsKo);
+System.out.println("Kox5-Siege: " + bestWinsKox5);
+
+
 if(winrateLeague > winrateKo && winrateLeague > winrateKox5){
-System.out.println("Für diese Spielerkonstellation kann man die Turnierform Liga empfehlen. Der beste Spieler hat " + winrateLeague*100+"% der "+iterations+" Durchgänge gewonnen.");
+System.out.println("Das beste Turnierformat ist Liga, da der beste Spieler hier " + winrateLeague + " Prozent aller Ligen gewonnen hat);
 }
 else if(winrateKo > winrateKox5){
-System.out.println("Für diese Spielerkonstellation kann man die Turnierform Ko empfehlen. Der beste Spieler hat " + winrateKo*100+"% der "+iterations+" Durchgänge gewonnen.");
+    System.out.println("Das beste Turnierformat ist Ko, da der beste Spieler hier " + bestWinsKo + " Prozent aller Ligen gewonnen hat);
 }
 else{
-System.out.println("Für diese Spielerkonstellation kann man die Turnierform Kox5 empfehlen. Der beste Spieler hat " + bestWinsKox5*100+"% der "+iterations+" Durchgänge gewonnen.");
+    System.out.println("Das beste Turnierformat ist Kox5, da der beste Spieler hier " + bestWinsKox5 + " Prozent aller Ligen gewonnen hat);
 }
 
 \end{lstlisting}
+\caption{Die Auswertung der verschiedenen Turnierformen}
 \end{figure}
 
 \section{Wichteln}
